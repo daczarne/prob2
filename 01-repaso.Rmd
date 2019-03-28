@@ -1,0 +1,48 @@
+---
+title: "Capítulo 1 - Repaso"
+author: "Daniel Czarnievicz"
+date: "2019"
+output: pdf_document
+header-includes:
+   - \everymath{\displaystyle}
+geometry: margin=1in
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# $\sigma$-álgebras
+
+Dado un conjunto $\Omega \neq \emptyset$, diremos que $\mathcal{A} \subset 2^{\Omega}$ es una $\sigma$-álgebra de subconjuntos de $\Omega$ si se cumple que:
+
+1. $\Omega \in \mathcal{A}$  
+2. si $A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A}$  
+3. si $\{ A_n \}_{n \in \mathbb{N}} \in \mathcal{A} \Rightarrow \bigcup\limits_{n \in \mathbb{N}} A_n \in \mathcal{A}$
+
+Proposición: si $\mathcal{A}$ es una $\sigma$-álgebra, entonces:
+
+1. $\emptyset \in \mathcal{A}$
+
+*Dem*: $\Omega^c = \emptyset$, luego entonces, por axioma 2, $\emptyset \in \mathcal{A}$, dado que $\Omega \in \mathcal{A}$ por axima 1.
+
+2. Si $A_1; \, \ldots; \, A_n \in \mathcal{A} \Rightarrow \bigcup\limits_{i = 1}^{n} A_i \in \mathcal{A}$
+
+*Dem*: por el aximoma 3 sabemos que la unión infinito-numerable pertenece a la $\sigma$-álgebra. Definimos la sucesión de conjuntos $\{ B_n \}_{n \in \mathbb{N}}$ tal que: $B_1 = A_1; \, B_2 = A_2; \, \ldots; \, B_n = A_n; B_{n+1} = \emptyset; B_{n+2} = \emptyset; \, \ldots$, luego entonces:
+
+$$ \bigcup\limits_{i=1}^{n} A_i = \bigcup\limits_{i=1}^{+\infty} B_i \in \mathcal{A} \Rightarrow \bigcup\limits_{i=1}^{n} A_i \in \mathcal{A} $$
+
+3. Si $\{ A_n \}_{n \in \mathbb{N}} \subset \mathcal{A} \Rightarrow \bigcap\limits_{i = 1}^{+\infty} A_i \in \mathcal{A}$
+
+*Dem*: si $A_i \in \mathcal{A} \Rightarrow$ por el axioma 2, $A_i^c \in \mathcal{A} \Rightarrow$ por el axioma 3, $\bigcup_{i = 1}^{+ \infty} A_i^c \in \mathcal{A} \Rightarrow$
+
+$\Rightarrow$ por el axioma 2, $\left( \bigcup_{i = 1}^{+ \infty} A_i^c \right)^c \in \mathcal{A} \Rightarrow$ por De Morgan, $\bigcap_{i = 1}^{+ \infty} (A_i^c)^c \in \mathcal{A} \Rightarrow \bigcap_{i = 1}^{+ \infty} A_i \in \mathcal{A}$
+
+4. Si $A,B \in \mathcal{A} \Rightarrow A - B \in \mathcal{A}$
+
+*Dem*: $A \in \mathcal{A}$ por hipótesis. $B \in \mathcal{A}$ por hipótesis, $\Rightarrow B^c \in \mathcal{A}$ por el axioma 2. Luego, $A - B = A \cap B^c = \big( A^c \cup (B^c)^c \big)^c \in \mathcal{A}$.
+
+5. Si $\mathcal{A}_{\alpha}$ es una $\sigma$-álgebra de conjuntos sobre $\Omega$ para todo $\alpha \in I$, siendo $I$ un conjunto cualquiera de índices, entonces $\bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha}$ es $\sigma$-álgebra de conjuntos sobre $\Omega$. 
+
+
