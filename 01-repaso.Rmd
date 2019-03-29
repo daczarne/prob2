@@ -15,13 +15,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # $\sigma$-álgebras
 
+#### Definición 1.1:
+
 Dado un conjunto $\Omega \neq \emptyset$, diremos que $\mathcal{A} \subset 2^{\Omega}$ es una $\sigma$-álgebra de subconjuntos de $\Omega$ si se cumple que:
 
 1. $\Omega \in \mathcal{A}$  
 2. si $A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A}$  
 3. si $\{ A_n \}_{n \in \mathbb{N}} \in \mathcal{A} \Rightarrow \bigcup\limits_{n \in \mathbb{N}} A_n \in \mathcal{A}$
 
-Proposición: si $\mathcal{A}$ es una $\sigma$-álgebra, entonces:
+#### Proposición 1.2: 
+
+Si $\mathcal{A}$ es una $\sigma$-álgebra, entonces:
 
 1. $\emptyset \in \mathcal{A}$
 
@@ -45,4 +49,33 @@ $\Rightarrow$ por el axioma 2, $\left( \bigcup_{i = 1}^{+ \infty} A_i^c \right)^
 
 5. Si $\mathcal{A}_{\alpha}$ es una $\sigma$-álgebra de conjuntos sobre $\Omega$ para todo $\alpha \in I$, siendo $I$ un conjunto cualquiera de índices, entonces $\bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha}$ es $\sigma$-álgebra de conjuntos sobre $\Omega$. 
 
+*Dem*: requier probar cada uno de los tres axiomas.
+
+Axioma 1: por hipótesis, $\mathcal{A}_{\alpha}$ es $\sigma$-álgebra $\forall \alpha \in I \Rightarrow$ por axioma 1, $\Omega \in \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por definición de intersección, $\Omega \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha}$.
+
+Axioma 2: si $A \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha} \Rightarrow$ por definición de intersección, $A \in \mathcal{A}_{\alpha} \forall \alpha \in I$. A su vez, si $A \in \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por axioma 2, $A^c \in \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por definición de intersección, $A^c \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha}$.
+
+Axioma 3: si $\{A_n\}_{n \in \mathbb{N}} \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha} \Rightarrow$ por definición de intersección, $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}_{\alpha} \forall \alpha \in I$. Luego si, $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por definición de unión, $\{A_n\}_{n \in \mathbb{N}} \in \bigcup\limits_{\alpha \in I} \mathcal{A}_{\alpha}$.
+
+#### Definición 1.4:
+
+Dada una familia $\mathcal{F}$ de subconjuntos de $\Omega$, el conjunto $\bigcap\limits_{\mathcal{A}: \mathcal{F} \subset \mathcal{A}} \mathcal{A}$ (es decir, la intersección de todas las $\sigma$-álgebras que contienen a la familia de subconjuntos $\mathcal{F}$), se llama $\sigma$-álgebra generada por $\mathcal{F}$, y se denota por $\sigma(\mathcal{F})$.
+
+#### Definición 1.5:
+
+La $\sigma$-álgebra de Borel en $\mathbb{R}$ es $\sigma(\mathcal{F})$ con $\mathcal{F} = \{ A \subset \mathbb{R} / A \text{ es abierto} \}$.
+
+#### Teorema 1.6
+
+La $\sigma$-álgebra de Borel puede ser generada por cualquiera de los siguientes conjuntos:
+
+1. $I_1 = \big\{ (a,b) \subset \mathbb{R} / a < b \big\}$
+2. $I_2 = \big\{ [a,b) \subset \mathbb{R} / a < b \big\}$
+3. $I_3 = \big\{ (a,b] \subset \mathbb{R} / a < b \big\}$
+4. $I_4 = \big\{ (a,+\infty) \subset \mathbb{R} / a \in \mathbb{R} \big\}$
+5. $I_5 = \big\{ [a,+\infty) \subset \mathbb{R} / a \in \mathbb{R} \big\}$
+6. $I_6 = \big\{ (-\infty,b) \subset \mathbb{R} / b \in \mathbb{R} \big\}$
+7. $I_7 = \big\{ (-\infty,b] \subset \mathbb{R} / b \in \mathbb{R} \big\}$
+
+*Dem*: comenzamos demostrando $I_1$. Para ello debemos demostrar que el intervalo $(a,b)$ es abierto. Es decir, que la bola abierta en $\mathbb{R}$ es un conjunto abierto.
 
