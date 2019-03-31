@@ -79,3 +79,111 @@ La $\sigma$-álgebra de Borel puede ser generada por cualquiera de los siguiente
 
 *Dem*: comenzamos demostrando $I_1$. Para ello debemos demostrar que el intervalo $(a,b)$ es abierto. Es decir, que la bola abierta en $\mathbb{R}$ es un conjunto abierto.
 
+# Espacio de probabilidad
+
+#### Definición 1.7
+
+Dado $\Omega \neq \emptyset$, diremos que la terna $(\Omega, \, \mathcal{A}, \, P)$ es un espacio de probabilidad sobre $\Omega \Leftrightarrow \mathcal{A}$ es una $\sigma$-álgebra de conjuntos sobre $\Omega$ y $P$ es una función $P: \mathcal{A} \rightarrow [0;1]$ que cumple:
+
+i. $P(\Omega) = 1$
+ii. si la familia de sucesos $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ son tales que $A_i \cap A_j = \emptyset \, \forall i \neq j$ (disjuntos dos a dos), entonces:
+$$ P \left( \bigcup\limits_{n = 1}^{+ \infty} A_n \right) = \sum\limits_{n = 1}^{+\infty} P(A_n) $$
+
+#### Proposición 1.8
+
+1) $P(\emptyset) = 0$  
+
+*Dem*: $P(\Omega) = P(\Omega \cup \emptyset) \Rightarrow$ por ser $\Omega$ y $\emptyset$ conjuntos disjuntos, $P(\Omega) = P(\Omega) + P(\emptyset) \Rightarrow$ por axioma i, $1 = 1 + P(\emptyset) \Rightarrow 0 = P(\emptyset)$
+
+2) Sea $A_1; \, \ldots; \, A_n \in \mathcal{A} / A_i \cap A_j = \emptyset \, \forall i \neq j \Rightarrow P \left( \bigcup\limits_{i = 1}^{n} A_i \right) = \sum\limits_{i = 1}^{n} P(A_i)$
+
+*Dem*: consideremos la suceción de eventos $B_1 = A_1; \, B_2 = A_2; \, \ldots; \, B_n = A_n; B_{n+1} = \emptyset; \, \ldots$ luego entonces:
+
+$$\begin{array}{ c c c} 
+P \left( \bigcup\limits_{i = 1}^{n} A_i \right) = P \left( \bigcup\limits_{i = 1}^{+\infty} B_i \right) & & \text{debido a que la diferencia entre la sucesión $A_n$ y la} \\
+& & \text{$B_n$ son infinitos conjuntos vacios.} \\ \\
+P \left( \bigcup\limits_{i = 1}^{+\infty} B_i \right) = \sum\limits_{i = 1}^{+\infty} P(B_i) & & \text{por axioma ii.} \\ \\
+\sum\limits_{i = 1}^{+\infty} P(B_i) = \sum\limits_{i = 1}^{n} P(B_i) + \sum\limits_{i = n+1}^{+\infty} P(B_i) & & \text{por linealidad de la suma} \\ \\
+\sum\limits_{i = 1}^{+\infty} P(B_i) = \sum\limits_{i = 1}^{n} P(A_i) + \sum\limits_{i = n+1}^{+\infty} P(B_i) & & \text{por la definición de la sucesión $B_n$} \\ \\
+\sum\limits_{i = 1}^{n} P(A_i) + \sum\limits_{i = n+1}^{+\infty} P(B_i) = \sum\limits_{i = 1}^{n} P(A_i) + \sum\limits_{i = n+1}^{+\infty} 0 & & \text{porque $P(\emptyset) = 0$}
+\end{array}$$
+
+Uniendo las puntas llegamos a que:
+
+$$P \left( \bigcup\limits_{i = 1}^{n} A_i \right) = \sum\limits_{i = 1}^{n} P(A_i)$$
+
+3) Si $A,B \in \mathcal{A} \Rightarrow P(B - A) = P(B) - P(A \cap B)$
+
+*Dem*:
+
+$$\begin{array}{ c c c} 
+B = B & & \text{tautología} \\ \\
+(B - A) \cup (A \cap B) = B & & \text{por definición de diferencia} \\ \\
+P \big( (B-A) \cup (A \cap B) \big) = P(B) & & \text{tomo probabilidades} \\ \\
+P (B-A) + P (A \cap B) = P(B) & & \text{sucesos disjuntos} \\ \\
+P (B-A) = P(B) - P (A \cap B) & & 
+\end{array}$$
+
+4) Sean $A,B \in \mathcal{A} / A \subset B \Rightarrow P(B - A) = P(B) - P(A)$ y $P(A) \leq P(B)$ 
+
+*Dem*: primer enunciado: sean $A,B \in \mathcal{A} / A \subset B \Rightarrow P(B - A) = P(B) - P(A)$
+
+$$\begin{array}{ c c c} 
+B = B & & \text{tautología} \\ \\
+(B - A) \cup (A \cap B) = B & & \text{por definición de diferencia} \\ \\
+(B - A) \cup A = B & & \text{por inclusión de $A$ en $B$} \\ \\
+P \big( (B-A) \cup A \big) = P(B) & & \text{tomo probabilidades} \\ \\
+P (B-A) + P (A) = P(B) & & \text{sucesos disjuntos} \\ \\
+P (B-A) = P(B) - P (A) & & 
+\end{array}$$
+
+*Dem*: segundo enunciado: sean $A,B \in \mathcal{A} / A \subset B \Rightarrow P(A) \leq P(B)$
+
+$$\begin{array}{ c c c} 
+B = A \cup (B - A) & & \text{dado que $A \subset B$} \\ \\
+P(B) = P \big( A \cup (B - A) \big) & & \text{tomando probabilidades de ambos lados} \\ \\
+P(B) = P(A) + P(B - A) & & \text{dado que $A$ y $B-A$ son disjuntos por la inclusión} \\ \\
+\end{array}$$
+
+Por lo tanto, $P(B) = P(A) + P(B - A) \geq P(A)$ dado que $P(B - A) \geq 0$, de donde obtenemos que $P(A) \leq P(B)$.
+
+5) Sean $A,B \in \mathcal{A} \Rightarrow P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+
+*Dem*:
+
+$$\begin{array}{c c c}
+\left\{ \begin{array}{c c c}
+A & = & (A - B) \cup (A \cap B) \\
+B & = & (B - A) \cup (A \cap B)
+\end{array} \right.
+& & \text{por definición de diferencia} \\ \\
+\left\{ \begin{array}{c c c}
+P(A) & = & P \big( (A - B) \cup (A \cap B) \big) \\
+P(B) & = & P \big( (B - A) \cup (A \cap B) \big)
+\end{array} \right.
+& & \text{tomo probabilidades} \\ \\
+\left\{ \begin{array}{c c c}
+P(A) & = & P(A - B) + P(A \cap B) \\
+P(B) & = & P(B - A) + P(A \cap B)
+\end{array} \right.
+& & \text{por ser sucesos disjuntos} \\ \\
+P(A) + P(B) = P(A-B) + P(B-A) + 2 P(A \cap B) & & \text{sumo de ambos lados} \\ \\
+P(A) + P(B) - P(A \cap B) = P(A - B) + P(B - A) + P(A \cap B) & & \text{reordeno términos} \\ \\
+P(A) + P(B) - P(A \cap B) = P \big((A - B) \cup (B - A) \cup (A \cap B) \big) & & \text{sucesos disjuntos} \\ \\
+P(A) + P(B) - P(A \cap B) = P (A \cup B) & & 
+\end{array}$$
+
+6) Si $A_!; \, \ldots; \, A_n \in \mathcal{A} \Rightarrow P \left( \bigcup\limits_{i = 1}^{n} A_i \right) \leq \sum\limits_{i = 1}^{n} P(A_i)$
+
+*Dem*: en la parte 5) de la proposición se demostró que $P(A \cup B) = P(A) + P(B) - P(A\cap B)$. Dado que $P(A\cap B) \geq 0$, esto implica que $P(A \cup B) \leq P(A) + P(B)$.
+
+Siguiendo un procedimiento análogo podemos demostrar, para $n = 3$, que:
+$$P(A \cup B \cup C) = P(A) + P(B) - P(A \cap B) + P(C) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C) \Rightarrow$$
+$$\Rightarrow P(A \cup B \cup C) = P(A) + P(B) + P(C) - \big[ P(A \cap B) + P(A \cap C) + P(B \cap C) \big] + P(A \cap B \cap C) $$
+donde $P(A_i \cap A_j) \geq P(A_i \cap A_j \cap A_k)$ para cualquier par y terna de conjuntos, dado que del lado izquierdo estmaos intersectando más conjuntos, es decir, excluyendo más sucesos. De donde obtenemos que $P(A \cup B \cup C) \leq P(A) + P(B) + P(C)$
+
+Si continuamos con este proceso hasta llegar a $n$ sucesos, encontramos que:
+$$ P \left( \bigcup\limits_{k = 1}^{n} A_k \right) = \sum\limits_{k = 1}^{n} P(A_k) - \sum\limits_{\substack{i_1, i_2 = 1 \\ i_1 < i_2}}^{n} P(A_{i_1} \cap A_{i_2}) + \sum\limits_{\substack{i_1, i_2. i_3 = 1 \\ i_1 < i_2 < i_3 }}^{n} P(A_{i_1} \cap A_{i_2} \cap A_{i_3}) + $$
+$$ + \ldots + (-1)^{k-1} \sum\limits_{\substack{i_1. \ldots, i_k = 1 \\ i_1 < \ldots < i_k }}^{n} P(A_{i_1} \cap \ldots \cap A_{i_k}) + \ldots + (-1)^{n-1} P(A_{i_1} \cap \ldots \cap A_{i_n}) $$
+donde $P(A_{i_1} \cap A_{i_2}) \geq P(A_{i_1} \cap A_{i_2} \cap A_{i_3}) \geq P(A_{i_1} \cap A_{i_2} \cap A_{i_3} \cap A_{i_4}) \geq \ldots$ para cualquier comparación de $n$-úplas de conjuntos. De donde obtenemos que:
+$$P \left( \bigcup\limits_{i = 1}^{n} A_i \right) \leq \sum\limits_{i = 1}^{n} P(A_i)$$
