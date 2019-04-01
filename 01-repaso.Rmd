@@ -13,7 +13,9 @@ fontsize: 12pt
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# $\sigma$-álgebras
+# Espacio de probabilidad
+
+## $\sigma$-álgebras
 
 #### Definición 1.1:
 
@@ -79,7 +81,7 @@ La $\sigma$-álgebra de Borel puede ser generada por cualquiera de los siguiente
 
 *Dem*: comenzamos demostrando $I_1$. Para ello debemos demostrar que el intervalo $(a,b)$ es abierto. Es decir, que la bola abierta en $\mathbb{R}$ es un conjunto abierto.
 
-# Espacio de probabilidad
+## Espacio de probabilidad
 
 #### Definición 1.7
 
@@ -128,7 +130,7 @@ P (B-A) = P(B) - P (A \cap B) & &
 
 *Dem*: primer enunciado: sean $A,B \in \mathcal{A} / A \subset B \Rightarrow P(B - A) = P(B) - P(A)$
 
-$$\begin{array}{ c c c} 
+$$\begin{array}{ c c c } 
 B = B & & \text{tautología} \\ \\
 (B - A) \cup (A \cap B) = B & & \text{por definición de diferencia} \\ \\
 (B - A) \cup A = B & & \text{por inclusión de $A$ en $B$} \\ \\
@@ -187,3 +189,60 @@ $$ P \left( \bigcup\limits_{k = 1}^{n} A_k \right) = \sum\limits_{k = 1}^{n} P(A
 $$ + \ldots + (-1)^{k-1} \sum\limits_{\substack{i_1. \ldots, i_k = 1 \\ i_1 < \ldots < i_k }}^{n} P(A_{i_1} \cap \ldots \cap A_{i_k}) + \ldots + (-1)^{n-1} P(A_{i_1} \cap \ldots \cap A_{i_n}) $$
 donde $P(A_{i_1} \cap A_{i_2}) \geq P(A_{i_1} \cap A_{i_2} \cap A_{i_3}) \geq P(A_{i_1} \cap A_{i_2} \cap A_{i_3} \cap A_{i_4}) \geq \ldots$ para cualquier comparación de $n$-úplas de conjuntos. De donde obtenemos que:
 $$P \left( \bigcup\limits_{i = 1}^{n} A_i \right) \leq \sum\limits_{i = 1}^{n} P(A_i)$$
+
+7) si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ es tal que $A_1 \subset A_2 \subset A_3 \subset \ldots$, entonces $P \left( \bigcup\limits_{n \in \mathbb{N}} A_n \right) = \lim\limits_{n \rightarrow +\infty} P(A_n)$
+
+*Dem*: comenzamos definiendo la siguiente sucesión de conjuntos disjuntos:
+$$B_1 = A_1; \, B_2 = A_2 - A_1; \, B_3 = A_3 - A_2; \ldots; \, B_n = A_n - A_{n-1}; \ldots$$
+
+Nótese que no es necesario unir los conjuntos de índices menores a $n$ a la hora de definir $B_n$ dado que la sucesión $\{A_n\}_{n \in \mathbb{N}}$ es creciente. Esto último implica que, al restar $A_{n-1}$ a $A_n$, ya estamos exluyendo a los elementos de los conjuntos $A_{n-2}; \, A_{n-3}; \ldots; \, A_3; \, A_2; \, A_1$. Por lo tanto, la sucesión $\{B_n\}_{n \in \mathbb{N}}$ es una sucesión de conjuntos disjuntos.
+
+$$\begin{array}{ c c c } 
+\bigcup\limits_{n \in \mathbb{N}} A_n = \bigcup\limits_{n \in \mathbb{N}} B_n & & \text{por definición de $B_n$} \\ \\
+P \left( \bigcup\limits_{n \in \mathbb{N}} A_n \right) = P \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) & & \text{dado que $\{A_n\}_{n \in \mathbb{N}}$ y $\{B_n\}_{n \in \mathbb{N}}$} \\
+& & \text{están definidas sobre el mismo $(\Omega, \mathcal{A}, P)$} \\ \\
+P \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) = \sum\limits_{n = 1}^{+\infty} P(B_n) & & \text{por el axioma ii.} \\ \\
+\sum\limits_{n = 1}^{+\infty} P(B_n) = P(B_1) + \sum\limits_{n = 2}^{+\infty} P(B_n) & & \text{reordeno términos}
+\end{array}$$
+
+Continuando con la segunda igualdad, ahora solo resta desarmar la sucesión $\{B_n\}_{n \in \mathbb{N}}$ en términos de los sucesos $A_n$ y calcular la serie.
+
+$$\begin{array}{ c c c } 
+P(B_1) + \sum\limits_{n = 2}^{+\infty} P(B_n) = & & \text{} \\ \\
+= P(A_1) + \sum\limits_{n = 2}^{+\infty} P(A_n - A_{n-1}) = & & \text{re-escribo $B_n$ en términos de $A_n$} \\ \\
+= P(A_1) + \sum\limits_{n = 2}^{+\infty} \big[ P (A_n)  - P(A_{n-1}) \big] = & & \text{reordeno términos} \\ \\
+= P(A_1) + \lim_{m \rightarrow +\infty} \sum\limits_{n = 2}^{m} \big[ P (A_n) - P(A_{n-1}) \big] = & & \text{resuelvo la serie como el límite de} \\
+& & \text{sus sumas parciales} \\ \\
+= P(A_1) + \lim_{m \rightarrow +\infty} \big[ P (A_m) - P(A_1) \big] & & \text{por ser una serie telescópica} \\ \\
+= P(A_1) + \lim_{m \rightarrow +\infty} P (A_m) - P(A_1) & & \\ \\
+= \lim\limits_{m \rightarrow +\infty} P(A_m)
+\end{array}$$
+
+8) si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ es tal que $A_1 \supset A_2 \supset A_3 \supset \ldots$, entonces $P \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = \lim\limits_{n \rightarrow +\infty} P(A_n)$
+
+*Dem*:
+
+9) si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ es tal que $P(A_n) = 1 \,\, \forall n \in \mathbb{N}$, entonces $P \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = 1$
+
+*Dem*: 
+
+## Límite superior e inferior
+
+# Independencia
+
+# Variables aleatorias
+
+## Espacio métrico
+
+## Ley 0 o 1 de Kolmogorov
+
+## Desigualdad de Kolmogorov
+
+# Integral de Riemann-Stieltjes
+
+## Definición
+
+## Métodos de integración
+
+## Aplicaciones a la teoría de la probabilidad
+
