@@ -47,17 +47,19 @@ $\Rightarrow$ por el axioma 2, $\left( \bigcup_{i = 1}^{+ \infty} A_i^c \right)^
 
 4. Si $A,B \in \mathcal{A} \Rightarrow A - B \in \mathcal{A}$
 
-*Dem*: $A \in \mathcal{A}$ por hipótesis. $B \in \mathcal{A}$ por hipótesis, $\Rightarrow B^c \in \mathcal{A}$ por el axioma 2. Luego, $A - B = A \cap B^c = \big( A^c \cup (B^c)^c \big)^c \in \mathcal{A}$.
+*Dem*: $A \in \mathcal{A}$ por hipótesis. $B \in \mathcal{A}$ por hipótesis $\Rightarrow B^c \in \mathcal{A}$ por el axioma 2. Luego, $A - B = A \cap B^c = \big( A^c \cup (B^c)^c \big)^c \in \mathcal{A}$.
 
 5. Si $\mathcal{A}_{\alpha}$ es una $\sigma$-álgebra de conjuntos sobre $\Omega$ para todo $\alpha \in I$, siendo $I$ un conjunto cualquiera de índices, entonces $\bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha}$ es $\sigma$-álgebra de conjuntos sobre $\Omega$. 
 
-*Dem*: requier probar cada uno de los tres axiomas.
+*Dem*: requiere probar cada uno de los tres axiomas.
+
+\vspace{0.1cm}
 
 Axioma 1: por hipótesis, $\mathcal{A}_{\alpha}$ es $\sigma$-álgebra $\forall \alpha \in I \Rightarrow$ por axioma 1, $\Omega \in \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por definición de intersección, $\Omega \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha}$.
 
 Axioma 2: si $A \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha} \Rightarrow$ por definición de intersección, $A \in \mathcal{A}_{\alpha} \forall \alpha \in I$. A su vez, si $A \in \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por axioma 2, $A^c \in \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por definición de intersección, $A^c \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha}$.
 
-Axioma 3: si $\{A_n\}_{n \in \mathbb{N}} \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha} \Rightarrow$ por definición de intersección, $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}_{\alpha} \forall \alpha \in I$. Luego si, $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por definición de unión, $\{A_n\}_{n \in \mathbb{N}} \in \bigcup\limits_{\alpha \in I} \mathcal{A}_{\alpha}$.
+Axioma 3: si $\{A_n\}_{n \in \mathbb{N}} \in \bigcap\limits_{\alpha \in I} \mathcal{A}_{\alpha} \Rightarrow$ por definición de intersección, $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}_{\alpha} \forall \alpha \in I$. Luego, si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}_{\alpha} \forall \alpha \in I \Rightarrow$ por definición de unión, $\{A_n\}_{n \in \mathbb{N}} \in \bigcup\limits_{\alpha \in I} \mathcal{A}_{\alpha}$.
 
 #### Definición 1.4:
 
@@ -227,6 +229,54 @@ P(B_1) + \sum\limits_{n = 2}^{+\infty} P(B_n) = & & \text{} \\ \\
 *Dem*: 
 
 ## Límite superior e inferior
+
+#### Definición: límite superior e inferior de una sucesión
+
+Sea $\{a_n\}_{n \in \mathbb{N}} \subset \mathbb{R}$ una sucesión de números reales, entonces:
+
+i. $\limsup\limits_{n} a_n = \lim\limits_{n \rightarrow +\infty} \sup\limits_{k \geq n} a_n$
+ii. $\liminf\limits_{n} a_n = \lim\limits_{n \rightarrow +\infty} \inf\limits_{k \geq n} a_n$
+
+#### Definición 1.9: Limite superior e inferior de conjuntos
+
+Sea $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ una sucesión de conjuntos, entonces:
+
+i. $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{n = 1}^{+\infty} A_k$
+i. $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{n = 1}^{+\infty} A_k$
+
+#### Proposición 1.10: propiedades del límite superior e inferior
+
+1) $\limsup\limits_{n} A_n = \{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \}$
+
+*Dem*: dado que se trata de una igualdad de conjuntos, debemos demostrar la doble inclusión.
+
+\vspace{0.2cm}
+
+Parte 1: $\limsup\limits_{n} A_n \subset \{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \}$
+
+Si $\omega$ pertenece a infinitos $A_n \Rightarrow \forall n$, $\exists n_0 \geq n / \omega \in A_{n_0}$. Luego si $\omega \in A_{n_0} \Rightarrow \omega \in \bigcup\limits_{k = n}^{+\infty} A_k \, \forall n$ dado que $n_0 \geq n$. Por lo tanto, $\omega \in \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k = \limsup\limits_{n} A_n$
+
+Parte 2: $\{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \} \subset \limsup\limits_{n} A_n$
+
+2) $\liminf\limits_{n} A_n = \{ \omega \in \Omega / \omega \in A_n \forall n \text{ salvo, a lo sumo, una cantidad finita de índices} \}$
+
+3) $\liminf\limits_{n} A_n \subset \limsup\limits_{n} A_n$
+
+4) Como la sucesión $B_n = \bigcup\limits_{k = n}^{+\infty} A_k$ es decreciente, entonces:
+$$P \left( \limsup\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_n \right) $$
+
+5) Como la sucesión $B_n = \bigcap\limits_{k = n}^{+\infty} A_k$ es creciente, entonces:
+$$P \left( \liminf\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} P \left( \bigcap\limits_{k = n}^{+\infty} A_n \right) $$
+
+6) Si $\{A_n\}_{n \in \mathbb{N}}$ es creciente, entonces:
+$$ \liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$$
+
+7) Si $\{A_n\}_{n \in \mathbb{N}}$ es decreciente, entonces:
+$$ \liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} A_n$$
+
+8) $P \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} P(A_n) \leq \limsup\limits_{n} P(A_n) \leq P \left( \limsup\limits_{n} A_n \right)$
+
+
 
 # Independencia
 
