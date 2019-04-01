@@ -258,15 +258,70 @@ Si $\omega$ pertenece a infinitos $A_n \Rightarrow \forall n$, $\exists n_0 \geq
 
 Parte 2: $\{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \} \subset \limsup\limits_{n} A_n$
 
+Demostración por absurdo. Si $\omega$ pertenece a una cantidad finita de $A_n \Rightarrow \exists n / \forall n_1 \geq n$, $\omega \notin A_{n_1} \Rightarrow \omega \notin \bigcup\limits_{k = n}^{+\infty} A_k \Rightarrow \omega \notin \bigcap\limits_{n=1}^{+\infty} \bigcup\limits_{k = n}^{+\infty}$
+
 2) $\liminf\limits_{n} A_n = \{ \omega \in \Omega / \omega \in A_n \forall n \text{ salvo, a lo sumo, una cantidad finita de índices} \}$
+
+*Dem*: dado que se trata de una igualdad de conjuntos, debemos demostrar la doble inclusión.
+
+\vspace{0.2cm}
+
+Parte 1: $\liminf\limits_{n} A_n \subset \{ \omega \in \Omega / \omega \in A_n \forall n \text{ salvo, a lo sumo, una cantidad finita de índices} \}$
+
+$\exists n / \forall n_0 \geq n$, $\omega \in A_n \Rightarrow \omega \in \bigcap\limits_{k = n}^{+\infty} A_k \Rightarrow \omega \in \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{n = k}^{+\infty} A_k$
+
+Parte 2: $\{ \omega \in \Omega / \omega \in A_n \forall n \text{ salvo, a lo sumo, una cantidad finita de índices} \} \subset \liminf\limits_{n} A_n$
+
+Si $\omega \in \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \Rightarrow \exists n_0 / \omega \in A_k \, \forall k \geq n_0$
 
 3) $\liminf\limits_{n} A_n \subset \limsup\limits_{n} A_n$
 
+*Dem*: a continuación se demuestra que si $\omega$ pertenece al límite inferior, entonces debe existir un índice, $n$, a partir del cual $\omega$ pertenece a todos los $A_n$, dado que esa es la condición para pertenecer a la intersección de los conjuntos. Pero, en el enunciado 1 de la proposición se demostró que si $\omega$ pertenece a una cantidad infinita de índices, entonces pertenece al límite superior. 
+
+Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \exists n_0 / \omega \in \bigcup\limits_{n=1}^{+\infty} \bigcap\limits_{k =n}^{+\infty} A_k \, \forall n \geq n_0 \Rightarrow \omega \in \limsup\limits_{n} A_n$
+
 4) Como la sucesión $B_n = \bigcup\limits_{k = n}^{+\infty} A_k$ es decreciente, entonces:
-$$P \left( \limsup\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_n \right) $$
+$$P \left( \limsup\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_n \right)$$
+
+*Dem*: veamos primero que la sucesión $B_n$ es decreciente. La misma está defiinida de la siguiente forma:
+
+$$\begin{array}{c c c c c c c c c}
+B_n & = & A_n & \cup & A_{n+1} & \cup & A_{n+2} & \cup & \ldots \\
+B_{n+1} & = &  &  & A_{n+1} & \cup & A_{n+2} & \cup & \ldots \\
+B_{n+2} & = &  &  &  &  & A_{n+2} & \cup & \ldots \\
+\vdots & & & & & & & & 
+\end{array}$$
+Dado que cada vez unimos menos conjuntos, el conjunto resultante es "más chico", y por tanto, la sucesión es decreciente. Luego entonces,
+
+$$\begin{array}{c c c}
+P \left( \limsup\limits_{n} A_n \right) = P \left( \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite superior} \\ \\
+P \left( \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k \right) = P \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
+P \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) = \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad} \\
+& & \text{de una sucesión decreciente (ver prop 1.8/8)} \\ \\
+\lim\limits_{n \rightarrow +\infty} P(B_n) = \lim\limits_{n \rightarrow +\infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_k \right)
+\end{array}$$
+
 
 5) Como la sucesión $B_n = \bigcap\limits_{k = n}^{+\infty} A_k$ es creciente, entonces:
-$$P \left( \liminf\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} P \left( \bigcap\limits_{k = n}^{+\infty} A_n \right) $$
+$$P \left( \liminf\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} P \left( \bigcap\limits_{k = n}^{+\infty} A_n \right)$$
+
+*Dem*: veamos primero que la sucesión $B_n$ es creciente. La misma está defiinida de la siguiente forma:
+
+$$\begin{array}{c c c c c c c c c}
+B_n & = & A_n & \cap & A_{n+1} & \cap & A_{n+2} & \cap & \ldots \\
+B_{n+1} & = &  &  & A_{n+1} & \cap & A_{n+2} & \cap & \ldots \\
+B_{n+2} & = &  &  &  &  & A_{n+2} & \cap & \ldots \\
+\vdots & & & & & & & & 
+\end{array}$$
+Dado que cada vez intersectamos menos conjuntos, el conjunto resultante es "más grande", y por tanto, la sucesión es creciente. Luego entonces,
+
+$$\begin{array}{c c c}
+P \left( \liminf\limits_{n} A_n \right) = P \left( \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite inferior} \\ \\
+P \left( \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \right) = P \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
+P \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) = \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad} \\
+& & \text{de una sucesión decreciente (ver prop 1.8/7)} \\ \\
+\lim\limits_{n \rightarrow +\infty} P(B_n) = \lim\limits_{n \rightarrow +\infty} P \left( \bigcap\limits_{k = n}^{+\infty} A_k \right)
+\end{array}$$
 
 6) Si $\{A_n\}_{n \in \mathbb{N}}$ es creciente, entonces:
 $$ \liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$$
