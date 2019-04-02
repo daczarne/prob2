@@ -241,10 +241,12 @@ ii. $\liminf\limits_{n} a_n = \lim\limits_{n \rightarrow +\infty} \inf\limits_{k
 
 Sea $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ una sucesión de conjuntos, entonces:
 
-i. $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{n = 1}^{+\infty} A_k$
-i. $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{n = 1}^{+\infty} A_k$
+i. $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k$
+i. $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k$
 
 #### Proposición 1.10: propiedades del límite superior e inferior
+
+***
 
 1) $\limsup\limits_{n} A_n = \{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \}$
 
@@ -252,13 +254,15 @@ i. $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{n 
 
 \vspace{0.2cm}
 
-Parte 1: $\limsup\limits_{n} A_n \subset \{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \}$
+Parte 1: $\{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \} \subset \limsup\limits_{n} A_n$
 
-Si $\omega$ pertenece a infinitos $A_n \Rightarrow \forall n$, $\exists n_0 \geq n / \omega \in A_{n_0}$. Luego si $\omega \in A_{n_0} \Rightarrow \omega \in \bigcup\limits_{k = n}^{+\infty} A_k \, \forall n$ dado que $n_0 \geq n$. Por lo tanto, $\omega \in \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k = \limsup\limits_{n} A_n$
+Si $\omega$ pertenece a infinitos $A_n \Rightarrow \forall n$, $\exists n_0 \geq n / \omega \in A_{n_0}$. Luego si $\omega \in A_{n_0} \Rightarrow \omega \in \bigcup\limits_{k = n_0}^{+\infty} A_k \, \forall n$ dado que $n_0 \geq n$. Por lo tanto, $\omega \in \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k = \limsup\limits_{n} A_n$
 
-Parte 2: $\{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \} \subset \limsup\limits_{n} A_n$
+Parte 2: $\limsup\limits_{n} A_n \subset \{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \}$
 
-Demostración por absurdo. Si $\omega$ pertenece a una cantidad finita de $A_n \Rightarrow \exists n / \forall n_1 \geq n$, $\omega \notin A_{n_1} \Rightarrow \omega \notin \bigcup\limits_{k = n}^{+\infty} A_k \Rightarrow \omega \notin \bigcap\limits_{n=1}^{+\infty} \bigcup\limits_{k = n}^{+\infty}$
+Demostración por absurdo. Si $\omega$ pertenece a una cantidad finita de $A_n \Rightarrow \exists n / \forall n_1 \geq n$, $\omega \notin A_{n_1} \Rightarrow \omega \notin \bigcup\limits_{k = n_1}^{+\infty} A_k \Rightarrow \omega \notin \bigcap\limits_{n=1}^{+\infty} \bigcup\limits_{k = n_1}^{+\infty} A_k$
+
+***
 
 2) $\liminf\limits_{n} A_n = \{ \omega \in \Omega / \omega \in A_n \forall n \text{ salvo, a lo sumo, una cantidad finita de índices} \}$
 
@@ -274,11 +278,15 @@ Parte 2: $\{ \omega \in \Omega / \omega \in A_n \forall n \text{ salvo, a lo sum
 
 Si $\omega \in \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \Rightarrow \exists n_0 / \omega \in A_k \, \forall k \geq n_0$
 
+***
+
 3) $\liminf\limits_{n} A_n \subset \limsup\limits_{n} A_n$
 
-*Dem*: a continuación se demuestra que si $\omega$ pertenece al límite inferior, entonces debe existir un índice, $n$, a partir del cual $\omega$ pertenece a todos los $A_n$, dado que esa es la condición para pertenecer a la intersección de los conjuntos. Pero, en el enunciado 1 de la proposición se demostró que si $\omega$ pertenece a una cantidad infinita de índices, entonces pertenece al límite superior. 
+*Dem*: a continuación se demuestra que si $\omega$ pertenece al límite inferior, entonces debe existir un índice, $n_0$, a partir del cual $\omega$ pertenece a todos los $A_n$, dado que esa es la condición para pertenecer a la intersección de los conjuntos. Pero, en el enunciado 1 de la proposición se demostró que si $\omega$ pertenece a una cantidad infinita de índices, entonces pertenece al límite superior. 
 
-Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \exists n_0 / \omega \in \bigcup\limits_{n=1}^{+\infty} \bigcap\limits_{k =n}^{+\infty} A_k \, \forall n \geq n_0 \Rightarrow \omega \in \limsup\limits_{n} A_n$
+Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \exists n_0$ a partir del cual $\omega \in \bigcup\limits_{n=1}^{+\infty} \bigcap\limits_{k =n}^{+\infty} A_k \, \forall n \geq n_0 \Rightarrow \omega$ pertenece a una cantidad infinita de índices (todos ellos a partir de $n_0$) $\Rightarrow \omega \in \limsup\limits_{n} A_n$
+
+***
 
 4) Como la sucesión $B_n = \bigcup\limits_{k = n}^{+\infty} A_k$ es decreciente, entonces:
 $$P \left( \limsup\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_n \right)$$
@@ -301,6 +309,7 @@ P \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) = \lim\limits_{n \rightarr
 \lim\limits_{n \rightarrow +\infty} P(B_n) = \lim\limits_{n \rightarrow +\infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_k \right)
 \end{array}$$
 
+***
 
 5) Como la sucesión $B_n = \bigcap\limits_{k = n}^{+\infty} A_k$ es creciente, entonces:
 $$P \left( \liminf\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} P \left( \bigcap\limits_{k = n}^{+\infty} A_n \right)$$
@@ -319,19 +328,25 @@ $$\begin{array}{c c c}
 P \left( \liminf\limits_{n} A_n \right) = P \left( \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite inferior} \\ \\
 P \left( \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \right) = P \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
 P \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) = \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad} \\
-& & \text{de una sucesión decreciente (ver prop 1.8/7)} \\ \\
+& & \text{de una sucesión creciente (ver prop 1.8/7)} \\ \\
 \lim\limits_{n \rightarrow +\infty} P(B_n) = \lim\limits_{n \rightarrow +\infty} P \left( \bigcap\limits_{k = n}^{+\infty} A_k \right)
 \end{array}$$
+
+***
 
 6) Si $\{A_n\}_{n \in \mathbb{N}}$ es creciente, entonces:
 $$ \liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$$
 
+***
+
 7) Si $\{A_n\}_{n \in \mathbb{N}}$ es decreciente, entonces:
 $$ \liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} A_n$$
 
+***
+
 8) $P \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} P(A_n) \leq \limsup\limits_{n} P(A_n) \leq P \left( \limsup\limits_{n} A_n \right)$
 
-
+***
 
 # Independencia
 
