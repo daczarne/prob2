@@ -424,6 +424,12 @@ $$X^{-1}(B) = \{ \omega \in \Omega / X(\omega) \in B \} \in \mathcal{A}$$
 
 Para verificar que $X$ es una variable aleatoria, basta probar que $X^{-1}(B) \mathcal{A}$ para todo $B \in F$ abierto.
 
+*Dem*:
+
+#### Teorema 1.21
+
+Sean $(F,d)$ y $(G, \rho)$ espacios métricos. Si $X : \Omega \rightarrow F$ es una variable aleatoria y $g : F \rightarrow G$ es una función continua, entnces $Y = g(X)$ es una variable aleatoria a valores de $G$.
+
 ## Ley 0 o 1 de Kolmogorov
 
 ## Desigualdad de Kolmogorov
