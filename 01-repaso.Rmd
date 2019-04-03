@@ -350,9 +350,79 @@ $$ \liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\i
 
 # Independencia
 
+#### Definición 1.12
+
+Dada una familia de sucesos $\{A_{\alpha}\}_{\alpha \in I}$, donde $I$ es un conjunto cualquiera de índices, se dice que son independiente si, y solo si, para todo $F \subset I$ finito, se cumple que:
+$$ P \left( \bigcap\limits_{\alpha \in F} A_{\alpha}  \right) = \prod\limits_{\alpha \in F} P(A_{\alpha}) $$
+
+#### Teorema 1.13: Lema de Borel-Cantelli
+
+Dada una sucesión $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$,
+
+i. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) < \infty \Rightarrow P \left( \limsup\limits_n A_n \right) = 0$
+
+*Dem*: $P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) \leq \sum\limits_{k = n}^{+\infty} P(A_k) \xrightarrow{\enskip n \enskip} 0$
+
+ii. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) = \infty$ y además $\{A_n\}_{n \in \mathbb{N}}$ son independientes $\Rightarrow P \left( \limsup\limits_n A_n \right) = 1$
+
+*Dem*:como $P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right)$ basta probar que $\lim\limits_{n \rightarrow +\infty} P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \xrightarrow{\enskip n \enskip} 0$. Para cada $m > n$ tenemos que:
+$$ P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \leq P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) = \prod\limits_{k = n}^{m} P \left( A_k^c \right) = \prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] \leq \prod\limits_{k = n}^{m} \exp\left\{ -P(A_l) \right\} =$$
+$$= \prod\limits_{k = n}^{m} \exp\left\{ \sum\limits_{k = n}^{m} -P(A_l) \right\} \xrightarrow{\enskip m \enskip} 0$$
+
 # Variables aleatorias
 
 ## Espacio métrico
+
+#### Definición 1.14
+
+Una métrica definida en un conjunto $F$ es una función $d: F \times F \rightarrow \mathbb{R}$ tal que:
+
+i. $d(x,y) \geq 0$ y $d(x,y) = 0 \Leftrightarrow x = y$
+
+ii. $d(x,y) = d(y,x)$
+
+iii. para todo $z \in F$, se cumple que $d(x,y) \leq d(x,z) + d(z,y)$
+
+#### Definición 1.16: conjunto abierto y conjunto cerrado
+
+Dado un espacio métrico $(F,d)$ se dice que un conjunto $A \subset F$ es avierto, si para todo $a \in A$, existe $r > 0$ tal que $B(a,r) \subset A$, siendo $B(a,r) = \{ x \in F / d(a,x) < r \}$. Se dice que $A$ es cerrado si $A^c$ es abierto.
+
+#### Proposición 1.17: propiedades de un espacio métrico
+
+Dado un espacio métrico $(F,d)$ se verifica que:
+
+1. $\emptyset$ y $F$ son conjuntos abiertos.
+
+2. Si $\{F_{\alpha}\}_{\alpha \in I} \subset F$ es una familia cualquiera de conjuntos abiertos, entonces $\bigcup\limits_{\alpha \in I} F_{\alpha}$ es abierto.
+
+#### Convergencia de sucesiones en un espacio métrico
+
+- si $\{x_n\}_{n \in \mathbb{N}} \subset F$ es una sucesión, $x_n \rightarrow x$, si $d(x_n, x) \rightarrow 0$.
+
+- decimos que una sucesión $\{x_n\}_{n \in \mathbb{N}} \subset F$ es de Cauchy si $d(x_n,x_m) \rightarrow 0$ cuando $n,m \rightarrow \infty$.
+
+#### Espacio métrico completo
+
+- se dice que el espacio métrico es completo si para toda $\{x_n\}_{n \in \mathbb{N}} \subset F$ de Cauchy, existe $x \in F$ tal que $x_n \rightarrow x$.
+
+#### Continuidad de funciones
+
+- sea $(G, \rho)$ otro espacio métrico, se dice que $f : F \rightarrow G$ es continua en $x \in F$ si para toda $x_n \rightarrow x$, $\rho\big( f(x_n), f(x) \big) \rightarrow 0$.
+
+- también, $f : F \rightarrow G$ es continua si, y solo si, para todo $B \in G$ abierto, $f^{-1}(B) = \{a \in F / f(a) \in B \}$ es abierto en $F$.
+
+#### Definición 1.18
+
+Dado un espacio métrico $(F,d)$ la $\sigma$-álgebra de Borel de $F$ es la intersección de todas las $\sigma$-álgebras que continene a los conjuntos abiertos. Se denota: $\mathcal{B}(F)$.
+
+#### Definición 1.19: variable aleatoria
+
+Dado un espacio de probabilidad $(\Omega, \mathcal{A}, P)$ y un espacio métrico $(F,d)$, direms que $X : \Omega \rightarrow F$ es una variable aleatoria si para todo $B \in \mathcal{B}(F)$, se cumple que:
+$$X^{-1}(B) = \{ \omega \in \Omega / X(\omega) \in B \} \in \mathcal{A}$$
+
+#### Proposición 1.20
+
+Para verificar que $X$ es una variable aleatoria, basta probar que $X^{-1}(B) \mathcal{A}$ para todo $B \in F$ abierto.
 
 ## Ley 0 o 1 de Kolmogorov
 
