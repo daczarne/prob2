@@ -81,7 +81,21 @@ La $\sigma$-álgebra de Borel puede ser generada por cualquiera de los siguiente
 6. $I_6 = \big\{ (-\infty,b) \subset \mathbb{R} / b \in \mathbb{R} \big\}$
 7. $I_7 = \big\{ (-\infty,b] \subset \mathbb{R} / b \in \mathbb{R} \big\}$
 
-*Dem*: comenzamos demostrando $I_1$. Para ello debemos demostrar que el intervalo $(a,b)$ es abierto. Es decir, que la bola abierta en $\mathbb{R}$ es un conjunto abierto.
+*Dem*: $I_1$ es inmediato dado que $(a,b)$ es un conjunto abierto, por lo tanto, el conjunto de los abiertos engendra la $\sigma$-álgebra de Borel en $\mathbb{R}$ por dado que así es como está definida la misma. 
+
+Para el resto de los conjuntos solo debemos demostrar que los mismos pueden ser escritos como la unión infinita de conjuntos abiertos (la cual es abierta), y por tanto engendran el set de Borel.
+
+- $I_2 = [a,b) = \{a\} \cup (a,b) = \left\{ \bigcap\limits_{n \in \mathbb{N}} B(a, \, ^1\!/_n) \right\} \cup (a,b)$
+
+- $I_3 = (a,b] = (a,b) \cup \{b\} = (a,b) \cup \left\{ \bigcap\limits_{n \in \mathbb{N}} B(b, \, ^1\!/_n) \right\}$
+
+- $I_4 = (a,+\infty) = \bigcup\limits_{n \in \mathbb{N}} (a, \, n)$
+
+- $I_5 = [a, +\infty) = \{a\} \cup (a, +\infty) = \{a\} \cup \left\{ \bigcup\limits_{n \in \mathbb{N}} (a, \, n) \right\}$
+
+- $I_6 = (-\infty, b) = \left\{ \bigcup\limits_{n \in \mathbb{N}} (-n, \, b) \right\}$
+
+- $I_7 = (-\infty, b] = (-\infty, b) \cup \{b\} = \left\{ \bigcup\limits_{n \in \mathbb{N}} (-n, \, b) \right\} \cup \{b\}$
 
 ## Espacio de probabilidad
 
