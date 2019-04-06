@@ -321,14 +321,14 @@ Sea $\{a_n\}_{n \in \mathbb{N}} \subset \mathbb{R}$ una sucesión de números re
 i. $\limsup\limits_{n} a_n = \lim\limits_{n \rightarrow +\infty} \sup\limits_{k \geq n} a_n$
 ii. $\liminf\limits_{n} a_n = \lim\limits_{n \rightarrow +\infty} \inf\limits_{k \geq n} a_n$
 
-#### Definición 1.9: Limite superior e inferior de conjuntos
+#### Definición 1.10: Limite superior e inferior de conjuntos
 
 Sea $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ una sucesión de conjuntos, entonces:
 
 i. $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k$
 i. $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k$
 
-#### Proposición 1.10: propiedades del límite superior e inferior
+#### Proposición 1.11: propiedades del límite superior e inferior
 
 ***
 
@@ -418,13 +418,34 @@ P \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) = \lim\limits_{n \rightarr
 
 ***
 
-6) Si $\{A_n\}_{n \in \mathbb{N}}$ es creciente, entonces:
-$$ \liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$$
+6) Si $\{A_n\}_{n \in \mathbb{N}}$ es creciente, entonces: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$
+
+*Dem*: dado que se trata de una doble igualdad entre conjuntos, debemos demostrar los dos pares de doble inclusiones.
+
+Parte 1: $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$
+
+- Parte 1.i: $\liminf\limits_{n} A_n \subset \bigcup\limits_{n = 1}^{+\infty} A_n$
+
+Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \omega \in \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k$. Pero si la sucesión es creciente, entonces $\bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k = \bigcup\limits_{n \in \mathbb{N}} A_n \Rightarrow \omega \in \bigcup\limits_{n \in \mathbb{N}} A_n \Rightarrow \liminf\limits_{n} A_n \subset \bigcup\limits_{n = 1}^{+\infty} A_n$.
+
+- Parte 1.ii: $\bigcup\limits_{n = 1}^{+\infty} A_n \subset \liminf\limits_{n} A_n$
+
+Si la sucesión es creciente, entonces $\bigcup\limits_{n \in \mathbb{N}} A_n = \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k$. Por lo tanto, $\forall \omega \in \bigcup\limits_{n \in \mathbb{N}} A_n$, $\omega \in \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k = \liminf_n A_n$. Por lo tanto, $\bigcup\limits_{n = 1}^{+\infty} A_n \subset \liminf\limits_{n} A_n$
+
+\vspace{0.2cm}
+Parte 2: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$
+
+- Parte 2.i: $\liminf\limits_{n} A_n \subset \limsup\limits_{n} A_n$
+
+Ver demostración de prop 1.11/3 (no se requiere que la sucesión sea creciente).
+
+- Parte 2.ii: $\limsup\limits_{n} A_n \subset \liminf\limits_{n} A_n$
+
+Si $\omega \in \limsup\limits_n A_n$ entonces $\omega$ pertenece a infinitos $A_n$ (ver demostración de prop 1.11/1). Pero dado que la sucesión es creciente, $\exists n_0$ tal que $\omega \in A_n \, \forall n \geq n_0$. Pero esto implica que $\omega \notin A_n$ solo para aquellos valores de $n < n_0$. Entonces $\omega$ no pertenece a una cantidad finita de índices. Por lo tanto, $\omega \in \liminf\limits_n A_n$ 
 
 ***
 
-7) Si $\{A_n\}_{n \in \mathbb{N}}$ es decreciente, entonces:
-$$ \liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} A_n$$
+7) Si $\{A_n\}_{n \in \mathbb{N}}$ es decreciente, entonces: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} A_n$
 
 ***
 
