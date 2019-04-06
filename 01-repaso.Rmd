@@ -420,7 +420,7 @@ P \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) = \lim\limits_{n \rightarr
 
 6) Si $\{A_n\}_{n \in \mathbb{N}}$ es creciente, entonces: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$
 
-*Dem*: dado que se trata de una doble igualdad entre conjuntos, debemos demostrar los dos pares de doble inclusiones.
+*Dem*: dado que se trata de una triple igualdad entre conjuntos, debemos demostrar dos de los pares de doble inclusiones, y el tercero se cumplirá por transitividad.
 
 Parte 1: $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$
 
@@ -433,6 +433,7 @@ Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \omega \in \bigcup\limits_{n \
 Si la sucesión es creciente, entonces $\bigcup\limits_{n \in \mathbb{N}} A_n = \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k$. Por lo tanto, $\forall \omega \in \bigcup\limits_{n \in \mathbb{N}} A_n$, $\omega \in \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k = \liminf_n A_n$. Por lo tanto, $\bigcup\limits_{n = 1}^{+\infty} A_n \subset \liminf\limits_{n} A_n$
 
 \vspace{0.2cm}
+
 Parte 2: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$
 
 - Parte 2.i: $\liminf\limits_{n} A_n \subset \limsup\limits_{n} A_n$
@@ -443,9 +444,41 @@ Ver demostración de prop 1.11/3 (no se requiere que la sucesión sea creciente)
 
 Si $\omega \in \limsup\limits_n A_n$ entonces $\omega$ pertenece a infinitos $A_n$ (ver demostración de prop 1.11/1). Pero dado que la sucesión es creciente, $\exists n_0$ tal que $\omega \in A_n \, \forall n \geq n_0$. Pero esto implica que $\omega \notin A_n$ solo para aquellos valores de $n < n_0$. Entonces $\omega$ no pertenece a una cantidad finita de índices. Por lo tanto, $\omega \in \liminf\limits_n A_n$ 
 
+\vspace{0.2cm}
+
+De lo anterior se desprende que $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$ (parte 1) y que $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$ (parte 2). Por transitividad entonces $\bigcup\limits_{n = 1}^{+\infty} A_n = \limsup\limits_{n} A_n$, por lo que queda demostrado el teorema.
+
 ***
 
 7) Si $\{A_n\}_{n \in \mathbb{N}}$ es decreciente, entonces: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} A_n$
+
+*Dem*: dado que se trata de una triple igualdad entre conjuntos, debemos demostrar dos de los pares de doble inclusiones, y el tercero se cumplirá por transitividad.
+
+Parte 1: $\limsup\limits_n A_n = \bigcap\limits_{n \in \mathbb{N}} A_n$
+
+- Parte 1.i: $\limsup\limits_n A_n \subset \bigcap\limits_{n \in \mathbb{N}} A_n$
+
+Si $\omega \in \limsup\limits_{n} A_n \Rightarrow \omega \in \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k$. Pero si la sucesión es decreciente, entonces $\bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k = \bigcap\limits_{n \in \mathbb{N}} A_n \Rightarrow \omega \in \bigcap\limits_{n \in \mathbb{N}} A_n \Rightarrow \limsup\limits_{n} A_n \subset \bigcap\limits_{n = 1}^{+\infty} A_n$.
+
+- Parte 1.ii: $\bigcap\limits_{n \in \mathbb{N}} A_n \subset \limsup\limits_n A_n$
+
+Si la sucesión es decreciente, entonces $\bigcap\limits_{n \in \mathbb{N}} A_n = \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k$. Por lo tanto, $\forall \omega \in \bigcap\limits_{n \in \mathbb{N}} A_n$, $\omega \in \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k = \limsup_n A_n$. Por lo tanto, $\bigcap\limits_{n = 1}^{+\infty} A_n \subset \limsup\limits_{n} A_n$
+
+\vspace{0.2cm}
+
+Parte 2: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$
+
+- Parte 2.i: $\liminf\limits_{n} A_n \subset \limsup\limits_{n} A_n$
+
+Ver demostración de prop 1.11/3 (no se requiere que la sucesión sea decreciente).
+
+- Parte 2.ii: $\limsup\limits_{n} A_n \subset \liminf\limits_{n} A_n$
+
+Si $\omega \in \liminf\limits_n A_n$ entonces $\omega$ pertenece a todos los $A_n$ salvo, a lo sumo, a una cantidad finita de ellos (ver demostración de prop 1.11/2). Luego, si $\omega \in \limsup\limits_n A_n \Rightarrow \omega \in \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k$, pero si $\{A_n\}_{n \in \mathbb{N}}$ es decreciente, entonces $\omega \in \bigcap\limits_{n \in \mathbb{N}} A_n \Rightarrow$ por definición de intersección, $\omega \in A_n \, \forall n \Rightarrow \omega \in \liminf\limits_n A_n$
+
+\vspace{0.2cm}
+
+De lo anterior se desprende que $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} A_n$ (parte 1) y que $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$ (parte 2). Por transitividad entonces $\bigcap\limits_{n = 1}^{+\infty} A_n = \liminf\limits_{n} A_n$, por lo que queda demostrado el teorema.
 
 ***
 
