@@ -482,7 +482,44 @@ De lo anterior se desprende que $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}
 
 ***
 
+\newpage
+
 8) $P \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} P(A_n) \leq \limsup\limits_{n} P(A_n) \leq P \left( \limsup\limits_{n} A_n \right)$
+
+*Dem*: debemos demostrar tres de las cuatro desigualdades. La última queda demostrada por transitividad.
+
+Parte 1: $P \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} P(A_n)$
+
+$$\begin{array}{c c c}
+P \left( \liminf\limits_{n} A_n \right) = P \left( \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de límite inferior} \\ \\
+P \left( \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k \right) = P \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcap\limits_{k \geq n} A_k$} \\ \\
+P \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) = \lim\limits_n P(B_n) & & \text{por ser $B_n$ creciente} \\ \\
+\lim\limits_n P(B_n) = \lim\limits_n P \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
+\lim\limits_n P \left( \bigcap\limits_{k \geq n} A_k \right) = \liminf\limits_n P \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
+\liminf\limits_n P \left( \bigcap\limits_{k \geq n} A_k \right) \leq \liminf\limits_n P(A_k) \, \forall k \geq n & & \text{por definición de intersecsión}
+\end{array}$$
+
+Parte 2: $\liminf\limits_{n} P(A_n) \leq \limsup\limits_{n} P(A_n)$
+
+En este caso estamos hablando del límite inferior y del límite superior de una sucesión real, los cuales se definen como:
+
+- $\liminf\limits_n P(A_n) = \lim\limits_n \left[ \inf\limits_{k \geq n} P(A_n) \right]$
+- $\limsup\limits_n P(A_n) = \lim\limits_n \left[ \sup\limits_{k \geq n} P(A_n) \right]$
+
+Por lo tanto, $\liminf\limits_n P(A_n) \leq \limsup\limits_n P(A_n)$
+
+\newpage
+
+Parte 3: $\limsup\limits_{n} P(A_n) \leq P \left( \limsup\limits_{n} A_n \right)$
+
+$$\begin{array}{c c c}
+P \left( \limsup\limits_{n} A_n \right) = P \left( \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de límite superior} \\ \\
+P \left( \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k \right) = P \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcup\limits_{k \geq n} A_k$} \\ \\
+P \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) = \lim\limits_n P(B_n) & & \text{por ser $B_n$ decreciente} \\ \\
+\lim\limits_n P(B_n) = \lim\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
+\lim\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) = \limsup\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
+\limsup\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) \geq \limsup\limits_n P(A_k) \, \forall k \geq n & & \text{por definición de unión}
+\end{array}$$
 
 ***
 
