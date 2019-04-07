@@ -558,6 +558,8 @@ P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) = \prod\limits_{k = n}^{m} P 
 \exp\left\{ - \sum\limits_{k = n}^{m} P(A_k) \right\} \xrightarrow{\enskip m \enskip} 0 & & \text{porque } \lim\limits_m \sum\limits_{k = n}^{m} P(A_l) = - \infty
 \end{array}$$
 
+\newpage
+
 # Variables aleatorias
 
 ## Espacio métrico
@@ -582,7 +584,19 @@ Dado un espacio métrico $(F,d)$ se verifica que:
 
 1. $\emptyset$ y $F$ son conjuntos abiertos.
 
+*Dem*: incluye demostrar ambas afirmaciones
+
+Parte 1: $\emptyset$ es abierto. 
+
+Esta es una verdad vacua, dado que no exisiten elementos que pertenezcan al conjunto. Por lo tanto, es vacuamente cierto, que para todos sus elementos, existe un radio que define una bola abierta, centrada en dicho elemento, completamente contenida en el vacio. 
+
+Parte 2: $F$ es abierto.
+
+Debemos demostrar que $\forall x \in F$, existe un radio $r$ tal que $B(x,r) \subset F$. Pero la definición de bola abierta es para los $x$ que pertenecen a $F$ (ver definición 1.16). Por lo tanto, todos los puntos que pertenezcan a la bola (para cualquier $x$ considerado) pertenecerán a $F$ por definición. Por lo tanto, siempre existe dicho radio $r$, por lo que $F$ es abierto.
+
 2. Si $\{F_{\alpha}\}_{\alpha \in I} \subset F$ es una familia cualquiera de conjuntos abiertos, entonces $\bigcup\limits_{\alpha \in I} F_{\alpha}$ es abierto.
+
+3. Para todo $k > 0$, si $F_1, \, \ldots, \, F_k$ son abiertos, entonces $F_1 \cap \ldots \cap F_k$ es abierta.
 
 #### Convergencia de sucesiones en un espacio métrico
 
