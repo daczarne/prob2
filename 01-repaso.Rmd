@@ -630,9 +630,9 @@ Repitiendo lo anterior hasta intersectar todos los $k$ conjuntos, obtenemos que 
 
 - también, $f : F \rightarrow G$ es continua si, y solo si, para todo $B \in G$ abierto, $f^{-1}(B) = \{a \in F / f(a) \in B \}$ es abierto en $F$.
 
-#### Definición 1.18
+#### Definición 1.18: $\sigma$-álgebra de Borel en $\mathbb{R}$
 
-Dado un espacio métrico $(F,d)$ la $\sigma$-álgebra de Borel de $F$ es la intersección de todas las $\sigma$-álgebras que continene a los conjuntos abiertos. Se denota: $\mathcal{B}(F)$.
+Dado un espacio métrico $(F,d)$ la $\sigma$-álgebra de Borel de $F$ es la intersección de todas las $\sigma$-álgebras que contienen a los conjuntos abiertos. Se denota: $\mathcal{B}(F)$.
 
 #### Definición 1.19: variable aleatoria
 
@@ -641,7 +641,7 @@ $$X^{-1}(B) = \{ \omega \in \Omega / X(\omega) \in B \} \in \mathcal{A}$$
 
 #### Proposición 1.20
 
-Para verificar que $X$ es una variable aleatoria, basta probar que $X^{-1}(B) \mathcal{A}$ para todo $B \in F$ abierto.
+Para verificar que $X$ es una variable aleatoria, basta probar que $X^{-1}(B) \in \mathcal{A}$ para todo $B \in F$ abierto.
 
 *Dem*:
 
