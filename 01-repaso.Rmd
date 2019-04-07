@@ -584,7 +584,7 @@ Dado un espacio métrico $(F,d)$ se verifica que:
 
 1. $\emptyset$ y $F$ son conjuntos abiertos.
 
-*Dem*: incluye demostrar ambas afirmaciones
+*Dem*: requiere demostrar ambas afirmaciones.
 
 Parte 1: $\emptyset$ es abierto. 
 
@@ -595,6 +595,8 @@ Parte 2: $F$ es abierto.
 Debemos demostrar que $\forall x \in F$, existe un radio $r$ tal que $B(x,r) \subset F$. Pero la definición de bola abierta es para los $x$ que pertenecen a $F$ (ver definición 1.16). Por lo tanto, todos los puntos que pertenezcan a la bola (para cualquier $x$ considerado) pertenecerán a $F$ por definición. Por lo tanto, siempre existe dicho radio $r$, por lo que $F$ es abierto.
 
 2. Si $\{F_{\alpha}\}_{\alpha \in I} \subset F$ es una familia cualquiera de conjuntos abiertos, entonces $\bigcup\limits_{\alpha \in I} F_{\alpha}$ es abierto.
+
+*Dem*: $\forall a \in \bigcup\limits_{\alpha \in I} F_{\alpha}$, $\exists \alpha$ tal que $a \in F_{\alpha}$ por definición de unión. Luego, dado que $F_{\alpha}$ es abierto por hipótesis, $\forall a \in \bigcup\limits_{\alpha \in I} F_{\alpha}$, $\exists r_a$, tal que $B(a.r) \subset F_{\alpha} \subset \bigcup\limits_{\alpha \in I} F_{\alpha}$. Por lo tanto, la unión de conjuntos abiertos, es abierta.
 
 3. Para todo $k > 0$, si $F_1, \, \ldots, \, F_k$ son abiertos, entonces $F_1 \cap \ldots \cap F_k$ es abierta.
 
