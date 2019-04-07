@@ -536,13 +536,27 @@ Dada una sucesión $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$,
 
 i. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) < \infty \Rightarrow P \left( \limsup\limits_n A_n \right) = 0$
 
-*Dem*: $P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) \leq \sum\limits_{k = n}^{+\infty} P(A_k) \xrightarrow{\enskip n \enskip} 0$
+*Dem*: 
+
+
+$$\begin{array}{c c c}
+P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por prop. 1.11/4} \\ \\
+\lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) \leq \sum\limits_{k = n}^{+\infty} P(A_k) & & \text{prop. 1.9/6} \\ \\
+\sum\limits_{k = n}^{+\infty} P(A_k) \xrightarrow{\enskip n \enskip} 0 & & \text{por ser la cola de una serie convergente}
+\end{array}$$
 
 ii. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) = \infty$ y además $\{A_n\}_{n \in \mathbb{N}}$ son independientes $\Rightarrow P \left( \limsup\limits_n A_n \right) = 1$
 
-*Dem*:como $P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right)$ basta probar que $\lim\limits_{n \rightarrow +\infty} P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \xrightarrow{\enskip n \enskip} 0$. Para cada $m > n$ tenemos que:
-$$ P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \leq P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) = \prod\limits_{k = n}^{m} P \left( A_k^c \right) = \prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] \leq \prod\limits_{k = n}^{m} \exp\left\{ -P(A_l) \right\} =$$
-$$= \prod\limits_{k = n}^{m} \exp\left\{ \sum\limits_{k = n}^{m} -P(A_l) \right\} \xrightarrow{\enskip m \enskip} 0$$
+*Dem*: como $P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right)$ basta probar que $\lim\limits_{n \rightarrow +\infty} P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \xrightarrow{\enskip n \enskip} 0$. Para cada $m > n$ tenemos que:
+
+$$\begin{array}{c c c}
+P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \leq P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) & & \text{por intersección} \\ \\
+P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) = \prod\limits_{k = n}^{m} P \left( A_k^c \right) & & \text{por independencia} \\ \\
+\prod\limits_{k = n}^{m} P \left( A_k^c \right) = \prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] & & \text{por porbabilidad del complemento} \\ \\
+\prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] \leq \prod\limits_{k = n}^{m} \exp\left\{ -P(A_l) \right\} & &  \text{por que } 1 - x \leq e^{-x} \, \forall x \\ \\
+\prod\limits_{k = n}^{m} \exp\left\{ -P(A_l) \right\} = \exp\left\{ \sum\limits_{k = n}^{m} -P(A_l) \right\} & & \text{por propiedad del producto} \\ \\
+\exp\left\{ - \sum\limits_{k = n}^{m} P(A_k) \right\} \xrightarrow{\enskip m \enskip} 0 & & \text{porque } \lim\limits_m \sum\limits_{k = n}^{m} P(A_l) = - \infty
+\end{array}$$
 
 # Variables aleatorias
 
