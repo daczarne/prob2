@@ -600,6 +600,20 @@ Debemos demostrar que $\forall x \in F$, existe un radio $r$ tal que $B(x,r) \su
 
 3. Para todo $k > 0$, si $F_1, \, \ldots, \, F_k$ son abiertos, entonces $F_1 \cap \ldots \cap F_k$ es abierta.
 
+*Dem*: sean $F_i$ y $F_j$ dos miembros de $F_1, \, \ldots, \, F_k$.
+
+- Si $F_i \cap F_j = \emptyset \Rightarrow F_i \cap F_j$ es abierto, dado que por la parte 1 de la proposción, $\emptyset$ es abierto.
+
+- Si $F_i \cap F_j \neq \emptyset \Rightarrow$ por definición de intersección, $\forall x \in (F_i \cap F_j)$, $x \in F_i$ y $x \in F_j$. Dado que tanto $F_i$ como $F_j$ son abiertos por hipótesis, lo anterior implica que $\exists r_x^i$ tal que $B(x,r^i_x) \subset F_i$, y $\exists r_x^j$, tal que $B(x,r^j_x) \subset F_j$. Pero esto implica que $\exists r_x = \min\{r_x^i, r_x^j \}$ tal que $B(x,r_x) \subset (F_i \cap F_j) \, \forall x$. Por lo tanto, $F_i \cap F_j$ es abierto.
+
+Llamemos ahora $F_{ij} = F_i \cap F_j$ y repitamos el proceso para $F_{ij} \cap F_h$, siendo $F_h$ otro miembro de $F_1, \, \ldots, \, F_k$.
+
+- Si $F_{ij} \cap F_h = \emptyset \Rightarrow F_{ij} \cap F_h$ es abierto, dado que por la parte 1 de la proposción, $\emptyset$ es abierto.
+
+- Si $F_{ij} \cap F_h \neq \emptyset \Rightarrow$ por definición de intersección, $\forall x \in (F_{ij} \cap F_h)$, $x \in F_{ij}$ y $x \in F_h$. Dado que tanto $F_{ij}$ como $F_h$ son abiertos por (el primero por lo demostrado anteriormente, el segundo por hipótesis), lo anterior implica que $\exists r_x^{ij}$ (por ejemplo, el hallado en la parte anterior), tal que $B(x,r^{ij}_x) \subset F_{ij}$, y $\exists r_x^h$, tal que $B(x,r^h_x) \subset F_h$. Pero esto implica que $\exists r_x = \min\{r_x^{ij}, r_x^h \}$ tal que $B(x,r_x) \subset (F_{ij} \cap F_h) \, \forall x$. Por lo tanto, $F_{ij} \cap F_h$ es abierto.
+
+Repitiendo lo anterior hasta intersectar todos los $k$ conjuntos, obtenemos que la intersección de todos ellos es abierta.
+
 #### Convergencia de sucesiones en un espacio métrico
 
 - si $\{x_n\}_{n \in \mathbb{N}} \subset F$ es una sucesión, $x_n \rightarrow x$, si $d(x_n, x) \rightarrow 0$.
