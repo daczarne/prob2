@@ -582,6 +582,8 @@ Dado un espacio métrico $(F,d)$ se dice que un conjunto $A \subset F$ es aviert
 
 Dado un espacio métrico $(F,d)$ se verifica que:
 
+***
+
 1. $\emptyset$ y $F$ son conjuntos abiertos.
 
 *Dem*: requiere demostrar ambas afirmaciones.
@@ -594,9 +596,15 @@ Parte 2: $F$ es abierto.
 
 Debemos demostrar que $\forall x \in F$, existe un radio $r$ tal que $B(x,r) \subset F$. Pero la definición de bola abierta es para los $x$ que pertenecen a $F$ (ver definición 1.16). Por lo tanto, todos los puntos que pertenezcan a la bola (para cualquier $x$ considerado) pertenecerán a $F$ por definición. Por lo tanto, siempre existe dicho radio $r$, por lo que $F$ es abierto.
 
+***
+
+\newpage
+
 2. Si $\{F_{\alpha}\}_{\alpha \in I} \subset F$ es una familia cualquiera de conjuntos abiertos, entonces $\bigcup\limits_{\alpha \in I} F_{\alpha}$ es abierto.
 
 *Dem*: $\forall a \in \bigcup\limits_{\alpha \in I} F_{\alpha}$, $\exists \alpha$ tal que $a \in F_{\alpha}$ por definición de unión. Luego, dado que $F_{\alpha}$ es abierto por hipótesis, $\forall a \in \bigcup\limits_{\alpha \in I} F_{\alpha}$, $\exists r_a$, tal que $B(a.r) \subset F_{\alpha} \subset \bigcup\limits_{\alpha \in I} F_{\alpha}$. Por lo tanto, la unión de conjuntos abiertos, es abierta.
+
+***
 
 3. Para todo $k > 0$, si $F_1, \, \ldots, \, F_k$ son abiertos, entonces $F_1 \cap \ldots \cap F_k$ es abierta.
 
@@ -614,21 +622,23 @@ Llamemos ahora $F_{ij} = F_i \cap F_j$ y repitamos el proceso para $F_{ij} \cap 
 
 Repitiendo lo anterior hasta intersectar todos los $k$ conjuntos, obtenemos que la intersección de todos ellos es abierta.
 
+***
+
 #### Convergencia de sucesiones en un espacio métrico
 
-- si $\{x_n\}_{n \in \mathbb{N}} \subset F$ es una sucesión, $x_n \rightarrow x$, si $d(x_n, x) \rightarrow 0$.
+- Si $\{x_n\}_{n \in \mathbb{N}} \subset F$ es una sucesión, $x_n \rightarrow x \Leftrightarrow d(x_n, x) \rightarrow 0$.
 
-- decimos que una sucesión $\{x_n\}_{n \in \mathbb{N}} \subset F$ es de Cauchy si $d(x_n,x_m) \rightarrow 0$ cuando $n,m \rightarrow \infty$.
+- Decimos que una sucesión $\{x_n\}_{n \in \mathbb{N}} \subset F$ es de Cauchy $\Leftrightarrow d(x_n,x_m) \rightarrow 0$ cuando $n,m \rightarrow \infty$.
 
 #### Espacio métrico completo
 
-- se dice que el espacio métrico es completo si para toda $\{x_n\}_{n \in \mathbb{N}} \subset F$ de Cauchy, existe $x \in F$ tal que $x_n \rightarrow x$.
+- Se dice que el espacio métrico es completo si para toda $\{x_n\}_{n \in \mathbb{N}} \subset F$ de Cauchy, existe $x \in F$ tal que $x_n \rightarrow x$.
 
 #### Continuidad de funciones
 
-- sea $(G, \rho)$ otro espacio métrico, se dice que $f : F \rightarrow G$ es continua en $x \in F$ si para toda $x_n \rightarrow x$, $\rho\big( f(x_n), f(x) \big) \rightarrow 0$.
+- Sea $(G, \rho)$ otro espacio métrico, se dice que $f : F \rightarrow G$ es continua en $x \in F$ si para toda $x_n \rightarrow x$, $\rho\big( f(x_n), f(x) \big) \rightarrow 0$.
 
-- también, $f : F \rightarrow G$ es continua si, y solo si, para todo $B \in G$ abierto, $f^{-1}(B) = \{a \in F / f(a) \in B \}$ es abierto en $F$.
+- También, $f : F \rightarrow G$ es continua $\Leftrightarrow \forall B \in G$ abierto, $f^{-1}(B) = \{a \in F / f(a) \in B \}$ es abierto en $F$.
 
 #### Definición 1.18: $\sigma$-álgebra de Borel en $\mathbb{R}$
 
@@ -645,9 +655,45 @@ Para verificar que $X$ es una variable aleatoria, basta probar que $X^{-1}(B) \i
 
 *Dem*:
 
-#### Teorema 1.21
+#### Teorema 1.21: la transformación medible de una v.a., es otra v.a.
 
-Sean $(F,d)$ y $(G, \rho)$ espacios métricos. Si $X : \Omega \rightarrow F$ es una variable aleatoria y $g : F \rightarrow G$ es una función continua, entnces $Y = g(X)$ es una variable aleatoria a valores de $G$.
+Sean $(F,d)$ y $(G, \rho)$ espacios métricos. Si $X : \Omega \rightarrow F$ es una variable aleatoria y $g : F \rightarrow G$ es una función continua, entonces $Y = g(X)$ es una variable aleatoria a valores de $G$.
+
+#### Corolario 1.22
+
+Sean $X,Y : \Omega \rightarrow \mathbb{R}$ son variables aleatorias, y $\alpha \in \mathbb{R}$ entonces:
+
+i. $X + \alpha Y$ es una variable aleatoria
+ii. $XY$ es una variable aleatoria
+
+#### Observación 1.23: variables aleatorias a los reales extendidos
+
+En algunos casos es necesario considrar variables aleatorias a los reales extendidos: $\bar{\mathbb{R}} = \mathbb{R} \cup \{-\infty, +\infty\}$. Definimos una $\sigma$-álgebra generadad por $\bar{\mathbb{R}}$ como:
+$$\mathcal{B}(\bar{\mathbb{R}}) = \mathcal{B}(\mathbb{R}) \cup \big\{A \cup \{-\infty, +\infty\} / A \in \mathcal{B}(\mathbb{R}) \big\} \cup \big\{A \cup \{+\infty\} / A \in \mathcal{B}(\mathbb{R}) \big\} \cup \big\{A \cup \{-\infty\} / A \in \mathcal{B}(\mathbb{R}) \big\}$$
+
+#### Teorema 1.24 y Corolario 1.25
+
+Si $X_n : \Omega \rightarrow \mathbb{R}$ es una variable aleatoria para todo $n \in \mathbb{N}$, entonces también lo son las variables aleatorias a valores en $\bar{\mathbb{R}}$:
+
+i. $\sup\limits_n X_n$
+
+ii. $\inf\limits_n X_n$
+
+iii. $\limsup\limits_n X_n$
+
+iv. $\liminf\limits_n X_n$
+
+#### Definición 1.26
+
+Dadas dos variables aleatorias $X,Y : \Omega \rightarrow F$ decimos que:
+
+1. $X$ es igual a $Y$ en distribución, si $\forall A \in \mathcal{B}(F)$, $P(X \in A) = P(Y \in A)$, y lo notamos como $X \overset{d}{=} Y$.
+
+2. $X$ es igual a $Y$ casi seguramente, si $\exists C \subset \Omega$ con $P(C) = 1 / \forall \omega \in C$, $X(\omega) = Y(\omega)$, y lo notamos como $X \overset{cs}{=} Y$.
+
+#### Observación 1.27
+
+Si $X \overset{cs}{=} Y \Rightarrow X \overset{d}{=} Y$. El recíproco no es cierto.
 
 ## Ley 0 o 1 de Kolmogorov
 
