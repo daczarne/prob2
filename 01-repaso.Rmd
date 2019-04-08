@@ -695,7 +695,40 @@ Dadas dos variables aleatorias $X,Y : \Omega \rightarrow F$ decimos que:
 
 Si $X \overset{cs}{=} Y \Rightarrow X \overset{d}{=} Y$. El recíproco no es cierto.
 
-## Ley 0 o 1 de Kolmogorov
+\newpage
+
+## Ley 0 o 1 de Kolmogorov\footnote{Lo siguiente fue presentado en clase y no sigue las notas de Cholaquidis (dado que las mismas son inentendibles).}
+
+#### Definiciones
+
+Dados $(\Omega, \mathcal{A}, P)$ y $X_1, \, \ldots, \, X_n, \, \ldots$ una sucesión de variables aleatorias independientes sean:
+
+1. $\mathcal{F}_{\infty} = \sigma(X_1, \, \ldots, \, X_n, \, \ldots) \subset \mathcal{A}$
+2. $\mathcal{F}_n = \sigma(X_1, \, \ldots, \, X_n) \subset \mathcal{A}$
+3. $\mathcal{F}_n' = \sigma(X_n, \, X_{n+1}, \, \ldots) \subset \mathcal{A}$
+
+Se define la $\sigma$-álgebra cola como:
+$$\tau = \bigcap\limits_{n \in \mathbb{N}} \mathcal{F}_n'$$
+
+#### Ley 0 o 1 de Kolmogorov
+
+Sea $A \subset \tau \Rightarrow P(A) = 0$ o $P(A) = 1$
+
+*Dem*:
+
+a. $A \subset \tau = \bigcap\limits_{n \in \mathbb{N}} \mathcal{F}_n' \subset \mathcal{F}_{\infty}$
+
+b. $\left. \begin{array}{l} A \in \mathcal{F}_n' \\ \mathcal{F}_n \perp \mathcal{F}_n' \end{array} \right\} \Rightarrow A \perp \mathcal{F}_n \Rightarrow A \perp \bigcup\limits_{n \in \mathbb{N}} \mathcal{F}_n \Rightarrow A \perp \sigma \left( \bigcup\limits_{n \in \mathbb{N}} \mathcal{F}_n \right) \Rightarrow A \perp \mathcal{F}_{\infty}$
+
+Por a. y b. obtenemos que $A \perp A$. Por lo tanto, $P(A) = P(A \cap A) = P(A) \, P(A) = P^2(A)$. Pero como $P(A)$ es una probabilidad, $0 \leq P(A) \leq 1$, entonces, $P(A) = 0$ o $P(A) = 1$ dado que estos son los únicos números que elevados al cuadrado dan como resultado ellos mismos.
+
+<!-- A continuación la versión presenadad por Cholaquidis
+Dado $(\Omega, \mathcal{A}, P)$ y $X_1, \, \ldots, \, X_n, \, \ldots$ una sucesión de variables aleatorias. Sea $\mathcal{A}^{\infty}_n = \sigma(X_n, \, X_{n+1}, \, \ldots)$ la $\sigma$-álgebra generada por $X_n, \, X_{n+1}, \, \ldots$ (es decir, la menor $\sigma$-álgebra que las hace variable aleatoria), denotamos $\mathcal{A}^{\infty} = \bigcap\limits_{n = 1}^{\infty} \mathcal{A}^{\infty}_n$. Es claro que $\mathcal{A}^{\infty}$ es una $\sigma$-álgebra. Los eventos de $\mathcal{A}^{\infty}$ se llaman *eventos de cola*, ya que no depende de lo que sucede en la sucesión $\{X_n\}_{n \in \mathbb{N}}$ en una cantidad finita de índices.
+
+#### Teorema 1.28: Ley 0 o 1 de Kolmogorov
+
+Sea $X_1, \, X_2, \, \ldots$ una sucesión de variables aleatorias independientes. Sea $A \in \mathcal{A}^{\infty}$, entonces $P(A)$ solo puede valer 0 o 1.
+-->
 
 ## Desigualdad de Kolmogorov
 
