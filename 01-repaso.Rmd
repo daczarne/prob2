@@ -880,6 +880,8 @@ Parte 2.ii) Si para toda sucesión de particiones $\{P_n\}_{n \in \mathbb{N}}$ d
 
 Si $g : [a,b] \rightarrow \mathbb{R}$ es continua y $F : [a,b] \rightarrow \mathbb{R}$ es monótona, entonces existe $\int\limits_a^b gdF$
 
+*Dem*: demostrar que existe la integral implíca demostrar que el límite de las sumas parciales converge. 
+
 #### Teorema 1.35
 
 Si $g : [a,b] \rightarrow \mathbb{R}$ es continua y $F : [a,b] \rightarrow \mathbb{R}$ es monótona y derivable tal que $F'(x) = f(x)$ siendo $f$ integrable Riemann en $[a,b]$, entonces:
@@ -894,6 +896,23 @@ $$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(\xi_i) f(\xi_i) 
 
 #### Proposición 1.36
 
+Si $g,h,F : [a,b] \rightarrow \mathbb{R}$ son tales que existen $\int\limits_a^b gdF$ y $\int\limits_a^b hdF$ entonces:
+
+i. $\exists \int\limits_a^b (\alpha g + \beta h )dF \,\,\, \forall \alpha, \beta \in \mathbb{R}$
+ii. $\int\limits_a^b (\alpha g + \beta h )dF = \alpha \int\limits_a^b gdF + \beta \int\limits_a^b hdF$
+
+***
+
+*Dem*:
+
+Parte i)
+
+Parte ii)
+$$\int\limits_a^b (\alpha g(x) + \beta h(x)) dF(x) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \big( \alpha g(\xi_i) + \beta h(\xi_i) \big) \big[ F(x_i) - F(x_{i-1}) \big] = $$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \Big( \alpha g(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] + \beta h(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] \Big) =$$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \alpha g(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] + \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \beta h(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] = $$
+$$= \alpha \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] + \beta \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} h(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] = $$
+$$= \alpha \int\limits_a^b g(x) d F(x) + \beta \int\limits_a^b h(x) d F(x) = \alpha I_g + \beta I_h = I^*$$
 
 #### Proposición 1.37
 
