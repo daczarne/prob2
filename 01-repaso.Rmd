@@ -916,9 +916,17 @@ $$= \alpha \int\limits_a^b g(x) d F(x) + \beta \int\limits_a^b h(x) d F(x) = \al
 
 #### Proposición 1.37
 
+Si $h,F,G : [a,b] \rightarrow \mathbb{R}$ son tales que existen $\int\limits_a^b hdF$ y $\int\limits_a^b hdG$ entonces:
+
+i. $\exists \int\limits_a^b h d (\alpha F + \beta G) \,\,\, \forall \alpha, \beta \in \mathbb{R}$
+ii. $\int\limits_a^b h d (\alpha F + \beta G) = \alpha \int\limits_a^b hdF + \beta \int\limits_a^b hdG$
 
 #### Proposición 1.38
 
+Si $g,F : [a,b] \rightarrow \mathbb{R}$ son tales que existe $\int\limits_a^b gdF$, entonces:
+
+i. para todo $c \in (a,b)$, $\exists \int\limits_a^c gdF$ y $\exists \int\limits_c^b gdF$
+ii. $\int\limits_a^b gdF = \int\limits_a^c gdF + \int\limits_c^b gdF$
 
 #### Proposición 1.39
 
