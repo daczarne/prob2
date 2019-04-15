@@ -837,15 +837,24 @@ La proposición implíca que: $a \Leftrightarrow b \Leftrightarrow c$. Se prueba
 
 Parte 1: $a \Leftrightarrow b$, lo cual implíca probar que: si $a \Rightarrow b$, y si $b \Rightarrow a$
 
+\vspace{0.5cm}
+
 Parte 1.i) Si $\exists \lim\limits_{||P|| \rightarrow 0} S(P, g, F) = I < +\infty \Rightarrow$ dado $\varepsilon > 0$, $\exists \delta$ tal que si $||P|| < \delta$ y $||Q|| < \delta$ se cumple que $| S(P, g, F) - S(Q, g, F)| < \varepsilon$.
+
+\vspace{0.5cm}
 
 *Dem*:
 
+\vspace{0.5cm}
 
 Parte 1.ii) Dado $\varepsilon > 0$, $\exists \delta$ tal que si $||P|| < \delta$ y $||Q|| < \delta$ se cumple que $| S(P, g, F) - S(Q, g, F)| < \varepsilon \Rightarrow \exists \lim\limits_{||P|| \rightarrow 0} S(P, g, F) = I < +\infty$.
 
-*Dem*:
+\vspace{0.5cm}
 
+*Dem*:
+$$|S(P,g,F) - S(Q,g,F)| < \varepsilon$$
+$$|S(P,g,F) - I + I - S(Q,g,F)| < \varepsilon$$
+$$|S(P,g,F) - I + I - S(Q,g,F)| < |S(P,g,F) - I| + |S(Q,g,F) - I| < \varepsilon$$
 
 ***
 
