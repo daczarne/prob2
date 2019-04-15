@@ -534,20 +534,23 @@ $$ P \left( \bigcap\limits_{\alpha \in F} A_{\alpha}  \right) = \prod\limits_{\a
 
 Dada una sucesión $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$,
 
+***
+
 i. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) < \infty \Rightarrow P \left( \limsup\limits_n A_n \right) = 0$
 
 *Dem*: 
 
-
 $$\begin{array}{c c c}
 P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por prop. 1.11/4} \\ \\
 \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) \leq \sum\limits_{k = n}^{+\infty} P(A_k) & & \text{prop. 1.9/6} \\ \\
-\sum\limits_{k = n}^{+\infty} P(A_k) \xrightarrow{\enskip n \enskip} 0 & & \text{por ser la cola de una serie convergente}
+\sum\limits_{k = n}^{+\infty} P(A_k) \overset{n}{\rightarrow} 0 0 & & \text{por ser la cola de una serie convergente}
 \end{array}$$
 
 ii. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) = \infty$ y además $\{A_n\}_{n \in \mathbb{N}}$ son independientes $\Rightarrow P \left( \limsup\limits_n A_n \right) = 1$
 
-*Dem*: como $P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right)$ basta probar que $\lim\limits_{n \rightarrow +\infty} P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \xrightarrow{\enskip n \enskip} 0$. Para cada $m > n$ tenemos que:
+***
+
+*Dem*: como $P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right)$ basta probar que $\lim\limits_{n \rightarrow +\infty} P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \overset{n}{\rightarrow} 0 0$. Para cada $m > n$ tenemos que:
 
 $$\begin{array}{c c c}
 P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \leq P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) & & \text{por intersección} \\ \\
@@ -555,7 +558,7 @@ P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) = \prod\limits_{k = n}^{m} P 
 \prod\limits_{k = n}^{m} P \left( A_k^c \right) = \prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] & & \text{por porbabilidad del complemento} \\ \\
 \prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] \leq \prod\limits_{k = n}^{m} \exp\left\{ -P(A_l) \right\} & &  \text{por que } 1 - x \leq e^{-x} \, \forall x \\ \\
 \prod\limits_{k = n}^{m} \exp\left\{ -P(A_l) \right\} = \exp\left\{ \sum\limits_{k = n}^{m} -P(A_l) \right\} & & \text{por propiedad del producto} \\ \\
-\exp\left\{ - \sum\limits_{k = n}^{m} P(A_k) \right\} \xrightarrow{\enskip m \enskip} 0 & & \text{porque } \lim\limits_m \sum\limits_{k = n}^{m} P(A_l) = - \infty
+\exp\left\{ - \sum\limits_{k = n}^{m} P(A_k) \right\} \overset{m}{\rightarrow} 0 & & \text{porque } \lim\limits_m \sum\limits_{k = n}^{m} P(A_l) = - \infty
 \end{array}$$
 
 \newpage
@@ -732,9 +735,162 @@ Sea $X_1, \, X_2, \, \ldots$ una sucesión de variables aleatorias independiente
 
 ## Desigualdad de Kolmogorov
 
+Sean $X_1, \, X_2, \, \ldots, \, X_n$ variables aleatorias independientes tales que $E(X_i) = 0$ y $E(X_i^2) < \infty$ $\forall i = 1, \, \ldots, \, n$, y sea $S_k = X_1 + \ldots + X_k$, entonces, $\forall \varepsilon > 0$:
+
+1. $P \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \leq \frac{ E(S_n^2) }{ \varepsilon^2 }$
+
+2. Si además existe $c > 0$ tal que $P(|X_i| \leq c) = 1 \,\,\, \forall i$ entonces,
+$$ P \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \geq 1 - \frac{ (c + \varepsilon)^2 }{ E(S_n^2) } $$
+
+\newpage
+
+*Dem*: Parte 1)
+
+Sean:
+
+i. $A = \left\{ \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right\}$
+ii. $A_k = \big\{ |S_i| < \varepsilon, \, i = 1, \, \ldots, \, k-1, |S_k| \geq \varepsilon \big\}$ para $k = 1, \, \ldots \, n$ con $S_0 = 0$
+
+Observese que $A_i \cap A_j = \emptyset \,\,\, \forall i \neq j$ y $A = \bigcup\limits_{k = 1}^{n} A_k$. Por lo tanto,
+$$ E(S_n^2) \geq E(S_n^2 \mathbb{I}_A) = \sum\limits_{k = 1}^{n} E(S_n^2 \mathbb{I}_{A_k}) $$
+
+Para cada una de las esperanzas del último sumando tenemos que:
+$$ E(S_n^2 \mathbb{I}_{A_k}) = E \Big[ \big( S_k + (X_{k+1} + \ldots + X_n) \big)^2 \mathbb{I}_{A_k} \Big] = $$
+$$ = E(S_k^2 \mathbb{I}_{A_k}) + 2 \underbrace{ E \Big[ S_k (X_{k+1} + \ldots + X_n) \mathbb{I}_{A_k} \Big] }_{ \substack{ = 0 \text{, dado que las variables } \\ X_{k+1} + \ldots + X_n \text{ son centradas} \\ \text{ e independientes de } S_k \mathbb{I}_{A_k} }} + E \big[(X_{k+1} + \ldots + X_n)^2 \mathbb{I}_{A_k} \big] = $$
+$$ = E(S_k^2 \mathbb{I}_{A_k}) + E \big[(X_{k+1} + \ldots + X_n)^2 \mathbb{I}_{A_k} \big] \geq E(S_k^2 \mathbb{I}_{A_k}) $$
+
+Si $\omega \in A_k \Rightarrow$ por definición de $A_k$, $|S_k(\omega)| \geq \varepsilon$, es decir, $E(S_k^2 \mathbb{I}_{A_k}) \geq \varepsilon^2 P(A_k)$. Por lo tanto,
+$$E(S_n^2) \geq \sum\limits_{k = 1}^{n} E(S_k^2 \mathbb{I}_{A_K}) \geq \varepsilon^2 \sum\limits_{k = 1}^{n} P(A_k) = \varepsilon^2 P(A) = \varepsilon^2 P \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \Rightarrow$$
+$$\Rightarrow P \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \leq \frac{ E(S_n^2) }{ \varepsilon2 }$$
+
+#### Corolario 1.30 Desigualdad de Markov
+
+$$P ( |X - E(X)| > \varepsilon) \leq \frac{V(X)}{\varepsilon^2}$$
+
+\newpage
+
 # Integral de Riemann-Stieltjes
 
 ## Definición
+
+#### Definición 1.31: Integral de Riemann-Stieltjes
+
+Dadas $g,F : [a,b] \rightarrow \mathbb{R}$ y $P = \{ a = c_0 < c_1 < c_2 < \ldots < c_n = b\}$,
+
+- definimos la suma parcial de Riemann-Stieltjes como: 
+$$S(P,g,F) = \sum\limits_{i = 1}^{n} g(x_i) \big[ F(c_i) - F(c_{i-1}) \big] \,\,\,\, \text{con } x_i \in [c_{i-1}, c_i]$$
+
+- definimos la norma de la partición $P$ como: $||P|| = \max\{c_i - c_{i-1}, \,\,\, i = 1, \ldots, n \}$
+
+- decimos que $\lim\limits_{||P|| \rightarrow 0} S(P,g,F) = I \Leftrightarrow \forall \varepsilon > 0$, $\exists \delta > 0$ tal que para toda partición $P$ del intervalo $[a,b]$ con $||P|| < \delta$ se tiene que $|S(P,g,F) - I| < \varepsilon$. En este caso decimos que la integral de Riemann-Stieltjes de $g$ respecto de $F$ en el intervalo $[a,b]$ existe y vale $I$, y lo denotamos como:
+$$ \int\limits_a^b g(x) d F(x) $$
+
+#### Observación 1.32
+
+i. Si $F(x) = x$ obtenemos la integral de Riemann:
+
+*Dem*: $\int\limits_a^b g(x) dF(x) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(x_i) \big[ F(c_i) - F(c_{i-1}) \big] = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(x_i) \big[ c_i - c_{i-1} \big] = \int\limits_a^b g(x) dx$
+
+2. Si $F(x) = k$, $\int\limits_a^b g(x)dF(x) = 0$ para toda $g$.
+
+*Dem*: $\int\limits_a^b g(x) dF(x) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(x_i) \big[ F(c_i) - F(c_{i-1}) \big] = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(x_i) \big[ k - k \big] = 0 \,\,\, \forall g$
+
+3. Si $g : [a,b] \rightarrow \mathbb{R}$ es continua y $F(x) = \mathbb{I}_{[c,b]}(x)$ con $c \in (a,b)$ entonces:
+$$\int\limits_a^b g(x) d F(x) = g(c)$$
+
+*Dem*: debemos discutir en función de si $c$ pertenece o no a la partición (es decir, si el valor $c$ considerado es uno de los $c_i$ en la partición).
+
+Caso a) $c \notin P$
+
+Consideremos el intervalo de la partición tal que $c_j < c < c_{j+1}$. Que $c$ no pertenezca a la partición implica que $F(c_j) = 0$ mientras que $F(c_{j+1}) = 1$ dado que $F$ es la indicatriz del intervalo $[c,b]$. Para todos los demás subintervalos de la partición, $F(x) = k$ por lo que la integral R-S vale cero (ver observación anterior). Por lo tanto,
+$$ \int\limits_a^b g(x) d F(x) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(x_i) \big[ F(c_i) - F(c_{i-1}) \big] = \lim\limits_{||P|| \rightarrow 0} g(x_j = c) \big[ F(c_{j+1}) - F(c_j) \big] = $$
+$$ = \lim\limits_{||P|| \rightarrow 0} g(c) \big[ 1 - 0 \big] = \lim\limits_{||P|| \rightarrow 0} g(c) = g(c)$$
+
+Caso b) $c \in P$
+
+Consideremos el intervalo de la patición tal que $c_{j-1} < c_j = c$. Dado que $F(x) = \mathbb{I}_{[c,b]}$, $F(c_{j-1}) = 0$ y $F(c_j) = F(c) = 1$. De nuevo, para todos los demás sub-intervalos de la partición, $F(x) = k$ por lo que la suma parcial sobre dichos sub-intervalos vale cero. Por lo tanto,
+$$ \int\limits_a^b g(x) d F(x) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(x_i) \big[ F(c_i) - F(c_{i-1}) \big] = \lim\limits_{||P|| \rightarrow 0} g(x_j = c) \big[ F(c_j = c) - F(c_{j - 1}) \big] =$$
+$$ = \lim\limits_{||P|| \rightarrow 0} g(c) \big[ 1 - 0 \big] = \lim\limits_{||P|| \rightarrow 0} g(c) = g(c)$$
+
+4. Si $g(x) = k \Rightarrow \forall F$, $\int\limits_a^b g(x) d F(x) = k [F(b) - F(a)]$  
+
+*Dem*: se desprende de que la sumatoria se vuelve telescópica cuando $g(x) = k$.
+
+$$ \int\limits_a^b g(x) d F(x) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(x_i) \big[ F(c_i) - F(c_{i-1}) \big] = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} k \big[ F(c_i) - F(c_{i-1}) \big] = $$
+$$ = \lim\limits_{||P|| \rightarrow 0} k \sum\limits_{i = 1}^{n} \big[ F(c_i) - F(c_{i-1}) \big] = \lim\limits_{||P|| \rightarrow 0} k \big[ F(b) - F(a) \big] = k \big[ F(b) - F(a) \big] $$
+
+\newpage
+
+#### Teorema 1.33
+
+Los siguientes enunciados son equivalentes:
+
+a. $\exists \lim\limits_{||P|| \rightarrow 0} S(P, g, F) = I < +\infty$
+
+b. dado $\varepsilon > 0$, $\exists \delta$ tal que si $||P|| < \delta$ y $||Q|| < \delta$ se cumple que $| S(P, g, F) - S(Q, g, F)| < \varepsilon$
+
+c. para toda sucesión de particiones $\{P_n\}_{n \in \mathbb{N}}$ de $[a,b]$ tal que $||P_n|| \xrightarrow{\enskip n \enskip} 0$ se cumple que $\lim\limits_{n \rightarrow +\infty} S(P, g, F) = I$
+
+La proposición implíca que: $a \Leftrightarrow b \Leftrightarrow c$. Se prueba demostrando que $a \Leftrightarrow b$ y $a \Leftrightarrow c$, de donde se desprende, por transitiva, que $b \Leftrightarrow c$.
+
+***
+
+Parte 1: $a \Leftrightarrow b$, lo cual implíca probar que: si $a \Rightarrow b$, y si $b \Rightarrow a$
+
+Parte 1.i) Si $\exists \lim\limits_{||P|| \rightarrow 0} S(P, g, F) = I < +\infty \Rightarrow$ dado $\varepsilon > 0$, $\exists \delta$ tal que si $||P|| < \delta$ y $||Q|| < \delta$ se cumple que $| S(P, g, F) - S(Q, g, F)| < \varepsilon$.
+
+*Dem*:
+
+
+Parte 1.ii) Dado $\varepsilon > 0$, $\exists \delta$ tal que si $||P|| < \delta$ y $||Q|| < \delta$ se cumple que $| S(P, g, F) - S(Q, g, F)| < \varepsilon \Rightarrow \exists \lim\limits_{||P|| \rightarrow 0} S(P, g, F) = I < +\infty$.
+
+*Dem*:
+
+
+***
+
+Parte 2: $a \Leftrightarrow c$, lo cual implíca probar que: si $a \Rightarrow c$, y si $c \Rightarrow a$
+
+\vspace{0.5cm}
+
+Parte 2.i) Si $\exists \lim\limits_{||P|| \rightarrow 0} S(P, g, F) = I < +\infty \Rightarrow$ para toda sucesión de particiones $\{P_n\}_{n \in \mathbb{N}}$ de $[a,b]$ tal que $||P_n|| \overset{n}{\rightarrow} 0$ se cumple que $\lim\limits_{n \rightarrow +\infty} S(P, g, F) = I$. Debemos tener en cuenta que $\lim\limits_{n \rightarrow +\infty} S(P, g, F) = I \Leftrightarrow \forall \varepsilon > 0$, $\exists \delta > 0$ tal que para toda partición $P$ del intervalo $[a,b]$ con $||P|| < \delta$, $|S(P, g, F) - I| < \varepsilon$.
+
+\vspace{0.5cm}
+
+*Dem*: si $\exists \lim\limits_{||P|| \rightarrow 0} S(P, g, F) \Rightarrow \forall \varepsilon > 0$, $\exists \delta > ||P||$ tal que $|S(P, g, F) - I| < \varepsilon$. Supongamos que existe una suciesión de particiones $\{P_n\}_{n \in \mathbb{N}}$ con $||P_n|| \overset{n}{\rightarrow} 0$. Esto implica que $\forall \delta^* > 0$, $\exists n_1 \leq n$ tal que $||P_n|| < \delta^*$. Si elegimos $\delta^* = \delta \Rightarrow$ por a) $\forall n \geq n_1$, se cumple que $|S(P, g, F) - I| < \varepsilon$.
+
+\vspace{0.5cm}
+
+Parte 2.ii) Si para toda sucesión de particiones $\{P_n\}_{n \in \mathbb{N}}$ de $[a,b]$ tal que $||P_n|| \overset{n}{\rightarrow} 0$ se cumple que $\lim\limits_{n \rightarrow +\infty} S(P, g, F) = I \Rightarrow \exists \lim\limits_{||P|| \rightarrow 0} S(P, g, F) = I < +\infty$.
+
+\vspace{0.5cm}
+
+*Dem*: Supongamos por absudo que $\exists \varepsilon > 0$ tal que $\exists P$ tal que $\forall \delta > ||P||$ se cunple que $|S(P, g, F) - I| \geq \varepsilon$. Elijo $\delta_n = ^1/_n$, entonces, para $\varepsilon > 0$, $\exists P_n$ tal que $\forall \delta_n = ^1/_n$ tal que $||P_n|| < \delta_n \Rightarrow |S(P, g, F) - I| \geq \varepsilon$. Por lo tanto, tengo definido una sucesión de particiones $\{P_n\}_{n \in \mathbb{N}}$ tal que $||P_n|| \overset{n}{\rightarrow} 0$ tal que $|S(P, g, F) - I| \geq \varepsilon$ lo cual es absurdo (porque partí del enunciado c).
+
+#### Teorema 1.34
+
+
+#### Teorema 1.35
+
+
+#### Proposición 1.36
+
+
+#### Proposición 1.37
+
+
+#### Proposición 1.38
+
+
+#### Proposición 1.39
+
+
+#### Proposición 1.40
+
+
+#### Proposición 1.41: Teorema del valor medio
+
+
 
 ## Métodos de integración
 
