@@ -543,7 +543,7 @@ i. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) < \infty \Rightarrow P \left( \limsu
 $$\begin{array}{c c c}
 P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por prop. 1.11/4} \\ \\
 \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) \leq \sum\limits_{k = n}^{+\infty} P(A_k) & & \text{prop. 1.9/6} \\ \\
-\sum\limits_{k = n}^{+\infty} P(A_k) \overset{n}{\rightarrow} 0 0 & & \text{por ser la cola de una serie convergente}
+\sum\limits_{k = n}^{+\infty} P(A_k) \overset{n}{\rightarrow} 0 & & \text{por ser la cola de una serie convergente}
 \end{array}$$
 
 ii. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) = \infty$ y además $\{A_n\}_{n \in \mathbb{N}}$ son independientes $\Rightarrow P \left( \limsup\limits_n A_n \right) = 1$
@@ -983,11 +983,52 @@ ii. $\int\limits_c^d g \big( h(t) \big) d F \big( h(t) \big) = \int\limits_a^b g
 
 #### Proposición 1.44
 
-
+Si $F_X$ es la función de distribución de una variable aleatoria $X$, entonces:
+$$\int\limits_a^b dF_X(x) = P(a < X \leq b)$$
 
 #### Proposición 1.45
 
+Sea $X$ una variable aleatoria cuya función de distribución es $F_X$:
 
+- Si su recorrido es $A = \{x_1, x_2, \ldots \}$ y $g : [a,b] \rightarrow \mathbb{R}$ es continua, entonces:
+   $$\int\limits_a^b g(x) d F_X(x) = \sum\limits_{x \in (a,b] \cap A} g(x) p_X(x) = E \left( g(X) \mathbb{I}_{ \{ X \in (a,b] \} } \right) $$
+
+- Si $X$ es absolutamente continua con densidad $f_X$ y $g : [a,b] \rightarrow \mathbb{R}$ es continua, entonces:
+   $$\int\limits_a^b g(x) d F_X(x) = \int\limits_a^b g(x) f_X(x) dx = E \left( g(X) \mathbb{I}_{ \{ X \in (a,b] \} } \right) $$
+
+De lo anterior se desprende que podemos definir la esperanza de una variable aleatoria $X$ con función de distribución $F_X$ como:
+
+$$E(X) = \lim\limits_{\substack{a \rightarrow - \infty \\ b \rightarrow + \infty }} \int\limits_a^b x d F_X(x) = \int\limits_{-\infty}^{+\infty} x d F_X(x) $$
 
 #### Ejercicio 1.46 (Ejercicio 5 del práctico 1)
+
+Probar que si $F$ es una función de distribución, $a < b$ son puntos de continuidad de $F$, definimos:
+$$\psi(x) = \left\{ 
+\begin{array}{c c l}
+0 & \text{si} & x < a, x > b \\
+1/2 & \text{si} & x = a, x = b \\
+1 & \text{si} & a < x < b
+\end{array} \right.$$
+
+entonces, $\int\limits_{-\infty}^{+\infty} \psi(x) dF(x) = F(b) - F(a)$
+
+*Solución*: sea la partición $P = \{-z = c_0; \, \ldots; \, c_n = z\}$ tal que $a \in [c_{a-1}; \, c_a]$, $b \in [c_{b-1}; \, c_b]$ y $x_i \in [c_{i-1}; \, c_i]$. Luego entonces,
+$$\int\limits_{-\infty}^{+\infty} \psi(x) dF(x) = \lim\limits_{z \rightarrow + \infty} \int\limits_{-z}^{z} \psi(x) dF(x) = \lim\limits_{z \rightarrow + \infty} \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \psi(x_i) \Big[ F(c_i) - F(c_{i-1})\Big] =$$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a}^{b} \psi(x_i) \Big[ F(c_i) - F(c_{i-1})\Big] = $$
+$$= \lim\limits_{||P|| \rightarrow 0} \Bigg[ \underbrace{\psi(x_a)}_{\psi(a)} \Big[ \underbrace{ \underbrace{F(c_a)}_{F(a)} - \underbrace{F(c_{a-1})}_{F(a)} }_{= 0} \Big] + \sum\limits_{i = a+1}^{b-1} \psi(x_i) \Big[ F(c_i) - F(c_{i-1})\Big] + \underbrace{\psi(x_b)}_{\psi(b)} \Big[ \underbrace{\underbrace{F(c_b)}_{F(b)} - \underbrace{F(c_{b-1})}_{F(b)}}_{= 0} \Big] \Bigg] = $$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a+1}^{b-1} \underbrace{\psi(x_i)}_{= 1} \Big[ F(c_i) - F(c_{i-1})\Big] = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a+1}^{b-1} \Big[ F(c_i) - F(c_{i-1})\Big] = $$
+$$= \lim\limits_{||P|| \rightarrow 0} \Big[ F(c_{b-1}) - F(c_{a+1})\Big] = F(b) - F(a)$$
+donde la última igualdad se debe a que $c_{b-1} \xrightarrow{\enskip ||P|| \rightarrow 0 \enskip} b$ y $c_{a+1} \xrightarrow{\enskip ||P|| \rightarrow 0 \enskip} a$.
+
+
+
+
+
+
+
+
+
+
+
+
 
