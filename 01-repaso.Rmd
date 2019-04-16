@@ -1019,16 +1019,3 @@ $$= \lim\limits_{||P|| \rightarrow 0} \Bigg[ \underbrace{\psi(x_a)}_{\psi(a)} \B
 $$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a+1}^{b-1} \underbrace{\psi(x_i)}_{= 1} \Big[ F(c_i) - F(c_{i-1})\Big] = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a+1}^{b-1} \Big[ F(c_i) - F(c_{i-1})\Big] = $$
 $$= \lim\limits_{||P|| \rightarrow 0} \Big[ F(c_{b-1}) - F(c_{a+1})\Big] = F(b) - F(a)$$
 donde la última igualdad se debe a que $c_{b-1} \xrightarrow{\enskip ||P|| \rightarrow 0 \enskip} b$ y $c_{a+1} \xrightarrow{\enskip ||P|| \rightarrow 0 \enskip} a$.
-
-
-
-
-
-
-
-
-
-
-
-
-
