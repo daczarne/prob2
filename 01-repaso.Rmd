@@ -962,5 +962,32 @@ Luego, por el teorema de Darboux sabemos que $\exists c \in [a,b]$ tal que $g(c)
 
 ## Métodos de integración
 
+#### Teorema 1.42: Integración por partes
+
+Si $g,F : [a,b] \rightarrow \mathbb{R}$ son tales que existe $\int\limits_a^b gdF$, entonces:
+
+i. $\exists \int\limits_a^b Fdg$
+ii. $\int\limits_a^b Fdg = gF\Big|^b_a - \int\limits_a^b gdF$
+
+\newpage
+
+#### Teorema 1.43: Cambio de variable
+
+Si $g,F : [a,b] \rightarrow \mathbb{R}$ son tales que existe $\int\limits_a^b gdF$, y $h : [c,d] \rightarrow [a,b]$ es continua y biyectiva, entonces:
+
+i. $\exists \int\limits_a^b (g \circ h) d(F \circ h)$
+ii. $\int\limits_c^d g \big( h(t) \big) d F \big( h(t) \big) = \int\limits_a^b g(x) d F(x)$
+
+
 ## Aplicaciones a la teoría de la probabilidad
+
+#### Proposición 1.44
+
+
+
+#### Proposición 1.45
+
+
+
+#### Ejercicio 1.46 (Ejercicio 5 del práctico 1)
 
