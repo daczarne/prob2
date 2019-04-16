@@ -904,10 +904,6 @@ ii. $\int\limits_a^b (\alpha g + \beta h )dF = \alpha \int\limits_a^b gdF + \bet
 ***
 
 *Dem*:
-
-Parte i)
-
-Parte ii)
 $$\int\limits_a^b (\alpha g(x) + \beta h(x)) dF(x) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \big( \alpha g(\xi_i) + \beta h(\xi_i) \big) \big[ F(x_i) - F(x_{i-1}) \big] = $$
 $$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \Big( \alpha g(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] + \beta h(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] \Big) =$$
 $$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \alpha g(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] + \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \beta h(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] = $$
@@ -920,6 +916,13 @@ Si $h,F,G : [a,b] \rightarrow \mathbb{R}$ son tales que existen $\int\limits_a^b
 
 i. $\exists \int\limits_a^b h d (\alpha F + \beta G) \,\,\, \forall \alpha, \beta \in \mathbb{R}$
 ii. $\int\limits_a^b h d (\alpha F + \beta G) = \alpha \int\limits_a^b hdF + \beta \int\limits_a^b hdG$
+
+*Dem*:
+$$\int\limits_a^b h d (\alpha F + \beta G) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} h(x_i) \Big[ \alpha \big( F(x_i) - F(x_{i-1}) \big) + \beta \big( G(x_i) - G(x_{i-1}) \big) \Big] =$$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \alpha h(x_i) \big( F(x_i) - F(x_{i-1}) \big) + \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \beta h(x_i) \big( G(x_i) - G(x_{i-1}) \big) =$$
+$$= \alpha \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} h(x_i) \big( F(x_i) - F(x_{i-1}) \big) + \beta \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} h(x_i) \big( G(x_i) - G(x_{i-1}) \big) =$$
+$$= \alpha \int\limits_a^b hdF + \beta \int\limits_a^b h dG = \alpha I_F + \beta I_G = I^* $$
+
 
 #### Proposición 1.38
 
