@@ -21,5 +21,12 @@ Si $X_n \overset{cs}{\rightarrow} X$ y $Y_n \overset{cs}{\rightarrow} Y$ entonce
 
 *Dem*:
 
-Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Análogamente, si $Y_n \overset{cs}{\rightarrow} Y \Rightarrow \exists B$ con $P(B) = 1$ tal que $\forall \omega \in B$, $Y_n(\omega) \overset{n}{\rightarrow} Y(\omega)$. Sea $D = A \cap B \Rightarrow$ por proposición 1.9/9, $P(D) = P(A \cap B) = 1 \Rightarrow X_n + Y_n \overset{cs}{\rightarrow} X + Y$
+Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Análogamente, si $Y_n \overset{cs}{\rightarrow} Y \Rightarrow \exists B$ con $P(B) = 1$ tal que $\forall \omega \in B$, $Y_n(\omega) \overset{n}{\rightarrow} Y(\omega)$. Sea $D = A \cap B \Rightarrow$ por proposición 1.9/9, $P(D) = P(A \cap B) = 1 \Rightarrow X_n + Y_n \overset{cs}{\rightarrow} X + Y$.
 
+## Parte b
+
+Si $X_n \overset{cs}{\rightarrow} X$ y $g$ es continua, entonces $g(X_n) \overset{cs}{\rightarrow} g(X)$.
+
+*Dem*:
+
+Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Si $g$ es continua, entonces $\forall \omega \in A$, $g(X_n(\omega)) \overset{n}{\rightarrow} g(X(\omega))$. Dado que $P(A) = 1$, $g(X_n) \overset{cs}{\rightarrow} g(X)$.
