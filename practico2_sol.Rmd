@@ -23,10 +23,18 @@ Si $X_n \overset{cs}{\rightarrow} X$ y $Y_n \overset{cs}{\rightarrow} Y$ entonce
 
 Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Análogamente, si $Y_n \overset{cs}{\rightarrow} Y \Rightarrow \exists B$ con $P(B) = 1$ tal que $\forall \omega \in B$, $Y_n(\omega) \overset{n}{\rightarrow} Y(\omega)$. Sea $D = A \cap B \Rightarrow$ por proposición 1.9/9, $P(D) = P(A \cap B) = 1 \Rightarrow X_n + Y_n \overset{cs}{\rightarrow} X + Y$.
 
-## Parte b
+## Parte c
 
 Si $X_n \overset{cs}{\rightarrow} X$ y $g$ es continua, entonces $g(X_n) \overset{cs}{\rightarrow} g(X)$.
 
 *Dem*:
 
 Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Si $g$ es continua, entonces $\forall \omega \in A$, $g(X_n(\omega)) \overset{n}{\rightarrow} g(X(\omega))$. Dado que $P(A) = 1$, $g(X_n) \overset{cs}{\rightarrow} g(X)$.
+
+## Parte e
+
+Si $X_n \overset{cs}{\rightarrow} X$ y $Y_n \overset{cs}{\rightarrow} Y$, y sean $a_n$ y $b_n$ dons sucesiones denúmeros reales tales que $a_n \overset{n}{\rightarrow} a > 0$ y $b_n \overset{n}{\rightarrow} b$, entonces $a_n \, X_n + b_n \, Y_n \overset{cs}{\rightarrow} a \, X + b \, Y$.
+
+*Dem*: alcanza con demostrar que $a_n \, X_n \overset{cs}{\rightarrow} a \, X$ y luego usar el resultado de la parte a del ejercicio.
+
+Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Luego $a_n$ es una sucesión real que sabemos converge a $a$ (por hipótesis), por lo tanto, $\forall \omega \in A$, $a_n \, X_n(\omega) \overset{n}{\rightarrow} a \, X(\omega)$. Dado que $P(A) = 1$, $a_n \, X_n \overset{cs}{\rightarrow} a \, X$.
