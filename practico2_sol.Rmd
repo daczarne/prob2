@@ -38,3 +38,78 @@ Si $X_n \overset{cs}{\rightarrow} X$ y $Y_n \overset{cs}{\rightarrow} Y$, y sean
 *Dem*: alcanza con demostrar que $a_n \, X_n \overset{cs}{\rightarrow} a \, X$ y luego usar el resultado de la parte a del ejercicio.
 
 Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Luego $a_n$ es una sucesión real que sabemos converge a $a$ (por hipótesis), por lo tanto, $\forall \omega \in A$, $a_n \, X_n(\omega) \overset{n}{\rightarrow} a \, X(\omega)$. Dado que $P(A) = 1$, $a_n \, X_n \overset{cs}{\rightarrow} a \, X$.
+
+\newpage
+
+## Parte d
+
+¿Valen los resultado anteriores si $X_n \overset{p}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} Y$?
+
+**Parte 1**: Si $X_n \overset{p}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} Y$ entonces $X_n + Y_n \overset{p}{\rightarrow} X + Y$
+
+*Dem*: requiere demostrar que $P(\{ \omega : |X_n(\omega) + Y_n(\omega) - X(\omega) - Y(\omega) | > \varepsilon\} ) \overset{n}{\rightarrow} 0$, $\forall \varepsilon > 0$. Antes de demostrar la convergencia necesitamos explicitar tres cosas:
+
+1. Si $X_n \overset{p}{\rightarrow} X \Rightarrow P(|X_n - X| > \varepsilon / 2) \overset{n}{\rightarrow} 0$, por definición de convergencia en probabilidad.
+
+2. Si $Y_n \overset{p}{\rightarrow} Y \Rightarrow P(|Y_n - Y| > \varepsilon / 2) \overset{n}{\rightarrow} 0$, por definición de convergencia en probabilidad.
+
+3. $\{ \omega \in \Omega : |X_n + Y_n - X - Y| > \varepsilon \} \subset \{ \omega \in \Omega : |X_n - X| + |Y_n - Y| > \varepsilon \}$ por lo tanto, $\varepsilon < |x_n + Y_n - X - Y| \leq |X_n - X| + |Y_n - Y|$
+
+Luego entonces,
+$$0 \leq P(|X_n + Y_n - X - Y | > \varepsilon ) \leq P(|X_n - X | > \varepsilon/2 ) + P(|Y_n - Y | > \varepsilon / 2 ) \overset{n}{\rightarrow} 0$$
+
+**Parte 2**: Si $X_n \overset{p}{\rightarrow} X$ y $g$ es una función continua entonces $g(X_n) \overset{p}{\rightarrow} g(X)$
+
+# Ejercicio 2
+
+Verificar que si $X_1; \, X_2; \, \ldots$ iid, entonces $\bar{X}_n$ es un estimador consistente para
+
+a. el parámetro $p$, si $X_1 \sim Bin(1,p)$
+b. $\lambda$, si $X_1 \sim Poi(\lambda)$
+c. $1/\lambda$, si $X_1 \sim Exp(\lambda)$
+
+## Parte a
+
+Por convergencia en media cuadrática:
+
+$$\left.\begin{array}{r}
+E(\bar{X}_n) = E(X_1) = p \\ \\
+V(\bar{X}_n) = \frac{V(X_1)}{n} = \frac{p(1 - p)}{n} \overset{n}{\rightarrow} 0
+\end{array} \right\}
+\Rightarrow \bar{X}_n \overset{mc}{\rightarrow} p \Rightarrow \bar{X}_n \overset{p}{\rightarrow} p$$
+
+Utilizando desigualdad de Chebychev:
+
+$$ P (| \bar{X}_n - p | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsilon^2} = \frac{ V(X_1) / n}{\varepsilon^2 } = \frac{ V(X_1) }{n \, \varepsilon^2 } = \frac{ p(1 - p) }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} p$$
+
+## Parte b
+
+Por convergencia en media cuadrática:
+
+$$\left.\begin{array}{r}
+E(\bar{X}_n) = E(X_1) = \lambda \\ \\
+V(\bar{X}_n) = \frac{V(X_1)}{n} = \frac{\lambda}{n} \overset{n}{\rightarrow} 0
+\end{array} \right\}
+\Rightarrow \bar{X}_n \overset{mc}{\rightarrow} \lambda \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \lambda$$
+
+Utilizando desigualdad de Chebychev:
+
+$$ P (| \bar{X}_n - \lambda | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsilon^2} = \frac{ V(X_1) / n}{\varepsilon^2 } = \frac{ V(X_1) }{n \, \varepsilon^2 } = \frac{ \lambda }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \lambda$$
+
+## Parte c
+
+Por convergencia en media cuadrática:
+
+$$\left.\begin{array}{r}
+E(\bar{X}_n) = E(X_1) = \lambda \\ \\
+V(\bar{X}_n) = \frac{V(X_1)}{n} = \frac{\lambda}{n} \overset{n}{\rightarrow} 0
+\end{array} \right\}
+\Rightarrow \bar{X}_n \overset{mc}{\rightarrow} \lambda \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \lambda$$
+
+Utilizando desigualdad de Chebychev:
+
+$$ P (| \bar{X}_n - \lambda | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsilon^2} = \frac{ V(X_1) / n}{\varepsilon^2 } = \frac{ V(X_1) }{n \, \varepsilon^2 } = \frac{ \lambda }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \lambda$$
+
+
+
+
