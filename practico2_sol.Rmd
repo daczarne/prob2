@@ -101,15 +101,11 @@ $$ P (| \bar{X}_n - \lambda | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsil
 Por convergencia en media cuadrática:
 
 $$\left.\begin{array}{r}
-E(\bar{X}_n) = E(X_1) = \lambda \\ \\
-V(\bar{X}_n) = \frac{V(X_1)}{n} = \frac{\lambda}{n} \overset{n}{\rightarrow} 0
+E(\bar{X}_n) = E(X_1) = \frac{1}{\lambda} \\ \\
+V(\bar{X}_n) = \frac{V(X_1)}{n} = \frac{ 1 / \lambda^2}{n} \overset{n}{\rightarrow} 0
 \end{array} \right\}
-\Rightarrow \bar{X}_n \overset{mc}{\rightarrow} \lambda \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \lambda$$
+\Rightarrow \bar{X}_n \overset{mc}{\rightarrow} \frac{1}{\lambda} \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \frac{ 1 }{ \lambda}$$
 
 Utilizando desigualdad de Chebychev:
 
-$$ P (| \bar{X}_n - \lambda | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsilon^2} = \frac{ V(X_1) / n}{\varepsilon^2 } = \frac{ V(X_1) }{n \, \varepsilon^2 } = \frac{ \lambda }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \lambda$$
-
-
-
-
+$$ P (| \bar{X}_n - \lambda | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsilon^2} = \frac{ V(X_1) / n}{\varepsilon^2 } = \frac{ V(X_1) }{n \, \varepsilon^2 } = \frac{ 1 / \lambda^2 }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \frac{1}{\lambda}$$
