@@ -109,3 +109,35 @@ V(\bar{X}_n) = \frac{V(X_1)}{n} = \frac{ 1 / \lambda^2}{n} \overset{n}{\rightarr
 Utilizando desigualdad de Chebychev:
 
 $$ P (| \bar{X}_n - \lambda | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsilon^2} = \frac{ V(X_1) / n}{\varepsilon^2 } = \frac{ V(X_1) }{n \, \varepsilon^2 } = \frac{ 1 / \lambda^2 }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \frac{1}{\lambda}$$
+
+# Ejercicio 3
+
+## Estimador $T_n = 2 \sum\limits_{i = 1}^{n} X_i / n$
+
+Nótese primero que $T_n = 2 \bar{X}_n = g(\bar{X}_n)$ siengo $g(z) = 2z$ y por tanto continua. Por lo tanto, probar que $T_n \overset{cs}{\rightarrow} \theta$ implíca probar que $\bar{X}_n \overset{cs}{\rightarrow} \theta / 2$ (ver parte c del ejercicio 1).
+
+*Dem*: por el teorema de convergencia monótona sabemos que si existe $E(\bar{X}_n)$, $\bar{X}_n(\omega) \geq 0$, y  $\bar{X_n}(\omega) \uparrow \bar{X}(\omega)$ entonces existe $E(\bar{X}_n)$ para todo $n$ y $\lim\limits_{n \rightarrow + \infty} E(\bar{X}_n) = E(\bar{X})$
+
+1. Por ser una muestra iid de variables $Unif(0. \theta]$, sabemos que $E(\bar{X}_n) = E(X_1) = \theta / 2$.  
+2. Sabemos que $0 \leq \bar{X}_n \leq \theta$ para todo $n$, por lo tanto, $\bar{X}_n \geq 0$ para todo $n$.  
+3. Ni idea :( así que supongamos que sí
+
+Por lo tanto, $\lim\limits_{n \rightarrow + \infty} E(\bar{X}_n) = E(\bar{X}) = E(X_1) = \theta / 2$
+
+
+$\bar{X}_n \overset{cs}{\rightarrow} \theta / 2 \Rightarrow T_n \overset{cs}{\rightarrow} \theta$
+
+## Estimador $X_{(n)}$
+
+Sea $X_{(n)} = \max\limits_n \{X_1, X_2, \ldots\} \Rightarrow f_{X_{(n)}}(x) = \frac{n x^{n-1}}{\theta^n} \, \mathbb{I}_{(0 < x < \theta]}$. Luego,
+
+$$P(|X_{(n)} - \theta| > \varepsilon) = 1 - P (|X_{(n)} - \theta | < \varepsilon ) = 1 - P(\theta - \varepsilon < X_{(n)} < \theta + \varepsilon) = $$
+$$= 1 - P(\theta - \varepsilon < X_{(n)} < \theta) = 1 - \int\limits_{\theta - \varepsilon}^{\theta} f_{X_{(n)}}(x) dx = 1 - \int\limits_{\theta - \varepsilon}^{\theta} \frac{n x^{n-1}}{\theta^n} dx =$$
+$$= 1 - \frac{1}{\theta^n} \left( x^n \big|_{\theta - \varepsilon}^{\theta} \right) = 1 - \left( \frac{\theta^n}{\theta^n} - \frac{(\theta - \varepsilon)^n}{\theta^n}\right) = \frac{(\theta - \varepsilon)^n}{\theta^n} = \left( \frac{\theta - \varepsilon}{\theta}\right)^n $$
+
+Luego por el corolario 2.4 sabemos que si $\forall \varepsilon > 0$, $\sum\limits_{n = 1}^{+\infty} P(|X_{(n)} - \theta| > \varepsilon) < \infty \Rightarrow X_{(n)} \overset{cs}{\rightarrow} \theta$. Lo cual se cumple en este caso:
+
+$$ \sum\limits_{n = 1}^{+ \infty} P ( | X_{(n)} - \theta | > \varepsilon ) = \sum\limits_{n = 1}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n = - 1 + 1 + \sum\limits_{n = 1}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n =$$
+$$= - 1 + \left( \frac{ \theta - \varepsilon }{ \theta } \right)^0 + \sum\limits_{n = 1}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n = - 1 + \sum\limits_{n = 0}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n < +\infty \text{ dado que } \left| \frac{ \theta - \varepsilon }{ \theta } \right| < 1 $$
+
+Por lo tanto, encontramos que $X_{n} \overset{cs}{\rightarrow} \theta$.
