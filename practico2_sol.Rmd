@@ -141,3 +141,22 @@ $$ \sum\limits_{n = 1}^{+ \infty} P ( | X_{(n)} - \theta | > \varepsilon ) = \su
 $$= - 1 + \left( \frac{ \theta - \varepsilon }{ \theta } \right)^0 + \sum\limits_{n = 1}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n = - 1 + \sum\limits_{n = 0}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n < +\infty \text{ dado que } \left| \frac{ \theta - \varepsilon }{ \theta } \right| < 1 $$
 
 Por lo tanto, encontramos que $X_{n} \overset{cs}{\rightarrow} \theta$.
+
+# Ejercicio 4
+
+Mostrar que $d_2(X,Y) = \sqrt{ E(x - Y)^2 }$ es una distance en el conjunto delas variables aleatorias con momento de segundo orden finit.
+
+*Dem*: implica probar todas las características de una distance.
+
+1) $d_2(X,Y) > 0$, $\forall X \neq Y$ se cumple dado que $Z = (X - Y)^2 > 0 \Rightarrow \sqrt{E(Z)} > 0$.
+
+2) $d_2(X,Y) = 0 \Leftrightarrow X = Y$.
+
+3) $d_2(X,Y) = \sqrt{E(X - Y)^2} = \sqrt{E(Y - X)^2} = d_2(Y,X)$
+
+4) Desigualdad triangular
+$$d_2(X,Y) = \sqrt{ E(X - Y)^2} = \sqrt{ E(X - Z + Z - Y)^2} = $$
+$$= \sqrt{ E (X - Z)^2 + 2 E(X - Z)(Z - Y) + E(Z - Y)^2 \Big]} \leq$$
+$$\leq \sqrt{ E (X - Z)^2 + 2 \sqrt{ E(X - Z)^2 \, E(Z - Y)^2 } + E(Z - Y)^2} \leq$$
+$$\leq \sqrt{ E (X - Z)^2 + E(Z - Y)^2} \leq \sqrt{ E (X - Z)^2} + \sqrt{ E(Z - Y)^2 } = d_2(X,Z) + d_2(Z,Y)$$
+
