@@ -239,7 +239,7 @@ P(A) + P(B) - P(A \cap B) = P (A \cup B) & &
 Siguiendo un procedimiento análogo podemos demostrar, para $n = 3$, que:
 $$P(A \cup B \cup C) = P(A) + P(B) - P(A \cap B) + P(C) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C) \Rightarrow$$
 $$\Rightarrow P(A \cup B \cup C) = P(A) + P(B) + P(C) - \big[ P(A \cap B) + P(A \cap C) + P(B \cap C) \big] + P(A \cap B \cap C) $$
-donde $P(A_i \cap A_j) \geq P(A_i \cap A_j \cap A_k)$ para cualquier par y terna de conjuntos, dado que del lado izquierdo estmaos intersectando más conjuntos, es decir, excluyendo más sucesos. De donde obtenemos que $P(A \cup B \cup C) \leq P(A) + P(B) + P(C)$
+donde $P(A_i \cap A_j) \geq P(A_i \cap A_j \cap A_k)$ para cualquier par y terna de conjuntos, dado que del lado izquierdo estamos intersectando más conjuntos, es decir, excluyendo más sucesos. De donde obtenemos que $P(A \cup B \cup C) \leq P(A) + P(B) + P(C)$.
 
 Si continuamos con este proceso hasta llegar a $n$ sucesos, encontramos que:
 $$ P \left( \bigcup\limits_{k = 1}^{n} A_k \right) = \sum\limits_{k = 1}^{n} P(A_k) - \sum\limits_{\substack{i_1, i_2 = 1 \\ i_1 < i_2}}^{n} P(A_{i_1} \cap A_{i_2}) + \sum\limits_{\substack{i_1, i_2. i_3 = 1 \\ i_1 < i_2 < i_3 }}^{n} P(A_{i_1} \cap A_{i_2} \cap A_{i_3}) + $$
