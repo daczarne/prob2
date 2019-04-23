@@ -84,7 +84,7 @@ dado que $\{ \omega : |g(X_n(\omega)) - g(X(\omega))| \geq \varepsilon \} \subse
 
 $$P(|a_n \, X_n - aX| > \varepsilon) = P(|a_n \, X_n - a \, X_n + a \, X_n - a \,X| > \varepsilon) \leq $$
 $$ \leq P(|a_n \, X_n - a \, X_n | > \varepsilon / 2) + P(| a \, X_n - a \,X | > \varepsilon / 2) = $$
-$$= P(|a_n - a| \, | X_n | > \varepsilon / 2) + P(| a | \, | X_n - X | > \varepsilon / 2) $$
+$$= P(|a_n - a| \, | X_n | > \varepsilon / 2) + P(| a | \, | X_n - X | > \varepsilon / 2) = $$
 $$= P(|a_n - a| \, | X_n - X + X | > \varepsilon / 2) + \underbrace{P(| a | \, | X_n - X | > \varepsilon / 2) }_{\rightarrow 0 \text{,  porque } X_n \overset{p}{\rightarrow} X} \leq $$
 $$ \leq \underbrace{P(|a_n - a| \, | X_n - X | > \varepsilon / 4)}_{{\rightarrow 0 \text{,  porque } X_n \overset{p}{\rightarrow} X}} + P(|a_n - a| \, | X | > \varepsilon / 4) \leq $$
 $$ = P \Bigg( \underbrace{|a_n - a|}_{ \substack{ \rightarrow 0 \text{, dado } \\ \text{que } a_n \overset{n}{\rightarrow} a} } > \frac{\varepsilon}{4|X|} \Bigg) \overset{n}{\rightarrow} 0 $$
