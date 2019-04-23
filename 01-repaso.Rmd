@@ -43,8 +43,6 @@ Si $\mathcal{A}$ es una $\sigma$-álgebra, entonces:
 
 $$ \bigcup\limits_{i=1}^{n} A_i = \bigcup\limits_{i=1}^{+\infty} B_i \in \mathcal{A} \Rightarrow \bigcup\limits_{i=1}^{n} A_i \in \mathcal{A} $$
 
-***
-
 3. Si $\{ A_n \}_{n \in \mathbb{N}} \subset \mathcal{A} \Rightarrow \bigcap\limits_{i = 1}^{+\infty} A_i \in \mathcal{A}$
 
 *Dem*: si $A_i \in \mathcal{A} \Rightarrow$ por el axioma 2, $A_i^c \in \mathcal{A} \Rightarrow$ por el axioma 3, $\bigcup_{i = 1}^{+ \infty} A_i^c \in \mathcal{A} \Rightarrow$
