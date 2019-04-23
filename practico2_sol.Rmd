@@ -33,7 +33,7 @@ Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal qu
 
 ## Parte e
 
-Si $X_n \overset{cs}{\rightarrow} X$ y $Y_n \overset{cs}{\rightarrow} Y$, y sean $a_n$ y $b_n$ dons sucesiones denúmeros reales tales que $a_n \overset{n}{\rightarrow} a > 0$ y $b_n \overset{n}{\rightarrow} b$, entonces $a_n \, X_n + b_n \, Y_n \overset{cs}{\rightarrow} a \, X + b \, Y$.
+Si $X_n \overset{cs}{\rightarrow} X$ y $Y_n \overset{cs}{\rightarrow} Y$, y sean $a_n$ y $b_n$ dos sucesiones de números reales tales que $a_n \overset{n}{\rightarrow} a > 0$ y $b_n \overset{n}{\rightarrow} b$, entonces $a_n \, X_n + b_n \, Y_n \overset{cs}{\rightarrow} a \, X + b \, Y$.
 
 *Dem*: alcanza con demostrar que $a_n \, X_n \overset{cs}{\rightarrow} a \, X$ y luego usar el resultado de la parte a del ejercicio.
 
@@ -45,9 +45,13 @@ Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal qu
 
 ¿Valen los resultado anteriores si $X_n \overset{p}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} Y$?
 
+***
+
 **Parte 1**: Si $X_n \overset{p}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} Y$ entonces $X_n + Y_n \overset{p}{\rightarrow} X + Y$
 
-*Dem*: requiere demostrar que $P(\{ \omega : |X_n(\omega) + Y_n(\omega) - X(\omega) - Y(\omega) | > \varepsilon\} ) \overset{n}{\rightarrow} 0$, $\forall \varepsilon > 0$. Antes de demostrar la convergencia necesitamos explicitar tres cosas:
+\vspace{.3cm}
+
+*Dem*: requiere demostrar que $P(\{ \omega : |X_n(\omega) + Y_n(\omega) - X(\omega) - Y(\omega) | > \varepsilon\} ) \overset{n}{\rightarrow} 0$, $\forall \varepsilon > 0$. Antes de demostrar la convergencia necesitamos explicitar tres resultados:
 
 1. Si $X_n \overset{p}{\rightarrow} X \Rightarrow P(|X_n - X| > \varepsilon / 2) \overset{n}{\rightarrow} 0$, por definición de convergencia en probabilidad.
 
@@ -58,7 +62,34 @@ Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal qu
 Luego entonces,
 $$0 \leq P(|X_n + Y_n - X - Y | > \varepsilon ) \leq P(|X_n - X | > \varepsilon/2 ) + P(|Y_n - Y | > \varepsilon / 2 ) \overset{n}{\rightarrow} 0$$
 
+***
+
 **Parte 2**: Si $X_n \overset{p}{\rightarrow} X$ y $g$ es una función continua entonces $g(X_n) \overset{p}{\rightarrow} g(X)$
+
+\vspace{.3cm}
+
+*Dem*: $g$ es continua $\Leftrightarrow \forall \varepsilon > 0$, $\exists \delta$ tal que si $|X_n(\omega) - X(\omega)| < \delta \Rightarrow |g(X_n(\omega)) - g(X(\omega))| < \varepsilon$. Por contra recíproco esto implíca que si $|g(X_n(\omega)) - g(X(\omega))| \geq \varepsilon \Rightarrow |X_n(\omega) - X(\omega)| \geq \delta$ . Luego entonces:
+$$0 \leq P( | g(X_n(\omega)) - g(X(\omega)) | \geq \varepsilon ) \leq P( | X_n(\omega) - X(\omega) | \geq \delta ) \overset{n}{\rightarrow} 0$$
+dado que $\{ \omega : |g(X_n(\omega)) - g(X(\omega))| \geq \varepsilon \} \subseteq \{ \omega : |X_n(\omega) - X(\omega)| \geq \delta \}$. Por lo tanto, $g(X_n) \overset{p}{\rightarrow} g(X)$.
+
+***
+
+\newpage
+
+**Parte 3**: si $X_n \overset{p}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} Y$, y sean $a_n$ y $b_n$ dos sucesiones de números reales tales que $a_n \overset{n}{\rightarrow} a > 0$ y $b_n \overset{n}{\rightarrow} b$, entonces $a_n \, X_n + b_n \, Y_n \overset{cs}{\rightarrow} a \, X + b \, Y$.
+
+\vspace{.3cm}
+
+*Dem*: al igual que con la convergencia $cs$, alcanza con demostrar que $a_n \, X_n \overset{p}{\rightarrow} a \, X$. Esto implica demostrar que $P(|a_n \, X_n - aX| > \varepsilon) \overset{n}{\rightarrow} 0$.
+
+$$P(|a_n \, X_n - aX| > \varepsilon) = P(|a_n \, X_n - a \, X_n + a \, X_n - a \,X| > \varepsilon) \leq $$
+$$ \leq P(|a_n \, X_n - a \, X_n | > \varepsilon / 2) + P(| a \, X_n - a \,X | > \varepsilon / 2) = $$
+$$= P(|a_n - a| \, | X_n | > \varepsilon / 2) + P(| a | \, | X_n - X | > \varepsilon / 2) $$
+$$= P(|a_n - a| \, | X_n - X + X | > \varepsilon / 2) + \underbrace{P(| a | \, | X_n - X | > \varepsilon / 2) }_{\rightarrow 0 \text{,  porque } X_n \overset{p}{\rightarrow} X} \leq $$
+$$ \leq \underbrace{P(|a_n - a| \, | X_n - X | > \varepsilon / 4)}_{{\rightarrow 0 \text{,  porque } X_n \overset{p}{\rightarrow} X}} + P(|a_n - a| \, | X | > \varepsilon / 4) \leq $$
+$$ = P \Bigg( \underbrace{|a_n - a|}_{ \substack{ \rightarrow 0 \text{, dado } \\ \text{que } a_n \overset{n}{\rightarrow} a} } > \frac{\varepsilon}{4|X|} \Bigg) \overset{n}{\rightarrow} 0 $$
+
+Procediendo de forma análoga se demuestra que $b_n \, Y_n \overset{p}{\rightarrow} b \, Y$, y aplicando el resultado de la parte 1 queda demostrado que $a_n \, X_n + b_n \, Y_n \overset{p}{\rightarrow} a_n \, X + b \, Y$.
 
 # Ejercicio 2
 
@@ -144,7 +175,7 @@ Por lo tanto, encontramos que $X_{n} \overset{cs}{\rightarrow} \theta$.
 
 # Ejercicio 4
 
-Mostrar que $d_2(X,Y) = \sqrt{ E(x - Y)^2 }$ es una distance en el conjunto delas variables aleatorias con momento de segundo orden finit.
+Mostrar que $d_2(X,Y) = \sqrt{ E(X - Y)^2 }$ es una distance en el conjunto delas variables aleatorias con momento de segundo orden finit.
 
 *Dem*: implica probar todas las características de una distance.
 
