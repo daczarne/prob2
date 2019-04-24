@@ -145,18 +145,9 @@ $$ P (| \bar{X}_n - \lambda | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsil
 
 ## Estimador $T_n = 2 \sum\limits_{i = 1}^{n} X_i / n$
 
-Nótese primero que $T_n = 2 \bar{X}_n = g(\bar{X}_n)$ siengo $g(z) = 2z$ y por tanto continua. Por lo tanto, probar que $T_n \overset{cs}{\rightarrow} \theta$ implíca probar que $\bar{X}_n \overset{cs}{\rightarrow} \theta / 2$ (ver parte c del ejercicio 1).
-
-*Dem*: por el teorema de convergencia monótona sabemos que si existe $E(\bar{X}_n)$, $\bar{X}_n(\omega) \geq 0$, y  $\bar{X_n}(\omega) \uparrow \bar{X}(\omega)$ entonces existe $E(\bar{X}_n)$ para todo $n$ y $\lim\limits_{n \rightarrow + \infty} E(\bar{X}_n) = E(\bar{X})$
-
-1. Por ser una muestra iid de variables $Unif(0. \theta]$, sabemos que $E(\bar{X}_n) = E(X_1) = \theta / 2$.  
-2. Sabemos que $0 \leq \bar{X}_n \leq \theta$ para todo $n$, por lo tanto, $\bar{X}_n \geq 0$ para todo $n$.  
-3. Ni idea :( así que supongamos que sí
-
-Por lo tanto, $\lim\limits_{n \rightarrow + \infty} E(\bar{X}_n) = E(\bar{X}) = E(X_1) = \theta / 2$
-
-
-$\bar{X}_n \overset{cs}{\rightarrow} \theta / 2 \Rightarrow T_n \overset{cs}{\rightarrow} \theta$
+Por el ejercicio 1 parte c sabemos que si $g$ es continua y $X_n \overset{cs}{\rightarrow} X$, entonces $g(X_n) \overset{cs}{\rightarrow} g(X)$. Por el LFGN sabemos que $S_n / n \overset{cs}{\rightarrow} E(X_1)$. Por último, dado que $X_n$ es una sucesión iid de variables aleatorias iid con distribución $Unif(0, \theta]$, sabemos que $E(X_i) = \theta / 2$. Con esto entonces:
+$$T_n = 2 \frac{S_n}{n} = g(S_n) \overset{cs}{\rightarrow} g(E(X_1)) = 2 \, \left( \frac{\theta}{2} \right) = \theta$$
+dado que $g(z) = 2z$ es continua por ser polinómica.
 
 ## Estimador $X_{(n)}$
 
@@ -187,7 +178,9 @@ Mostrar que $d_2(X,Y) = \sqrt{ E(X - Y)^2 }$ es una distance en el conjunto dela
 
 4) Desigualdad triangular
 $$d_2(X,Y) = \sqrt{ E(X - Y)^2} = \sqrt{ E(X - Z + Z - Y)^2} = $$
-$$= \sqrt{ E (X - Z)^2 + 2 E(X - Z)(Z - Y) + E(Z - Y)^2 \Big]} \leq$$
+$$= \sqrt{ E (X - Z)^2 + 2 E(X - Z)(Z - Y) + E(Z - Y)^2 } \leq$$
 $$\leq \sqrt{ E (X - Z)^2 + 2 \sqrt{ E(X - Z)^2 \, E(Z - Y)^2 } + E(Z - Y)^2} \leq$$
 $$\leq \sqrt{ E (X - Z)^2 + E(Z - Y)^2} \leq \sqrt{ E (X - Z)^2} + \sqrt{ E(Z - Y)^2 } = d_2(X,Z) + d_2(Z,Y)$$
+
+
 
