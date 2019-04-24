@@ -841,7 +841,11 @@ Parte 1.i) Si $\exists \lim\limits_{||P|| \rightarrow 0} S(P, g, F) = I < +\inft
 
 \vspace{0.5cm}
 
-*Dem*:
+*Dem*: si $\exists \lim\limits_{||P|| \rightarrow 0} S_P = I \Rightarrow \exists P([a,b])$ con $||P|| < \delta$ tal que $|S_P - I | < \varepsilon$. Sea la partición $Q([a,b])$ tal que $||Q|| < \delta / 2$ entonces 
+$$|S_{P} - I| < \varepsilon$$
+$$\underbrace{|S_{P} - I - S_Q + S_Q|}_{ \leq \underbrace{|S_P - S_Q|}_{\leq \varepsilon / 2} + |S_Q - I| } < \varepsilon$$
+
+Por lo tanto, dado que $|S_P - S_Q| \leq \varepsilon / 2$, $|S_P - S_Q| < \varepsilon$.
 
 \vspace{0.5cm}
 
@@ -852,11 +856,13 @@ Parte 1.ii) Dado $\varepsilon > 0$, $\exists \delta$ tal que si $||P|| < \delta$
 *Dem*:
 $$|S(P,g,F) - S(Q,g,F)| < \varepsilon$$
 $$|S(P,g,F) - I + I - S(Q,g,F)| < \varepsilon$$
-$$|S(P,g,F) - I + I - S(Q,g,F)| < |S(P,g,F) - I| + |S(Q,g,F) - I| < \varepsilon$$
+$$|S(P,g,F) - I + I - S(Q,g,F)| < \underbrace{|S(P,g,F) - I|}_{\leq \varepsilon / 2} + \underbrace{|S(Q,g,F) - I|}_{\leq \varepsilon / 2} < \varepsilon$$
+
+Por lo tanto, dado que $|S(P,g,F) - I| \leq \varepsilon / 2$, $\exists \lim\limits_{||P|| \rightarrow 0} S(P,g,F) = I$. Análogamente, dado que $|S(Q,g,F) - I| \leq \varepsilon / 2$, $\exists \lim\limits_{||Q|| \rightarrow 0 } S(Q,g,F) = I$.
 
 ***
 
-Parte 2: $a \Leftrightarrow c$, lo cual implíca probar que: si $a \Rightarrow c$, y si $c \Rightarrow a$
+Parte 2: $a \Leftrightarrow c$, lo cual implíca probar que: si $a \Rightarrow c$, y si $c \Rightarrow a$.
 
 \vspace{0.5cm}
 
