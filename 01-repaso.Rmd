@@ -829,7 +829,7 @@ b. dado $\varepsilon > 0$, $\exists \delta$ tal que si $||P|| < \delta$ y $||Q||
 
 c. para toda sucesión de particiones $\{P_n\}_{n \in \mathbb{N}}$ de $[a,b]$ tal que $||P_n|| \xrightarrow{\enskip n \enskip} 0$ se cumple que $\lim\limits_{n \rightarrow +\infty} S(P, g, F) = I$
 
-La proposición implíca que: $a \Leftrightarrow b \Leftrightarrow c$. Se prueba demostrando que $a \Leftrightarrow b$ y $a \Leftrightarrow c$, de donde se desprende, por transitiva, que $b \Leftrightarrow c$.
+El teorema implíca que: $a \Leftrightarrow b \Leftrightarrow c$. Se prueba demostrando que $a \Leftrightarrow b$ y $a \Leftrightarrow c$, de donde se desprende, por transitiva, que $b \Leftrightarrow c$.
 
 ***
 
