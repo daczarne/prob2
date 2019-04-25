@@ -935,8 +935,18 @@ Si $g,F : [a,b] \rightarrow \mathbb{R}$ son tales que existe $\int\limits_a^b gd
 i. para todo $c \in (a,b)$, $\exists \int\limits_a^c gdF$ y $\exists \int\limits_c^b gdF$
 ii. $\int\limits_a^b gdF = \int\limits_a^c gdF + \int\limits_c^b gdF$
 
-*Dem*: 
+*Dem*: si $\exists \int\limits_a^b gdF = I \Rightarrow \exists P([a,b])$ con $||P|| < \delta$ tal que $|S_P - I| < \varepsilon$. Sea $Q$ una partición de $[a,b]$ más fina que $P$ tal que $Q = \{a = c_0, \, \ldots, \, c_n = b\} \Rightarrow ||Q|| < \delta$. Luego también, por equivalencia b del teorema 1.33, $\lim\limits_{||Q|| \rightarrow 0} S_Q = I$. Consideremos ahora la sub-partición $Q'$ tal que $Q' = \{ a = c_0, \, \ldots, \, c_m = c\}$, entonces $||Q|| < \delta$ (esto se debe a que si el intervalo de mayor distancia está en la sub-partición considerada, entonces $||Q'|| = ||Q|| < \delta$, y si no lo está entonces $||Q'|| < ||Q|| < \delta$). Tenemos entonces que:
+$$| S_Q - I | < \varepsilon \Rightarrow | (S_{Q \backslash Q'} + S_{Q'}) - I | < \varepsilon \Rightarrow \underbrace{| S_{Q \backslash Q'} + S_{Q'} - I |}_{\leq |S_{Q \backslash Q'}| + | S_{Q'} - I | } < \varepsilon$$
 
+Por lo tanto, $| S_{Q'} - I | < \varepsilon \Rightarrow \exists \int\limits_a^c gdF$. Procediendo de forma análoga se prueba la existencia de la integral para el intervalo $[c,b]$. Luego, 
+
+i. $\int\limits_a^c gdF = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a}^{c} g(\xi_i) [F(x_i) - F(x_{i-1})]$
+ii. $\int\limits_a^c gdF = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = c}^{b} g(\xi_i) [F(x_i) - F(x_{i-1})]$
+
+Por lo que:
+$$\int\limits_a^c gdF + \int\limits_c^b gdF = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a}^{c} g(\xi_i) [F(x_i) - F(x_{i-1})] + \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = c}^{b} g(\xi_i) [F(x_i) - F(x_{i-1})] = $$
+$$= \lim\limits_{||P|| \rightarrow 0} \left[ \sum\limits_{i = a}^{c} g(\xi_i) [F(x_i) - F(x_{i-1})] + \sum\limits_{i = c}^{b} g(\xi_i) [F(x_i) - F(x_{i-1})] \right] = $$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a}^{b} g(\xi_i) [F(x_i) - F(x_{i-1})] = \int\limits_a^b gdF$$
 
 #### Proposición 1.39
 
