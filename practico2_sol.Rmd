@@ -5,6 +5,7 @@ date: "April 19, 2019"
 output: pdf_document
 header-includes:
    - \everymath{\displaystyle}
+   - \usepackage{xcolor}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -145,7 +146,7 @@ $$ P (| \bar{X}_n - \lambda | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsil
 
 ## Estimador $T_n = 2 \sum\limits_{i = 1}^{n} X_i / n$
 
-Por el ejercicio 1 parte c sabemos que si $g$ es continua y $X_n \overset{cs}{\rightarrow} X$, entonces $g(X_n) \overset{cs}{\rightarrow} g(X)$. Por el LFGN sabemos que $S_n / n \overset{cs}{\rightarrow} E(X_1)$. Por último, dado que $X_n$ es una sucesión iid de variables aleatorias iid con distribución $Unif(0, \theta]$, sabemos que $E(X_i) = \theta / 2$. Con esto entonces:
+Por el ejercicio 1 parte c sabemos que si $g$ es continua y $X_n \overset{cs}{\rightarrow} X$, entonces $g(X_n) \overset{cs}{\rightarrow} g(X)$. Por el LFGN sabemos que $S_n / n \overset{cs}{\rightarrow} E(X_1)$. Por último, dado que $X_n$ es una sucesión iid de variables aleatorias con distribución $Unif(0, \theta]$, sabemos que $E(X_i) = \theta / 2$. Con esto entonces:
 $$T_n = 2 \frac{S_n}{n} = g(S_n) \overset{cs}{\rightarrow} g(E(X_1)) = 2 \, \left( \frac{\theta}{2} \right) = \theta$$
 dado que $g(z) = 2z$ es continua por ser polinómica.
 
@@ -166,21 +167,85 @@ Por lo tanto, encontramos que $X_{n} \overset{cs}{\rightarrow} \theta$.
 
 # Ejercicio 4
 
-Mostrar que $d_2(X,Y) = \sqrt{ E(X - Y)^2 }$ es una distance en el conjunto delas variables aleatorias con momento de segundo orden finit.
+**Parte a**: mostrar que $d_2(X,Y) = \sqrt{ E(X - Y)^2 }$ es una distancia en el conjunto de las variables aleatorias con momento de segundo orden finito.
 
 *Dem*: implica probar todas las características de una distance.
 
-1) $d_2(X,Y) > 0$, $\forall X \neq Y$ se cumple dado que $Z = (X - Y)^2 > 0 \Rightarrow \sqrt{E(Z)} > 0$.
+1) *No negatividad*: $d_2(X,Y) > 0$, $\forall X \neq Y$ se cumple dado que $Z = (X - Y)^2 > 0 \Rightarrow \sqrt{E(Z)} > 0$.
 
-2) $d_2(X,Y) = 0 \Leftrightarrow X = Y$.
+2) *Identidad*: $d_2(X,Y) = 0 \Leftrightarrow X = Y$. El directo requiere definir clases de equivalencias. Es decir, no es cierto así como aparece planteado en el ejercicio. Ahora, si $X \overset{cs}{=} Y$, es decir, $X$ e $Y$ son iguales en un conjunto de probabilidad 1, entonces sí se cumple que si $d_2(X,Y) = 0$, $X$ debe ser igual ($cs$) a $Y$, dado que es la única forma de que su cuadrado sea cero. Por su parte, el recíproco sí es inmediato. Es decir, si $X = Y \Rightarrow d_2(X,Y) = \sqrt{E(X - Y)^2} = \sqrt{E(X - X)^2} = \sqrt{E(0)^2} = \sqrt{E(0)} = \sqrt{0} = 0$. 
 
-3) $d_2(X,Y) = \sqrt{E(X - Y)^2} = \sqrt{E(Y - X)^2} = d_2(Y,X)$
+3) *Simetría*: $d_2(X,Y) = \sqrt{E(X - Y)^2} = \sqrt{E(Y - X)^2} = d_2(Y,X)$
 
-4) Desigualdad triangular
+4) *Desigualdad triangular*:
 $$d_2(X,Y) = \sqrt{ E(X - Y)^2} = \sqrt{ E(X - Z + Z - Y)^2} = $$
 $$= \sqrt{ E (X - Z)^2 + 2 E(X - Z)(Z - Y) + E(Z - Y)^2 } \leq$$
 $$\leq \sqrt{ E (X - Z)^2 + 2 \sqrt{ E(X - Z)^2 \, E(Z - Y)^2 } + E(Z - Y)^2} \leq$$
 $$\leq \sqrt{ E (X - Z)^2 + E(Z - Y)^2} \leq \sqrt{ E (X - Z)^2} + \sqrt{ E(Z - Y)^2 } = d_2(X,Z) + d_2(Z,Y)$$
+
+**Parte b**: verificar que $d_2(X_n,Y) \rightarrow 0$ implíca $X_n \overset{p}{\rightarrow} Y$.
+
+$$0 \leq P \left( |X_n - Y| > \varepsilon \right) = P \left( \sqrt{|X_n - Y|^2} > \sqrt{\varepsilon^2} \right) \leq \frac{ E \left( \sqrt{|X_n - Y|^2} \right) }{ \sqrt{\varepsilon^2} }  \leq$$
+$$\leq \frac{ \sqrt{ E \left( |X_n - Y|^2 \right)} }{ \varepsilon } = \frac{d_2(X_n,Y)}{\varepsilon} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} Y$$
+Donde, para la primer desigualdad usamos que toda probabilidad está acotada inferiormente por cero. Para la segunda utilizamos la desigualdad de Markov dado que $|X_n - Y|^2$ es siempre positiva. Por último, para la tercer desigualdad utilizamos la desigualdad de Jensen donde $g(z) = \sqrt{z}$ es una función cóncava.
+
+\vspace{0.25cm}
+
+**Parte c**:
+
+# Ejercicio 5
+
+## Parte a: Demostrar que $d_p(X,Y) = E \left( 1 - e^{-|X - Y|} \right)$ es una distancia en el espacio de todas las variables aleatorias.
+
+1) *No negatividad*: $d_p(X,Y) = E \Big( \underbrace{ 1 - \overbrace{ \exp\big\{ \underbrace{- |X - Y| }_{< 0} \big\} }^{< 1} }_{> 0} \Big) > 0$
+
+2) *Identidad*: $d_p(X,Y) = 0 \Leftrightarrow X \overset{cs}{=} Y$. Si la distancia es cero entonces $X \overset{cs}{=} Y$ dado que es la única forma de que la esperanza considerada sea la esperanza de cero. Por su parte, si $X \overset{cs}{=} Y$ entonces la demostración es inmediata: 
+$$d_p(X,Y) = E \left( 1 - e^{-|X - X|} \right) = E(1 - e^{-0}) = E(1 - 1) = E(0) = 0$$
+
+3) *Simetría*: $d_p(X,Y) = E \left( 1 - e^{- | X - Y |} \right) = E \left( 1 - e^{- | Y - X |} \right) = d_p(Y,X)$
+
+4) *Desigualdad triangular*: $d_p(X,Y) \leq d_p(X,Z) + d_p(Z,Y)$
+
+$$|X - Y| = |X - Z + Z - Y| \leq |X - Z| + |Z - Y|$$
+$$ - |X - Y| \geq - |X - Z| - |Z - Y|$$
+$$ \exp\big\{ - |X - Y| \big\} \geq \exp \big\{ - |X - Z| - |Z - Y| \big\}$$
+$$ - \exp\big\{ - |X - Y| \big\} \leq - \exp \big\{ - |X - Z| - |Z - Y| \big\}$$
+
+Obtuvimos una expresión de la forma $-e^{-c} \leq -e^{-a-b}$ donde $a,b,c \geq 0$. Queremos ahora probar que si $a,b \geq 0$, entonces $-e^{-a-b} \leq 1 - e^{-a} - e^{-b}$. Comenzamos por escribir la desigualdad como una función:
+$$f: \mathbb{R}^+_0 \times \mathbb{R}^+_0 \rightarrow \mathbb{R} / f(a,b) = e^{-a} + e^{-b} - e^{-a-b} - 1 $$
+Queremos demostrar entonces que $f(a,b) \leq 0$ para todo $a,b \geq 0$. Primero veamos que $f(0,0) = e^{-0} + e^{-0} - e^{-0-0} - 1 = 0$. Luego, si la función siempre decrece (tanto en trayectorias de $a$ como en trayectorias de $b$), entonces la función es menor a 0 para todo $a,b \geq 0$. Comenzemos entonces calculando sus derivadas parciales.
+$$ \frac{\partial}{\partial a} f(a,b) = - e^{-a} + e^{-a-b} \leq 0 \Leftrightarrow e^{-a-b} \leq e^{-a} \Leftrightarrow - a - b \leq - a \Leftrightarrow -b \leq 0 \,\,\,\,\, \textcolor{green}{\checkmark}$$
+$$ \frac{\partial}{\partial b} f(a,b) = - e^{-b} + e^{-a-b} \leq 0 \Leftrightarrow e^{-a-b} \leq e^{-b} \Leftrightarrow - a - b \leq - b \Leftrightarrow - a \leq 0 \,\,\,\,\, \textcolor{green}{\checkmark}$$
+Ambas se cumplen dado que $a,b \geq 0 \Rightarrow -a,-b \leq 0$. Por tanto, la función $f$ tiene su máximo en $(0,0)$ y decrece a medida que $a$ y $b$ crecen. Hemos entonces demostrado que se cumple la siguiente desigualdad:
+$$ - e^{-c} \leq -e^{-a-b} \leq 1 - e^{-a} - e^{-b} \Rightarrow - e^{-c} \leq 1 - e^{-a} - e^{-b} $$
+
+Volviendo a nuestro problema:
+$$ - e^{-|X - Y|} \leq - e^{-|X - Z|} \, e^{-|Z - Y|} \leq 1 - e^{-|X - Z|} - e^{-|Z - Y|} \Rightarrow$$
+$$\Rightarrow 1 - e^{-|X - Y|} \leq 1 - e^{-|X - Z|} + 1 - e^{-|Z - Y|} \Rightarrow$$
+$$\Rightarrow E \left( 1 - e^{-|X - Y|} \right) \leq E \left( 1 - e^{-|X - Z|} + 1 - e^{-|Z - Y|} \right) \Rightarrow$$
+$$\Rightarrow E \left( 1 - e^{-|X - Y|} \right) \leq E \left( 1 - e^{-|X - Z|} \right) + E \left( 1 - e^{-|Z - Y|} \right) \Rightarrow$$
+$$\Rightarrow d_p(X,Y) \leq d_p(X,Z) + d_p(Z,Y)$$
+
+\newpage
+
+## Parte b: Demostrar que $d_p(X,Y) \overset{n}{\rightarrow} 0 \Leftrightarrow X_n \overset{p}{\rightarrow} Y$
+
+$\boldsymbol{(\Rightarrow)}$
+$$ P(| X_n - Y | > \varepsilon ) = P \left( - | X_n - Y | < -\varepsilon \right) = P \left( e^{- | X_n - Y |} < e^{- \varepsilon} \right) =$$
+$$= P \left( - e^{- | X_n - Y |} > - e^{- \varepsilon} \right) = P \left( 1 - e^{- | X_n - Y |} > 1 - e^{- \varepsilon} \right) \leq \frac{ E \left( 1 - e^{- | X_n - Y |} \right) }{ 1 - e^{- \varepsilon} } = $$
+$$= \frac{ d_p \left( X_n, Y \right) }{ 1 - e^{- \varepsilon} } \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} Y $$
+
+$\boldsymbol{(\Leftarrow)}$
+$$0 \leq d_p(X_n,Y) = E \left( 1 - e^{-|X_n - Y|}\right) \leq 1 - e^{- E(|X_n - Y|)} = $$
+$$= 1 - \exp\left\{ - E \left[ |X_n - Y| \big( \mathbb{I}_{\{ |X_n - Y| > \varepsilon \}} + \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big) \right] \right\} =$$
+$$= 1 - \exp\left\{ - E \left[ |X_n - Y| \, \mathbb{I}_{\{ |X_n - Y| > \varepsilon \}} \right] - E \left[ |X_n - Y| \, \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \right] \right\} \leq $$
+$$\leq 1 - \exp\left\{ - E \left[ |X_n - Y| \, \mathbb{I}_{\{ |X_n - Y| > \varepsilon \}} \right] \right\} = $$
+$$ = 1 - \exp\left\{ - P \big( |X_n - Y| > \varepsilon \big) \right\} \overset{n}{\rightarrow} 0 \Rightarrow d_p(X_n, Y) \overset{n}{\rightarrow} 0$$
+
+Donde en la primera desigualdad utilizamos la no negatividad de la medida de distancia. En la segunda desigualdad utilizamos la desigualdad de Jensen. La tercera desigualdad se cumple por que $1 - e^{-(a+b)} \leq 1 - e^{-a}$ por ser $1 - e^{-(a+b)}$ monótona creciente en todos los reales.
+
+
+
 
 
 
