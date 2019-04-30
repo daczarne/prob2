@@ -1,7 +1,7 @@
 ---
 title: "Práctico 2"
 author: "Daniel Czarnievicz"
-date: "April 19, 2019"
+date: "2019"
 output: pdf_document
 header-includes:
    - \everymath{\displaystyle}
@@ -239,10 +239,11 @@ $\boldsymbol{(\Leftarrow)}$
 $$0 \leq d_p(X_n,Y) = E \left( 1 - e^{-|X_n - Y|}\right) \leq 1 - e^{- E(|X_n - Y|)} = $$
 $$= 1 - \exp\left\{ - E \left[ |X_n - Y| \big( \mathbb{I}_{\{ |X_n - Y| > \varepsilon \}} + \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big) \right] \right\} =$$
 $$= 1 - \exp\left\{ - E \left[ |X_n - Y| \, \mathbb{I}_{\{ |X_n - Y| > \varepsilon \}} \right] - E \left[ |X_n - Y| \, \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \right] \right\} \leq $$
-$$\leq 1 - \exp\left\{ - E \left[ |X_n - Y| \, \mathbb{I}_{\{ |X_n - Y| > \varepsilon \}} \right] \right\} = $$
-$$ = 1 - \exp\left\{ - P \big( |X_n - Y| > \varepsilon \big) \right\} \overset{n}{\rightarrow} 0 \Rightarrow d_p(X_n, Y) \overset{n}{\rightarrow} 0$$
+$$\leq 1 - \exp\Big\{ - E \big[ \underbrace{|X_n - Y|}_{ \leq \varepsilon} \, \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big] \Big\} \leq $$
+$$\leq 1 - \exp\Big\{ - E \big[ \varepsilon \, \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big] \Big\} = 1 - \exp\Big\{ - \varepsilon \, E \big[ \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big] \Big\} = $$
+$$ = 1 - \exp\Big\{ - \varepsilon \, \underbrace{P \big( |X_n - Y| \leq \varepsilon \big)}_{ \overset{n}{\rightarrow} 1 } \Big\} = 1 - e^{-\varepsilon} \overset{n}{\rightarrow} 0 \Rightarrow d_p(X_n, Y) \overset{n}{\rightarrow} 0$$
 
-Donde en la primera desigualdad utilizamos la no negatividad de la medida de distancia. En la segunda desigualdad utilizamos la desigualdad de Jensen. La tercera desigualdad se cumple por que $1 - e^{-(a+b)} \leq 1 - e^{-a}$ por ser $1 - e^{-(a+b)}$ monótona creciente en todos los reales.
+Donde en la primera desigualdad utilizamos la no negatividad de la medida de distancia. En la segunda desigualdad utilizamos la desigualdad de Jensen. La tercera desigualdad se cumple por que $1 - e^{-(a+b)} \leq 1 - e^{-a}$ por ser $1 - e^{-(a+b)}$ monótona creciente en todos los reales. Mientras que la cuarta desigualdad se cumple por que es cuando la indicatriz toma valor 1 (por lo que $|X_n - Y|$ efectivamente es menor que $\varepsilon$).
 
 
 
