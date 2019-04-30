@@ -258,8 +258,12 @@ $$ = 1 - \exp\Big\{ - \varepsilon \, \underbrace{P \big( |X_n - Y| \leq \varepsi
 
 Donde en la primera desigualdad utilizamos la no negatividad de la medida de distancia. En la segunda desigualdad utilizamos la desigualdad de Jensen. La tercera desigualdad se cumple por que $1 - e^{-(a+b)} \leq 1 - e^{-a}$ por ser $1 - e^{-(a+b)}$ monótona creciente en todos los reales. Mientras que la cuarta desigualdad se cumple por que es cuando la indicatriz toma valor 1 (por lo que $|X_n - Y|$ efectivamente es menor que $\varepsilon$).
 
+# Ejercicio 6
 
+## Parte a: probar que si $E \big[ (X_n - X)^2 \big] \overset{n}{\rightarrow} 0 \Rightarrow E(X_n) \overset{n}{\rightarrow} E(X)$.
 
+Comencemos notando que, por la desigualdad de Jensen, $\big[ E(X_n - X)\big]^2 \leq E \big[ (X_n - X)^2 \big]$. Luego entonces:
+$$\sqrt{ \big[ E(X_n - X)\big]^2 } = E(X_n - X) = E(X_n) - E(X) \leq \sqrt{E \big[ (X_n - X)^2 \big]} \overset{n}{\rightarrow} 0$$
 
-
+Por lo tanto, $E(X_n) \overset{n}{\rightarrow} E(X)$
 
