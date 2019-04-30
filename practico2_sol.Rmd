@@ -6,6 +6,7 @@ output: pdf_document
 header-includes:
    - \everymath{\displaystyle}
    - \usepackage{xcolor}
+   - \usepackage[makeroom]{cancel}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -191,7 +192,21 @@ Donde, para la primer desigualdad usamos que toda probabilidad está acotada inf
 
 \vspace{0.25cm}
 
-**Parte c**:
+**Parte c**: primero debemos percatarnos de que lo que necesitamos hallar es una sucesión de variables aleatorias que converga en probabilidad, pero no en media $L^2$ dado que, que la función de distancia con la que estamos trabajando converga a cero, implíca que $X_n \overset{L^2}{\rightarrow} Y$.
+
+\vspace{0.3cm}
+
+Sean $U \sim Unif(0,1)$ y $X_n = n \, \mathbb{I}_{ [0, \, ^1\!/_n] }(u)$.
+$$P_{X_n} ( X_n = n ) = P_{X_n} \big( n \, \mathbb{I}_{ [0, \, ^1\!/_n] }(u) = n \big) = P_{X_n} \big( \mathbb{I}_{ [0, \, ^1\!/_n] }(u) = 1 \big) =$$
+$$= P_U \big( u \in [0, \, ^1\!/_n] \big) = F_U \left( ^1\!/_n \right) - F_U(0) = \frac{1}{n}$$
+$$P_{X_n} ( X_n = 0 ) = P_U \big( u \notin [0, \, ^1\!/_n] \big) = 1 - P_U \big( u \in [0, \, ^1\!/_n] \big) = 1 -  \frac{1}{n} $$
+
+Luego entonces,
+$$ P (|X_n - 0| > \varepsilon) = P(X_n > \varepsilon) = \frac{1}{n} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} 0$$
+
+Mientras que:
+$$E ( X_n ) = n \, P(X_n = n) + 0 \, P(X_n = 0) = n \, \frac{1}{n} = 1 \neq 0 = E(X) \Rightarrow E(X_n) \, \cancel{\overset{L^2}{\rightarrow}} \, E(X)$$
+
 
 # Ejercicio 5
 
@@ -225,8 +240,6 @@ $$\Rightarrow 1 - e^{-|X - Y|} \leq 1 - e^{-|X - Z|} + 1 - e^{-|Z - Y|} \Rightar
 $$\Rightarrow E \left( 1 - e^{-|X - Y|} \right) \leq E \left( 1 - e^{-|X - Z|} + 1 - e^{-|Z - Y|} \right) \Rightarrow$$
 $$\Rightarrow E \left( 1 - e^{-|X - Y|} \right) \leq E \left( 1 - e^{-|X - Z|} \right) + E \left( 1 - e^{-|Z - Y|} \right) \Rightarrow$$
 $$\Rightarrow d_p(X,Y) \leq d_p(X,Z) + d_p(Z,Y)$$
-
-\newpage
 
 ## Parte b: Demostrar que $d_p(X,Y) \overset{n}{\rightarrow} 0 \Leftrightarrow X_n \overset{p}{\rightarrow} Y$
 
