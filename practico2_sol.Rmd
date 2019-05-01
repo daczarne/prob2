@@ -271,7 +271,7 @@ Por lo tanto, $E(X_n) \overset{n}{\rightarrow} E(X)$.
 
 ## Parte b: probar que si $E \big[ (X_n - X)^2 \big] \overset{n}{\rightarrow} 0 \Rightarrow E(X_n^2) \overset{n}{\rightarrow} E(X^2)$.
 
-Queremos probar que, dadas las hipótesis, $E(X_n^2 - X^2) \overset{n}{\rightarrow} 0$. Utilizando la desigualdad de Caucy-Schwarz obtenemos que:
+Queremos probar que, dadas las hipótesis, $E(X_n^2 - X^2) \overset{n}{\rightarrow} 0$. Utilizando la desigualdad de Cauchy-Schwarz obtenemos que:
 $$E(X_n^2 - X^2) = E \big[ (X_n - X)(X_n + X) \big] \leq \underbrace{ \sqrt{ E \big[ (X_n - X)^2 \big] } }_{ \overset{n}{\rightarrow} 0 \text{ por hipótesis}} \sqrt{E \big[ (X_n + X)^2 \big]} $$
 Vemos entonces que el límite de $E(X_n^2 - X^2)$ es igual al producto de dos factores, uno de los cuales tiende a cero. Si el otro factor está acotado (no tiende a $+\infty$), entonces el producto tiende a cero y queda demostrada la proposición. Veamos que esto se cumple.
 $$(X_n + X)^2 = (X_n - X + 2X)^2 \leq 2(X_n - X)^2 + 2(2X)^2$$
@@ -281,7 +281,7 @@ Sumando $a^2$ y $b^2$ a ambos lados de la desigualdad obtenemos que:
 $$2ab + a^2 + b^2 \leq 2a^2 + 2b^2 \Rightarrow (a + b)^2 \leq 2a^2 + 2b^2$$
 
 Volviendo a nuestro problema, si tomamos esperanza obtenemos que:
-$$ E \big[ (X_n - X)^2 \big] \leq E \big[ 2 ( X_n - X )^2 + 2 (2X)^2 \big] = 2 \Big[ \underbrace{ E \big[ ( X_n - X )^2 \big] }_{  \overset{n}{\rightarrow} 0 \text{ por hipótesis} } + 4 \, E(X^2) \Big] = 8 \, E(X) $$
+$$ E \big[ (X_n + X)^2 \big] \leq E \big[ 2 ( X_n - X )^2 + 2 (2X)^2 \big] = 2 \Big[ \underbrace{ E \big[ ( X_n - X )^2 \big] }_{  \overset{n}{\rightarrow} 0 \text{ por hipótesis} } + 4 \, E(X^2) \Big] = 8 \, E(X) $$
 
 Por lo tanto,
 $$E(X_n^2 - X^2) = E \big[ (X_n - X)(X_n + X) \big] \leq \underbrace{ \sqrt{ E \big[ (X_n - X)^2 \big] } }_{ \overset{n}{\rightarrow} 0 \text{ por hipótesis}} \underbrace{ \sqrt{E \big[ (X_n + X)^2 \big]} }_{ \text{acotado por } \sqrt{8 \, E(X)} } \overset{n}{\rightarrow} 0$$
@@ -290,7 +290,32 @@ Entonces, $E(X_n^2) \overset{n}{\rightarrow} E(X^2)$.
 
 ## Parte c: encontrar una sucesión que converga en media pero no en media cuardática
 
+Sea $\{ X_n \}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias iid con reocrrido $Rec(X_n) = \{-n, \, 0, \, n\}$ tales que:
+$$p_{X_n}(x) = \left\{ 
+\begin{array}{c c c} 
+\frac{1}{n} & \text{si} & x = -n \\ \\
+1 - \frac{2}{n} & \text{si} & x = 0 \\ \\
+\frac{1}{n} & \text{si} & x = n
+\end{array}
+\right. \Rightarrow F_{X_n}(x) \left\{
+\begin{array}{c c c} 
+0 & \text{si} & x < -n \\ \\
+\frac{1}{n} & \text{si} & -n \leq x < 0 \\ \\
+1 - \frac{1}{n} & \text{si} & 0 \leq x < n \\ \\
+1 & \text{si} & x \geq n
+\end{array} \right.$$
 
+### Convergencia en media
+
+Esperanza de $X_n$: $E(X_n) = -n \left(\frac{1}{n}\right) + 0 \left( 1 - \frac{2}{n}\right) + n \left(\frac{1}{n}\right) = -1 + 1 = 0$
+
+Por lo tanto: $E(X_n - X) = E(X_n) = 0 \Rightarrow X_n \overset{L^1}{\rightarrow} 0$
+
+### Convergencia en media cuadrática
+
+Cuantía de $X_n^2$: $P(X_n^2 = x) = \left\{ \begin{array}{ccc} \frac{2}{n} & \text{si} & x = n^2 \\ \\ 1 - \frac{2}{n} & \text{si} & x = 0 \end{array} \right.$
+
+Segundo momento de $X_n$: $E(X_n^2) = n^2 \left(\frac{2}{n}\right) + 0 \left(1 - \frac{2}{n}\right) = 2n \overset{n}{\rightarrow} + \infty$. Por lo tanto, $E(X_n - 0)^2 = E(X_n^2) = 2n \Rightarrow X_n \,  \cancel{\overset{mc}{\rightarrow}} \, 0$.
 
 # Ejercicio 7
 
