@@ -324,14 +324,35 @@ Segundo momento de $X_n$: $E(X_n^2) = n^2 \left(\frac{2}{n}\right) + 0 \left(1 -
 ## Parte a
 
 $$\begin{array}{ l l }
-f_{X_n}(x;\theta) = \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } & F_{X_n}(x;\theta) = (x - \theta) \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } \\ \\
-f_{X_{1:n}}(x;\theta) = n \, (1 - x + \theta)^{n - 1} \, \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } & F_{X_{1:n}}(x;\theta) = 1 - (\theta + 1 - x)^n \mathbb{I}_{ \{ \theta < x < \theta + 1 \} }
+f_{X_n}(x;\theta) = \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } & 
+F_{X_n}(x;\theta) = (x - \theta) \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } \\ \\
+f_{X_{1:n}}(x;\theta) = n \, (1 - x + \theta)^{n - 1} \, \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } &
+F_{X_{1:n}}(x;\theta) = 1 - (\theta + 1 - x)^n \mathbb{I}_{ \{ \theta < x < \theta + 1 \} }
 \end{array}$$
 
-$$P ( | X_n - \theta | > \varepsilon) = 1 - P ( | X_n - \theta | < \varepsilon) = 1 - P ( - \varepsilon < X_n - \theta < \varepsilon) = $$
-$$ = 1 - P ( \theta < X_n < \theta + \varepsilon) = 1 - \big[ F_{X_{1:n}}( \theta + \varepsilon) - F_{X_{1:n}}( \theta) \big] = 1 - F_{X_{1:n}}( \theta + \varepsilon) + F_{X_{1:n}}( \theta) =$$
+$$P ( | X_{1:n} - \theta | > \varepsilon) = 1 - P ( | X_{1:n} - \theta | < \varepsilon) = 1 - P ( - \varepsilon < X_{1:n} - \theta < \varepsilon) = $$
+$$ = 1 - P ( \theta < X_{1:n} < \theta + \varepsilon) = 1 - \big[ F_{X_{1:n}}( \theta + \varepsilon) - F_{X_{1:n}}( \theta) \big] = 1 - F_{X_{1:n}}( \theta + \varepsilon) + F_{X_{1:n}}( \theta) =$$
 $$= 1 - \big[ 1 - (\theta + 1 - \theta - \varepsilon)^n \big] + \big[ 1 - (\theta + 1 - \theta)^n \big] =$$
-$$= (1 - \varepsilon)^n + 1 - 1^n = (\underbrace{ 1 - \varepsilon }_{\leq 1})^n \overset{n}{\rightarrow} 0  $$
+$$= (1 - \varepsilon)^n + 1 - 1^n = (\underbrace{ 1 - \varepsilon }_{\leq 1})^n \overset{n}{\rightarrow} 0 \Rightarrow X_{1:n} \overset{p}{\rightarrow} \theta$$
+
+## Parte b
+
+$$\begin{array}{ l l }
+f_{X_n}(x;\theta) = e^{-(x - \theta)} \, \mathbb{I}_{ \{ x > \theta \} } & 
+F_{X_n}(x;\theta) = \left( 1 - e^{-(x - \theta)} \right) \mathbb{I}_{ \{ x > \theta \} } \\ \\
+f_{X_{1:n}}(x;\theta) = n \, e^{- n ( x - \theta ) } \, \mathbb{I}_{ \{ x > \theta\} } &
+F_{X_{1:n}}(x;\theta) = \left( 1 - e^{ -n ( x - \theta )} \right) \mathbb{I}_{ \{ x > \theta \} }
+\end{array}$$
+
+$$P ( | X_{1:n} - \theta | > \varepsilon) = 1 - P ( | X_{1:n} - \theta | < \varepsilon) = 1 - P ( - \varepsilon < X_{1:n} - \theta < \varepsilon) = $$
+$$ = 1 - P ( \theta < X_{1:n} < \theta + \varepsilon) = 1 - \big[ F_{X_{1:n}}( \theta + \varepsilon) - F_{X_{1:n}}( \theta) \big] = 1 - F_{X_{1:n}}( \theta + \varepsilon) + F_{X_{1:n}}( \theta) =$$
+$$ = 1 - \left( 1 - e^{ -n ( \theta + \varepsilon - \theta )} \right) + \left( 1 - e^{ -n ( \theta - \theta )} \right) = 1 - \left( 1 - e^{ - n \varepsilon } \right) = e^{-n \, \varepsilon} \overset{n}{\rightarrow} 0 \Rightarrow X_{1:n} \overset{p}{\rightarrow} \theta$$
+
+## Parte c
+
+
+## Parte d
+
 
 # Ejercicio 8
 
