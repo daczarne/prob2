@@ -317,7 +317,44 @@ Cuantía de $X_n^2$: $P(X_n^2 = x) = \left\{ \begin{array}{ccc} \frac{2}{n} & \t
 
 Segundo momento de $X_n$: $E(X_n^2) = n^2 \left(\frac{2}{n}\right) + 0 \left(1 - \frac{2}{n}\right) = 2n \overset{n}{\rightarrow} + \infty$. Por lo tanto, $E(X_n - 0)^2 = E(X_n^2) = 2n \Rightarrow X_n \,  \cancel{\overset{mc}{\rightarrow}} \, 0$.
 
+\newpage
+
 # Ejercicio 7
+
+## Parte a
+
+$$\begin{array}{ l l }
+f_{X_n}(x;\theta) = \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } & F_{X_n}(x;\theta) = (x - \theta) \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } \\ \\
+f_{X_{1:n}}(x;\theta) = n \, (1 - x + \theta)^{n - 1} \, \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } & F_{X_{1:n}}(x;\theta) = 1 - (\theta + 1 - x)^n \mathbb{I}_{ \{ \theta < x < \theta + 1 \} }
+\end{array}$$
+
+<!--
+$$f(x;\theta) = \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, F(x;\theta) = (x - \theta) \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } $$
+$$f_{X_{1:n}}(x;\theta) = n \, (1 - x + \theta)^{n - 1} \, \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, F_{X_{1:n}}(x;\theta) = 1 - (\theta + 1 - x)^n \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } $$
+
+
+
+$$f(x;\theta) = \left\{ 
+\begin{array}{c c}
+1 & \text{si } \theta < x < \theta + 1 \\
+0 & \text{en otro caso}
+\end{array}\right. \,\,\,\,\,\,\,\,\,\,\,\,
+F(x;\theta) = \left\{
+\begin{array}{c c l}
+0 & \text{si} & x < \theta \\
+x - \theta & \text{si} & \theta \leq x < \theta + 1 \\
+1 & \text{si} & x > \theta + 1
+\end{array}\right.$$
+
+$$f_{(1):n}(x) = n ( 1 - x - \theta )^{n - 1} \mathbb{I}_{ \{ \theta < x < \theta + 1 \}}
+\,\,\,\,\,\,\,\,\,\,\,\,
+F_{(1):n}(x) = \left\{
+\begin{array}{c c l}
+0 & \text{si} & x < \theta \\
+x - \theta & \text{si} & \theta \leq x < \theta + 1 \\
+1 & \text{si} & x > \theta + 1
+\end{array}\right.$$
+-->
 
 # Ejercicio 8
 
