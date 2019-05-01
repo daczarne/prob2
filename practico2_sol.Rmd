@@ -328,33 +328,10 @@ f_{X_n}(x;\theta) = \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } & F_{X_n}(x;\th
 f_{X_{1:n}}(x;\theta) = n \, (1 - x + \theta)^{n - 1} \, \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } & F_{X_{1:n}}(x;\theta) = 1 - (\theta + 1 - x)^n \mathbb{I}_{ \{ \theta < x < \theta + 1 \} }
 \end{array}$$
 
-<!--
-$$f(x;\theta) = \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, F(x;\theta) = (x - \theta) \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } $$
-$$f_{X_{1:n}}(x;\theta) = n \, (1 - x + \theta)^{n - 1} \, \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, F_{X_{1:n}}(x;\theta) = 1 - (\theta + 1 - x)^n \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } $$
-
-
-
-$$f(x;\theta) = \left\{ 
-\begin{array}{c c}
-1 & \text{si } \theta < x < \theta + 1 \\
-0 & \text{en otro caso}
-\end{array}\right. \,\,\,\,\,\,\,\,\,\,\,\,
-F(x;\theta) = \left\{
-\begin{array}{c c l}
-0 & \text{si} & x < \theta \\
-x - \theta & \text{si} & \theta \leq x < \theta + 1 \\
-1 & \text{si} & x > \theta + 1
-\end{array}\right.$$
-
-$$f_{(1):n}(x) = n ( 1 - x - \theta )^{n - 1} \mathbb{I}_{ \{ \theta < x < \theta + 1 \}}
-\,\,\,\,\,\,\,\,\,\,\,\,
-F_{(1):n}(x) = \left\{
-\begin{array}{c c l}
-0 & \text{si} & x < \theta \\
-x - \theta & \text{si} & \theta \leq x < \theta + 1 \\
-1 & \text{si} & x > \theta + 1
-\end{array}\right.$$
--->
+$$P ( | X_n - \theta | > \varepsilon) = 1 - P ( | X_n - \theta | < \varepsilon) = 1 - P ( - \varepsilon < X_n - \theta < \varepsilon) = $$
+$$ = 1 - P ( \theta < X_n < \theta + \varepsilon) = 1 - \big[ F_{X_{1:n}}( \theta + \varepsilon) - F_{X_{1:n}}( \theta) \big] = 1 - F_{X_{1:n}}( \theta + \varepsilon) + F_{X_{1:n}}( \theta) =$$
+$$= 1 - \big[ 1 - (\theta + 1 - \theta - \varepsilon)^n \big] + \big[ 1 - (\theta + 1 - \theta)^n \big] =$$
+$$= (1 - \varepsilon)^n + 1 - 1^n = (\underbrace{ 1 - \varepsilon }_{\leq 1})^n \overset{n}{\rightarrow} 0  $$
 
 # Ejercicio 8
 
