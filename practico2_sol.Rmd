@@ -7,6 +7,7 @@ header-includes:
    - \everymath{\displaystyle}
    - \usepackage{xcolor}
    - \usepackage[makeroom]{cancel}
+   - \DeclareMathOperator*{\plim}{plim}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -394,6 +395,23 @@ a > 0 & \text{si} & \theta < x < \max \{ Rec(X_n) \}
 
 
 # Ejercicio 8
+
+## Parte a
+
+$$\plim\limits_n \hat{\alpha}_n = \plim\limits_n ( \bar{X}_n - \bar{z}_n \hat{\beta}_n ) = \plim\limits_n ( \alpha + \beta \bar{z}_n + \bar{\varepsilon}_n - \bar{z}_n \hat{\beta}_n ) =$$
+$$ = \plim\limits_n \big( \alpha + (\beta - \hat{\beta}_n) \bar{z}_n + \bar{\varepsilon}_n \big) = \alpha + \bar{z}_n \plim\limits_n (\beta - \hat{\beta}_n) + \underbrace{ \bar{\varepsilon}_n }_{= 0}$$
+
+Por lo tanto, $\hat{\alpha}_n \overset{p}{\rightarrow} \alpha \Leftrightarrow \hat{\beta}_n \overset{p}{\rightarrow} \beta$, en cuyo caso obtendríamos $\plim\limits_n \hat{\alpha} = \alpha$.
+
+## Parte b
+
+$$\plim\limits_n \hat{\beta}_n = \plim\limits_n \left( \frac{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n) X_i }{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n)^2 } \right) = \plim\limits_n \left( \frac{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n) (\alpha + \beta \, z_i + \varepsilon_i ) }{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n)^2 } \right) =$$
+$$ = \alpha \, \plim\limits_n \left( \frac{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n) }{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n)^2 } \right) + \beta \, \plim\limits_n \left( \frac{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n) z_i }{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n)^2 } \right) + \plim\limits_n \left( \frac{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n) \varepsilon_i }{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n)^2 } \right) = $$
+$$ = \alpha \, \plim\limits_n \left( \frac{ n \, \bar{z}_n - n \, \bar{z}_n }{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n)^2 } \right) + \beta \, \plim\limits_n \left( \frac{ \sum\limits_{i = 1}^{n} z_i^2 - \bar{z}_n \sum\limits_{i = 1}^{n} z_i }{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n)^2 } \right) + \plim\limits_n \left( \frac{ \sum\limits_{i = 1}^{n} z_i \, \varepsilon_i - \bar{z}_n \sum\limits_{i = 1}^{n} \varepsilon_i }{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n)^2 } \right) = $$
+$$ = \beta \, \plim\limits_n \left( \frac{ n \big( S_z^2 + \bar{z}_n^2 \big) - n \, \bar{z}_n^2 }{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n)^2 } \right) + \plim\limits_n \left( \frac{ n \big( S_{z \varepsilon} + \bar{z}_n \, \bar{\varepsilon}_n \big) - n \, \bar{z}_n \, \bar{\varepsilon}_n }{ \sum\limits_{i = 1}^{n} (z_i - \bar{z}_n)^2 } \right) = $$
+$$ = \beta \, \plim\limits_n \left( \frac{ n \, S_z^2 }{ n \, S_z^2 } \right) + \plim\limits_n \left( \frac{ n \, S_{z \varepsilon} }{ n \, S_z^2 } \right) = \beta + \plim\limits_n \left( \frac{ S_{z \varepsilon} }{ S_z^2 } \right)$$
+
+Por lo tanto, $\plim\limits_n \hat{\beta}_n = \beta \Leftrightarrow S_{z \varepsilon} = 0$. Es decir, si el regresor, $z$, y el término de error, $\varepsilon$, están incorrelados.
 
 # Ejercicio 9
 
