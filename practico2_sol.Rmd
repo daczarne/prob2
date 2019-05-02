@@ -384,6 +384,14 @@ $$ = 1 - 1 + \big( 1 - \varepsilon^2 \big)^n + 1 - 1^n = \big( \underbrace{ 1 - 
 
 ## Parte d
 
+Condición: $\theta = \min\{ Rex(X_n) \}$
+
+$$f(x; \theta) = \left\{
+\begin{array}{c c l}
+0     & \text{si} & x < \theta \\
+a > 0 & \text{si} & \theta < x < \max \{ Rec(X_n) \}
+\end{array} \right.$$
+
 
 # Ejercicio 8
 
