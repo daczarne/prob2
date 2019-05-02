@@ -415,6 +415,19 @@ Por lo tanto, $\plim\limits_n \hat{\beta}_n = \beta \Leftrightarrow S_{z \vareps
 
 # Ejercicio 9
 
+Comenzamos con la definición de convergencia en probabilidad de $X_n$ a 0, e "introducimos" $Y_n$ haciendo uso de que $P(A) = P(A \cap \Omega) = P(A \cap (B \cup \bar{B})) = P((A \cap B) \cup (A \cap \bar{B})) = P(A \cap B) + P(A \cap \bar{B})$ dado que $(A \cap B)$ y $(A \cap \bar{B})$ son independientes.
+$$P \big( |X_n - 0| > \varphi \big) = P \big( |X_n| > \varphi \big) = P \big( |X_n| > \varphi, \, |Y_n| > K \big) + P \big( |X_n| > \varphi, \, |Y_n| \leq K \big)$$
+
+Trabajando ahora con el primer sumando tenemos que:
+$$P \big( |X_n| > \varphi, \, |Y_n| > K \big) \leq P \big( |Y_n| > K \big) = 1 - P \big( |Y_n| \leq K \big) = \varepsilon$$
+Donde la desigualdad se desprende del razonamiento aplicado al inicio para "introducir" $Y_n$, y el resto de la afirmación surge de la definición de la probabilidad del complemento de un suceso y la hipótesis de que $Y_n$ es estocásticamente acotada.
+
+Para el segundo sumando tenemos que:
+$$P \big( |X_n| > \varphi, \, |Y_n| \leq K \big) = P \left( |X_n| > \varphi, \, \frac{1}{|Y_n|} > \frac{1}{K} \right) = P \left( \frac{|X_n|}{|Y_n|} > \frac{\varphi}{K} \right) =$$
+$$= P \left( \left| \frac{|X_n|}{|Y_n|} - 0 \right| > \left| \frac{\varphi}{K} \right| \right) \overset{n}{\rightarrow} 0$$
+
+Por lo tanto, $P(|X_n - 0| > \varphi) \leq \varepsilon$, entonces $X_n \overset{p}{\rightarrow} 0$ dado que podemos hacer $\varepsilon$ tan chico como querramos.
+
 # Ejercicio 10
 
 # Ejercicio 11
