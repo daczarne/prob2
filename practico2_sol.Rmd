@@ -438,11 +438,11 @@ a. $X_1 + \ldots + X_n \overset{cs}{\rightarrow} \mu$,
 b. $X_1^2 + \ldots + X_n^2 \overset{cs}{\rightarrow} \sigma^2 + \mu^2$.  
 c. el cociente de dos sucesiones de variables aleatorias convergentes, converrge al cociente de sus límites.  
 
-## Parte a
+### Parte a
 
 Esta primera parte es inmediata, dado que se desprende de la Ley Fuerte de los Grande Números (teniendo únicamente que multiplicar tanto nuestro numerador como nuestro denominador por $1/n$ para que se verifique).
 
-## Parte b
+### Parte b
 
 Primero demostremos que la varianza muestral converge casi seguramente a la varianza poblacional. Sea:
 $$S_X^2 = \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \bar{X}_n)^2 = \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu + \mu - \bar{X}_n)^2 = $$
@@ -459,7 +459,7 @@ Luego, re-escribimos el denominador de nuestro cociente de la siguiente forma:
 $$X_1^2 + \ldots + X_n^2 = n ( S_X^2 + \bar{X}_n^2 ) \overset{cs}{\rightarrow} n ( \sigma^2 + \mu^2 )$$
 donde, de nuevo, hemos aplicado el resultado del Ejercicio 1 parte a, esta vez en conjunto con el resultado del Ejercicio 1 parte e, lo cual podemos hacer dado que $g(z) = z^2$ y $h(w) = n \, w$ son ambas funciones continuas.
 
-## Parte 3
+### Parte c
 
 Resta solo demostrar que el cociente de dos sucesiones convergentes converge al cociente de sus límites. Para esto utilizamos que:
 
@@ -467,14 +467,64 @@ i. La inversa de una sucesión convergente converge a la inversa de su límite (
 
 ii. El producto de dos sucesiones convergentes converge al producto de sus límites:
 
-*Dem*: Sean $\{A_n\}_{n \in \mathbb{N}}$ y $\{A_n\}_{n \in \mathbb{N}}$ dos sucesiones casi seguramente convergentes a $A$ y $B$ respectivamente. Entonces existen dos conjutnos $\mathcal{A}$ y $\mathcal{B}$ con probabilidad $1$ tales que $\forall \omega$ en $\mathcal{A}$, $A_n (\omega) \overset{n}{\rightarrow} A(\omega)$, y $\forall \omega$ en $\mathcal{B}$, $B_n (\omega) \overset{n}{\rightarrow} B(\omega)$. Luego, sea $\mathcal{C} = \mathcal{A} \cap \mathcal{B}$. Por la proposición 1.9/9 sabemos que $P(\mathcal{C}) = 1 \Rightarrow A_n \, B_n \overset{cs}{\rightarrow} A \, B$.
+*Dem*: Sean $\{A_n\}_{n \in \mathbb{N}}$ y $\{B_n\}_{n \in \mathbb{N}}$ dos sucesiones casi seguramente convergentes a $A$ y $B$ respectivamente. Entonces existen dos conjutnos $\mathcal{A}$ y $\mathcal{B}$ con probabilidad $1$ tales que $\forall \omega$ en $\mathcal{A}$, $A_n (\omega) \overset{n}{\rightarrow} A(\omega)$, y $\forall \omega$ en $\mathcal{B}$, $B_n (\omega) \overset{n}{\rightarrow} B(\omega)$. Luego, sea $\mathcal{C} = \mathcal{A} \cap \mathcal{B}$. Por la proposición 1.9/9 sabemos que $P(\mathcal{C}) = 1 \Rightarrow A_n \, B_n \overset{cs}{\rightarrow} A \, B$.
 
 ***
 
-Tomando los resultado de las tres partes tenemos que:
+Tomando los resultados de las tres partes tenemos que:
 $$\frac{ n ( X_1 + \ldots + X_n ) }{  n ( X_1^2 + \ldots + X_n^2 ) } = \frac{ X_1 + \ldots + X_n }{ X_1^2 + \ldots + X_n^2 } = (X_1 + \ldots + X_n) \left( \frac{ 1 }{ X_1^2 + \ldots + X_n^2 } \right)  \overset{cs}{\rightarrow} \frac{\mu}{\sigma^2 + \mu^2}$$
 
+\newpage
+
 # Ejercicio 11
+
+## Parte a
+
+Ver ejercicio 10 parte b.
+
+## Parte b
+
+Utilizaremos los siguientes resultados de los ejercicios 1 y 10: 
+
+i. $S_X^2 \overset{cs}{\rightarrow} \sigma^2_X$ y $S_Y^2 \overset{cs}{\rightarrow} \sigma^2_Y$.  
+ii. Si $X_n \overset{cs}{\rightarrow} X$ y $g$ es continua, entonces $g(X_n) \overset{cs}{\rightarrow} g(X)$.  
+iii. Si $X_n \overset{cs}{\rightarrow} X$, entonces $1 / X_n \overset{cs}{\rightarrow} 1 / X$.  
+iv. Si $X_n \overset{cs}{\rightarrow} X$ y $Y_n \overset{cs}{\rightarrow} Y$ entonces $X_n \, Y_n \overset{cs}{\rightarrow} X \, Y$.
+
+Comencemos notando entonces que podemos re-escribir $r_n$ de la siguiente forma:
+$$r_n = \frac{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } = \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) \frac{ 1 }{ \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } }$$
+
+Por lo demostrado en el ejercicio 10 sabemos que $\sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \overset{cs}{\rightarrow} n \sigma_X^2$. Análogamente entonces, $\sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 \overset{cs}{\rightarrow} n \sigma_Y^2$. Sabemoss también que el producto de sucesiones convergentes, converge al producto de sus límites. Por último, $g(z) = \sqrt{z}$ es continua. Por lo tanto: 
+$$\frac{ 1 }{ \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } \overset{cs}{\rightarrow} \frac{1}{\sqrt{n \, \sigma^2_X \, \sigma^2_Y}} = \frac{ 1 }{ n \, \sigma_X \, \sigma_Y } $$
+
+Resta únicamente demostrar que $\sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) \overset{cs}{\rightarrow} n \, \sigma_{XY}$. Para esto procedemos de forma análoga a como lo hicimos en la parte b deel ejercicio 10.
+
+$$\frac{1}{n} \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) = \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X + \mu_X - \bar{X}_n)(Y_i - \mu_Y + \mu_Y - \bar{Y}_n) =  $$
+$$= \frac{1}{n} \sum\limits_{i = 1}^n \Big[ (X_i - \mu_X) + (\mu_X - \bar{X}_n) \Big] \Big[ (Y_i - \mu_Y) + (\mu_Y - \bar{Y}_n) \Big] = $$
+$$= \frac{1}{n} \sum\limits_{i = 1}^n \Big[ (X_i - \mu_X)(Y_i - \mu_Y) + (X_i - \mu_X)(\mu_Y - \bar{Y}_n) + (\mu_X - \bar{X}_n)(Y_i - \mu_Y) + (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) \Big] =  $$
+$$= \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(Y_i - \mu_Y) }_{ \text{A} } + \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(\mu_Y -  \bar{Y}_n) }_{ \text{B} } + \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (\mu_X - \bar{X}_n)(Y_i - \mu_Y) }_{ \text{C} } + $$
+$$+ \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) }_{ \text{D} }$$
+Trabajando ahora con cada sumando por separado tenemos que:
+
+$$\text{A: } \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(Y_i - \mu_Y) = \frac{1}{n} \sum\limits_{i = 1}^n \Big( X_i Y_i - X_i \mu_Y - \mu_x Y_i + \mu_X \mu_Y \Big) = $$
+$$= \frac{1}{n} \sum\limits_{i = 1}^n X_i Y_i - \frac{1}{n} \sum\limits_{i = 1}^n X_i \mu_Y - \frac{1}{n} \sum\limits_{i = 1}^n \mu_x Y_i + \frac{1}{n} \sum\limits_{i = 1}^n \mu_X \mu_Y =$$
+$$= \frac{1}{n} \sum\limits_{i = 1}^n X_i \, Y_i - \bar{X}_n \, \mu_Y - \mu_x \, \bar{Y}_n + \mu_X \mu_Y \overset{cs}{\rightarrow} E(X_i \, Y_i) - \mu_X \, \mu_Y = \sigma_{XY} $$
+donde la convergencia se cumple por Ley Fuerte de los Grandes Números, y luego solo se aplicar la definición de covarianza.
+
+B y C son análogos por lo que solo resolvemos uno de ellos:
+
+$$\text{B: } \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(\mu_Y - \bar{Y}_n) = (\mu_Y - \bar{Y}_n) \, \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X) = (\mu_Y - \bar{Y}_n) ( \bar{X}_n - \mu_X) \overset{cs}{\rightarrow} 0$$
+donde la convergencia se cumple por Ley Fuerte de los Grandes Números.
+
+Por último trabajamos con la expresión D:
+
+$$\text{B: } \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) = (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) \overset{cs}{\rightarrow} 0$$
+donde, una vez más, la convergencia se cumple por Ley Fuerte de los Grandes Números.
+
+***
+
+Por lo tanto, uniendo todas las partes encontramos que:
+$$r_n = \frac{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } = \frac{ n \,\sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ n \, \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } \overset{cs}{\rightarrow} \frac{ \sigma_{XY} }{ \sigma_X \, \sigma_Y } $$
 
 # Ejercicio 12
 
