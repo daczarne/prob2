@@ -415,7 +415,7 @@ Por lo tanto, $\plim\limits_n \hat{\beta}_n = \beta \Leftrightarrow S_{z \vareps
 
 # Ejercicio 9
 
-Comenzamos con la definición de convergencia en probabilidad de $X_n$ a 0, e "introducimos" $Y_n$ haciendo uso de que $P(A) = P(A \cap \Omega) = P(A \cap (B \cup \bar{B})) = P((A \cap B) \cup (A \cap \bar{B})) = P(A \cap B) + P(A \cap \bar{B})$ dado que $(A \cap B)$ y $(A \cap \bar{B})$ son independientes.
+Comenzamos con la definición de convergencia en probabilidad de $X_n$ a 0, e "introducimos" $Y_n$ haciendo uso de que $P(A) = P(A \cap \Omega) = P(A \cap (B \cup \bar{B})) = P((A \cap B) \cup (A \cap \bar{B})) = P(A \cap B) + P(A \cap \bar{B})$ dado que $(A \cap B)$ y $(A \cap \bar{B})$ son disjuntos.
 $$P \big( |X_n - 0| > \varphi \big) = P \big( |X_n| > \varphi \big) = P \big( |X_n| > \varphi, \, |Y_n| > K \big) + P \big( |X_n| > \varphi, \, |Y_n| \leq K \big)$$
 
 Trabajando ahora con el primer sumando tenemos que:
@@ -428,7 +428,51 @@ $$= P \left( \left| \frac{|X_n|}{|Y_n|} - 0 \right| > \left| \frac{\varphi}{K} \
 
 Por lo tanto, $P(|X_n - 0| > \varphi) \leq \varepsilon$, entonces $X_n \overset{p}{\rightarrow} 0$ dado que podemos hacer $\varepsilon$ tan chico como querramos.
 
+\newpage
+
 # Ejercicio 10
+
+Para poder demostrar que $\frac{ X_1 + \ldots + X_n }{ X_1^2 + \ldots + X_n^2 } \overset{cs}{\rightarrow} \frac{\mu}{\sigma^2 + \mu^2}$ debemos demostrar que:
+
+a. $X_1 + \ldots + X_n \overset{cs}{\rightarrow} \mu$,  
+b. $X_1^2 + \ldots + X_n^2 \overset{cs}{\rightarrow} \sigma^2 + \mu^2$.  
+c. el cociente de dos sucesiones de variables aleatorias convergentes, converrge al cociente de sus límites.  
+
+## Parte a
+
+Esta primera parte es inmediata, dado que se desprende de la Ley Fuerte de los Grande Números (teniendo únicamente que multiplicar tanto nuestro numerador como nuestro denominador por $1/n$ para que se verifique).
+
+## Parte b
+
+Primero demostremos que la varianza muestral converge casi seguramente a la varianza poblacional. Sea:
+$$S_X^2 = \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \bar{X}_n)^2 = \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu + \mu - \bar{X}_n)^2 = $$
+$$= \frac{1}{n} \sum\limits_{i = 1}^{n} \Big[ (X_i - \mu)^2 + 2(X_i - \mu)(\mu - \bar{X}_n) + (\mu - \bar{X}_n)^2 \Big] = $$
+$$= \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu)^2 + 2 (\mu - \bar{X}_n) \, \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu) + \frac{1}{n} \sum\limits_{i = 1}^{n} (\mu - \bar{X}_n)^2 =$$
+$$= \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu)^2 + 2 (\mu - \bar{X}_n) (\bar{X}_n - \mu) + \frac{1}{n} \sum\limits_{i = 1}^{n} (\mu - \bar{X}_n)^2 =$$
+$$= \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu)^2 - 2 (\mu - \bar{X}_n)^2 + (\mu - \bar{X}_n)^2 = $$
+$$= \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu)^2 - (\mu - \bar{X}_n)^2$$
+
+Hemos mostrado que $S_X^2 = \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu)^2 - (\mu - \bar{X}_n)^2$. Para estudiar la convergencia casi segura de esta expresión utilizamos el resultado del Ejercicio 1 parte a (la suma de suceciones convergentes converge a la suma de los límites). Por lo tanto, utilizando nuevamente la LFGN, tenemos que:
+$$S_X^2 \overset{cs}{\rightarrow} E \big[ (X_i - \mu)^2 \big] - ( \mu - \mu )^2 = E \big[ (X_i - \mu)^2 \big] = \sigma^2$$
+
+Luego, re-escribimos el denominador de nuestro cociente de la siguiente forma: 
+$$X_1^2 + \ldots + X_n^2 = n ( S_X^2 + \bar{X}_n^2 ) \overset{cs}{\rightarrow} n ( \sigma^2 + \mu^2 )$$
+donde, de nuevo, hemos aplicado el resultado del Ejercicio 1 parte a, esta vez en conjunto con el resultado del Ejercicio 1 parte e, lo cual podemos hacer dado que $g(z) = z^2$ y $h(w) = n \, w$ son ambas funciones continuas.
+
+## Parte 3
+
+Resta solo demostrar que el cociente de dos sucesiones convergentes converge al cociente de sus límites. Para esto utilizamos que:
+
+i. La inversa de una sucesión convergente converge a la inversa de su límite (dado que $g(z) = 1/z$ es una función continua para los positivos). Esto se cumple en nuestro caso dado que la sucesión de los cuadrados es una sucesión de elementos positivos.  
+
+ii. El producto de dos sucesiones convergentes converge al producto de sus límites:
+
+*Dem*: Sean $\{A_n\}_{n \in \mathbb{N}}$ y $\{A_n\}_{n \in \mathbb{N}}$ dos sucesiones casi seguramente convergentes a $A$ y $B$ respectivamente. Entonces existen dos conjutnos $\mathcal{A}$ y $\mathcal{B}$ con probabilidad $1$ tales que $\forall \omega$ en $\mathcal{A}$, $A_n (\omega) \overset{n}{\rightarrow} A(\omega)$, y $\forall \omega$ en $\mathcal{B}$, $B_n (\omega) \overset{n}{\rightarrow} B(\omega)$. Luego, sea $\mathcal{C} = \mathcal{A} \cap \mathcal{B}$. Por la proposición 1.9/9 sabemos que $P(\mathcal{C}) = 1 \Rightarrow A_n \, B_n \overset{cs}{\rightarrow} A \, B$.
+
+***
+
+Tomando los resultado de las tres partes tenemos que:
+$$\frac{ n ( X_1 + \ldots + X_n ) }{  n ( X_1^2 + \ldots + X_n^2 ) } = \frac{ X_1 + \ldots + X_n }{ X_1^2 + \ldots + X_n^2 } = (X_1 + \ldots + X_n) \left( \frac{ 1 }{ X_1^2 + \ldots + X_n^2 } \right)  \overset{cs}{\rightarrow} \frac{\mu}{\sigma^2 + \mu^2}$$
 
 # Ejercicio 11
 
