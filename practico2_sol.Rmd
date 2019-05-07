@@ -530,6 +530,13 @@ $$r_n = \frac{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ \sqrt
 
 # Ejercicio 13
 
+Sea $g : [0;1] \rightarrow [0;1]$ continua.
+
+## Parte a
+
+Primero debemos notar que dado que las $\xi_n$ son iid y $g$ es continua, las $X_n = g(\xi_n)$ son variables aleatorias iid. Por otro lado, $E|X_n| < \infty$ dado que $E(X_n) = E [ g(\xi_n) ] = \int\limits_0^1 f_{X_n}(x) dx$. Por lo tanto, podemos aplicar la Ley Fuerte de los Grandes Números:
+$$\bar{X}_n \overset{cs}{\rightarrow} E(X_n) = \int\limits_0^1 f(t) dt$$
+
 # Ejercicio 14
 
 # Ejercicio 15
