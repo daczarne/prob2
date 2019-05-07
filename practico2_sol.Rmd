@@ -534,8 +534,33 @@ Sea $g : [0;1] \rightarrow [0;1]$ continua.
 
 ## Parte a
 
-Primero debemos notar que dado que las $\xi_n$ son iid y $g$ es continua, las $X_n = g(\xi_n)$ son variables aleatorias iid. Por otro lado, $E|X_n| < \infty$ dado que $E(X_n) = E [ g(\xi_n) ] = \int\limits_0^1 f_{X_n}(x) dx$. Por lo tanto, podemos aplicar la Ley Fuerte de los Grandes Números:
-$$\bar{X}_n \overset{cs}{\rightarrow} E(X_n) = \int\limits_0^1 f(t) dt$$
+Primero debemos notar que dado que las $\xi_n$ son iid y $g$ es continua, las $X_n = g(\xi_n)$ son variables aleatorias iid. Por otro lado, $E|X_n| < \infty$ dado que el soporte de las variables está acotado. Por lo tanto:
+$$E(X_n) = E [ g(\xi_n) ] = \int\limits_0^1 g(\xi_n) \underbrace{ f_{\xi_n}(\xi_n) }_{= 1} d\xi_n = \int\limits_0^1 g(\xi)_n d\xi_n$$
+donde $f_{\xi_n}(\xi_n) = 1$ dado que $\xi_n \sim Unif[0;1]$. Por lo tanto, podemos aplicar la Ley Fuerte de los Grandes Números:
+$$\bar{X}_n \overset{cs}{\rightarrow} E(X_n) = \int\limits_0^1 g(t) dt$$
+
+## Parte b
+
+Primero debemos notar que $Y_n$ son iid dado que tanto las $\xi_n$ como las $U_n$ lo son y $g$ es una función continua. Al igual que en la parte a, $E|Y_n| < \infty$ dado que los soportes están acotados. Luego entonces:
+$$ E(Y_n) = 1 \, P(Y_n = 1) + 0 \, P(Y_n = 0) = P(Y_n = 1) = P(g(\xi_n) \geq U_n) =$$
+$$= \int\limits_0^1 \int\limits_0^x f_X(x) \, f_U(u) dx du = \int\limits_0^1 f_X(x) \underbrace{ \left( \int\limits_0^x f_U(u) du \right) }_{ \substack{ = x \text{ dado que } \\ U \sim Unif[0;1] }} dx = $$
+$$= \int\limits_0^1 x \, f_X(x) dx = E(X_n) = E [ g(\xi_n) ] = \int\limits_0^1 g(t)dt$$
+Por lo tanto, utilizando la Ley Fuerte de los Grandes Números obtenemos que:
+$$ \bar{Y}_n \overset{cs}{\rightarrow} E(Y_n) = \int\limits_0^1 g(t)dt$$
+
+## Parte c
+
+Para calcular la varianza de $\bar{X}_n$ debemos primero calcular $E(X^2)$ y luego utilizar la siguiente fórumla para la varianza: $V(X) = E(X^2) - E^2(X)$.
+
+$$E(X_n^2) = E [ (g(\xi_n))^2 ] = \int\limits_0^1 \big( g(t) \big)^2 \, 1 dt = \int\limits_0^1 \big( g(t) \big)^2 dt$$
+donde de nuevo utilizamos que $f_{\xi_n} (\xi_n) = 1$ dado que $\xi_n \sim Unif[0;1]$. Luego entonces:
+
+$$V(\bar{X}_n) = \frac{V(X)}{n} = \frac{1}{n} \big[ E(X_n^2) - E^2 (X_n) \big] = \frac{1}{n} \left[ \int\limits_0^1 \big( g(t) \big)^2 dt - \left( \int\limits_0^1 g(t) dt \right)^2 \right] $$
+
+Por su parte, para calcular la varianzaa de $\bar{Y}_m$ debemos utilizar que, por ser una indicatriz, $Y_n \sim Ber( P(Y_n = 1 ) )$, mientras que $\bar{Y}_n \sim Bin(n, P(Y_n = 1))$. Por lo tanto,
+
+$$V(\bar{Y}_n) = \frac{1}{n} \Big[ P(Y_n = 1) \big( 1 - P(Y_n = 1) \big) \Big] = \frac{1}{n} \left[ \int\limits_0^1 g(t)dt \left( 1 - \int\limits_0^1 g(t) dt \right) \right] = $$
+$$ = \frac{1}{n} \left[ \int\limits_0^1 g(t)dt - \left( \int\limits_0^1 g(t) dt \right)^2 \right] $$
 
 # Ejercicio 14
 
