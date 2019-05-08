@@ -480,7 +480,9 @@ $$\frac{ n ( X_1 + \ldots + X_n ) }{  n ( X_1^2 + \ldots + X_n^2 ) } = \frac{ X_
 
 ## Parte a
 
-Ver ejercicio 10 parte b.
+En el ejercicio 10 parte b se demostró que $S_X^2 = \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \bar{X}_n)^2 \overset{cs}{\rightarrow} \sigma^2_X$. Por lo tanto:
+$$ S_{n,X}^2 = \frac{1}{n - 1} \sum\limits_{i = 1}^{n} (X_i - \bar{X}_n)^2 = \frac{n}{n - 1} \, \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \bar{X}_n)^2 \overset{cs}{\rightarrow} \sigma^2_X $$
+dado que $\frac{n}{n - 1} \overset{cs}{\rightarrow} 1$, y por la parte e del ejercicio 1 sabemos que el producto de una sucesión real convergente por una sucesión de va's convergente, converge al producto de sus límites. La demostración para $Y_n$ es análoga.
 
 ## Parte b
 
@@ -527,6 +529,25 @@ Por lo tanto, uniendo todas las partes encontramos que:
 $$r_n = \frac{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } = \frac{ n \,\sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ n \, \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } \overset{cs}{\rightarrow} \frac{ \sigma_{XY} }{ \sigma_X \, \sigma_Y } $$
 
 # Ejercicio 12
+
+$$ \frac{1}{m} \log R_m = \frac{1}{m} \log \left( \prod\limits_{i = 1}^n p_i^{Z_m(i)} \right) = \frac{1}{m} \sum\limits_{i = 1}^n Z_m(i) \, \log (p_i) $$
+
+Sea $Y_{m_j}(i) = \mathbb{I}_{\{ X_j \in \text{ al $i$-ésimo sub-intervalo} \} } \Rightarrow Y_{m_j} \sim Ber(p_i)$, dado que las $X_j \sim Unif[0;1]$. Por su parte, $Z_m(i) = \sum\limits_{j = 1}^m Y_{m_j}(i)$ (es decir, la cantidad de $X$'s que cayeron en el $i$-ésimo intervalo). Por lo tanto, $Z_m(i) \sim Bin(m, \, p_i)$. Podemos entonces re-escribir el estimador de la siguiente forma:
+
+$$ \frac{1}{m} \log R_m = \frac{1}{m} \sum\limits_{i = 1}^n \sum\limits_{j = 1}^m Y_{m_j}(i) \, \log (p_i) = \frac{1}{m} \sum\limits_{j = 1}^m \sum\limits_{i = 1}^n Y_{m_j}(i) \, \log (p_i)$$
+
+Sea $W_j = \sum\limits_{i = 1}^n Y_{m_j}(i) \, \log (p_i) \Rightarrow \frac{1}{m} \log R_m = \frac{1}{m} \sum\limits_{j = 1}^m W_j$. Si logramos probar que estamos en las condiciones de la Ley Fuerte de los Grandes Números, entonces $\frac{1}{m} \sum\limits_{j = 1}^m W_j \overset{cs}{\rightarrow} E(W_j)$. Adicionalmente, si logramos probar que $E(W_j) = -H$, habremos resuelto el problema.
+
+***
+Para probar que estamos en las hipótesis de la Ley Fuerte de los Grandes Números debemos probar que las $W_j$ son iid, y que $E|W_j| < \infty$. Que son iid es sencillo de ver dado que las $W_j$ son sumas ponderadas (por el logaritmo de la longitud del intervalo) de indicatrices que dependen únicamente de variables iid (las $X_j$). Por lo tanto, las $W_j$ son iid.
+
+***
+
+El segundo postulado es sencillo de probar. Dado que $Y_{m_j}$ es una indicatriz que toma valor 1 si la variable $X_j$ cayó en el $i$-ésimo intervalo, la distribución de las mismas solo depende de las $X_j$, y dado que estas son independientes, también lo son las $Y_{m_j}$. Por lo tanto:
+
+$$E(W_j) = E \left[ \sum\limits_{i = 1}^n Y_{m_j}(i) \log (p_i) \right] = \sum\limits_{i = 1}^n \Big[ E \big( Y_{m_j}(i) \log (p_i) \big) \Big] = $$
+$$= \sum\limits_{i = 1}^n \log (p_i) \Big[ E \big( Y_{m_j}(i) \big) \Big] = \sum\limits_{i = 1}^n \log (p_i) P(X_j \in \text{ al $i$-ésimo sub-intervalo} ) = $$
+$$= \sum\limits_{i = 1}^n \log (p_i) \, p_i = -H$$
 
 # Ejercicio 13
 
