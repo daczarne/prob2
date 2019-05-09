@@ -665,6 +665,8 @@ $$\bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} 
 
 Dado que se trata de una igualdad de conjuntos, debemos probar la doble inclusión.
 
+***
+
 **Parte 1**: $\bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \} \subset \bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \}$
 
 $$\bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \} = \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \{ \forall k \geq n, \,|X_k - X| < \varepsilon \} = $$
@@ -673,5 +675,7 @@ $$= \{ \forall \varepsilon \in \mathbb{Q}^+, \, \exists n \text{ tal que } \fora
 $$= \bigcap_{\varepsilon \in \mathbb{R}^+} \{\exists n \text{ tal que } \forall k \geq n, \,|X_k - X| < \varepsilon \} = $$
 $$= \bigcap_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \{\forall k \geq n, \,|X_k - X| < \varepsilon \} = \bigcap_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap_{k = n}^{\infty} \{ |X_k - X| < \varepsilon \} $$
 
+***
 
+**Parte 2**: $\bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \} \subset \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \}$
 
