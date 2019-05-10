@@ -532,14 +532,11 @@ $$r_n = \frac{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ \sqrt
 
 $$ \frac{1}{m} \log R_m = \frac{1}{m} \log \left( \prod\limits_{i = 1}^n p_i^{Z_m(i)} \right) = \frac{1}{m} \sum\limits_{i = 1}^n Z_m(i) \, \log (p_i) $$
 
-Sea $Y_{m_j}(i) = \mathbb{I}_{\{ X_j \in \text{ al $i$-ésimo sub-intervalo} \} } \Rightarrow Y_{m_j} \sim Ber(p_i)$, dado que las $X_j \sim Unif[0;1]$. Por su parte, $Z_m(i) = \sum\limits_{j = 1}^m Y_{m_j}(i)$ (es decir, la cantidad de $X$'s que cayeron en el $i$-ésimo intervalo). Por lo tanto, $Z_m(i) \sim Bin(m, \, p_i)$. Podemos entonces re-escribir el estimador de la siguiente forma:
+Sea $Y_{m_j}(i) = \mathbb{I}_{\{ X_j \in \text{ al $i$-ésimo sub-intervalo} \} } \Rightarrow Y_{m_j} \sim Ber(p_i)$, dado que las $X_j \sim Unif[0;1]$. Por su parte, $Z_m(i) = \sum\limits_{j = 1}^m Y_{m_j}(i)$ (es decir, la cantidad de $X$'s que cayeron en el $i$-ésimo intervalo). Por lo tanto, $Z_m(i) \sim Bin(m, \, p_i)$. Podemos entonces re-escribir el "estimador" de la siguiente forma:
 
 $$ \frac{1}{m} \log R_m = \frac{1}{m} \sum\limits_{i = 1}^n \sum\limits_{j = 1}^m Y_{m_j}(i) \, \log (p_i) = \frac{1}{m} \sum\limits_{j = 1}^m \sum\limits_{i = 1}^n Y_{m_j}(i) \, \log (p_i)$$
 
 Sea $W_j = \sum\limits_{i = 1}^n Y_{m_j}(i) \, \log (p_i) \Rightarrow \frac{1}{m} \log R_m = \frac{1}{m} \sum\limits_{j = 1}^m W_j$. Si logramos probar que estamos en las condiciones de la Ley Fuerte de los Grandes Números, entonces $\frac{1}{m} \sum\limits_{j = 1}^m W_j \overset{cs}{\rightarrow} E(W_j)$. Adicionalmente, si logramos probar que $E(W_j) = -H$, habremos resuelto el problema.
-
-***
-Para probar que estamos en las hipótesis de la Ley Fuerte de los Grandes Números debemos probar que las $W_j$ son iid, y que $E|W_j| < \infty$. Que son iid es sencillo de ver dado que las $W_j$ son sumas ponderadas (por el logaritmo de la longitud del intervalo) de indicatrices que dependen únicamente de variables iid (las $X_j$). Por lo tanto, las $W_j$ son iid.
 
 ***
 
@@ -548,6 +545,13 @@ El segundo postulado es sencillo de probar. Dado que $Y_{m_j}$ es una indicatriz
 $$E(W_j) = E \left[ \sum\limits_{i = 1}^n Y_{m_j}(i) \log (p_i) \right] = \sum\limits_{i = 1}^n \Big[ E \big( Y_{m_j}(i) \log (p_i) \big) \Big] = $$
 $$= \sum\limits_{i = 1}^n \log (p_i) \Big[ E \big( Y_{m_j}(i) \big) \Big] = \sum\limits_{i = 1}^n \log (p_i) P(X_j \in \text{ al $i$-ésimo sub-intervalo} ) = $$
 $$= \sum\limits_{i = 1}^n \log (p_i) \, p_i = -H$$
+
+***
+
+Para probar que estamos en las hipótesis de la Ley Fuerte de los Grandes Números debemos probar que las $W_j$ son iid, y que $E|W_j| < \infty$. 
+
+Que son iid es sencillo de ver dado que las $W_j$ son sumas ponderadas (por el logaritmo de la longitud del intervalo) de indicatrices que dependen únicamente de variables iid (las $X_j$). Por lo tanto, las $W_j$ son iid.
+
 
 # Ejercicio 13
 
@@ -643,7 +647,7 @@ C & \text{si} & p = 1/3 \\
 
 ## Parte a
 
-Sea es espacio de probabilidad $([0;1], \, \mathcal{B}([0;1]), \, P_{X_n})$, donde:
+Sea el siguiente espacio de probabilidad $([0;1], \, \mathcal{B}([0;1]), \, P_{X_n})$, donde:
 $$p_{X_n}(x) = P_{X_n}(X_n = x) = \left\{
 \begin{array}{r c c}
 1 - \frac{1}{n} & \text{si} & x = 0 \\ \\
