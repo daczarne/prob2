@@ -1,0 +1,117 @@
+---
+title: "Práctico 3"
+author: "Daniel Czarnievicz"
+date: "2019"
+output: pdf_document
+header-includes:
+   - \everymath{\displaystyle}
+   - \usepackage{xcolor}
+   - \usepackage[makeroom]{cancel}
+   - \DeclareMathOperator*{\plim}{plim}
+   - \usepackage{mathrsfs}
+   - \usepackage{amsmath}
+geometry: margin=1in
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Ejercicio 1
+
+No se cumple. Para demostrarlo, tomemos el siguiente contraejemplo.
+
+***
+
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias tales que:
+$$X_n = \left\{ \begin{array}{c c r}
+n^2 & \text{ con probabilidad } & 1/n^2 \\
+0 & \text{ con probabilidad } & 1 - 2/n^2 \\
+-n^2 & \text{ con probabilidad } & 1/n^2
+\end{array} \right.$$
+
+Cakulemos entonces su esperanza, y la esperanza de su valor absoluto.
+
+$$E(X_n) = \sum\limits_{ x \in Rec(X_n) } x \, P(X_n = x) = n^2 \left( \frac{1}{n^2} \right) + 0 \left( 1 - \frac{2}{n^2} \right) + (-n^2) \left( \frac{1}{n^2} \right) = 1 - 1 = 0$$
+$$E(|X_n|) = \sum\limits_{ x \in Rec(X_n) } |x| \, P(X_n = x) = |n^2| \left( \frac{1}{n^2} \right) + |0| \left( 1 - \frac{2}{n^2} \right) + |-n^2| \left( \frac{1}{n^2} \right) = 1 + 1 = 2$$
+
+Veamos que la sucesión converge casi seguramente a cero.
+$$\sum\limits_{n = 1}^{\infty} P(|X_n - 0| > \varepsilon) = \sum\limits_{n = 1}^{\infty} P(|X_n| > \varepsilon) = \sum\limits_{n = 1}^{\infty} P(|X_n| > 0) =$$
+$$P(X_n = n^2) + P(X_n = -n^2) = \frac{2}{n^2} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{cs}{\rightarrow} 0$$
+
+Pero $E|X_n - 0| = E|X_n| = 2 \neq 0 = E(X)$, por lo que no se cumple la tésis del teorema si la sucesión es de variables no negativas.
+
+\newpage
+
+# Ejercicio 2
+
+## Parte a: $X_n \overset{d}{\rightarrow} c \in \mathbb{R} \Leftrightarrow X_n \overset{p}{\rightarrow} c$
+
+$(\Rightarrow)$ Si $X_n \overset{d}{\rightarrow} c$ entonces sabemos que $F_{X_n}(x) = F_c(x)$ para todo $x \in \mathscr{C}(F_c)$. Luego:
+
+$$P(|X_n - c| > \varepsilon) = 1 - P(|X_n - c| \leq \varepsilon) = $$
+$$1 - P( -\varepsilon \leq X_n - c \leq \varepsilon) = 1 - P( c - \varepsilon \leq X_n \leq c + \varepsilon) =$$
+$$= 1 - \big[ \underbrace{ F_{X_n}(\underbrace{ c + \varepsilon }_{> c}) }_{= 1} - \underbrace{ F_{X_n}(\underbrace{ c - \varepsilon }_{< c}) }_{ = 0} \big] = 1 - 1 = 0 \Rightarrow X_n \overset{p}{\rightarrow} c$$
+
+$(\Leftarrow)$ Si $X_n \overset{p}{\rightarrow} c$ entonces sabemos que $X_n \overset{d}{\rightarrow} c$ siempre.
+
+## Parte b: si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} c \in \mathbb{R}$ entonces $X_n + Y_n \overset{d}{\rightarrow} X + c$
+
+Por la parte a sabemos que si $Y_n \overset{d}{\rightarrow} c \Rightarrow Y_n \overset{p}{\rightarrow} c$ (esto no es cierto en general, pero sí cuando la convergencia es a una constante).
+
+
+## Parte c
+
+
+## Parte d
+
+Por la parte a sabemos que si $Y_n \overset{d}{\rightarrow} c \Rightarrow Y_n \overset{p}{\rightarrow} c$ (esto no es cierto en general, pero sí cuando la convergencia es a una constante).
+
+$$X_n^{Y_n} = e^{Y_n \log(X_n)} \overset{d}{\rightarrow} e^{1 \log X} = e^{\log X} = X$$
+
+## Parte e
+
+Por la parte a sabemos que si $Y_n \overset{d}{\rightarrow} c \Rightarrow Y_n \overset{p}{\rightarrow} c$ (esto no es cierto en general, pero sí cuando la convergencia es a una constante).
+
+$$Y_n^{X_n} = e^{X_n \log(Y_n)} \overset{d}{\rightarrow} e^{X \log 1} = e^{0} = 1$$
+
+# Ejercicio 3
+
+
+# Ejercicio 4
+
+
+# Ejercicio 5
+
+
+# Ejercicio 6
+
+
+# Ejercicio 7
+
+
+# Ejercicio 8
+
+
+# Ejercicio 9
+
+
+# Ejercicio 10
+
+
+# Ejercicio 11
+
+
+# Ejercicio 12
+
+
+# Ejercicio 13
+
+
+# Ejercicio 14
+
+
+# Ejercicio 15
+
+
