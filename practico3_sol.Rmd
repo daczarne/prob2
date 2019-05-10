@@ -61,16 +61,16 @@ $(\Leftarrow)$ Si $X_n \overset{p}{\rightarrow} c$ entonces sabemos que $X_n \ov
 Por la parte a sabemos que si $Y_n \overset{d}{\rightarrow} c \Rightarrow Y_n \overset{p}{\rightarrow} c$ (esto no es cierto en general, pero sí cuando la convergencia es a una constante).
 
 
-## Parte c
+## Parte c: si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} c \in \mathbb{R}$ entonces $X_n \, Y_n \overset{d}{\rightarrow} X \, c$
 
 
-## Parte d
+## Parte d: si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} 1 \in \mathbb{R}$ entonces $X_n^{Y_n} \overset{d}{\rightarrow} X$ 
 
 Por la parte a sabemos que si $Y_n \overset{d}{\rightarrow} c \Rightarrow Y_n \overset{p}{\rightarrow} c$ (esto no es cierto en general, pero sí cuando la convergencia es a una constante).
 
 $$X_n^{Y_n} = e^{Y_n \log(X_n)} \overset{d}{\rightarrow} e^{1 \log X} = e^{\log X} = X$$
 
-## Parte e
+## Parte e: si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} 1 \in \mathbb{R}$ entonces $Y_n^{X_n} \overset{d}{\rightarrow} 1$ 
 
 Por la parte a sabemos que si $Y_n \overset{d}{\rightarrow} c \Rightarrow Y_n \overset{p}{\rightarrow} c$ (esto no es cierto en general, pero sí cuando la convergencia es a una constante).
 
@@ -78,6 +78,7 @@ $$Y_n^{X_n} = e^{X_n \log(Y_n)} \overset{d}{\rightarrow} e^{X \log 1} = e^{0} = 
 
 # Ejercicio 3
 
+¿Por qué trabajamos por regiones? ¿Qué es lo que se cumple en una región que no se cumple en las demás?
 
 # Ejercicio 4
 
@@ -90,6 +91,13 @@ $$Y_n^{X_n} = e^{X_n \log(Y_n)} \overset{d}{\rightarrow} e^{X \log 1} = e^{0} = 
 
 # Ejercicio 7
 
+$$\lim\limits_{ \substack{ p \rightarrow 0 \\ n \rightarrow + \infty \\ np \rightarrow \lambda } } {{n}\choose{x}} p^x (1 - p)^{n - x} = \lim\limits_{ \substack{ p \rightarrow 0 \\ n \rightarrow + \infty \\ np \rightarrow \lambda } } \frac{n!}{(n - x)! \, x!} \, p^x (1 - p)^{n - x} = $$
+$$= \lim\limits_{ \substack{ p \rightarrow 0 \\ n \rightarrow + \infty \\ np \rightarrow \lambda } } \frac{n(n - 1)(n - 2) \ldots (n - (x -1))}{x!} \, p^x (1 - p)^{n - x} =$$
+$$= \lim\limits_{ \substack{ p \rightarrow 0 \\ n \rightarrow + \infty \\ np \rightarrow \lambda } } \frac{n(n - 1)(n - 2) \ldots (n - (x -1))}{x!} \, \left( \frac{\lambda}{n} \right)^x \left( 1 - \frac{\lambda}{n} \right)^{n - x} =$$
+$$= \frac{\lambda^x}{x!} \, \lim\limits_{ \substack{ p \rightarrow 0 \\ n \rightarrow + \infty \\ np \rightarrow \lambda } } \frac{ \overbrace{ n(n - 1)(n - 2) \ldots (n - (x -1)) }^{ \substack{ \text{Hay $x$ términos, por lo tanto es un} \\ \text{  polinomio de grado $x$ } }} }{n^x} \, \left( 1 - \frac{\lambda}{n} \right)^{n - x} \approx$$
+$$ \approx \frac{\lambda^x}{x!} \, \lim\limits_{ \substack{ p \rightarrow 0 \\ n \rightarrow + \infty \\ np \rightarrow \lambda } } \frac{ n^x }{ n^x } \, \left( 1 - \frac{\lambda}{n} \right)^{n - x} = \frac{\lambda^x}{x!} \, \lim\limits_{ \substack{ p \rightarrow 0 \\ n \rightarrow + \infty \\ np \rightarrow \lambda } } \underbrace{ \left( 1 - \frac{\lambda}{n} \right)^{n} }_{ \rightarrow e^{-\lambda} } \underbrace{ \left( 1 - \frac{\lambda}{n} \right)^{- x} }_{ \rightarrow 1^{-x} \rightarrow 1 } = \frac{ \lambda^x \, e^{- \lambda}}{ x! }$$
+
+Por lo tanto, $X \sim Poisson(\lambda)$.
 
 # Ejercicio 8
 
