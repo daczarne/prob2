@@ -152,6 +152,9 @@ $$Y_n^{X_n} = e^{X_n \log(Y_n)} \overset{d}{\rightarrow} e^{X \log 1} = e^{0} = 
 
 # Ejercicio 4
 
+Por hipótesis sabemos que $X_n \overset{d}{\rightarrow} X$. Esto implíca que para toda función $f$ continua y acotada se cumple que $E \big[ f(X_n) \big] \overset{n}{\rightarrow} E \big[ f(X) \big]$ (ver teorema 2.39). Sea $h = f \circ g$. Entonces $h$ también es continua y acotada dado que, por hipótesis, $g$ es continua. Por lo tanto:
+
+$$E \big[ f( g(X_n) ) \big] = E \big[ h(X_n) \big] \overset{n}{\rightarrow} E \big[ h(X) \big] = E \big[ f( g(X) ) \big] \Rightarrow g(X_n) \overset{d}{\rightarrow} g(X)$$
 
 # Ejercicio 5
 
