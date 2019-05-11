@@ -10,6 +10,7 @@ header-includes:
    - \DeclareMathOperator*{\plim}{plim}
    - \usepackage{mathrsfs}
    - \usepackage{amsmath}
+   - \usepackage{mathtools}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -58,11 +59,80 @@ $(\Leftarrow)$ Si $X_n \overset{p}{\rightarrow} c$ entonces sabemos que $X_n \ov
 
 ## Parte b: si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} c \in \mathbb{R}$ entonces $X_n + Y_n \overset{d}{\rightarrow} X + c$
 
-Por la parte a sabemos que si $Y_n \overset{d}{\rightarrow} c \Rightarrow Y_n \overset{p}{\rightarrow} c$ (esto no es cierto en general, pero sí cuando la convergencia es a una constante).
+Utilizaremos los siguientes cuatro postulados:
 
+i. Si $Y_n \overset{d}{\rightarrow} c \Rightarrow Y_n \overset{p}{\rightarrow} c$ (esto no es cierto en general, pero sí cuando la convergencia es a una constante).
+
+ii. Si $|Y_n - X_n| \overset{p}{\rightarrow} 0$ y $X_n \overset{d}{\rightarrow} X \Rightarrow Y_n \overset{d}{\rightarrow} X$.
+
+iii. Si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} c \Rightarrow (X_n, \, Y_n) \overset{d}{\rightarrow} (X, \, c)$.
+
+iv. Si $X_n \overset{d}{\rightarrow} X$ y $g$ es una función continua, entonces $g(X_n) \overset{d}{\rightarrow} g(X)$.
+
+***
+
+*Dem i*: demostrado en la parte a del ejercicio.
+
+***
+
+*Dem ii*: consideremos una función $f$ acotada y Lipschitz continua\footnote{Dados dos espacios métricos $(X, d_X)$ e $(Y, d_Y)$ decimos que una función $f : X \rightarrow Y$ es Lipschitz continua si $\exists K \geq 0$ tal que, para todo $x_1, x_2 \in X$, se cumpla que $d_Y(f(x_1), f(x_2)) \leq K d_X(x_1, x_2)$. Esto implíca que para todo par de puntos sobre la gráfica de $f$, el valor absoluto de la pendiente del segmento de recta que conecta dichos puntos es mejor que $K$. En este sentido, la continuidad de Lipschitz es una cota a cuán rápido permitimos que la función cambie (crezca o decrezca). }. Entonces, $\exists K > 0$, tal que $\forall x,y$ se cumple que $|f(x) - f(y)| \leq K |x - y|$. Luego, tomemos un $\varepsilon > 0$ y acotemos la siguiente expresión:
+
+$$\Big| E \big[ f(Y_n) \big] - E \big[ f(X_n) \big] \Big| = \Big| E \big[ f(Y_n) - f(X_n) \big] \Big| \leq E \Big[ \big| f(Y_n) - f(X_n) \big| \Big] = $$
+$$= E \Big[ \big| f(Y_n) - f(X_n) \big| \mathbb{I}_{ \{ |Y_n - X_n| < \varepsilon \} } \Big] + E \Big[ \big| f(Y_n) - f(X_n) \big| \mathbb{I}_{ \{ |Y_n - X_n| \geq \varepsilon \} } \Big] \leq$$
+$$ \leq E \Big[ K |Y_n - X_n| \mathbb{I}_{ \{ |Y_n - X_n| < \varepsilon \} } \Big] + E \Big[ 2 \, M \mathbb{I}_{ \{ |Y_n - X_n| \geq \varepsilon \} } \Big] \leq$$
+$$\leq E \Big[ K \, \varepsilon \, \mathbb{I}_{ \{ |Y_n - X_n| < \varepsilon \} } \Big] + E \Big[ 2 \, M \mathbb{I}_{ \{ |Y_n - X_n| \geq \varepsilon \} } \Big] = $$
+$$= K \, \varepsilon \, E \Big[ \mathbb{I}_{ \{ |Y_n - X_n| < \varepsilon \} } \Big] + 2 \, M \, E \Big[ \mathbb{I}_{ \{ |Y_n - X_n| \geq \varepsilon \} } \Big] = $$
+$$= K \, \varepsilon \, P \big( |Y_n - X_n| < \varepsilon \big) + 2 \, M \, P \big( |Y_n - X_n| \geq \varepsilon \big) \leq $$
+$$ \leq K \, \varepsilon + 2 \, M \, P \big( |Y_n - X_n| \geq \varepsilon \big)$$
+
+Donde la primer desigualdad se cumple por la desigualdad de Jensen. La segunda desigualdad se cumple porque para el primer sumando utilizamos la continuidad de Lipschitz, y para el segundo el hecho de que $f$ es una función acotada por $M$. En el primer término de la tercer desigualdad acotamos a $|Y_n - X_n|$ por $\varepsilon$ dado que ese el conjunto que determina la indicatriz. Por último, en la cuarta desigualdad simplemente acotamos la probabilidad del suceso $\{ |Y_n - X_n| < \varepsilon \}$ por 1 (lo cual es válido dado que toda probabilidad está acotada superiormente por 1).
+
+El objetivo ahora es utilizar las definiciones alternativas de la convergencia en distribución que nos brinda el lema de Portmanteau para probar la tésis. El mismo establece que $Y_n$ convergerá en distribución a $X$, sí y solo sí $E \big[ f(Y_n) \big] \overset{n}{\rightarrow} E \big[ f(X) \big]$ para toda $f$ continua y acotada. Procedemos de la siguiente manera:
+
+$$\Big| E \big[ f(Y_n) \big] - E \big[ f(X) \big] \Big| = \Big| E \big[ f(Y_n) \big] - E \big[ f(X_n) \big] + E \big[ f(X_n) \big] - E \big[ f(X) \big] \Big| \leq$$
+$$\leq \Big| E \big[ f(Y_n) \big] - E \big[ f(X_n) \big] \Big| + \Big| E \big[ f(X_n) \big] - E \big[ f(X) \big] \Big| \leq$$
+$$\leq K \, \varepsilon + 2 \, M \, \underbrace{ P \big( |Y_n - X_n| \geq \varepsilon \big) }_{ \overset{n}{\rightarrow} 0 \text{ dado que } |Y_n - X_n| \overset{p}{\rightarrow} 0 } + \Big| \underbrace{ E \big[ f(X_n) \big] - E \big[ f(X) \big] }_{ \overset{n}{\rightarrow} 0 \text{ dado que } X_n \overset{d}{\rightarrow} X } \Big| = K \, \varepsilon \overset{n}{\rightarrow} 0$$
+
+Donde la primer desigualdad se cumple por desigualdad triangular y la segunda desigualdad se cumple utilizando la cota hallada en el paso anterior. 
+
+Por lo tanto, queda probado que $E \big[ f(Y_n) \big] \overset{n}{\rightarrow} E \big[ f(X) \big]$, de donde se desprende, por el lema de Portmanteau que $Y_n \overset{n}{\rightarrow} X$.
+
+***
+
+*Dem iii*: primero queremos demostrar que $(X_n, c) \overset{d}{\rightarrow} (X, c)$. Por el teorema 2.39 (lema de Portmanteau) sabemos que $(X_n, c) \overset{d}{\rightarrow} (X, c) \Leftrightarrow E \big[f(X_n, \, c)\big] \overset{n}{\rightarrow} E \big[f(X, \, c)\big]$ para toda $f(x,y)$ continua y acotada.
+
+\vspace{.3cm}
+
+Tomemos una función $f$ que cumpla con ser continua y acotada, y consideremos a la función $g(x) \coloneqq f(x, c)$ (es decir, la función definida manteniendo la variable $y$ constante en $c$). Debido a como la definimos, $g$ también será continua y acotada. Por lo tanto, $E \big[ g(X_n) \big] \overset{n}{\rightarrow} E \big[ g(X) \big]$. Pero dicha expresión es equivalente a decir que, $E \big[ f(X_n, \, c) \big] \overset{n}{\rightarrow} E \big[ f(X, \, c) \big]$, y por lo tanto, dado que $X_n \overset{d}{\rightarrow} X$, sabemos que $(X_n, \, c) \overset{d}{\rightarrow} (X, \, c)$.
+
+En segundo lugar consideremos la expresión $|(X_n, \, Y_n) - (X_n, \, c)| = |X_n - X_n, \, Y_n - c| = |(0, \, Y_n - c)|$. Dicha expresión converge en probabilidad a cero dado que $Y_n \overset{p}{\rightarrow} c$.
+
+Por lo tanto, hemos demostrado que:
+
+a. $|(X_n, \, Y_n) - (X_n, \, c)| \overset{p}{\rightarrow} 0$  
+b. $(X_n, \, c) \overset{d}{\rightarrow} (X, \, c)$
+
+Por lo tanto, estamos en las hipótesis del postulado ii. Entonces, podemos deducir que $(X_n, \, Y_n) \overset{d}{\rightarrow} (X, \, Y)$.
+
+***
+
+*Dem iv*: demostrado en el ejercicio 4.
+
+***
+
+Recapitulando:
+
+1. Por el postulado i sabemos que si $Y_n \overset{d}{\rightarrow} c$, entonces $Y_n \overset{p}{\rightarrow} c$.
+
+2. Por los postulados ii y iii sabemos que si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} c \Rightarrow (X_n, \, Y_n) \overset{d}{\rightarrow} (X, \, c)$.
+
+3. Y por el postulado iv sabemos que si $X_n \overset{d}{\rightarrow} X$ y $g$ es continua, entonces $g(X_n) \overset{d}{\rightarrow} g(X)$.
+
+Consideremos entonces la función $g(x, y) = x + y$, entonces $X_n + Y_n \overset{d}{\rightarrow} X + c$.
 
 ## Parte c: si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} c \in \mathbb{R}$ entonces $X_n \, Y_n \overset{d}{\rightarrow} X \, c$
 
+Ídem parte b, solo que en este caso debemos tomar la función $g(x,y) = xy$.
 
 ## Parte d: si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} 1 \in \mathbb{R}$ entonces $X_n^{Y_n} \overset{d}{\rightarrow} X$ 
 
