@@ -148,7 +148,118 @@ $$Y_n^{X_n} = e^{X_n \log(Y_n)} \overset{d}{\rightarrow} e^{X \log 1} = e^{0} = 
 
 # Ejercicio 3
 
-¿Por qué trabajamos por regiones? ¿Qué es lo que se cumple en una región que no se cumple en las demás?
+**Convergencia uniforme de funciones**:
+
+Sean $f_n : E \rightarrow \mathbb{R}$ funciones a valores reales. Decimos que la sucesión de funciones $\{f_n\}_{n \in \mathbb{N}}$ converge uniformemente a $f$ sí, y solo sí, $\forall \varepsilon > 0$, $\exists N$ tal que para todo $n \geq N$ se cumple que $|f_n(x) - f(x)| < \varepsilon$ para todo $x \in E$.
+
+Una forma alternativa de caracterizar este concepto (la que usaremos en este ejercicio) es la siguiente. Sea $d_n(f_n, f) = \sup\limits_{x \in E} |f_n(x) - f(x)|$. Entonces, $\{f_n\}_{n \in \mathbb{N}} \rightrightarrows f \Leftrightarrow d_n(f_n, f) \overset{n}{\rightarrow} 0$.
+
+Por lo tanto, probar una convergencia uniforme implíca probar que la sucesión de funciones se encuentra siempre (léase, a partir de un $n$) cerca de la función límite $f$. Es decir, $f(x) - \varepsilon \leq f_n(x) \leq f(x) + \varepsilon$ para todos los valores del $x$ en el conjunto $E$.
+
+***
+
+Dado que lo que querémos probar es que $\sup\limits_{x \in E}|f_n(x) - f(x)| \overset{n}{\rightarrow} 0$, definamos el conjunto $E = [-R, \, R]$ y estudiemos los dos supremos por separado: i) cuando $x \in E$, y ii) cuando $x \in E^c$.
+
+Sea $\varepsilon > 0$, entonces existe $R = R(\varepsilon) > 0$ tal que $F(R) - F(-R) > 1 - \varepsilon$. Por lo tanto, $F(-R) < \varepsilon$, mientras que $F(R) > 1 - \varepsilon$.
+
+```{r fig1, out.width="60%", fig.align='center', echo=FALSE}
+x <- seq(-3, 3, by = 0.01)
+cdf <- pnorm(x)
+epsilon <- .1
+par(las = 1)
+plot(x, cdf, type = "l", col = "red", axes = FALSE, ylab = expression(F[n]), xlab = expression(x))
+axis(side = 1, at = c(-3, -2, 2, 3), labels = c("", "-R", "R", ""))
+axis(side = 2, at = c(0, epsilon, 1 - epsilon, 1), 
+     labels = c("0", expression(epsilon), expression(1 - epsilon), "1"))
+abline(h = 1, lty = "dashed", col = "black")
+abline(h = epsilon, lty = "dashed", col = "darkgreen")
+abline(h = 1 - epsilon, lty = "dashed", col = "darkgreen")
+```
+
+Dado que $F$ es continua en $R$ y en $-R$ (por hipótesis) y $F_n$ converge puntualmente a $F$ (dado que, por hipótesis, converge en distribución), sabemos que $\exists N_0$ tal que $\forall n \geq N_0$ se cumple que $|F_n(R) - F(R)| < \varepsilon$ y $|F_n(-R) - F(-R)| < \varepsilon$. Es decir, $d_n(F_n, F) \overset{n}{\rightarrow} 0$ en $x = R$ y en $x = -R$.
+
+\vspace{0.3cm}
+
+Consideremos primero un $r \leq -R$ (es decir, un valor de $x$ a la izquierda de $-R$). Por la convergencia en distribución y la continuidad sabemos que $| F_n(r) - F(r) | < \varepsilon$. El objetivo es acotar esta expresión. Primero observemos que $F_n(-R) < F(-R) + \varepsilon$:
+$$|F_n(-R) - F(-R)| < \varepsilon \Leftrightarrow - \varepsilon < F_n(-R) - F(-R) < \varepsilon \Leftrightarrow F(-R) - \varepsilon < \color{orange}{F_n(-R) < F(-R) + \varepsilon}$$
+
+Luego entonces, para todo $n \geq N_0$ se cumple que:
+$$|F_n(r) - F(r)| \leq F_n(r) + F(r) \leq F_n(-R) + F(-R) \leq F(-R) + \varepsilon + F(-R) \leq 3 \varepsilon$$
+
+Donde la primer desigualdad se cumple por propieda del valor absoluto.\footnote{Por la desigualdad triangular sabemos que $a - b \leq |a - b| \leq |a| + |b|$. Dado que las funciones de distribución toman siemepre valores positivos únicamente se cumple también que $|a| + |b| = a + b$.} La segunda desigualdad se cumple dado que tomamos $r \leq -R$. La tercer desigualdad se cumple por el razonamiento anterior. La última desigualdad se cumple debido a como definimos $-R$.
+
+\vspace{0.3cm}
+
+Consideremos ahora un $r\geq R$. Sabemos lo siguiente:
+
+i. $R$ fue elegido de forma tal que $1 - \varepsilon < F(R)$.
+
+ii. Como hay convergencia puntual (por la convergencia en distribución), existe $N_0$ tal que para todo $n \geq N_0$ se cumple que:
+$$|F_n(R) - F(R)| < \varepsilon \Leftrightarrow - \varepsilon < F_n(R) - F(R) < \varepsilon \Leftrightarrow F(R) - \varepsilon < F_n(R) < F(R) + \varepsilon$$
+
+iii. Todas las funciones son de distribución, y por lo tanto, monótonas no decrecientes. Entonces:
+$$\begin{array}{ r }
+F(R) \leq F(r) \leq 1 \\
+F_n(R) \leq F_n(r) \leq 1
+\end{array}$$
+
+Utilizando que $1 - \varepsilon < F(R)$, y que $F(R) \leq F(r) \leq 1$ hallamos que $1 - \varepsilon < F(r) \leq 1$. Por otro lado, utilizando que $F(R) - \varepsilon < F_n(R) < F(R) + \varepsilon$, y que $F_n(R) \leq F_n(r) \leq 1$, hallamos que: 
+$$\begin{array}{c c}
+F(R) - \varepsilon < F_n(R) \leq F_n(r) \leq 1 & \Leftrightarrow \\
+-F(R) + \varepsilon > - F_n(R) \geq -F_n(r) \geq -1 & \Leftrightarrow \\
+-1 \leq -F_n(r) < -F(R) + \varepsilon
+\end{array}$$
+
+\newpage
+
+Sumando verticalmente ambas equaciones obetenemos que:
+
+\begin{center}
+\begin{tabular}{c c c c c}
+$1 - \varepsilon$ & $<$    & $F(r)$    & $\leq$ & $1$                   \\
+$- 1$             & $\leq$ & $-F_n(r)$ & $<$    & $-F(R) + \varepsilon$ \\
+\hline
+$1 - \varepsilon - 1$ & $<$ & $F(r) - F_n(r)$ & $<$ & $1 - F(R) + \varepsilon$ \\
+\end{tabular}
+\end{center}
+
+\vspace{0.2cm}
+
+Del lado izquierdo (cota inferior), podemos simplificar para hallar que:
+$$- \varepsilon < F(r) - F_n(r) < 1 - F(R) + \varepsilon$$
+
+Por su parte, del lado derecho (cota superior), debemos recordar que $R$ fue elegido de forma tal que $1 - \varepsilon < F(R)$. Pero esto implíca que $1 - F(R) < \varepsilon$. Remplazando obtenemos que:
+$$- \varepsilon < F(r) - F_n(r) < 1 - F(R) + \varepsilon < 2 \varepsilon$$
+
+Luego entonces:
+$$- \varepsilon < F(r) - F_n(r) < 2 \varepsilon \Leftrightarrow -2 \varepsilon < F(r) - F_n(r) < 2 \varepsilon \Leftrightarrow |F_n(r) - F(r)| < 2 \varepsilon$$
+
+Por lo tanto, hemos probado que, si $n \geq N_0$, $\sup\limits_{x \in [-R, \,R]} \big| F_n(x) - F(x) \big| < 3 \varepsilon$.
+
+\vspace{0.3cm}
+
+Por último, consideremos un $r \in [-R, \, R]$. Dado que $F$ es uniformemente continua en $[-R, \, R]$ sabemos que $\forall \varepsilon > 0$, $\exists \delta > 0$ tal que, si $|x - y| < \delta$, entonces $|F(x) - F(y)| < \varepsilon$. Consideremos la partición $-R < x_1 < x_2 < \ldots < x_k < R$ tal que $x_i - x_{i-1} < \delta$. Como $F_n(x_i) \overset{n}{\rightarrow} F(x_i)$, $\exists n_i$ tal que si $n > n_i$, $|F_n(x_i) - F(x_i)| < \varepsilon$. Es decir, para cada sub-intevalo de la partición, la función converge a partir de algun valor $n_i$, no necesariamente el mismo para todos los sub-intervalos. Sea $N_1 = \max(n_1, \, \ldots, \, n_k)$ (el mayor de todos los $n_i$).
+
+Sea $i$ tal que $x_{i - 1} < r < x_i$ (es decir, el sub-intervalo que contiene al valor $r$), y consideremos $n > N_1$ (esto nos asegura que tengamos convergencia en dicho intervalo). Por lo tanto se cumple que:
+$$\begin{array}{ c c }
+\begin{array}{c c l}
+F_n(r) - F(r) & \leq & F_n(x_i) - F(x_{i-1}) \\
+              & \leq & F(x_i) + \varepsilon - F(x_{i-1}) \\
+              & \leq & 2 \varepsilon
+\end{array}
+&
+\begin{array}{c c l}
+F(r) - F_n(r) & \leq & F(x_i) - F_n(x_{i-1}) \\
+              & \leq & F(x_i) - F(x_{i-1}) + \varepsilon \\
+              & \leq & 2 \varepsilon
+\end{array}
+\end{array}$$
+
+Por lo tanto, queda demostrado que, si $n \geq N_1$, $\sup\limits_{x \in [-R, \, R]} \big| F_n (x) - F(x) \big| < 2 \varepsilon$.
+
+\vspace{0.3cm}
+
+Por último, tomemos $n > \max(N_0, \, N_1)$. Entonces se cumple que $\sup \big| F_n(x) - F(x) \big| \overset{n}{\rightarrow} 0$, por lo que queda demostrado que $f_n \rightrightarrows f$.
 
 # Ejercicio 4
 
