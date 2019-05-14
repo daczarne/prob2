@@ -11,6 +11,7 @@ header-includes:
    - \usepackage{mathrsfs}
    - \usepackage{amsmath}
    - \usepackage{mathtools}
+   - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -353,13 +354,33 @@ Por lo tanto, para hallar la distribución límite de $p_m \, \tau(m)$ podemos t
 $$\lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \left\lfloor \frac{x}{p_m} \right\rfloor }$$
 
 Notemos ahora que $\frac{x}{p_m} - 1 \leq \left\lfloor \frac{x}{p_m} \right\rfloor \leq \frac{x}{p_m}$, por lo tanto, podemos acotar inferiror y superiormente el limite de la siguiente forma:
-$$\lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \frac{x}{p_m} - 1 } \leq \lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \left\lfloor \frac{x}{p_m} \right\rfloor } \leq \lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \frac{x}{p_m} }$$
+$$\underbrace{ \lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \frac{x}{p_m} - 1 } }_{\overset{m}{\rightarrow} 1 - e^{-x}} \leq \lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \left\lfloor \frac{x}{p_m} \right\rfloor } \leq \underbrace{ \lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \frac{x}{p_m} }}_{\overset{m}{\rightarrow} 1 - e^{-x}}$$
 
-Dado que 
-$$\lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \frac{x}{p_m} } = 1 - \lim\limits_{m \rightarrow + \infty} (1 - p_m)^{ \frac{x}{p_m} } = 1 - \lim\limits_{m \rightarrow + \infty} \Big[ (1 - p_m)^{ \frac{1}{p_m} } \Big]^x = 1 - e^{-x} $$
+Dado que ambas cotas convergen a la función de distribución de una variable aleatoria con distribución exponencial de parámetro $1$, concluimos que $p_m \, \tau(m) \overset{d}{\rightarrow} Exp(1)$.
 
 # Ejercicio 10
 
+$$\lim\limits_{n \rightarrow + \infty} F_{ \frac{X_n}{n}}(x) = \lim\limits_{n \rightarrow + \infty} P \left( \frac{X_n}{n} < x \right) = \lim\limits_{n \rightarrow + \infty} P \left( X_n < n \,x \right) =$$
+$$= \lim\limits_{n \rightarrow + \infty} \left[ 1 - \left( 1 - \frac{\lambda}{\lambda + n} \right)^{ \lfloor nx \rfloor } \right] = 1 - \lim\limits_{n \rightarrow + \infty} \left( 1 - \frac{\lambda}{\lambda + n} \right)^{ \lfloor nx \rfloor } =$$
+$$= 1 - \lim\limits_{n \rightarrow + \infty} \exp \left\{ \log \left( 1 - \frac{\lambda}{\lambda + n} \right)^{ \lfloor nx \rfloor } \right\} = 1 - \lim\limits_{n \rightarrow + \infty} \exp \left\{ \lfloor nx \rfloor \, \log \left( 1 - \frac{\lambda}{\lambda + n} \right) \right\} =$$
+\begin{align*}
+= 1 - \lim\limits_{n \rightarrow + \infty} \exp \left\{ \lfloor nx \rfloor \, \log \left( 1 + \frac{-\lambda}{\lambda + n} \right) \right\}
+&\equalexpl{$\boxed{ \log(1 + u) \approx u \text{ cuando } u \rightarrow 0}$}
+1 - \lim\limits_{n \rightarrow + \infty} \exp \left\{ \lfloor nx \rfloor \, \left( \frac{-\lambda}{\lambda + n} \right) \right\} = 
+\end{align*}
+
+$$ = 1 - \lim\limits_{n \rightarrow + \infty} \exp \left\{ -\lfloor nx \rfloor \, \left( \frac{\lambda}{\lambda + n} \right) \right\} = 1 - \exp \left\{ - \lim\limits_{n \rightarrow + \infty} \lfloor nx \rfloor \, \left( \frac{\lambda}{\lambda + n} \right) \right\}$$
+
+Luego, para resolver este límite debemos acotar la expresión $\lfloor nx \rfloor$ de la siguiente manera:
+$$\lim\limits_{n \rightarrow + \infty} (n - 1) x \left( \frac{\lambda}{\lambda + n} \right) \leq \lim\limits_{n \rightarrow + \infty} \lfloor nx \rfloor \, \left( \frac{\lambda}{\lambda + n} \right) \leq \lim\limits_{n \rightarrow + \infty} nx \, \left( \frac{\lambda}{\lambda + n} \right)$$
+
+Nótese que las expresiones en ambas cotas, son polinómios en $n$. Por lo tanto, la desigualdad anterior es equivalente a:
+$$\lim\limits_{n \rightarrow + \infty} \frac{ n \, x \, \lambda}{n} \leq \lim\limits_{n \rightarrow + \infty} \lfloor nx \rfloor \, \left( \frac{\lambda}{\lambda + n} \right) \leq \lim\limits_{n \rightarrow + \infty} \frac{ n \, x \, \lambda}{n}$$
+
+De donde obtenemos entonces que nuestro límite está acotado inferior y superior mente por $\lambda x$. Por lo tanto,
+$$\lim\limits_{n \rightarrow + \infty} F_{ \frac{X_n}{n}}(x) = 1 - e^{-\lambda x}$$
+
+Por lo que podemos concluir que $\frac{X_n}{n} \overset{d}{\rightarrow} X \sim Exp(\lambda)$.
 
 # Ejercicio 11
 
@@ -369,10 +390,24 @@ $$\lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \frac{x}{p_m} } = 1 - \li
 
 # Ejercicio 13
 
+## Parte a
+
+
+## Parte b
+
 
 # Ejercicio 14
+
+## Parte a
+
+## Parte b
+
+## Parte c
 
 
 # Ejercicio 15
 
+## Parte a
 
+
+## Parte b
