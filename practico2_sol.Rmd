@@ -678,15 +678,15 @@ Dado que se trata de una igualdad de conjuntos, debemos probar la doble inclusi√
 
 ***
 
-**Parte 1**: $\bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \} \subset \bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \}$
+**Parte 1**: $\bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \Big\{|X_k - X| < \varepsilon \Big\} \subset \bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \Big\{|X_k - X| < \varepsilon \Big\}$
 
-$$\bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \} = \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \{ \forall k \geq n, \,|X_k - X| < \varepsilon \} = $$
-$$ = \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \{ \exists n \text{ tal que } \forall k \geq n, \,|X_k - X| < \varepsilon \} = $$
-$$= \{ \forall \varepsilon \in \mathbb{Q}^+, \, \exists n \text{ tal que } \forall k \geq n, \,|X_k - X| < \varepsilon \} \subset \{ \forall \varepsilon > 0,  \, \exists n \text{ tal que } \forall k \geq n, \,|X_k - X| < \varepsilon \} =$$
-$$= \bigcap_{\varepsilon \in \mathbb{R}^+} \{\exists n \text{ tal que } \forall k \geq n, \,|X_k - X| < \varepsilon \} = $$
-$$= \bigcap_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \{\forall k \geq n, \,|X_k - X| < \varepsilon \} = \bigcap_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap_{k = n}^{\infty} \{ |X_k - X| < \varepsilon \} $$
+$$\bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \Big\{|X_k - X| < \varepsilon \Big\} = \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \Big\{ \forall k \geq n, \,|X_k - X| < \varepsilon \Big\} = $$
+$$ = \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \Big\{ \exists n \text{ tal que } \forall k \geq n, \,|X_k - X| < \varepsilon \Big\} = $$
+$$= \Big\{ \forall \varepsilon \in \mathbb{Q}^+, \, \exists n \text{ tal que } \forall k \geq n, \,|X_k - X| < \varepsilon \Big\} \subset \Big\{ \forall \varepsilon > 0,  \, \exists n \text{ tal que } \forall k \geq n, \,|X_k - X| < \varepsilon \Big\} =$$
+$$= \bigcap\limits_{\varepsilon \in \mathbb{R}^+} \Big\{\exists n \text{ tal que } \forall k \geq n, \,|X_k - X| < \varepsilon \Big\} = $$
+$$= \bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \Big\{ \forall k \geq n, \, |X_k - X| < \varepsilon \Big\} = \bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap_{k = n}^{\infty} \Big\{ |X_k - X| < \varepsilon \Big\} $$
 
 ***
 
-**Parte 2**: $\bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \} \subset \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \}$
+**Parte 2**: $\bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \Big\{|X_k - X| < \varepsilon \Big\} \subset \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \Big\{ |X_k - X| < \varepsilon \Big\}$
 
