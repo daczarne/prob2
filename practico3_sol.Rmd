@@ -286,6 +286,25 @@ X \overset{d}{=} Y & \Leftrightarrow & P(X \in A) = P(Y \in A) \\
 
 # Ejercicio 5
 
+Comenzemos entendiendo cómo es la sucesión de variables aleatorias con la que debemos trabajar. Se establece que $X_n \sim Unif \left\{ \frac{1}{n},\, \frac{2}{n}, \, \ldots, \, \frac{n-1}{n}, \, 1 \right\}$ con $n \geq 1$, por lo tanto:
+$$\begin{array}{ c l c l}
+\text{Si } n = 1: & X_1 \sim Unif \big\{ 1 \big\} & \Rightarrow & f_{X_1}(x) = 1 \\ \\
+\text{Si } n = 2: & X_2 \sim Unif \left\{\frac{1}{2}, \, 1 \right\} & \Rightarrow & f_{X_2}(x) = \frac{1}{2} \\ \\
+\text{Si } n = 3: & X_3 \sim Unif \left\{\frac{1}{3}, \, \frac{2}{3}, \, 1 \right\} & \Rightarrow & f_{X_3}(x) = \frac{1}{3} \\ \\
+\text{Si } n = 4: & X_4 \sim Unif \left\{\frac{1}{4}, \, \frac{2}{4}, \, \frac{3}{4}, \, 1 \right\} & \Rightarrow & f_{X_4}(x) = \frac{1}{4} \\
+\vdots & \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \vdots & & \,\,\,\,\,\, \vdots \\ 
+\text{Si } n = k: & X_k \sim Unif \left\{\frac{1}{k}, \, \frac{2}{k}, \, \ldots, \, \frac{k - 1}{k}, \, 1 \right\} & \Rightarrow & f_{X_k}(x) = \frac{1}{k} \\
+\vdots & \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \vdots & & \,\,\,\,\,\, \vdots
+\end{array}$$
+
+Debemos demostrar que: $X_n \overset{d}{\rightarrow} X \Leftrightarrow \lim\limits_{n \rightarrow +\infty} F_{X_n}(x) = F_x(x)$ para todo punto de continuidad de $F_X$. Dada la sucesión de variables aleatorias descripta arriba sus funciones de distribución serán (por ejemplo):
+
+![](unifs.png)
+
+Comencemos notando que, por cómo está definida la sucesión, $F_{X_n} = 0$ para todo valor de $x < \, ^1\!/_n$, mientras que $F_{X_n}(x) = 1$ para cualquier valor de $x \geq 1$. Para los valores de $x$ entre 0 y 1 debemos notar (ver imagen) que $F_{X_n}$ nunca se separa de $F_X$ en más de $^1\!/_n$. Por lo tanto, tenemos que:
+$$\lim\limits_n F_{X_n}(x) = \lim\limits_n \frac{1}{n} \, \lfloor xn \rfloor \leq \lim\limits_n \frac{nx}{n} = x$$
+
+Donde la desigualdad se debe a que $nx - 1 \leq \lfloor xn \rfloor \leq nx$. Por lo tanto, hemos demostrado que $X_n \overset{d}{\rightarrow} X \sim Unif(0,1)$.
 
 # Ejercicio 6
 
