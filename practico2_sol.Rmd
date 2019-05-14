@@ -641,10 +641,10 @@ C & \text{si} & p = 1/3 \\
 
 ## Parte c
 
-Por la parte c del ejercicio 1 sabemos que si $Y_n \overset{cs}{\rightarrow} Y \Rightarrow g(Y_n) \overset{cs}{\rightarrow} g(Y)$ para toda $g$ continua. En este caso, $Y_n \sim Bin(n, p)$. Entonces $Y_n \overset{cs}{\rightarrow} np$ por la LFGN (teorema 2.34). Sea $g(z) = 2^{2z - n}$, entonces:
-$$2^{2 Y_n - n} \overset{cs}{\rightarrow} 2^{2np - n} = 2^{n(2p - 1)}$$
+Por la parte c del ejercicio 1 sabemos que si $Y_n \overset{cs}{\rightarrow} Y \Rightarrow g(Y_n) \overset{cs}{\rightarrow} g(Y)$ para toda $g$ continua. En este caso, $Y_n \sim Bin(n, p)$. Entonces $( Y_n -np) \overset{cs}{\rightarrow} 0$ por la LFGN (teorema 2.34). Sea $g(z) = 2^{2z - n}$, entonces:
+$$\lim\limits_n 2^{2 Y_n - n} = \lim\limits_n 2^{2 (Y_n - n/2)} = \lim\limits_n 2^{2 (Y_n - np + np - n/2)} = \lim\limits_n 2^{2 \overbrace{(Y_n - np)}^{ \overset{n}{\rightarrow} 0} + 2n(p - 1/2)} = \lim\limits_n 2^{2n(p - 1/2)}  $$
 
-Luego si $0 < p < \frac{1}{2}$ entonces $n(2p - 1) < 0$ y $2^{n(2p - 1)} \overset{n}{\rightarrow} 0$, por lo que $X_n \overset{cs}{\rightarrow} 0$.
+Luego si $0 < p < \frac{1}{2}$ entonces $2n(p - 1/2) < 0$ y $2^{2n(p - 1/2)} \overset{n}{\rightarrow} 0$, por lo que $X_n \overset{cs}{\rightarrow} 0$.
 
 ## Parte d
 
@@ -672,7 +672,7 @@ $$= \sum\limits_{n = 1}^{\infty} P( X_n(\omega) = 1) = \sum\limits_{n = 1}^{\inf
 
 Probar la siguiente igualdad:
 
-$$\bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \} = \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \{|X_k - X| < \varepsilon \}$$
+$$\bigcap\limits_{\varepsilon \in \mathbb{R}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \Big\{|X_k - X| < \varepsilon \Big\} = \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{n = 1}^{\infty} \bigcap\limits_{k = n}^{\infty} \Big\{ |X_k - X| < \varepsilon \Big\}$$
 
 Dado que se trata de una igualdad de conjuntos, debemos probar la doble inclusión.
 
