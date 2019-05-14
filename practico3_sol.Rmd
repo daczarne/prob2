@@ -308,6 +308,13 @@ Donde la desigualdad se debe a que $nx - 1 \leq \lfloor xn \rfloor \leq nx$. Por
 
 # Ejercicio 6
 
+$(\Rightarrow)$
+$$\lim\limits_{n \rightarrow +\infty} P(X_n = x_j) = \lim\limits_{n \rightarrow +\infty} \Big[ F_{X_n}(x_j) - F_{X_n}(x_{j - 1}) \Big] = \lim\limits_{n \rightarrow +\infty} F_{X_n}(x_j) - \lim\limits_{n \rightarrow +\infty} F_{X_n}(x_{j - 1}) =$$
+$$= F_X(x_j) - F_X(x_{j - 1}) = P(X = X_j)$$
+
+$(\Leftarrow)$
+$$\lim\limits_{n \rightarrow +\infty} F_{X_n}(x_j) = \lim\limits_{n \rightarrow +\infty} \sum\limits_{ \substack{ x \in Rec(X_n) \\ x \leq j }} P(X_n = x_j) = \sum\limits_{ \substack{ x \in Rec(X_n) \\ x \leq j }} \lim\limits_{n \rightarrow +\infty} P(X_n = x_j) =$$
+$$ = \sum\limits_{ \substack{ x \in Rec(X_n) \\ x \leq j }} P(X = x_j) = F_{X}(x_j) $$
 
 # Ejercicio 7
 
