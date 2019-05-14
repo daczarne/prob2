@@ -331,6 +331,32 @@ Por lo tanto, $X \sim Poisson(\lambda)$.
 
 # Ejercicio 9
 
+Primero debemos hallar la distribución de $\tau(m)$:
+$$\begin{array}{c c l}
+P(\tau(m) = 1) & = & P(X_1 > m) = p_m \\
+P(\tau(m) = 2) & = & P(X_1 \leq m) P(X_2 > m) = F(m) \big[ 1 - F(m) \big] = p_m (1 - p_m) \\
+P(\tau(m) = 3) & = & P(X_1 \leq m) P(X_2 \leq m) P(X_3 > m) = F(m) \big[ 1 - F(m) \big]^2 = p_m (1 - p_m)^2 \\
+\vdots         &   & \vdots \\
+P(\tau(m) = k) & = & P(X_1 \leq m) \ldots P(X_{k-1} \leq m) P(X_k > m) = F(m) \big[ 1 - F(m) \big]^{k - 1} = p_m (1 - p_m)^{k - 1} \\
+\end{array}$$
+
+Vemos entonces que $\tau(m) \sim Geo(p_m)$. Esto se condice con la definición de $\tau(m)$. Si llamamos "éxito" a sobrepasar el nivel $m$, entonces $\tau(m) =$ "# de experimentos antes de alcanzar el 1er éxito". Si $\tau(m)$ tiene distribución Geométrica con parámetro $p_m$, entonces sobre su función de distribución sabemos que:
+
+$$F_{\tau(m)}(y) = P(\tau(m) \leq y) = \sum\limits_{i = 1}^{ \lfloor y \rfloor } p_m (1 - p_m)^{i - 1} = \sum\limits_{j = 0}^{ \lfloor y \rfloor - 1 } p_m (1 - p_m)^{j} =$$
+$$= p_m \, \frac{ 1 - (1 -p_m)^{\lfloor y \rfloor} }{ 1 - (1 - p_m) } = 1 - (1 -p_m)^{\lfloor y \rfloor}$$
+
+Luego, lo que queremos probar es que $p_m \, \tau(m) \overset{d}{\rightarrow} Exp(1) = (1 - e^{-x}) \, \mathbb{I}_{ \{ x \geq 0\} }$. Nótese que no estamos hablando de la distribución de $\tau(m)$, sino de la distribución de $p_m \, \tau(m)$. Pero dado que $p_m$ es constante respecto de $n$, podemos establecer el siguiente vínculo entre ambas distribuciones:
+
+$$F_{p_m \, \tau(m)}(x) = P \big(p_m \, \tau(m) \leq x \big) = P \big(\tau(m) \leq \, ^x \!/ _{p_m} \big) = F_{\tau(m)} \left( ^x \!/ _{p_m} \right)$$
+
+Por lo tanto, para hallar la distribución límite de $p_m \, \tau(m)$ podemos trabajar con la distribución de $\tau(m)$ evaluada en $^x \!/ _{p_m}$. Esto requiere resolver el siguiente límite:
+$$\lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \left\lfloor \frac{x}{p_m} \right\rfloor }$$
+
+Notemos ahora que $\frac{x}{p_m} - 1 \leq \left\lfloor \frac{x}{p_m} \right\rfloor \leq \frac{x}{p_m}$, por lo tanto, podemos acotar inferiror y superiormente el limite de la siguiente forma:
+$$\lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \frac{x}{p_m} - 1 } \leq \lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \left\lfloor \frac{x}{p_m} \right\rfloor } \leq \lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \frac{x}{p_m} }$$
+
+Dado que 
+$$\lim\limits_{m \rightarrow + \infty} 1 - (1 - p_m)^{ \frac{x}{p_m} } = 1 - \lim\limits_{m \rightarrow + \infty} (1 - p_m)^{ \frac{x}{p_m} } = 1 - \lim\limits_{m \rightarrow + \infty} \Big[ (1 - p_m)^{ \frac{1}{p_m} } \Big]^x = 1 - e^{-x} $$
 
 # Ejercicio 10
 
