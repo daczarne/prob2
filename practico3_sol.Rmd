@@ -429,12 +429,21 @@ $$= \lim\limits_n \Big( 1 - x^{-\alpha} n^{-1} \Big)^n \, \mathbb{I}_{\{x \geq 0
 
 ## Parte b
 
+Si $F_{X_n}(x) = (1 - e^{-x}) \, \mathbb{I}_{\{x \geq 0\}}$ entonces $F_{X_{(n)}}(x) = (1 - e^{-x})^n \, \mathbb{I}_{\{x \geq 1\}}$. Luego entonces, la distribución límite de $X_{(n)} - \log n$ estará dada por:
+$$\lim\limits_n F_{ X_{(n)} - \log n}(x) = \lim\limits_n P \left( X_{(n)} - \log n \leq x \right) = \lim\limits_n P \left( X_{(n)} \leq x + \log n \right) =$$
+$$ = \lim\limits_n \left(1 - \exp \Big\{ -( x + \log n) \Big\} \right)^n \, \mathbb{I}_{\{ x + \log n \geq 0 \}} = $$
+$$= \lim\limits_n \left(1 - \exp \Big\{ - ( \log e^x + \log n) \Big\} \right)^n \, \mathbb{I}_{\{ x \geq -\log n \}} =$$
+$$= \lim\limits_n \left(1 - \exp \Big\{ - \log (n e^x) \Big\} \right)^n \, \mathbb{I}_{\{ x \geq -\log n \}} = \lim\limits_n \left(1 - \exp \Big\{ \log (n e^x)^{-1} \Big\} \right)^n \, \mathbb{I}_{\{ x \geq -\log n \}} =$$
+$$= \lim\limits_n \left(1 - \exp \Big\{ \log (n^{-1} e^{-x}) \Big\} \right)^n \, \mathbb{I}_{\{ x \geq -\log n \}} = \lim\limits_n \left(1 - (n^{-1} e^{-x}) \right)^n \, \mathbb{I}_{\{ x \geq -\log n \}} = $$
+$$= \lim\limits_n \left(1 + \frac{-e^{-x}}{n} \right)^n \, \mathbb{I}_{\{ x \geq -\log n \}} = e^{-e^{-x}} \, \mathbb{I}_{\{ x \geq -\infty \}} = e^{-e^{-x}} \, \mathbb{I}_{\{ x \in \mathbb{R} \}}$$
 
 # Ejercicio 14
 
 ## Parte a
 
+
 ## Parte b
+
 
 ## Parte c
 
@@ -445,3 +454,4 @@ $$= \lim\limits_n \Big( 1 - x^{-\alpha} n^{-1} \Big)^n \, \mathbb{I}_{\{x \geq 0
 
 
 ## Parte b
+
