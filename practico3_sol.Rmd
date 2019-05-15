@@ -398,6 +398,25 @@ Por lo tanto, $\frac{X_n}{n} \overset{d}{\rightarrow} X \sim Exp(1/\lambda)$.
 
 # Ejercicio 12
 
+## Parte a: hallar función límite
+
+Si $X_n \sim Unif(-n, \, n) \Rightarrow F_n(x) = \frac{x+n}{2n} \mathbb{I}_{[-n, \, n]} + \mathbb{I}_{[n, \, +\infty)}$. Luego,
+
+$$\lim\limits_n F_{X_n}(x) = \lim\limits_n P(X_n \leq x) = \lim\limits_n \frac{x+n}{2n} \mathbb{I}_{[-n, \, n]} + \mathbb{I}_{[n, \, +\infty)} =$$
+$$= \lim\limits_n \frac{x+n}{2n} \mathbb{I}_{[-n, \, n]} + \underbrace{\lim\limits_n \mathbb{I}_{[n, \, +\infty)}}_{  \overset{n}{\rightarrow} 0} = \lim\limits_n \frac{x+n}{2n} \mathbb{I}_{[-n, \, n]} \approx \lim\limits_n \frac{n}{2n} \mathbb{I}_{[-n, \, n]} = \frac{1}{2} \, \mathbb{I}_{ \{ x \in \mathbb{R} \} }$$
+
+Por lo tanto, $X_n \overset{d}{\rightarrow} F(x) = \frac{1}{2} \, \mathbb{I}_{ \{ x \in \mathbb{R} \} }$ (es decir, la función constante $1/2$ en todos los reales).
+
+## Parte b: verificar que $F$ no es la función de distribución de una variable aleatoria
+
+Nótese que:
+$$\begin{array}{c c c}
+\lim\limits_{x \rightarrow -\infty} F(x) = \frac{1}{2} \neq 0
+& \,\,\,\,\,\, & 
+\lim\limits_{x \rightarrow +\infty} F(x) = \frac{1}{2} \neq 1
+\end{array}$$
+
+Por lo tanto $F$ no es la función de distribución de una variable aleatoria.
 
 # Ejercicio 13
 
