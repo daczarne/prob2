@@ -384,6 +384,17 @@ Por lo que podemos concluir que $\frac{X_n}{n} \overset{d}{\rightarrow} X \sim E
 
 # Ejercicio 11
 
+## Parte a
+
+$$\lim\limits_{ \substack{ p_n \rightarrow p \\ n \rightarrow +\infty }} F_{X_n}(x) = \lim\limits_{ \substack{ p_n \rightarrow p \\ n \rightarrow +\infty }} P(X_n \leq x) = \lim\limits_{ \substack{ p_n \rightarrow p \\ n \rightarrow +\infty }} 1 - (1 - p_n)^{\lfloor x \rfloor} = 1 - (1 - p)^{\lfloor x \rfloor} \Rightarrow X_n \overset{d}{\rightarrow} X \sim Geo(p)$$
+
+## Parte b
+
+$$\lim\limits_{ \substack{ p_n \rightarrow 0 \\ np_n \rightarrow \lambda \\ n \rightarrow +\infty }} F_{\frac{X_n}{n}}(x) = \lim\limits_{ \substack{ p_n \rightarrow 0 \\ np_n \rightarrow \lambda \\ n \rightarrow +\infty }} P \left( \frac{X_n}{n} \leq x \right) = \lim\limits_{ \substack{ p_n \rightarrow 0 \\ np_n \rightarrow \lambda \\ n \rightarrow +\infty }} P \left( X_n \leq nx \right) = \lim\limits_{ \substack{ p_n \rightarrow 0 \\ np_n \rightarrow \lambda \\ n \rightarrow +\infty }} 1 - (1 - p_n)^{\lfloor nx \rfloor} =$$
+$$= \lim\limits_{ \substack{ p_n \rightarrow 0 \\ np_n \rightarrow \lambda \\ n \rightarrow +\infty }} 1 - \left( 1 - \frac{\lambda}{n} \right)^{\lfloor nx \rfloor} = 1 - \lim\limits_{ \substack{ p_n \rightarrow 0 \\ np_n \rightarrow \lambda \\ n \rightarrow +\infty }} \exp\left\{ \lfloor nx \rfloor \, \log \left( 1 - \frac{\lambda}{n} \right) \right\} = $$
+$$= 1 - \lim\limits_{ \substack{ p_n \rightarrow 0 \\ np_n \rightarrow \lambda \\ n \rightarrow +\infty }} \exp\left\{ \lfloor nx \rfloor \, \left( - \frac{\lambda}{n} \right) \right\} = 1 - \exp\left\{ - \lim\limits_{ \substack{ p_n \rightarrow 0 \\ np_n \rightarrow \lambda \\ n \rightarrow +\infty }} \frac{\lfloor nx \rfloor \, \lambda}{n} \right\} = 1 - e^{-\lambda x}$$
+
+Por lo tanto, $\frac{X_n}{n} \overset{d}{\rightarrow} X \sim Exp(1/\lambda)$.
 
 # Ejercicio 12
 
