@@ -70,16 +70,33 @@ B_{n+2} & = &  &  &  &  & A_{n+2} & \cup & \ldots \\
 Dado que cada vez unimos menos conjuntos, el conjunto resultante es "más chico", y por tanto, la sucesión es decreciente. Luego entonces,
 $$\begin{array}{c c c c l}
 P \left( \limsup\limits_{n} A_n \right) & = & P \left( \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite superior} \\ \\
-& = & P \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
-& = & \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad de una} \\
-& & & & \text{sucesión decreciente (ver prop 1.8/8)} \\ \\
-& = & \lim\limits_{n \rightarrow +\infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
+  & = & P \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad de una} \\
+  &   &  & & \text{sucesión decreciente (ver prop 1.8/8)} \\ \\
+  & = & \lim\limits_{n \rightarrow +\infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
 \end{array}$$
+
+\newpage
 
 ## Parte 5
 
+Veamos primero que la sucesión $B_n$ es creciente. La misma está defiinida de la siguiente forma:
 
+$$\begin{array}{l c c c c c c c c}
+B_n & = & A_n & \cap & A_{n+1} & \cap & A_{n+2} & \cap & \ldots \\
+B_{n+1} & = &  &  & A_{n+1} & \cap & A_{n+2} & \cap & \ldots \\
+B_{n+2} & = &  &  &  &  & A_{n+2} & \cap & \ldots \\
+\,\,\,\,\,\, \vdots & & & & & & & & 
+\end{array}$$
+Dado que cada vez intersectamos menos conjuntos, el conjunto resultante es "más grande", y por tanto, la sucesión es creciente. Luego entonces,
 
+$$\begin{array}{c c c c l}
+P \left( \liminf\limits_{n} A_n \right) & = & P \left( \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite inferior} \\ \\
+  & = & P \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad de una } \\
+  &   &  & & \text{sucesión creciente (ver prop 1.8/7)} \\ \\
+  & = & \lim\limits_{n \rightarrow +\infty} P \left( \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
+\end{array}$$
 
 ## Parte 6
 
