@@ -331,8 +331,19 @@ Por lo tanto, $X \sim Poisson(\lambda)$.
 
 ## Parte a
 
-$$\lim\limits_n F_n(x) = \lim\limits_n \left( \frac{1}{2} \, \mathbb{I}_{ \{ 0 \leq x < 1/n \} } + \mathbb{I}_{ \{ x \geq 1/n\} } \right) = \frac{1}{2} \, \underbrace{ \lim\limits_n \mathbb{I}_{ \{ 0 \leq x < 1/n \} } }_{ \overset{n}{\rightarrow} \mathbb{I}_{ \{ 0 \leq x < 0 \} } } + \underbrace{ \lim\limits_n \mathbb{I}_{ \{ x \geq 1/n\} } }_{ \overset{n}{\rightarrow} \mathbb{I}_{ \{ x \geq +\infty \} } } = 0$$
+$$\lim\limits_n F_n(x) = \lim\limits_n \left( \frac{1}{2} \, \mathbb{I}_{ \{ 0 \leq x < 1/n \} } + \mathbb{I}_{ \{ x \geq 1/n\} } \right) = \frac{1}{2} \, \underbrace{ \lim\limits_n \mathbb{I}_{ \{ 0 \leq x < 1/n \} } }_{ \overset{n}{\rightarrow} \mathbb{I}_{ \{ x = 0 \} } } + \underbrace{ \lim\limits_n \mathbb{I}_{ \{ x \geq 1/n\} } }_{ \overset{n}{\rightarrow} \mathbb{I}_{ \{ x \geq 0 \} } } =$$
+$$= \frac{1}{2} \, \mathbb{I}_{ \{ x = 0 \} } + \mathbb{I}_{ \{ x \geq 0 \} } = \frac{1}{2} \, \mathbb{I}_{ \{ x = 0 \} } + \mathbb{I}_{ \{ x = 0 \} } + \mathbb{I}_{ \{ x > 0 \} } = \frac{3}{2} \, \mathbb{I}_{ \{ x = 0 \} } + \mathbb{I}_{ \{ x > 0 \} }$$
 
+Pero $x = 0$ no es un punto de continuidad, por lo tanto no debe ser considerado. Para los puntos de continuidad sí se cumple la convergencia.
+
+## Parte b
+
+Sea $F_0 (x) = F_{X_0}(x) = \mathbb{I}_{ \{ x \geq 0 \} }$. Luego entonces:
+$$\lim\limits_n F_n(0) = \lim\limits_n \left( \frac{3}{2} \, \mathbb{I}_{ \{ x = 0 \} } \right) = \frac{3}{2} \neq 1 = F_0 (0)$$
+
+## Parte c
+
+$$\lim\limits_{n \rightarrow +\infty} \,\, \sup\limits_x \big| F_n(x) - F_0(x) \big| = \frac{1}{2}$$
 
 # Ejercicio 9
 
