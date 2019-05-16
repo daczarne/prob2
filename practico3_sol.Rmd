@@ -62,7 +62,7 @@ $(\Leftarrow)$ Si $X_n \overset{p}{\rightarrow} c$ entonces sabemos que $X_n \ov
 
 Utilizaremos los siguientes cuatro postulados:
 
-i. Si $Y_n \overset{d}{\rightarrow} c \Rightarrow Y_n \overset{p}{\rightarrow} c$ (esto no es cierto en general, pero sí cuando la convergencia es a una constante).
+i. Si $Y_n \overset{d}{\rightarrow} c \Rightarrow Y_n \overset{p}{\rightarrow} c$.
 
 ii. Si $|Y_n - X_n| \overset{p}{\rightarrow} 0$ y $X_n \overset{d}{\rightarrow} X \Rightarrow Y_n \overset{d}{\rightarrow} X$.
 
