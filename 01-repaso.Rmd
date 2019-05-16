@@ -495,6 +495,8 @@ P \left( \liminf\limits_{n} A_n \right) & = & P \left( \bigcup\limits_{n \in \ma
   & \leq & \liminf\limits_n P(A_k) \,\,\, \forall k \geq n & & \text{por definición de intersecsión}
 \end{array}$$
 
+\newpage
+
 Parte 2: $\liminf\limits_{n} P(A_n) \leq \limsup\limits_{n} P(A_n)$
 
 En este caso estamos hablando del límite inferior y del límite superior de una sucesión real, los cuales se definen como:
@@ -504,20 +506,16 @@ En este caso estamos hablando del límite inferior y del límite superior de una
 
 Por lo tanto, $\liminf\limits_n P(A_n) \leq \limsup\limits_n P(A_n)$
 
-\newpage
-
 Parte 3: $\limsup\limits_{n} P(A_n) \leq P \left( \limsup\limits_{n} A_n \right)$
 
-$$\begin{array}{c c c}
-P \left( \limsup\limits_{n} A_n \right) = P \left( \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de límite superior} \\ \\
-P \left( \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k \right) = P \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcup\limits_{k \geq n} A_k$} \\ \\
-P \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) = \lim\limits_n P(B_n) & & \text{por ser $B_n$ decreciente} \\ \\
-\lim\limits_n P(B_n) = \lim\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
-\lim\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) = \limsup\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
-\limsup\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) \geq \limsup\limits_n P(A_k) \, \forall k \geq n & & \text{por definición de unión}
+$$\begin{array}{c c l c l}
+P \left( \limsup\limits_{n} A_n \right) & = & P \left( \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de límite superior} \\ \\
+  & = & P \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcup\limits_{k \geq n} A_k$} \\ \\
+  & = & \lim\limits_n P(B_n) & & \text{por ser $B_n$ decreciente} \\ \\
+  & = & \lim\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \limsup\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
+  & \geq & \limsup\limits_n P(A_k) \, \forall k \geq n & & \text{por definición de unión}
 \end{array}$$
-
-***
 
 # Independencia
 
@@ -525,6 +523,8 @@ P \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) = \lim\limits_n P(B_n) & 
 
 Dada una familia de sucesos $\{A_{\alpha}\}_{\alpha \in I}$, donde $I$ es un conjunto cualquiera de índices, se dice que son independiente si, y solo si, para todo $F \subset I$ finito, se cumple que:
 $$ P \left( \bigcap\limits_{\alpha \in F} A_{\alpha}  \right) = \prod\limits_{\alpha \in F} P(A_{\alpha}) $$
+
+\newpage
 
 #### Teorema 1.13: Lema de Borel-Cantelli
 
@@ -536,25 +536,25 @@ i. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) < \infty \Rightarrow P \left( \limsu
 
 *Dem*: 
 
-$$\begin{array}{c c c}
-P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por prop. 1.11/4} \\ \\
-\lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) \leq \sum\limits_{k = n}^{+\infty} P(A_k) & & \text{prop. 1.9/6} \\ \\
-\sum\limits_{k = n}^{+\infty} P(A_k) \overset{n}{\rightarrow} 0 & & \text{por ser la cola de una serie convergente}
+$$\begin{array}{c c l c l}
+P \left( \limsup\limits_n A_n \right) & = & \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por prop. 1.11/4} \\ \\
+  & \leq & \sum\limits_{k = n}^{+\infty} P(A_k) & & \text{prop. 1.9/6} \\ \\
+  &      & \sum\limits_{k = n}^{+\infty} P(A_k) \overset{n}{\rightarrow} 0 & & \text{por ser la cola de una serie convergente}
 \end{array}$$
-
-ii. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) = \infty$ y además $\{A_n\}_{n \in \mathbb{N}}$ son independientes $\Rightarrow P \left( \limsup\limits_n A_n \right) = 1$
 
 ***
 
-*Dem*: como $P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right)$ basta probar que $\lim\limits_{n \rightarrow +\infty} P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \overset{n}{\rightarrow} 0 0$. Para cada $m > n$ tenemos que:
+ii. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) = \infty$ y además $\{A_n\}_{n \in \mathbb{N}}$ son independientes $\Rightarrow P \left( \limsup\limits_n A_n \right) = 1$
 
-$$\begin{array}{c c c}
-P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \leq P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) & & \text{por intersección} \\ \\
-P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) = \prod\limits_{k = n}^{m} P \left( A_k^c \right) & & \text{por independencia} \\ \\
-\prod\limits_{k = n}^{m} P \left( A_k^c \right) = \prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] & & \text{por porbabilidad del complemento} \\ \\
-\prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] \leq \prod\limits_{k = n}^{m} \exp\left\{ -P(A_l) \right\} & &  \text{por que } 1 - x \leq e^{-x} \, \forall x \\ \\
-\prod\limits_{k = n}^{m} \exp\left\{ -P(A_l) \right\} = \exp\left\{ \sum\limits_{k = n}^{m} -P(A_l) \right\} & & \text{por propiedad del producto} \\ \\
-\exp\left\{ - \sum\limits_{k = n}^{m} P(A_k) \right\} \overset{m}{\rightarrow} 0 & & \text{porque } \lim\limits_m \sum\limits_{k = n}^{m} P(A_l) = - \infty
+*Dem*: como $P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right)$ basta probar que $\lim\limits_{n \rightarrow +\infty} P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \overset{n}{\rightarrow} 0$. Para cada $m > n$ tenemos que:
+
+$$\begin{array}{c c l c l}
+P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) & \leq & P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) & & \text{por intersección} \\ \\
+  & = & \prod\limits_{k = n}^{m} P \left( A_k^c \right) & & \text{por independencia} \\ \\
+  & = & \prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] & & \text{por probabilidad del complemento} \\ \\
+  & \leq & \prod\limits_{k = n}^{m} \exp\left\{ -P(A_k) \right\} & &  \text{por que } 1 - x \leq e^{-x} \, \forall x \\ \\
+  & = & \exp\left\{ \sum\limits_{k = n}^{m} -P(A_k) \right\} & & \text{por propiedad del producto} \\ \\
+  &   & \exp\left\{ - \sum\limits_{k = n}^{m} P(A_k) \right\} \overset{m}{\rightarrow} 0 & & \text{porque } \lim\limits_m \sum\limits_{k = n}^{m} P(A_l) = - \infty
 \end{array}$$
 
 \newpage
@@ -628,6 +628,8 @@ Repitiendo lo anterior hasta intersectar todos los $k$ conjuntos, obtenemos que 
 - Si $\{x_n\}_{n \in \mathbb{N}} \subset F$ es una sucesión, $x_n \rightarrow x \Leftrightarrow d(x_n, x) \rightarrow 0$.
 
 - Decimos que una sucesión $\{x_n\}_{n \in \mathbb{N}} \subset F$ es de Cauchy $\Leftrightarrow d(x_n,x_m) \rightarrow 0$ cuando $n,m \rightarrow \infty$.
+
+\newpage
 
 #### Espacio métrico completo
 
@@ -721,14 +723,6 @@ b. $\left. \begin{array}{l} A \in \mathcal{F}_n' \\ \mathcal{F}_n \perp \mathcal
 
 Por a. y b. obtenemos que $A \perp A$. Por lo tanto, $P(A) = P(A \cap A) = P(A) \, P(A) = P^2(A)$. Pero como $P(A)$ es una probabilidad, $0 \leq P(A) \leq 1$, entonces, $P(A) = 0$ o $P(A) = 1$ dado que estos son los únicos números que elevados al cuadrado dan como resultado ellos mismos.
 
-<!-- A continuación la versión presenadad por Cholaquidis
-Dado $(\Omega, \mathcal{A}, P)$ y $X_1, \, \ldots, \, X_n, \, \ldots$ una sucesión de variables aleatorias. Sea $\mathcal{A}^{\infty}_n = \sigma(X_n, \, X_{n+1}, \, \ldots)$ la $\sigma$-álgebra generada por $X_n, \, X_{n+1}, \, \ldots$ (es decir, la menor $\sigma$-álgebra que las hace variable aleatoria), denotamos $\mathcal{A}^{\infty} = \bigcap\limits_{n = 1}^{\infty} \mathcal{A}^{\infty}_n$. Es claro que $\mathcal{A}^{\infty}$ es una $\sigma$-álgebra. Los eventos de $\mathcal{A}^{\infty}$ se llaman *eventos de cola*, ya que no depende de lo que sucede en la sucesión $\{X_n\}_{n \in \mathbb{N}}$ en una cantidad finita de índices.
-
-#### Teorema 1.28: Ley 0 o 1 de Kolmogorov
-
-Sea $X_1, \, X_2, \, \ldots$ una sucesión de variables aleatorias independientes. Sea $A \in \mathcal{A}^{\infty}$, entonces $P(A)$ solo puede valer 0 o 1.
--->
-
 ## Desigualdad de Kolmogorov
 
 Sean $X_1, \, X_2, \, \ldots, \, X_n$ variables aleatorias independientes tales que $E(X_i) = 0$ y $E(X_i^2) < \infty$ $\forall i = 1, \, \ldots, \, n$, y sea $S_k = X_1 + \ldots + X_k$, entonces, $\forall \varepsilon > 0$:
@@ -796,6 +790,8 @@ $$\int\limits_a^b g(x) d F(x) = g(c)$$
 
 *Dem*: debemos discutir en función de si $c$ pertenece o no a la partición (es decir, si el valor $c$ considerado es uno de los $c_i$ en la partición).
 
+\newpage
+
 Caso a) $c \notin P$
 
 Consideremos el intervalo de la partición tal que $c_j < c < c_{j+1}$. Que $c$ no pertenezca a la partición implica que $F(c_j) = 0$ mientras que $F(c_{j+1}) = 1$ dado que $F$ es la indicatriz del intervalo $[c,b]$. Para todos los demás subintervalos de la partición, $F(x) = k$ por lo que la integral R-S vale cero (ver observación anterior). Por lo tanto,
@@ -840,8 +836,10 @@ Parte 1.i) Si $\exists \lim\limits_{||P|| \rightarrow 0} S(P, g, F) = I < +\inft
 \vspace{0.5cm}
 
 *Dem*: si $\exists \lim\limits_{||P|| \rightarrow 0} S_P = I \Rightarrow \exists P([a,b])$ con $||P|| < \delta$ tal que $|S_P - I | < \varepsilon$. Sea la partición $Q([a,b])$ tal que $||Q|| < \delta / 2$ entonces 
-$$|S_{P} - I| < \varepsilon$$
-$$\underbrace{|S_{P} - I - S_Q + S_Q|}_{ \leq \underbrace{|S_P - S_Q|}_{\leq \varepsilon / 2} + |S_Q - I| } < \varepsilon$$
+$$\begin{array}{r c l}
+|S_{P} - I| & < & \varepsilon \\ \\
+\underbrace{|S_{P} - I - S_Q + S_Q|}_{ \leq \underbrace{|S_P - S_Q|}_{\leq \varepsilon / 2} + |S_Q - I| } & < & \varepsilon
+\end{array}$$
 
 Por lo tanto, dado que $|S_P - S_Q| \leq \varepsilon / 2$, $|S_P - S_Q| < \varepsilon$.
 
@@ -857,8 +855,6 @@ $$|S(P,g,F) - I + I - S(Q,g,F)| < \varepsilon$$
 $$|S(P,g,F) - I + I - S(Q,g,F)| < \underbrace{|S(P,g,F) - I|}_{\leq \varepsilon / 2} + \underbrace{|S(Q,g,F) - I|}_{\leq \varepsilon / 2} < \varepsilon$$
 
 Por lo tanto, dado que $|S(P,g,F) - I| \leq \varepsilon / 2$, $\exists \lim\limits_{||P|| \rightarrow 0} S(P,g,F) = I$. Análogamente, dado que $|S(Q,g,F) - I| \leq \varepsilon / 2$, $\exists \lim\limits_{||Q|| \rightarrow 0 } S(Q,g,F) = I$.
-
-***
 
 Parte 2: $a \Leftrightarrow c$, lo cual implíca probar que: si $a \Rightarrow c$, y si $c \Rightarrow a$.
 
