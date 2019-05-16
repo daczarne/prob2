@@ -245,6 +245,39 @@ donde la última igualdad se debe a que $c_{b-1} \xrightarrow{\enskip ||P|| \rig
 
 # Ejercicio 6
 
+## Parte a
 
+Queremos demostrar que $\exists \int\limits_a^c gdF$. Por el teorema 1.33 sabemos que, dadas dos particiones $P$ y $Q$ tales que $||P|| \leq \delta$ y $||Q|| \leq \delta$, se cumple que $\big| S_P - S_Q \big| < \varepsilon$.
 
+\vspace{0.3cm}
 
+Construyo las siguientes dos particiones:
+
+i. $P^*[a, \, b]$ tal que $||P^*|| < \delta$, $P^* = P$ en el intervalo $[a, \, c]$.
+
+ii. $Q^*[a, \, b]$ tal que $||Q^*|| < \delta$, $Q^* = Q$ en el intervalo $[a, \, c]$.
+
+iii. En el intervalo $[c, \, b]$, $P^*$ y $Q^*$ comparten los mismos límites.
+
+Luego entonces,
+$$\begin{array}{r c l}
+\big| S_{P^*} - S_{Q^*} \big| & < & \varepsilon \\ \\
+\big| S_P - S_Q \big| & < & \varepsilon \\ \\
+\end{array}$$
+
+## Parte b
+
+Sean $g(x) = \mathbb{I}_{(c, \, b]}$ y $f(x) = \mathbb{I}_{[c, \, b]}$, entonces:
+
+1. $\int\limits_a^c gdF = 0$ dado que está fuera del intervalo.  
+
+2. $\int\limits_c^b gdF = 0$ dado que $F$ siempre vale 1.  
+
+3. $\int\limits_a^b gdF = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(\xi_i) \Big[ F(c_i) - F(c_{i-1}) \Big]$  
+
+Luego, sea $c \in [c_j, \, c_{j+1}]$. Si $\xi_i \in [c_j, \, c]$ entonces:
+$$\lim\limits_{||P|| \rightarrow 0} g(\xi_i) \Big[ \underbrace{F(c_j)}_{= 0} - \underbrace{F(c)}_{= 1} \Big] = \lim\limits_{||P|| \rightarrow 0} g(\xi_i) = 0$$
+Si, en cambio, $\xi_i \in [c, \, c_{j+1}]$, entonces:
+$$\lim\limits_{||P|| \rightarrow 0} g(\xi_i) \Big[ \underbrace{F(c_j)}_{= 0} - \underbrace{F(c)}_{= 1} \Big] = \lim\limits_{||P|| \rightarrow 0} g(\xi_i) = 1$$
+
+Dado que los límites por derecha e izquierda de $c$ no coinciden, entonces no existe dicho límite, y por tanto no existe la integral.
