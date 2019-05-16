@@ -972,6 +972,8 @@ $$m \big( F(b)-F(a) \big) \leq I \leq M \big( F(b)-F(a) \big) \Rightarrow m \leq
 
 Luego, por el teorema de Darboux sabemos que $\exists c \in [a,b]$ tal que $g(c) = \frac{1}{ F(b)-F(a) } \,\,  I$. Por lo tanto, $I = g(c) \big(F(b) - F(a) \big)$.
 
+\newpage
+
 ## Métodos de integración
 
 #### Teorema 1.42: Integración por partes
@@ -980,8 +982,6 @@ Si $g,F : [a,b] \rightarrow \mathbb{R}$ son tales que existe $\int\limits_a^b gd
 
 i. $\exists \int\limits_a^b Fdg$
 ii. $\int\limits_a^b Fdg = gF\Big|^b_a - \int\limits_a^b gdF$
-
-\newpage
 
 #### Teorema 1.43: Cambio de variable
 
