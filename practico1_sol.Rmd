@@ -24,7 +24,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Parte 1
 
+Dado que se trata de una igualdad de conjuntos, debemos demostrar la doble inclusión.
 
+\vspace{0.2cm}
+
+Parte i: $\{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \} \subset \limsup\limits_{n} A_n$
+
+Si $\omega$ pertenece a infinitos $A_n \Rightarrow \forall n$, $\exists n_0 \geq n / \omega \in A_{n_0}$. Luego si $\omega \in A_{n_0} \Rightarrow \omega \in \bigcup\limits_{k = n_0}^{+\infty} A_k \, \forall n$ dado que $n_0 \geq n$. Por lo tanto, $\omega \in \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k = \limsup\limits_{n} A_n$
+
+Parte ii: $\limsup\limits_{n} A_n \subset \{ \omega \in \Omega / \omega \in A_n \text{ para infinitos valores de } n \}$
+
+Demostración por absurdo. Si $\omega$ pertenece a una cantidad finita de $A_n \Rightarrow \exists n / \forall n_1 \geq n$, $\omega \notin A_{n_1} \Rightarrow \omega \notin \bigcup\limits_{k = n_1}^{+\infty} A_k \Rightarrow \omega \notin \bigcap\limits_{n=1}^{+\infty} \bigcup\limits_{k = n_1}^{+\infty} A_k$
 
 ## Parte 2
 
