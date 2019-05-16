@@ -533,8 +533,7 @@ $$r_n = \frac{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ \sqrt
 
 $$ \frac{1}{m} \log R_m = \frac{1}{m} \log \left( \prod\limits_{i = 1}^n p_i^{Z_m(i)} \right) = \frac{1}{m} \sum\limits_{i = 1}^n Z_m(i) \, \log (p_i) $$
 
-Sea $Y_{m_j}(i) = \mathbb{I}_{\{ X_j \in \text{ al $i$-ésimo sub-intervalo} \} } \Rightarrow Y_{m_j} \sim Ber(p_i)$, dado que las $X_j \sim Unif[0;1]$. Por su parte, $Z_m(i) = \sum\limits_{j = 1}^m Y_{m_j}(i)$ (es decir, la cantidad de $X$'s que cayeron en el $i$-ésimo intervalo). Por lo tanto, $Z_m(i) \sim Bin(m, \, p_i)$. Podemos entonces re-escribir el "estimador" de la siguiente forma:
-
+Sea $Y_{m_j}(i) = \mathbb{I}_{\{ X_j \in \text{ al $i$-ésimo sub-intervalo} \} } \Rightarrow Y_{m_j} \sim Ber(p_i)$, dado que las $X_j \sim Unif[0;1]$. Luego, sea $Z_m(i) = \sum\limits_{j = 1}^m Y_{m_j}(i)$ (es decir, la cantidad de $X$'s que cayeron en el $i$-ésimo intervalo). Por lo tanto, $Z_m(i) \sim Bin(m, \, p_i)$. Podemos entonces re-escribir el "estimador" de la siguiente forma:
 $$ \frac{1}{m} \log R_m = \frac{1}{m} \sum\limits_{i = 1}^n \sum\limits_{j = 1}^m Y_{m_j}(i) \, \log (p_i) = \frac{1}{m} \sum\limits_{j = 1}^m \sum\limits_{i = 1}^n Y_{m_j}(i) \, \log (p_i)$$
 
 Sea $W_j = \sum\limits_{i = 1}^n Y_{m_j}(i) \, \log (p_i) \Rightarrow \frac{1}{m} \log R_m = \frac{1}{m} \sum\limits_{j = 1}^m W_j$. Si logramos probar que estamos en las condiciones de la Ley Fuerte de los Grandes Números, entonces $\frac{1}{m} \sum\limits_{j = 1}^m W_j \overset{cs}{\rightarrow} E(W_j)$. Adicionalmente, si logramos probar que $E(W_j) = -H$, habremos resuelto el problema.
@@ -551,8 +550,11 @@ $$= \sum\limits_{i = 1}^n \log (p_i) \, p_i = -H$$
 
 Para probar que estamos en las hipótesis de la Ley Fuerte de los Grandes Números debemos probar que las $W_j$ son iid, y que $E|W_j| < \infty$. 
 
-Que son iid es sencillo de ver dado que las $W_j$ son sumas ponderadas (por el logaritmo de la longitud del intervalo) de indicatrices que dependen únicamente de variables iid (las $X_j$). Por lo tanto, las $W_j$ son iid.
+Que son iid es sencillo de ver dado que las $W_j$ son sumas ponderadas (por el logaritmo de la longitud del intervalo) de indicatrices que dependen únicamente de variables iid (las $X_j$). Por lo tanto, las $W_j$ son iid. Por otro lado, $E|W_j| < \infty$ dado que es una suma finita.
 
+***
+
+Por lo tanto, hemos probado que estamos en las hipótesis de la Ley Fuerte de los Grandes Números, y que la esperanza en $-H$, por lo que queda resuelto el problema.
 
 # Ejercicio 13
 
@@ -587,6 +589,8 @@ Por su parte, para calcular la varianzaa de $\bar{Y}_m$ debemos utilizar que, po
 
 $$V(\bar{Y}_n) = \frac{1}{n} \Big[ P(Y_n = 1) \big( 1 - P(Y_n = 1) \big) \Big] = \frac{1}{n} \left[ \int\limits_0^1 g(t)dt \left( 1 - \int\limits_0^1 g(t) dt \right) \right] = $$
 $$ = \frac{1}{n} \left[ \int\limits_0^1 g(t)dt - \left( \int\limits_0^1 g(t) dt \right)^2 \right] $$
+
+\newpage
 
 # Ejercicio 14
 
@@ -626,6 +630,8 @@ X_3 & = & C \, \frac{2^{Y_3}}{2^{3 - Y_3}} \\
 X_n & = & C \, \frac{2^{Y_n}}{2^{n - Y_n}} \\
 \vdots & &
 \end{array}$$
+
+\newpage
 
 ## Parte b
 
