@@ -205,7 +205,7 @@ F_n(R) \leq F_n(r) \leq 1
 \end{array}$$
 
 Utilizando que $1 - \varepsilon < F(R)$, y que $F(R) \leq F(r) \leq 1$ hallamos que $1 - \varepsilon < F(r) \leq 1$. Por otro lado, utilizando que $F(R) - \varepsilon < F_n(R) < F(R) + \varepsilon$, y que $F_n(R) \leq F_n(r) \leq 1$, hallamos que: 
-$$\begin{array}{c c}
+$$\begin{array}{r c}
 F(R) - \varepsilon < F_n(R) \leq F_n(r) \leq 1 & \Leftrightarrow \\
 -F(R) + \varepsilon > - F_n(R) \geq -F_n(r) \geq -1 & \Leftrightarrow \\
 -1 \leq -F_n(r) < -F(R) + \varepsilon
@@ -248,7 +248,7 @@ F_n(r) - F(r) & \leq & F_n(x_i) - F(x_{i-1}) \\
               & \leq & F(x_i) + \varepsilon - F(x_{i-1}) \\
               & \leq & 2 \varepsilon
 \end{array}
-&
+& \,\,\,\,
 \begin{array}{c c l}
 F(r) - F_n(r) & \leq & F(x_i) - F_n(x_{i-1}) \\
               & \leq & F(x_i) - F(x_{i-1}) + \varepsilon \\
@@ -331,15 +331,15 @@ Por lo tanto, $X \sim Poisson(\lambda)$.
 
 ## Parte a
 
-$$\lim\limits_n F_n(x) = \lim\limits_n \left( \frac{1}{2} \, \mathbb{I}_{ \{ 0 \leq x < 1/n \} } + \mathbb{I}_{ \{ x \geq 1/n\} } \right) = \frac{1}{2} \, \underbrace{ \lim\limits_n \mathbb{I}_{ \{ 0 \leq x < 1/n \} } }_{ \overset{n}{\rightarrow} \mathbb{I}_{ \{ x = 0 \} } } + \underbrace{ \lim\limits_n \mathbb{I}_{ \{ x \geq 1/n\} } }_{ \overset{n}{\rightarrow} \mathbb{I}_{ \{ x \geq 0 \} } } =$$
-$$= \frac{1}{2} \, \mathbb{I}_{ \{ x = 0 \} } + \mathbb{I}_{ \{ x \geq 0 \} } = \frac{1}{2} \, \mathbb{I}_{ \{ x = 0 \} } + \mathbb{I}_{ \{ x = 0 \} } + \mathbb{I}_{ \{ x > 0 \} } = \frac{3}{2} \, \mathbb{I}_{ \{ x = 0 \} } + \mathbb{I}_{ \{ x > 0 \} }$$
+$$\lim\limits_n F_n(x) = \lim\limits_n \left( \frac{1}{2} \, \mathbb{I}_{ \{ 0 \leq x < 1/n \} } + \mathbb{I}_{ \{ x \geq 1/n\} } \right) = \frac{1}{2} \, \underbrace{ \lim\limits_n \mathbb{I}_{ \{ 0 \leq x < 1/n \} } }_{ \overset{n}{\rightarrow} \mathbb{I}_{ \{ x = 0 \} } } + \underbrace{ \lim\limits_n \mathbb{I}_{ \{ x \geq 1/n\} } }_{ \overset{n}{\rightarrow} \mathbb{I}_{ \{ x > 0 \} } }$$
+$$= \frac{1}{2} \, \mathbb{I}_{ \{ x = 0 \} } + \mathbb{I}_{ \{ x > 0 \} }$$
 
 Pero $x = 0$ no es un punto de continuidad, por lo tanto no debe ser considerado. Para los puntos de continuidad sí se cumple la convergencia.
 
 ## Parte b
 
 Sea $F_0 (x) = F_{X_0}(x) = \mathbb{I}_{ \{ x \geq 0 \} }$. Luego entonces:
-$$\lim\limits_n F_n(0) = \lim\limits_n \left( \frac{3}{2} \, \mathbb{I}_{ \{ x = 0 \} } \right) = \frac{3}{2} \neq 1 = F_0 (0)$$
+$$\lim\limits_n F_n(0) = \lim\limits_n \left( \frac{1}{2} \, \mathbb{I}_{ \{ x = 0 \} } \right) = \frac{1}{2} \neq 1 = F_0 (0)$$
 
 ## Parte c
 
