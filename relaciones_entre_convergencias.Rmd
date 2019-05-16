@@ -92,11 +92,15 @@ $$P(|X_n - X| > \varepsilon) = P(2|X| > \varepsilon) = P(|X| > \varepsilon / 2) 
 
 Por lo tanto, $X_n \not\overset{p}{\rightarrow} X$.
 
-# Convergencia en $r$-media implica convergencia en probabilidad
+\newpage
+
+# Convergencia en $L^p$ implica convergencia en probabilidad
 
 ## Demostración
 
+$$\forall \varepsilon > 0, \,\,\,\,\,\, P(|X_n - X| > \varepsilon) = P(|X_n - X|^p > \varepsilon^p) \leq \frac{ E ( |X_n - X|^p ) }{ \varepsilon^p } \overset{n}{\rightarrow} 0$$
 
+Donde la convergencia está dada porque $X_n \overset{L^p}{\rightarrow} X$. Dado que converge a cero, queda demostrado que $X_n \overset{p}{\rightarrow} X$.
 
 ## Contraejemplo del recíproco
 
