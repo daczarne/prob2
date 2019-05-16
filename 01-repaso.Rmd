@@ -553,8 +553,8 @@ P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) & \leq & P \left(  \big
   & = & \prod\limits_{k = n}^{m} P \left( A_k^c \right) & & \text{por independencia} \\ \\
   & = & \prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] & & \text{por probabilidad del complemento} \\ \\
   & \leq & \prod\limits_{k = n}^{m} \exp\left\{ -P(A_k) \right\} & &  \text{por que } 1 - x \leq e^{-x} \, \forall x \\ \\
-  & = & \exp\left\{ \sum\limits_{k = n}^{m} -P(A_k) \right\} & & \text{por propiedad del producto} \\ \\
-  &   & \exp\left\{ - \sum\limits_{k = n}^{m} P(A_k) \right\} \overset{m}{\rightarrow} 0 & & \text{porque } \lim\limits_m \sum\limits_{k = n}^{m} P(A_l) = - \infty
+  & = & \exp\left\{ \sum\limits_{k = n}^{m} -P(A_k) \right\} & & \text{por propiedad de la potencia} \\ \\
+  &   & \exp\left\{ - \sum\limits_{k = n}^{m} P(A_k) \right\} \overset{m}{\rightarrow} 0 & & \text{porque } \lim\limits_m \sum\limits_{k = n}^{m} P(A_k) = - \infty
 \end{array}$$
 
 \newpage
