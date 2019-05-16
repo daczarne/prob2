@@ -661,7 +661,7 @@ Cuando $\frac{1}{3} < p < \frac{1}{2}$ la sucesión converge casi seguramente a 
 
 ## Parte a
 
-Sea el siguiente espacio de probabilidad $([0;1], \, \mathcal{B}([0;1]), \, P_{X_n})$, donde:
+Sea el siguiente espacio de probabilidad $\big( \Omega = [0;1]^n, \, \mathcal{B}([0;1]), \, P_{X_n} \big)$, donde:
 $$p_{X_n}(x) = P_{X_n}(X_n = x) = \left\{
 \begin{array}{r c c}
 1 - \frac{1}{n} & \text{si} & x = 0 \\ \\
@@ -670,10 +670,11 @@ $$p_{X_n}(x) = P_{X_n}(X_n = x) = \left\{
 
 ## Parte b
 
+<!--
 Utilizando el corolario 2.4 de las notas, y tomando como candidato al 0, tenemos que para todo $\varepsilon > 0$:
-$$\sum\limits_{n = 1}^{\infty} P(|X_n(\omega) - 0 | > \varepsilon) = \sum\limits_{n = 1}^{\infty} P(X_n(\omega) > \varepsilon) =$$
-$$= \sum\limits_{n = 1}^{\infty} P( X_n(\omega) = 1) = \sum\limits_{n = 1}^{\infty} \frac{1}{n} = + \infty \Rightarrow X_n \, \not\overset{cs}{\rightarrow} \, 0$$
-
+$$\sum\limits_{n = 1}^{\infty} P(|X_n - 0 | > \varepsilon) = \sum\limits_{n = 1}^{\infty} P(X_n > \varepsilon) =$$
+$$= \sum\limits_{n = 1}^{\infty} P( X_n = 1) = \sum\limits_{n = 1}^{\infty} \frac{1}{n} = + \infty \Rightarrow X_n \, \not\overset{cs}{\rightarrow} \, 0$$
+-->
 
 # Ejercicio 16
 
