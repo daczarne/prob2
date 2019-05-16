@@ -210,10 +210,15 @@ Luego entonces,
 $$\int\limits_a^b g(x) d F(x) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] =$$
 $$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(\xi_i) f(\xi_i) \big[ x_i - x_{i-1} \big] = \int\limits_a^b g(x) f(x) dx $$
 
+\newpage
+
 # Ejercicio 3
 
-
-
+$$\int\limits_a^b (\alpha g(x) + \beta h(x)) dF(x) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \big( \alpha g(\xi_i) + \beta h(\xi_i) \big) \big[ F(x_i) - F(x_{i-1}) \big] = $$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \Big( \alpha g(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] + \beta h(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] \Big) =$$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \alpha g(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] + \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \beta h(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] = $$
+$$= \alpha \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] + \beta \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} h(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] = $$
+$$= \alpha \int\limits_a^b g(x) d F(x) + \beta \int\limits_a^b h(x) d F(x) = \alpha I_g + \beta I_h = I^*$$
 
 # Ejercicio 4
 
