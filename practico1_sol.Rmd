@@ -100,8 +100,35 @@ P \left( \liminf\limits_{n} A_n \right) & = & P \left( \bigcup\limits_{n = 1}^{+
 
 ## Parte 6
 
+Dado que se trata de una triple igualdad entre conjuntos, debemos demostrar dos de los pares de doble inclusiones, y el tercero se cumplirá por transitividad.
 
+Parte I: $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$
 
+- Parte I.i: $\liminf\limits_{n} A_n \subset \bigcup\limits_{n = 1}^{+\infty} A_n$
+
+Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \omega \in \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k$. Pero si la sucesión es creciente, entonces $\bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k = \bigcup\limits_{n \in \mathbb{N}} A_n \Rightarrow \omega \in \bigcup\limits_{n \in \mathbb{N}} A_n \Rightarrow \liminf\limits_{n} A_n \subset \bigcup\limits_{n = 1}^{+\infty} A_n$.
+
+\newpage
+
+- Parte I.ii: $\bigcup\limits_{n = 1}^{+\infty} A_n \subset \liminf\limits_{n} A_n$
+
+Si la sucesión es creciente, entonces $\bigcup\limits_{n \in \mathbb{N}} A_n = \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k$. Por lo tanto, $\forall \omega \in \bigcup\limits_{n \in \mathbb{N}} A_n$, $\omega \in \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k = \liminf_n A_n$. Por lo tanto, $\bigcup\limits_{n = 1}^{+\infty} A_n \subset \liminf\limits_{n} A_n$
+
+\vspace{0.2cm}
+
+Parte II: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$
+
+- Parte II.i: $\liminf\limits_{n} A_n \subset \limsup\limits_{n} A_n$
+
+Ver parte 3 del ejercicio (no se requiere que la sucesión sea creciente).
+
+- Parte II.ii: $\limsup\limits_{n} A_n \subset \liminf\limits_{n} A_n$
+
+Si $\omega \in \limsup\limits_n A_n$ entonces $\omega$ pertenece a infinitos $A_n$ (ver demostración de parte 1). Pero dado que la sucesión es creciente, $\exists n_0$ tal que $\omega \in A_n \, \forall n \geq n_0$. Pero esto implica que $\omega \notin A_n$ solo para aquellos valores de $n < n_0$. Entonces $\omega$ no pertenece a una cantidad finita de índices. Por lo tanto, $\omega \in \liminf\limits_n A_n$ 
+
+***
+
+De lo anterior se desprende que $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$ (parte I) y que $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$ (parte II). Por transitividad entonces $\bigcup\limits_{n = 1}^{+\infty} A_n = \limsup\limits_{n} A_n$, por lo que queda demostrado el teorema.
 
 ## Parte 7
 
