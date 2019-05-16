@@ -931,20 +931,25 @@ Si $g,F : [a,b] \rightarrow \mathbb{R}$ son tales que existe $\int\limits_a^b gd
 i. para todo $c \in (a,b)$, $\exists \int\limits_a^c gdF$ y $\exists \int\limits_c^b gdF$
 ii. $\int\limits_a^b gdF = \int\limits_a^c gdF + \int\limits_c^b gdF$
 
-<!-- Mal
-*Dem*: si $\exists \int\limits_a^b gdF = I \Rightarrow \exists P([a,b])$ con $||P|| < \delta$ tal que $|S_P - I| < \varepsilon$. Sea $Q$ una partición de $[a,b]$ más fina que $P$ tal que $Q = \{a = c_0, \, \ldots, \, c_n = b\} \Rightarrow ||Q|| < \delta$. Luego también, por equivalencia b del teorema 1.33, $\lim\limits_{||Q|| \rightarrow 0} S_Q = I$. Consideremos ahora la sub-partición $Q'$ tal que $Q' = \{ a = c_0, \, \ldots, \, c_m = c\}$, entonces $||Q|| < \delta$ (esto se debe a que si el intervalo de mayor distancia está en la sub-partición considerada, entonces $||Q'|| = ||Q|| < \delta$, y si no lo está entonces $||Q'|| < ||Q|| < \delta$). Tenemos entonces que:
-$$| S_Q - I | < \varepsilon \Rightarrow | (S_{Q \backslash Q'} + S_{Q'}) - I | < \varepsilon \Rightarrow \underbrace{| S_{Q \backslash Q'} + S_{Q'} - I |}_{\leq |S_{Q \backslash Q'}| + | S_{Q'} - I | } < \varepsilon$$
+*Dem*: queremos demostrar que $\exists \int\limits_a^c gdF$. Por el teorema 1.33 sabemos que, dadas dos particiones $P$ y $Q$ tales que $||P|| \leq \delta$ y $||Q|| \leq \delta$, se cumple que $\big| S_P - S_Q \big| < \varepsilon$.
 
-Por lo tanto, $| S_{Q'} - I | < \varepsilon \Rightarrow \exists \int\limits_a^c gdF$. Procediendo de forma análoga se prueba la existencia de la integral para el intervalo $[c,b]$. Luego, 
+\vspace{0.3cm}
 
-i. $\int\limits_a^c gdF = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a}^{c} g(\xi_i) [F(x_i) - F(x_{i-1})]$
-ii. $\int\limits_a^c gdF = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = c}^{b} g(\xi_i) [F(x_i) - F(x_{i-1})]$
+Construyo las siguientes dos particiones:
 
-Por lo que:
-$$\int\limits_a^c gdF + \int\limits_c^b gdF = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a}^{c} g(\xi_i) [F(x_i) - F(x_{i-1})] + \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = c}^{b} g(\xi_i) [F(x_i) - F(x_{i-1})] = $$
-$$= \lim\limits_{||P|| \rightarrow 0} \left[ \sum\limits_{i = a}^{c} g(\xi_i) [F(x_i) - F(x_{i-1})] + \sum\limits_{i = c}^{b} g(\xi_i) [F(x_i) - F(x_{i-1})] \right] = $$
-$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a}^{b} g(\xi_i) [F(x_i) - F(x_{i-1})] = \int\limits_a^b gdF$$
--->
+i. $P^*[a, \, b]$ tal que $||P^*|| < \delta$, $P^* = P$ en el intervalo $[a, \, c]$.
+
+ii. $Q^*[a, \, b]$ tal que $||Q^*|| < \delta$, $Q^* = Q$ en el intervalo $[a, \, c]$.
+
+iii. En el intervalo $[c, \, b]$, $P^*$ y $Q^*$ comparten los mismos límites.
+
+Luego entonces,
+$$\begin{array}{r c l}
+\big| S_{P^*} - S_{Q^*} \big| & < & \varepsilon \\ \\
+\big| S_P - S_Q \big| & < & \varepsilon \\ \\
+\end{array}$$
+
+Le demostración para la integral entre $c$ y $b$ es análoga. Que la suma de ambas es la integral en $[a, \, b]$ es una consequencia de la linealidad del límite y de la sumatoria.
 
 #### Proposición 1.39
 
