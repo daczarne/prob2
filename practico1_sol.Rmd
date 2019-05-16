@@ -102,7 +102,7 @@ P \left( \liminf\limits_{n} A_n \right) & = & P \left( \bigcup\limits_{n = 1}^{+
 
 Dado que se trata de una triple igualdad entre conjuntos, debemos demostrar dos de los pares de doble inclusiones, y el tercero se cumplirá por transitividad.
 
-Parte I: $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$
+**Parte I**: $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} A_n$
 
 - Parte I.i: $\liminf\limits_{n} A_n \subset \bigcup\limits_{n = 1}^{+\infty} A_n$
 
@@ -116,7 +116,7 @@ Si la sucesión es creciente, entonces $\bigcup\limits_{n \in \mathbb{N}} A_n = 
 
 \vspace{0.2cm}
 
-Parte II: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$
+**Parte II**: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$
 
 - Parte II.i: $\liminf\limits_{n} A_n \subset \limsup\limits_{n} A_n$
 
@@ -132,8 +132,35 @@ De lo anterior se desprende que $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}
 
 ## Parte 7
 
+Dado que se trata de una triple igualdad entre conjuntos, debemos demostrar dos de los pares de doble inclusiones, y el tercero se cumplirá por transitividad.
 
+**Parte I**: $\limsup\limits_n A_n = \bigcap\limits_{n \in \mathbb{N}} A_n$
 
+- Parte I.i: $\limsup\limits_n A_n \subset \bigcap\limits_{n \in \mathbb{N}} A_n$
+
+Si $\omega \in \limsup\limits_{n} A_n \Rightarrow \omega \in \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k$. Pero si la sucesión es decreciente, entonces $\bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k = \bigcap\limits_{n \in \mathbb{N}} A_n \Rightarrow \omega \in \bigcap\limits_{n \in \mathbb{N}} A_n \Rightarrow \limsup\limits_{n} A_n \subset \bigcap\limits_{n = 1}^{+\infty} A_n$.
+
+\newpage
+
+- Parte I.ii: $\bigcap\limits_{n \in \mathbb{N}} A_n \subset \limsup\limits_n A_n$
+
+Si la sucesión es decreciente, entonces $\bigcap\limits_{n \in \mathbb{N}} A_n = \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k$. Por lo tanto, $\forall \omega \in \bigcap\limits_{n \in \mathbb{N}} A_n$, $\omega \in \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k = \limsup_n A_n$. Por lo tanto, $\bigcap\limits_{n = 1}^{+\infty} A_n \subset \limsup\limits_{n} A_n$
+
+\vspace{0.2cm}
+
+**Parte II**: $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$
+
+- Parte II.i: $\liminf\limits_{n} A_n \subset \limsup\limits_{n} A_n$
+
+Ver parte 3 (no se requiere que la sucesión sea decreciente).
+
+- Parte II.ii: $\limsup\limits_{n} A_n \subset \liminf\limits_{n} A_n$
+
+Si $\omega \in \liminf\limits_n A_n$ entonces $\omega$ pertenece a todos los $A_n$ salvo, a lo sumo, a una cantidad finita de ellos (ver demostración de prop 1.11/2). Luego, si $\omega \in \limsup\limits_n A_n \Rightarrow \omega \in \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k$, pero si $\{A_n\}_{n \in \mathbb{N}}$ es decreciente, entonces $\omega \in \bigcap\limits_{n \in \mathbb{N}} A_n \Rightarrow$ por definición de intersección, $\omega \in A_n \, \forall n \Rightarrow \omega \in \liminf\limits_n A_n$
+
+***
+
+De lo anterior se desprende que $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} A_n$ (parte I) y que $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$ (parte II). Por transitividad entonces $\bigcap\limits_{n = 1}^{+\infty} A_n = \liminf\limits_{n} A_n$, por lo que queda demostrado el teorema.
 
 ## Parte 8
 
