@@ -452,6 +452,12 @@ $$= \lim\limits_n \left(1 + \frac{-e^{-x}}{n} \right)^n \, \mathbb{I}_{\{ x \geq
 
 ## Parte a
 
+Sea $Y = F_X(X)$. Luego entonces, para todo $y \in [0, \, 1]$ se cumple que:
+
+$$F_Y(y) = P \big(Y \leq y \big) = P \big( F_X(X) \leq y \big) = P \big( X \leq F_X^{-1}(y) \big) = F_X \big( F_X^{-1}(y) \big) = y$$
 
 ## Parte b
 
+Sea $X = F_X^{-1}(Y)$. Luego entonces:
+
+$$F_X(x) = P \big(X \leq x \big) = P \big( F_X^{-1}(Y) \leq x \big) = P \big( X \leq F_X(x) \big) = F_X(x)$$
