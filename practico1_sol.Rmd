@@ -59,7 +59,22 @@ Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \exists n_0$ a partir del cual
 
 ## Parte 4
 
+Veamos primero que la sucesión $B_n$ es decreciente. La misma está defiinida de la siguiente forma:
+$$\begin{array}{l c c c c c c c c}
+B_n & = & A_n & \cup & A_{n+1} & \cup & A_{n+2} & \cup & \ldots \\
+B_{n+1} & = &  &  & A_{n+1} & \cup & A_{n+2} & \cup & \ldots \\
+B_{n+2} & = &  &  &  &  & A_{n+2} & \cup & \ldots \\
+\,\,\,\,\,\, \vdots & & & & & & & & 
+\end{array}$$
 
+Dado que cada vez unimos menos conjuntos, el conjunto resultante es "más chico", y por tanto, la sucesión es decreciente. Luego entonces,
+$$\begin{array}{c c c c l}
+P \left( \limsup\limits_{n} A_n \right) & = & P \left( \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite superior} \\ \\
+& = & P \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
+& = & \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad de una} \\
+& & & & \text{sucesión decreciente (ver prop 1.8/8)} \\ \\
+& = & \lim\limits_{n \rightarrow +\infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
+\end{array}$$
 
 ## Parte 5
 
