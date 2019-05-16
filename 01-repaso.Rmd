@@ -364,7 +364,7 @@ Si $\omega \in \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty}
 
 3) $\liminf\limits_{n} A_n \subset \limsup\limits_{n} A_n$
 
-*Dem*: a continuación se demuestra que si $\omega$ pertenece al límite inferior, entonces debe existir un índice, $n_0$, a partir del cual $\omega$ pertenece a todos los $A_n$, dado que esa es la condición para pertenecer a la intersección de los conjuntos. Pero, en el enunciado 1 de la proposición se demostró que si $\omega$ pertenece a una cantidad infinita de índices, entonces pertenece al límite superior. 
+*Dem*: a continuación se demuestra que si $\omega$ pertenece al límite inferior, entonces debe existir un índice, $n_0$, a partir del cual $\omega$ pertenece a todos los $A_k$, dado que esa es la condición para pertenecer a la intersección de los conjuntos. Pero, en el enunciado 1 de la proposición se demostró que si $\omega$ pertenece a una cantidad infinita de índices, entonces pertenece al límite superior. 
 
 Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \exists n_0$ a partir del cual $\omega \in \bigcup\limits_{n=1}^{+\infty} \bigcap\limits_{k =n}^{+\infty} A_k \, \forall n \geq n_0 \Rightarrow \omega$ pertenece a una cantidad infinita de índices (todos ellos a partir de $n_0$) $\Rightarrow \omega \in \limsup\limits_{n} A_n$
 
