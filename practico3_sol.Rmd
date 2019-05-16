@@ -329,6 +329,10 @@ Por lo tanto, $X \sim Poisson(\lambda)$.
 
 # Ejercicio 8
 
+## Parte a
+
+$$\lim\limits_n F_n(x) = \lim\limits_n \left( \frac{1}{2} \, \mathbb{I}_{ \{ 0 \leq x < 1/n \} } + \mathbb{I}_{ \{ x \geq 1/n\} } \right) = \frac{1}{2} \, \underbrace{ \lim\limits_n \mathbb{I}_{ \{ 0 \leq x < 1/n \} } }_{ \overset{n}{\rightarrow} \mathbb{I}_{ \{ 0 \leq x < 0 \} } } + \underbrace{ \lim\limits_n \mathbb{I}_{ \{ x \geq 1/n\} } }_{ \overset{n}{\rightarrow} \mathbb{I}_{ \{ x \geq +\infty \} } } = 0$$
+
 
 # Ejercicio 9
 
