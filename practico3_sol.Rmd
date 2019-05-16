@@ -211,8 +211,6 @@ F(R) - \varepsilon < F_n(R) \leq F_n(r) \leq 1 & \Leftrightarrow \\
 -1 \leq -F_n(r) < -F(R) + \varepsilon
 \end{array}$$
 
-\newpage
-
 Sumando verticalmente ambas equaciones obetenemos que:
 
 \begin{center}
@@ -264,26 +262,23 @@ Por último, tomemos $n > \max(N_0, \, N_1)$. Entonces se cumple que $\sup \big|
 
 # Ejercicio 4
 
-*Demostración utilizando composición de funciones.*
+**Demostración utilizando composición de funciones.**
 
 Por hipótesis sabemos que $X_n \overset{d}{\rightarrow} X$. Esto implíca que para toda función $f$ continua y acotada se cumple que $E \big[ f(X_n) \big] \overset{n}{\rightarrow} E \big[ f(X) \big]$ (ver teorema 2.39). Sea $h = f \circ g$. Entonces $h$ también es continua y acotada dado que, por hipótesis, $g$ es continua. Por lo tanto:
 
 $$E \big[ f( g(X_n) ) \big] = E \big[ h(X_n) \big] \overset{n}{\rightarrow} E \big[ h(X) \big] = E \big[ f( g(X) ) \big] \Rightarrow g(X_n) \overset{d}{\rightarrow} g(X)$$
 
-*Demostración utilizando el teorema de representación de Skorohod.*
+\newpage
+
+**Demostración utilizando el teorema de representación de Skorohod.**
 
 Dado que $X_n \overset{d}{\rightarrow} X$ el teorema de Skorohod nos asegura que existen $X_n^* \overset{d}{=} X_n$ y $X^* \overset{d}{=} X$ tales que $X_n^* \overset{cs}{\rightarrow} X^*$. Dado que $g$ es continua, $g(X_n^*) \overset{cs}{\rightarrow} g(X^*)$. Pero dado que las nuevas variables ($X_n^*$ y $X^*$) se definieron de forma de ser iguales en distribución a las variables originales ($X_n$ y $X$), $g(X_n^*) \overset{cs}{\rightarrow} g(X^*)$ implíca que $g(X_n) \overset{d}{\rightarrow} g(X)$.
 
 ***
 
-Sean $X, Y : \Omega \rightarrow F$ dos variables aleatorias y $g$ una función continua. Por definición de igualdad en distribuciones sabemos que si $X \overset{d}{=} Y$ entonces $P(X \in A) = P(Y \in A)$ para todo $A \in \mathcal{B}(F)$. Por lo tanto, 
+Lo anterior se cumple dado que si $X, Y : \Omega \rightarrow F$ son dos variables aleatorias tales que $X \overset{d}{=} Y$ entonces $g(X) \overset{d}{=} g(Y)$ para toda $g$ función continua.
 
-$$\begin{array}{c c l}
-X \overset{d}{=} Y & \Leftrightarrow & P(X \in A) = P(Y \in A) \\
-                   & \Leftrightarrow & P(g^{-1}(g(X)) \in A) = P(g^{-1}(g(Y)) \in A) \\
-                   & \Leftrightarrow & P(g(X) \in g(A)) = P(g(Y) \in g(A)) \\
-                   & \Leftrightarrow & g(X) \overset{d}{=} g(Y)
-\end{array}$$
+$$F_{g(X)} (x) = P \big( g(X) \leq x \big) = P \big( X \in g^{-1}(-\infty, \, x] \big) = P \big( Y \in g^{-1}(-\infty, \, x] \big) = P \big( g(Y) \leq x \big) = F_{g(Y)}(x)$$
 
 # Ejercicio 5
 
