@@ -68,7 +68,7 @@ B_{n+2} & = &  &  &  &  & A_{n+2} & \cup & \ldots \\
 \end{array}$$
 
 Dado que cada vez unimos menos conjuntos, el conjunto resultante es "más chico", y por tanto, la sucesión es decreciente. Luego entonces,
-$$\begin{array}{c c c c l}
+$$\begin{array}{c c l c l}
 P \left( \limsup\limits_{n} A_n \right) & = & P \left( \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite superior} \\ \\
   & = & P \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
   & = & \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad de una} \\
@@ -90,7 +90,7 @@ B_{n+2} & = &  &  &  &  & A_{n+2} & \cap & \ldots \\
 \end{array}$$
 Dado que cada vez intersectamos menos conjuntos, el conjunto resultante es "más grande", y por tanto, la sucesión es creciente. Luego entonces,
 
-$$\begin{array}{c c c c l}
+$$\begin{array}{c c l c l}
 P \left( \liminf\limits_{n} A_n \right) & = & P \left( \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite inferior} \\ \\
   & = & P \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
   & = & \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad de una } \\
@@ -162,14 +162,53 @@ Si $\omega \in \liminf\limits_n A_n$ entonces $\omega$ pertenece a todos los $A_
 
 De lo anterior se desprende que $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} A_n$ (parte I) y que $\liminf\limits_{n} A_n = \limsup\limits_{n} A_n$ (parte II). Por transitividad entonces $\bigcap\limits_{n = 1}^{+\infty} A_n = \liminf\limits_{n} A_n$, por lo que queda demostrado el teorema.
 
+\newpage
+
 ## Parte 8
 
+Debemos demostrar tres de las cuatro desigualdades. La última queda demostrada por transitividad.
 
+**Parte I**: $P \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} P(A_n)$
 
+$$\begin{array}{c c l c l}
+P \left( \liminf\limits_{n} A_n \right) & = & P \left( \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de límite inferior} \\ \\
+  & = & P \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcap\limits_{k \geq n} A_k$} \\ \\
+  & = & \lim\limits_n P(B_n) & & \text{por ser $B_n$ creciente} \\ \\
+  & = & \lim\limits_n P \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \liminf\limits_n P \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
+  & \leq & \liminf\limits_n P(A_k) \,\,\, \forall k \geq n & & \text{por definición de intersecsión}
+\end{array}$$
+
+**Parte II**: $\liminf\limits_{n} P(A_n) \leq \limsup\limits_{n} P(A_n)$
+
+En este caso estamos hablando del límite inferior y del límite superior de una sucesión real, los cuales se definen como:
+
+- $\liminf\limits_n P(A_n) = \lim\limits_n \left[ \inf\limits_{k \geq n} P(A_n) \right]$
+- $\limsup\limits_n P(A_n) = \lim\limits_n \left[ \sup\limits_{k \geq n} P(A_n) \right]$
+
+Por lo tanto, $\liminf\limits_n P(A_n) \leq \limsup\limits_n P(A_n)$
+
+\newpage
+
+**Parte III**: $\limsup\limits_{n} P(A_n) \leq P \left( \limsup\limits_{n} A_n \right)$
+
+$$\begin{array}{c c l c l}
+P \left( \limsup\limits_{n} A_n \right) & = & P \left( \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de límite superior} \\ \\
+  & = & P \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcup\limits_{k \geq n} A_k$} \\ \\
+  & = & \lim\limits_n P(B_n) & & \text{por ser $B_n$ decreciente} \\ \\
+  & = & \lim\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \limsup\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
+  & \geq & \limsup\limits_n P(A_k) \, \forall k \geq n & & \text{por definición de unión}
+\end{array}$$
 
 # Ejercicio 2
 
+Por el teorema del valor medio sabemos que:
+$$ f(\xi_i) = \frac{ F(x_i) - F(x_{i-1}) }{ x_i - x_{i-1} } \Rightarrow f(\xi) [x_i - x_{i-1} ] = F(x_i) - F(x_{i-1}) \,\,\, \text{para todo } \xi \in [x_{i-1}, x_i]$$
 
+Luego entonces,
+$$\int\limits_a^b g(x) d F(x) = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(\xi_i) \big[ F(x_i) - F(x_{i-1}) \big] =$$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(\xi_i) f(\xi_i) \big[ x_i - x_{i-1} \big] = \int\limits_a^b g(x) f(x) dx $$
 
 # Ejercicio 3
 
