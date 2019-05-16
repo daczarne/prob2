@@ -235,8 +235,13 @@ Luego, por el teorema de Darboux sabemos que $\exists c \in [a,b]$ tal que $g(c)
 
 # Ejercicio 5
 
-
-
+Sea la partición $P = \{-z = c_0; \, \ldots; \, c_n = z\}$ tal que $a \in [c_{a-1}; \, c_a]$, $b \in [c_{b-1}; \, c_b]$ y $x_i \in [c_{i-1}; \, c_i]$. Luego entonces,
+$$\int\limits_{-\infty}^{+\infty} \psi(x) dF(x) = \lim\limits_{z \rightarrow + \infty} \int\limits_{-z}^{z} \psi(x) dF(x) = \lim\limits_{z \rightarrow + \infty} \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \psi(x_i) \Big[ F(c_i) - F(c_{i-1})\Big] =$$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a}^{b} \psi(x_i) \Big[ F(c_i) - F(c_{i-1})\Big] = $$
+$$= \lim\limits_{||P|| \rightarrow 0} \Bigg[ \underbrace{\psi(x_a)}_{\psi(a)} \Big[ \underbrace{ \underbrace{F(c_a)}_{F(a)} - \underbrace{F(c_{a-1})}_{F(a)} }_{= 0} \Big] + \sum\limits_{i = a+1}^{b-1} \psi(x_i) \Big[ F(c_i) - F(c_{i-1})\Big] + \underbrace{\psi(x_b)}_{\psi(b)} \Big[ \underbrace{\underbrace{F(c_b)}_{F(b)} - \underbrace{F(c_{b-1})}_{F(b)}}_{= 0} \Big] \Bigg] = $$
+$$= \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a+1}^{b-1} \underbrace{\psi(x_i)}_{= 1} \Big[ F(c_i) - F(c_{i-1})\Big] = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = a+1}^{b-1} \Big[ F(c_i) - F(c_{i-1})\Big] = $$
+$$= \lim\limits_{||P|| \rightarrow 0} \Big[ F(c_{b-1}) - F(c_{a+1})\Big] = F(b) - F(a)$$
+donde la última igualdad se debe a que $c_{b-1} \xrightarrow{\enskip ||P|| \rightarrow 0 \enskip} b$ y $c_{a+1} \xrightarrow{\enskip ||P|| \rightarrow 0 \enskip} a$.
 
 # Ejercicio 6
 
