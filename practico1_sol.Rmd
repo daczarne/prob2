@@ -222,9 +222,16 @@ $$= \alpha \int\limits_a^b g(x) d F(x) + \beta \int\limits_a^b h(x) d F(x) = \al
 
 # Ejercicio 4
 
+Por el teorema de Weierstrass sabemos que toda función continua tiene máximo ($M$) y mínimo ($m$) en un intervalo cerrado y acotado $[a,b]$. Por lo tanto:
 
+i. $I = \int\limits_a^b gdF = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(\xi_i) \big(F(x_i) - F(x_{i-1}) \big) \leq \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} M \big(F(x_i) - F(x_{i-1}) \big) = M \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \big(F(x_i) - F(x_{i-1}) \big) = M \big( F(b) - F(a) \big)$
 
+ii. $I = \int\limits_a^b gdF = \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} g(\xi_i) \big(F(x_i) - F(x_{i-1}) \big) \geq \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} m \big(F(x_i) - F(x_{i-1}) \big) = m \lim\limits_{||P|| \rightarrow 0} \sum\limits_{i = 1}^{n} \big(F(x_i) - F(x_{i-1}) \big) = m \big( F(b) - F(a) \big)$
 
+Por lo tanto, sabemos que:
+$$m \big( F(b)-F(a) \big) \leq I \leq M \big( F(b)-F(a) \big) \Rightarrow m \leq \frac{1}{ F(b)-F(a) } \,\,  I \leq M$$
+
+Luego, por el teorema de Darboux sabemos que $\exists c \in [a,b]$ tal que $g(c) = \frac{1}{ F(b)-F(a) } \,\,  I$. Por lo tanto, $I = g(c) \big(F(b) - F(a) \big)$.
 
 # Ejercicio 5
 
