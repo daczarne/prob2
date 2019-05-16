@@ -38,7 +38,17 @@ Demostración por absurdo. Si $\omega$ pertenece a una cantidad finita de $A_n \
 
 ## Parte 2
 
+Dado que se trata de una igualdad de conjuntos, debemos demostrar la doble inclusión.
 
+\vspace{0.2cm}
+
+Parte i: $\liminf\limits_{n} A_n \subset \{ \omega \in \Omega / \omega \in A_n \forall n \text{ salvo, a lo sumo, una cantidad finita de índices} \}$
+
+$\exists n / \forall n_0 \geq n$, $\omega \in A_n \Rightarrow \omega \in \bigcap\limits_{k = n}^{+\infty} A_k \Rightarrow \omega \in \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{n = k}^{+\infty} A_k$
+
+Parte ii: $\{ \omega \in \Omega / \omega \in A_n \forall n \text{ salvo, a lo sumo, una cantidad finita de índices} \} \subset \liminf\limits_{n} A_n$
+
+Si $\omega \in \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \Rightarrow \exists n_0 / \omega \in A_k \, \forall k \geq n_0$
 
 
 ## Parte 3
