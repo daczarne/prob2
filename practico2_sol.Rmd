@@ -437,11 +437,11 @@ Para poder demostrar que $\frac{ X_1 + \ldots + X_n }{ X_1^2 + \ldots + X_n^2 } 
 
 a. $X_1 + \ldots + X_n \overset{cs}{\rightarrow} \mu$,  
 b. $X_1^2 + \ldots + X_n^2 \overset{cs}{\rightarrow} \sigma^2 + \mu^2$.  
-c. el cociente de dos sucesiones de variables aleatorias convergentes, converrge al cociente de sus límites.  
+c. el cociente de dos sucesiones de variables aleatorias convergentes, converge al cociente de sus límites.  
 
 ### Parte a
 
-Esta primera parte es inmediata, dado que se desprende de la Ley Fuerte de los Grande Números (teniendo únicamente que multiplicar tanto nuestro numerador como nuestro denominador por $1/n$ para que se verifique).
+Esta primera parte es inmediata, dado que se desprende de la Ley Fuerte de los Grandes Números (teniendo únicamente que multiplicar tanto nuestro numerador como nuestro denominador por $1/n$ para que se verifique).
 
 ### Parte b
 
@@ -483,7 +483,7 @@ $$\frac{ n ( X_1 + \ldots + X_n ) }{  n ( X_1^2 + \ldots + X_n^2 ) } = \frac{ X_
 
 En el ejercicio 10 parte b se demostró que $S_X^2 = \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \bar{X}_n)^2 \overset{cs}{\rightarrow} \sigma^2_X$. Por lo tanto:
 $$ S_{n,X}^2 = \frac{1}{n - 1} \sum\limits_{i = 1}^{n} (X_i - \bar{X}_n)^2 = \frac{n}{n - 1} \, \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \bar{X}_n)^2 \overset{cs}{\rightarrow} \sigma^2_X $$
-dado que $\frac{n}{n - 1} \overset{cs}{\rightarrow} 1$, y por la parte e del ejercicio 1 sabemos que el producto de una sucesión real convergente por una sucesión de va's convergente, converge al producto de sus límites. La demostración para $Y_n$ es análoga.
+dado que $\frac{n}{n - 1} \overset{cs}{\rightarrow} 1$, y por la parte e del ejercicio 1 sabemos que el producto de una sucesión real convergente por una sucesión de va's convergentes, converge al producto de sus límites. La demostración para $Y_n$ es análoga.
 
 ## Parte b
 
@@ -498,30 +498,30 @@ Comencemos notando entonces que podemos re-escribir $r_n$ de la siguiente forma:
 $$r_n = \frac{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } = \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) \frac{ 1 }{ \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } }$$
 
 Por lo demostrado en el ejercicio 10 sabemos que $\sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \overset{cs}{\rightarrow} n \sigma_X^2$. Análogamente entonces, $\sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 \overset{cs}{\rightarrow} n \sigma_Y^2$. Sabemoss también que el producto de sucesiones convergentes, converge al producto de sus límites. Por último, $g(z) = \sqrt{z}$ es continua. Por lo tanto: 
-$$\frac{ 1 }{ \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } \overset{cs}{\rightarrow} \frac{1}{\sqrt{n \, \sigma^2_X \, \sigma^2_Y}} = \frac{ 1 }{ n \, \sigma_X \, \sigma_Y } $$
+$$\frac{ 1 }{ \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } \overset{cs}{\rightarrow} \frac{1}{\sqrt{n^2 \, \sigma^2_X \, \sigma^2_Y}} = \frac{ 1 }{ n \, \sigma_X \, \sigma_Y } $$
 
 Resta únicamente demostrar que $\sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) \overset{cs}{\rightarrow} n \, \sigma_{XY}$. Para esto procedemos de forma análoga a como lo hicimos en la parte b deel ejercicio 10.
 
 $$\frac{1}{n} \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) = \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X + \mu_X - \bar{X}_n)(Y_i - \mu_Y + \mu_Y - \bar{Y}_n) =  $$
 $$= \frac{1}{n} \sum\limits_{i = 1}^n \Big[ (X_i - \mu_X) + (\mu_X - \bar{X}_n) \Big] \Big[ (Y_i - \mu_Y) + (\mu_Y - \bar{Y}_n) \Big] = $$
 $$= \frac{1}{n} \sum\limits_{i = 1}^n \Big[ (X_i - \mu_X)(Y_i - \mu_Y) + (X_i - \mu_X)(\mu_Y - \bar{Y}_n) + (\mu_X - \bar{X}_n)(Y_i - \mu_Y) + (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) \Big] =  $$
-$$= \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(Y_i - \mu_Y) }_{ \text{A} } + \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(\mu_Y -  \bar{Y}_n) }_{ \text{B} } + \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (\mu_X - \bar{X}_n)(Y_i - \mu_Y) }_{ \text{C} } + $$
-$$+ \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) }_{ \text{D} }$$
+$$= \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(Y_i - \mu_Y) }_{ \color{red}{\text{A}} } + \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(\mu_Y -  \bar{Y}_n) }_{ \color{orange}{\text{B}} } + \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (\mu_X - \bar{X}_n)(Y_i - \mu_Y) }_{ \color{green}{\text{C}} } + $$
+$$+ \underbrace{ \frac{1}{n} \sum\limits_{i = 1}^n (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) }_{ \color{blue}{\text{D}} }$$
 Trabajando ahora con cada sumando por separado tenemos que:
 
-$$\text{A: } \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(Y_i - \mu_Y) = \frac{1}{n} \sum\limits_{i = 1}^n \Big( X_i Y_i - X_i \mu_Y - \mu_x Y_i + \mu_X \mu_Y \Big) = $$
+$$\color{red}{\text{A:}}\color{black} \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(Y_i - \mu_Y) = \frac{1}{n} \sum\limits_{i = 1}^n \Big( X_i Y_i - X_i \mu_Y - \mu_x Y_i + \mu_X \mu_Y \Big) = $$
 $$= \frac{1}{n} \sum\limits_{i = 1}^n X_i Y_i - \frac{1}{n} \sum\limits_{i = 1}^n X_i \mu_Y - \frac{1}{n} \sum\limits_{i = 1}^n \mu_x Y_i + \frac{1}{n} \sum\limits_{i = 1}^n \mu_X \mu_Y =$$
 $$= \frac{1}{n} \sum\limits_{i = 1}^n X_i \, Y_i - \bar{X}_n \, \mu_Y - \mu_x \, \bar{Y}_n + \mu_X \mu_Y \overset{cs}{\rightarrow} E(X_i \, Y_i) - \mu_X \, \mu_Y = \sigma_{XY} $$
 donde la convergencia se cumple por Ley Fuerte de los Grandes Números, y luego solo se aplicar la definición de covarianza.
 
-B y C son análogos por lo que solo resolvemos uno de ellos:
+Las expresiones \color{orange}B \color{black}y \color{green}C \color{black} son análogas por lo que solo resolvemos una de ellas:
 
-$$\text{B: } \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(\mu_Y - \bar{Y}_n) = (\mu_Y - \bar{Y}_n) \, \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X) = (\mu_Y - \bar{Y}_n) ( \bar{X}_n - \mu_X) \overset{cs}{\rightarrow} 0$$
+$$\color{orange}{\text{B:}}\color{black} \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(\mu_Y - \bar{Y}_n) = (\mu_Y - \bar{Y}_n) \, \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X) = (\mu_Y - \bar{Y}_n) ( \bar{X}_n - \mu_X) \overset{cs}{\rightarrow} 0$$
 donde la convergencia se cumple por Ley Fuerte de los Grandes Números.
 
-Por último trabajamos con la expresión D:
+Por último trabajamos con la expresión \color{blue}D\color{black}:
 
-$$\text{B: } \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) = (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) \overset{cs}{\rightarrow} 0$$
+$$\color{blue}{\text{D:}}\color{black} \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) = (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) \overset{cs}{\rightarrow} 0$$
 donde, una vez más, la convergencia se cumple por Ley Fuerte de los Grandes Números.
 
 ***
