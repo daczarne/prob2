@@ -77,8 +77,6 @@ dado que $\{ \omega : |g(X_n(\omega)) - g(X(\omega))| \geq \varepsilon \} \subse
 
 ***
 
-\newpage
-
 **Parte 3**: si $X_n \overset{p}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} Y$, y sean $a_n$ y $b_n$ dos sucesiones de números reales tales que $a_n \overset{n}{\rightarrow} a > 0$ y $b_n \overset{n}{\rightarrow} b$, entonces $a_n \, X_n + b_n \, Y_n \overset{cs}{\rightarrow} a \, X + b \, Y$.
 
 \vspace{.3cm}
@@ -125,6 +123,8 @@ E(\bar{X}_n) = E(X_1) = \lambda \\ \\
 V(\bar{X}_n) = \frac{V(X_1)}{n} = \frac{\lambda}{n} \overset{n}{\rightarrow} 0
 \end{array} \right\}
 \Rightarrow \bar{X}_n \overset{mc}{\rightarrow} \lambda \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \lambda$$
+
+\newpage
 
 Utilizando desigualdad de Chebychev:
 
@@ -208,6 +208,7 @@ $$ P (|X_n - 0| > \varepsilon) = P(X_n > \varepsilon) = \frac{1}{n} \overset{n}{
 Mientras que:
 $$E ( X_n ) = n \, P(X_n = n) + 0 \, P(X_n = 0) = n \, \frac{1}{n} = 1 \neq 0 = E(X) \Rightarrow E(X_n) \, \cancel{\overset{L^2}{\rightarrow}} \, E(X)$$
 
+\newpage
 
 # Ejercicio 5
 
@@ -293,13 +294,13 @@ Entonces, $E(X_n^2) \overset{n}{\rightarrow} E(X^2)$.
 
 Sea $\{ X_n \}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias iid con reocrrido $Rec(X_n) = \{-n, \, 0, \, n\}$ tales que:
 $$p_{X_n}(x) = \left\{ 
-\begin{array}{c c c} 
+\begin{array}{r c c} 
 \frac{1}{n} & \text{si} & x = -n \\ \\
 1 - \frac{2}{n} & \text{si} & x = 0 \\ \\
 \frac{1}{n} & \text{si} & x = n
 \end{array}
 \right. \Rightarrow F_{X_n}(x) \left\{
-\begin{array}{c c c} 
+\begin{array}{r c c} 
 0 & \text{si} & x < -n \\ \\
 \frac{1}{n} & \text{si} & -n \leq x < 0 \\ \\
 1 - \frac{1}{n} & \text{si} & 0 \leq x < n \\ \\
