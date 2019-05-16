@@ -35,9 +35,34 @@ Para demostrar la implicancia utilizaremos las siguientes definiciones de conver
 
 Llamemos $A_k = \Big\{ \omega \in \Omega \, : \, \big| X_k(\omega) - X(\omega) \big| > \varepsilon \Big\}$ y $A_n = \bigcup\limits_{n = k}^{\infty} \Big\{ \omega \in \Omega \, : \, \big| X_n(\omega) - X(\omega) \big| > \varepsilon \Big\}$ y notemos que $\bigcup\limits_{n = k}^{\infty} A_n = A_k \cup A_{k+1} \cup A_{k+2} \cup \ldots$. Entonces, $A_k \subset \bigcup\limits_{n = k}^{\infty}A_n$. Por lo tanto, $P(A_k) \leq P\left( \bigcup\limits_{n = k}^{\infty} A_n\right)$. Pero $P\left( \bigcup\limits_{n = k}^{\infty} A_n\right) \overset{k}{\rightarrow} 0$ dado que $X_n \overset{cs}{\rightarrow} X$ por hipótesis. Esto implica que $P(A_k) \overset{k}{\rightarrow} 0$, y por lo tanto, $X_n \overset{p}{\rightarrow} X$.
 
-## Contra-ejemplo del recíproco
+## Contraejemplo del recíproco
 
+Consideremos los siguientes conjuntos: $I_n^i = \left[\frac{i-1}{n}, \, \frac{i}{n} \right]$, y la sucesión de variables aleatorias $X_n^i = \mathbb{I}_{ \{ \omega \in I_n^i \}}$ con $i = 1, 2, \ldots, n$. Es decir que nuestras variables son las indicatrices de pertenecer a los siguientes conjuntos:
+$$\begin{array}{l l l}
+I_1^1 = [0, 1] & & \\ \\
+I_2^1 = [0, \, ^1\!/_2] & I_2^2 = [^1\!/_2, 1] & \\ \\
+I_3^1 = [0, \, ^1\!/_3] & I_3^2 = [^1\!/_3, \, ^2\!/_3] & I_3^3 = [^2\!/_3, 1] \\
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \vdots & & 
+\end{array}$$
 
+Luego entonces, la distribución de probabilidades de $X_n$ viene dada por:
+
+- $P(X_n^i = 1) = P(x \in \mathbb{I}_{X_n^i}) = \frac{i}{n} - \frac{i-1}{n} = \frac{1}{n}$  
+
+- $P(X_n^i = 0) = 1 - \frac{1}{n}$
+
+\vspace{0.3cm}
+
+**Convergencia en probabilidad**
+$$\forall \varepsilon > 0, \,\,\ P \left( \Big\{ \omega \in \Omega : \big| X_n^i(\omega) - 0 \big| > \varepsilon \Big\} \right) = P \left( \Big\{ \omega \in \Omega : X_n^i(\omega) = 1 \Big\} \right) = \frac{1}{n} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} 0$$
+
+\vspace{0.3cm}
+
+**Convergencia casi segura**
+$$\forall \varepsilon > 0, \,\,\ P \left( \Big\{ \omega \in \Omega : \bigcup\limits_{n = k}^{\infty} \big| X_n^i(\omega) - 0 \big| > \varepsilon \Big\} \right) = P \left( \Big\{ \omega \in \Omega : \bigcup\limits_{n = k}^{\infty} X_n^i(\omega) = 1 \Big\} \right) = $$
+$$= P \big( x \in [0,1] \big) = 1 \Rightarrow X_n \not\overset{cs}{\rightarrow} 0$$
+
+\newpage
 
 # Convergencia en probabilidad implica convergencia en distribución
 
@@ -45,7 +70,7 @@ Llamemos $A_k = \Big\{ \omega \in \Omega \, : \, \big| X_k(\omega) - X(\omega) \
 
 
 
-## Contra-ejemplo del recíproco
+## Contraejemplo del recíproco
 
 
 
@@ -55,7 +80,7 @@ Llamemos $A_k = \Big\{ \omega \in \Omega \, : \, \big| X_k(\omega) - X(\omega) \
 
 
 
-## Contra-ejemplo del recíproco
+## Contraejemplo del recíproco
 
 
 
