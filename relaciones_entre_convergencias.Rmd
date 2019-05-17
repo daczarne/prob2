@@ -104,5 +104,35 @@ Donde la convergencia está dada porque $X_n \overset{L^p}{\rightarrow} X$. Dado
 
 ## Contraejemplo del recíproco
 
+Sea $\Omega = [0, \, 1]$ y la siguiente sucesión de variables aleatorias:
+$$X_n(x) = \left\{ \begin{array}{c c c}
+e^n & \text{si} & x \in [0, \, ^1\!/_n] \\
+0   & \text{si} & x \in (^1\!/_n, \, 1]
+\end{array} \right.$$
+
+Luego entonces:
+$$P( |X_n - 0| > \varepsilon) = P( X_n > \varepsilon) = P(X_n = e^n) = \frac{1}{n} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} 0$$
+
+Mientras que:
+$$E( |X_n - 0|^p ) = E(|X_n|^p) = E(X^p) = (e^n)^p \frac{1}{n} + 0^p \left(1 - \frac{1}{n} \right) = e^{np} \overset{n}{\rightarrow} + \infty \Rightarrow X_n \not\overset{L^p}{\rightarrow} 0$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
