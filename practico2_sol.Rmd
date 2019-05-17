@@ -670,11 +670,8 @@ $$p_{X_n}(x) = P_{X_n}(X_n = x) = \left\{
 
 ## Parte b
 
-<!--
-Utilizando el corolario 2.4 de las notas, y tomando como candidato al 0, tenemos que para todo $\varepsilon > 0$:
-$$\sum\limits_{n = 1}^{\infty} P(|X_n - 0 | > \varepsilon) = \sum\limits_{n = 1}^{\infty} P(X_n > \varepsilon) =$$
-$$= \sum\limits_{n = 1}^{\infty} P( X_n = 1) = \sum\limits_{n = 1}^{\infty} \frac{1}{n} = + \infty \Rightarrow X_n \, \not\overset{cs}{\rightarrow} \, 0$$
--->
+$$\forall \varepsilon > 0 \,\,\,\,\,\, \sum\limits_{n = 1}^{\infty} P(|X_n - 0 | > \varepsilon) = \sum\limits_{n = 1}^{\infty} P(X_n > \varepsilon) = \sum\limits_{n = 1}^{\infty} P( X_n = 1) = \sum\limits_{n = 1}^{\infty} \frac{1}{n} = + \infty$$
+
 
 # Ejercicio 16
 
