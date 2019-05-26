@@ -5,6 +5,7 @@ date: "2019"
 output: pdf_document
 header-includes:
    - \everymath{\displaystyle}
+   - \usepackage[spanish]{babel}
    - \usepackage{xcolor}
    - \usepackage[makeroom]{cancel}
    - \DeclareMathOperator*{\plim}{plim}
@@ -12,6 +13,8 @@ header-includes:
    - \usepackage{amsmath}
    - \usepackage{mathtools}
    - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
+   - \DeclareMathOperator{\E}{\mathbf{E}}
+   - \DeclareMathOperator{\V}{\mathbf{V}}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -69,11 +72,11 @@ B_{n+2} & = &  &  &  &  & A_{n+2} & \cup & \ldots \\
 
 Dado que cada vez unimos menos conjuntos, el conjunto resultante es "más chico", y por tanto, la sucesión es decreciente. Luego entonces,
 $$\begin{array}{c c l c l}
-P \left( \limsup\limits_{n} A_n \right) & = & P \left( \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite superior} \\ \\
-  & = & P \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
-  & = & \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad de una} \\
+\Pr \left( \limsup\limits_{n} A_n \right) & = & \Pr \left( \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite superior} \\ \\
+  & = & \Pr \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \lim\limits_{n \rightarrow +\infty} \Pr (B_n) & & \text{por continuidad de la probabilidad de una} \\
   &   &  & & \text{sucesión decreciente (ver prop 1.8/8)} \\ \\
-  & = & \lim\limits_{n \rightarrow +\infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
+  & = & \lim\limits_{n \rightarrow +\infty} \Pr \left( \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
 \end{array}$$
 
 \newpage
@@ -91,11 +94,11 @@ B_{n+2} & = &  &  &  &  & A_{n+2} & \cap & \ldots \\
 Dado que cada vez intersectamos menos conjuntos, el conjunto resultante es "más grande", y por tanto, la sucesión es creciente. Luego entonces,
 
 $$\begin{array}{c c l c l}
-P \left( \liminf\limits_{n} A_n \right) & = & P \left( \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite inferior} \\ \\
-  & = & P \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
-  & = & \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad de una } \\
+\Pr \left( \liminf\limits_{n} A_n \right) & = & \Pr \left( \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite inferior} \\ \\
+  & = & \Pr \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \lim\limits_{n \rightarrow +\infty} \Pr (B_n) & & \text{por continuidad de la probabilidad de una } \\
   &   &  & & \text{sucesión creciente (ver prop 1.8/7)} \\ \\
-  & = & \lim\limits_{n \rightarrow +\infty} P \left( \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
+  & = & \lim\limits_{n \rightarrow +\infty} \Pr \left( \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
 \end{array}$$
 
 ## Parte 6
@@ -106,13 +109,13 @@ Dado que se trata de una triple igualdad entre conjuntos, debemos demostrar dos 
 
 - Parte I.i: $\liminf\limits_{n} A_n \subset \bigcup\limits_{n = 1}^{+\infty} A_n$
 
-Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \omega \in \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k$. Pero si la sucesión es creciente, entonces $\bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k = \bigcup\limits_{n \in \mathbb{N}} A_n \Rightarrow \omega \in \bigcup\limits_{n \in \mathbb{N}} A_n \Rightarrow \liminf\limits_{n} A_n \subset \bigcup\limits_{n = 1}^{+\infty} A_n$.
+Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \omega \in \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k$. Pero si la sucesión es creciente, entonces tenemos que $\bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k = \bigcup\limits_{n \in \mathbb{N}} A_n \Rightarrow \omega \in \bigcup\limits_{n \in \mathbb{N}} A_n \Rightarrow \liminf\limits_{n} A_n \subset \bigcup\limits_{n = 1}^{+\infty} A_n$.
 
 \newpage
 
 - Parte I.ii: $\bigcup\limits_{n = 1}^{+\infty} A_n \subset \liminf\limits_{n} A_n$
 
-Si la sucesión es creciente, entonces $\bigcup\limits_{n \in \mathbb{N}} A_n = \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k$. Por lo tanto, $\forall \omega \in \bigcup\limits_{n \in \mathbb{N}} A_n$, $\omega \in \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k = \liminf_n A_n$. Por lo tanto, $\bigcup\limits_{n = 1}^{+\infty} A_n \subset \liminf\limits_{n} A_n$
+Si la sucesión es creciente, entonces $\bigcup\limits_{n \in \mathbb{N}} A_n = \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k$. Por lo tanto, $\forall \omega \in \bigcup\limits_{n \in \mathbb{N}} A_n$, tenemos que $\omega \in \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k = \liminf_n A_n$. Por lo tanto, $\bigcup\limits_{n = 1}^{+\infty} A_n \subset \liminf\limits_{n} A_n$
 
 \vspace{0.2cm}
 
@@ -138,7 +141,7 @@ Dado que se trata de una triple igualdad entre conjuntos, debemos demostrar dos 
 
 - Parte I.i: $\limsup\limits_n A_n \subset \bigcap\limits_{n \in \mathbb{N}} A_n$
 
-Si $\omega \in \limsup\limits_{n} A_n \Rightarrow \omega \in \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k$. Pero si la sucesión es decreciente, entonces $\bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k = \bigcap\limits_{n \in \mathbb{N}} A_n \Rightarrow \omega \in \bigcap\limits_{n \in \mathbb{N}} A_n \Rightarrow \limsup\limits_{n} A_n \subset \bigcap\limits_{n = 1}^{+\infty} A_n$.
+Si $\omega \in \limsup\limits_{n} A_n \Rightarrow \omega \in \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k$. Pero si la sucesión es decreciente, entonces tenemos que $\bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k = \bigcap\limits_{n \in \mathbb{N}} A_n \Rightarrow \omega \in \bigcap\limits_{n \in \mathbb{N}} A_n \Rightarrow \limsup\limits_{n} A_n \subset \bigcap\limits_{n = 1}^{+\infty} A_n$.
 
 \newpage
 
@@ -168,37 +171,37 @@ De lo anterior se desprende que $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}
 
 Debemos demostrar tres de las cuatro desigualdades. La última queda demostrada por transitividad.
 
-**Parte I**: $P \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} P(A_n)$
+**Parte I**: $\Pr \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} \Pr (A_n)$
 
 $$\begin{array}{c c l c l}
-P \left( \liminf\limits_{n} A_n \right) & = & P \left( \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de límite inferior} \\ \\
-  & = & P \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcap\limits_{k \geq n} A_k$} \\ \\
-  & = & \lim\limits_n P(B_n) & & \text{por ser $B_n$ creciente} \\ \\
-  & = & \lim\limits_n P \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
-  & = & \liminf\limits_n P \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
-  & \leq & \liminf\limits_n P(A_k) \,\,\, \forall k \geq n & & \text{por definición de intersecsión}
+\Pr \left( \liminf\limits_{n} A_n \right) & = & \Pr \left( \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de límite inferior} \\ \\
+  & = & \Pr \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcap\limits_{k \geq n} A_k$} \\ \\
+  & = & \lim\limits_n \Pr (B_n) & & \text{por ser $B_n$ creciente} \\ \\
+  & = & \lim\limits_n \Pr \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \liminf\limits_n \Pr \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
+  & \leq & \liminf\limits_n \Pr (A_k) \,\,\, \forall k \geq n & & \text{por definición de intersecsión}
 \end{array}$$
 
-**Parte II**: $\liminf\limits_{n} P(A_n) \leq \limsup\limits_{n} P(A_n)$
+**Parte II**: $\liminf\limits_{n} \Pr (A_n) \leq \limsup\limits_{n} \Pr (A_n)$
 
 En este caso estamos hablando del límite inferior y del límite superior de una sucesión real, los cuales se definen como:
 
-- $\liminf\limits_n P(A_n) = \lim\limits_n \left[ \inf\limits_{k \geq n} P(A_n) \right]$
-- $\limsup\limits_n P(A_n) = \lim\limits_n \left[ \sup\limits_{k \geq n} P(A_n) \right]$
+- $\liminf\limits_n \Pr (A_n) = \lim\limits_n \left[ \inf\limits_{k \geq n} \Pr (A_n) \right]$
+- $\limsup\limits_n \Pr (A_n) = \lim\limits_n \left[ \sup\limits_{k \geq n} \Pr (A_n) \right]$
 
-Por lo tanto, $\liminf\limits_n P(A_n) \leq \limsup\limits_n P(A_n)$
+Por lo tanto, $\liminf\limits_n \Pr (A_n) \leq \limsup\limits_n \Pr (A_n)$
 
 \newpage
 
-**Parte III**: $\limsup\limits_{n} P(A_n) \leq P \left( \limsup\limits_{n} A_n \right)$
+**Parte III**: $\limsup\limits_{n} \Pr (A_n) \leq \Pr  \left( \limsup\limits_{n} A_n \right)$
 
 $$\begin{array}{c c l c l}
-P \left( \limsup\limits_{n} A_n \right) & = & P \left( \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de límite superior} \\ \\
-  & = & P \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcup\limits_{k \geq n} A_k$} \\ \\
-  & = & \lim\limits_n P(B_n) & & \text{por ser $B_n$ decreciente} \\ \\
-  & = & \lim\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
-  & = & \limsup\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
-  & \geq & \limsup\limits_n P(A_k) \, \forall k \geq n & & \text{por definición de unión}
+\Pr \left( \limsup\limits_{n} A_n \right) & = & \Pr \left( \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de límite superior} \\ \\
+  & = & \Pr \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcup\limits_{k \geq n} A_k$} \\ \\
+  & = & \lim\limits_n \Pr (B_n) & & \text{por ser $B_n$ decreciente} \\ \\
+  & = & \lim\limits_n \Pr \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \limsup\limits_n \Pr \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
+  & \geq & \limsup\limits_n \Pr (A_k) \, \forall k \geq n & & \text{por definición de unión}
 \end{array}$$
 
 # Ejercicio 2
