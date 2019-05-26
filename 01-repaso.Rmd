@@ -5,6 +5,16 @@ date: "2019"
 output: pdf_document
 header-includes:
    - \everymath{\displaystyle}
+   - \usepackage[spanish]{babel}
+   - \usepackage{xcolor}
+   - \usepackage[makeroom]{cancel}
+   - \DeclareMathOperator*{\plim}{plim}
+   - \usepackage{mathrsfs}
+   - \usepackage{amsmath}
+   - \usepackage{mathtools}
+   - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
+   - \DeclareMathOperator{\E}{\mathbf{E}}
+   - \DeclareMathOperator{\V}{\mathbf{V}}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -119,196 +129,188 @@ Para el resto de los conjuntos solo debemos demostrar que los mismos pueden ser 
 
 #### Definición 1.8
 
-Dado $\Omega \neq \emptyset$, diremos que la terna $(\Omega, \, \mathcal{A}, \, P)$ es un espacio de probabilidad sobre $\Omega \Leftrightarrow \mathcal{A}$ es una $\sigma$-álgebra de conjuntos sobre $\Omega$ y $P$ es una función $P: \mathcal{A} \rightarrow [0;1]$ que cumple:
+Dado $\Omega \neq \emptyset$, diremos que la terna $(\Omega, \, \mathcal{A}, \, \Pr)$ es un espacio de probabilidad sobre $\Omega \Leftrightarrow \mathcal{A}$ es una $\sigma$-álgebra de conjuntos sobre $\Omega$, y $\Pr$ es una función $\Pr: \mathcal{A} \rightarrow [0;1]$ que cumple:
 
-i. $P(\Omega) = 1$
+i. $\Pr(\Omega) = 1$
 ii. si la familia de sucesos $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ son tales que $A_i \cap A_j = \emptyset \, \forall i \neq j$ (disjuntos dos a dos), entonces:
-$$ P \left( \bigcup\limits_{n = 1}^{+ \infty} A_n \right) = \sum\limits_{n = 1}^{+\infty} P(A_n) $$
+$$\Pr \left( \bigcup\limits_{n = 1}^{+ \infty} A_n \right) = \sum\limits_{n = 1}^{+\infty} \Pr(A_n) $$
 
 #### Proposición 1.9
 
-***
+1) $\Pr (\emptyset) = 0$
 
-1) $P(\emptyset) = 0$
-
-*Dem*: $P(\Omega) = P(\Omega \cup \emptyset) \Rightarrow$ por ser $\Omega$ y $\emptyset$ conjuntos disjuntos, $P(\Omega) = P(\Omega) + P(\emptyset) \Rightarrow$ por prop 1.9/2 (ver abajo), $1 = 1 + P(\emptyset) \Rightarrow 0 = P(\emptyset)$
+*Dem*: $\Pr(\Omega) = \Pr (\Omega \cup \emptyset) \Rightarrow$ por ser $\Omega$ y $\emptyset$ conjuntos disjuntos, $\Pr (\Omega) = \Pr (\Omega) + \Pr (\emptyset) \Rightarrow$ por prop 1.9/2 (ver abajo), $1 = 1 + \Pr (\emptyset) \Rightarrow 0 = \Pr (\emptyset)$
 
 *Dem*: sea la sucesión $B_n$ tal que $B_1 = \emptyset$, $B_2 = \emptyset$, $B_3 = \emptyset$, $\ldots$. Luego entonces,
-$$\begin{array}{c c c}
-P \left( \bigcup\limits_{i = 1}^{+\infty} B_i \right) = \sum\limits_{i = 1}^{+\infty} P(B_i) & & \text{por ser la probabilidad de una sucesión contable} \\ \\
-\sum\limits_{i = 1}^{+\infty} P(B_i) = 0 & & \text{dado que la serie del mismo número positivo solo} \\
-& & \text{puede converger a $0$ (si es cero) o diverger, pero las} \\ 
-& & \text{probabilidades deben estar acotadas entre 1 y 0} \\
+$$\begin{array}{c c l c c}
+\Pr \left( \bigcup\limits_{i = 1}^{+\infty} B_i \right) & = & \sum\limits_{i = 1}^{+\infty} \Pr (B_i) & & \text{por ser la probabilidad de una sucesión contable} \\ \\
+  & = & 0 & & \text{dado que la serie del mismo número positivo solo} \\
+& & & & \text{puede converger a $0$ (si es cero) o diverger, pero las} \\ 
+& & & & \text{probabilidades deben estar acotadas entre 1 y 0} \\
 \end{array}$$
 
 ***
 
-2) Sea $A_1; \, \ldots; \, A_n \in \mathcal{A} / A_i \cap A_j = \emptyset \, \forall i \neq j \Rightarrow P \left( \bigcup\limits_{i = 1}^{n} A_i \right) = \sum\limits_{i = 1}^{n} P(A_i)$
+2) Sea $A_1; \, \ldots; \, A_n \in \mathcal{A} / A_i \cap A_j = \emptyset \, \forall i \neq j \Rightarrow \Pr \left( \bigcup\limits_{i = 1}^{n} A_i \right) = \sum\limits_{i = 1}^{n} \Pr (A_i)$
 
 *Dem*: consideremos la suceción de eventos $B_1 = A_1; \, B_2 = A_2; \, \ldots; \, B_n = A_n; B_{n+1} = \emptyset; \, \ldots$ luego entonces:
 
-$$\begin{array}{ c c c} 
-P \left( \bigcup\limits_{i = 1}^{n} A_i \right) = P \left( \bigcup\limits_{i = 1}^{+\infty} B_i \right) & & \text{debido a que la diferencia entre la sucesión $A_n$ y la} \\
-& & \text{$B_n$ son infinitos conjuntos vacios.} \\ \\
-P \left( \bigcup\limits_{i = 1}^{+\infty} B_i \right) = \sum\limits_{i = 1}^{+\infty} P(B_i) & & \text{por axioma ii.} \\ \\
-\sum\limits_{i = 1}^{+\infty} P(B_i) = \sum\limits_{i = 1}^{n} P(B_i) + \sum\limits_{i = n+1}^{+\infty} P(B_i) & & \text{por linealidad de la suma} 
+$$\begin{array}{c c l c l} 
+\Pr \left( \bigcup\limits_{i = 1}^{n} A_i \right) & = & \Pr \left( \bigcup\limits_{i = 1}^{+\infty} B_i \right) & & \text{debido a que la diferencia entre la sucesión $A_n$ y la} \\
+  & & & & \text{$B_n$ son infinitos conjuntos vacios.} \\ \\
+  & = & \sum\limits_{i = 1}^{+\infty} \Pr (B_i) & & \text{por axioma ii.} \\ \\
+  & = & \sum\limits_{i = 1}^{n} \Pr (B_i) + \sum\limits_{i = n+1}^{+\infty} \Pr (B_i) & & \text{por linealidad de la suma} 
 \end{array}$$
 
-$$\begin{array}{c c c}
-\sum\limits_{i = 1}^{+\infty} P(B_i) = \sum\limits_{i = 1}^{n} P(A_i) + \sum\limits_{i = n+1}^{+\infty} P(B_i) & & \text{por la definición de la sucesión $B_n$} \\ \\
-\sum\limits_{i = 1}^{n} P(A_i) + \sum\limits_{i = n+1}^{+\infty} P(B_i) = \sum\limits_{i = 1}^{n} P(A_i) + \sum\limits_{i = n+1}^{+\infty} 0 & & \text{porque $P(\emptyset) = 0$}
+$$\begin{array}{c c l c l}
+  & = & \sum\limits_{i = 1}^{n} \Pr (A_i) + \sum\limits_{i = n+1}^{+\infty} \Pr (B_i) & & \text{por la definición de la sucesión $B_n$} \\ \\
+  & = & \sum\limits_{i = 1}^{n} \Pr (A_i) + \sum\limits_{i = n+1}^{+\infty} 0 & & \text{porque $\Pr (\emptyset) = 0$}
 \end{array}$$
 
-Uniendo las puntas llegamos a que:
+Uniendo las puntas obtenemos que:
 
-$$P \left( \bigcup\limits_{i = 1}^{n} A_i \right) = \sum\limits_{i = 1}^{n} P(A_i)$$
+$$\Pr \left( \bigcup\limits_{i = 1}^{n} A_i \right) = \sum\limits_{i = 1}^{n} \Pr (A_i)$$
 
 ***
 
-3) Si $A,B \in \mathcal{A} \Rightarrow P(B - A) = P(B) - P(A \cap B)$
+3) Si $A,B \in \mathcal{A} \Rightarrow \Pr (B - A) = \Pr (B) - \Pr (A \cap B)$
 
 *Dem*:
-
 $$\begin{array}{ c c c} 
 B = B & & \text{tautología} \\ \\
 (B - A) \cup (A \cap B) = B & & \text{por definición de diferencia} \\ \\
-P \big( (B-A) \cup (A \cap B) \big) = P(B) & & \text{tomo probabilidades} \\ \\
-P (B-A) + P (A \cap B) = P(B) & & \text{sucesos disjuntos} \\ \\
-P (B-A) = P(B) - P (A \cap B) & & 
+\Pr \big( (B-A) \cup (A \cap B) \big) = \Pr(B) & & \text{tomo probabilidades} \\ \\
+\Pr (B-A) + \Pr (A \cap B) = \Pr (B) & & \text{sucesos disjuntos} \\ \\
+\Pr (B-A) = \Pr (B) - \Pr (A \cap B) & & 
 \end{array}$$
 
 ***
 
-4) Sean $A,B \in \mathcal{A} / A \subset B \Rightarrow P(B - A) = P(B) - P(A)$ y $P(A) \leq P(B)$ 
+4) Sean $A,B \in \mathcal{A} / A \subset B \Rightarrow P(B - A) = \Pr (B) - \Pr (A)$ y $\Pr (A) \leq \Pr (B)$ 
 
-*Dem*: primer enunciado: sean $A,B \in \mathcal{A} / A \subset B \Rightarrow P(B - A) = P(B) - P(A)$
+*Dem*: primer enunciado: sean $A,B \in \mathcal{A} / A \subset B \Rightarrow \Pr (B - A) = \Pr (B) - \Pr (A)$
 
 $$\begin{array}{ c c c } 
 B = B & & \text{tautología} \\ \\
 (B - A) \cup (A \cap B) = B & & \text{por definición de diferencia} \\ \\
 (B - A) \cup A = B & & \text{por inclusión de $A$ en $B$} \\ \\
-P \big( (B-A) \cup A \big) = P(B) & & \text{tomo probabilidades} \\ \\
-P (B-A) + P (A) = P(B) & & \text{sucesos disjuntos} \\ \\
-P (B-A) = P(B) - P (A) & & 
+\Pr \big( (B-A) \cup A \big) = \Pr (B) & & \text{tomo probabilidades} \\ \\
+\Pr (B-A) + \Pr (A) = \Pr (B) & & \text{sucesos disjuntos} \\ \\
+\Pr (B-A) = \Pr (B) - \Pr (A) & & 
 \end{array}$$
 
-*Dem*: segundo enunciado: sean $A,B \in \mathcal{A} / A \subset B \Rightarrow P(A) \leq P(B)$
+\newpage
 
-$$\begin{array}{ c c c} 
+*Dem*: segundo enunciado: sean $A,B \in \mathcal{A} / A \subset B \Rightarrow \Pr (A) \leq \Pr (B)$
+
+$$\begin{array}{c c c} 
 B = A \cup (B - A) & & \text{dado que $A \subset B$} \\ \\
-P(B) = P \big( A \cup (B - A) \big) & & \text{tomando probabilidades de ambos lados} \\ \\
-P(B) = P(A) + P(B - A) & & \text{dado que $A$ y $B-A$ son disjuntos por la inclusión} \\ \\
+\Pr (B) = \Pr \big( A \cup (B - A) \big) & & \text{tomando probabilidades de ambos lados} \\ \\
+\Pr (B) = \Pr (A) + \Pr (B - A) & & \text{dado que $A$ y $B-A$ son disjuntos por la inclusión} \\ \\
 \end{array}$$
 
-Por lo tanto, $P(B) = P(A) + P(B - A) \geq P(A)$ dado que $P(B - A) \geq 0$, de donde obtenemos que $P(A) \leq P(B)$.
+Por lo tanto, $\Pr (B) = \Pr (A) + \Pr (B - A) \geq \Pr (A)$ dado que $\Pr (B - A) \geq 0$, de donde obtenemos que $\Pr (A) \leq \Pr (B)$.
 
 ***
 
-5) Sean $A,B \in \mathcal{A} \Rightarrow P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+5) Sean $A,B \in \mathcal{A} \Rightarrow \Pr (A \cup B) = \Pr (A) + \Pr (B) - \Pr (A \cap B)$
 
 *Dem*:
-
-$$\begin{array}{c c c}
+$$\begin{array}{c c l}
 \left\{ \begin{array}{c c c}
 A & = & (A - B) \cup (A \cap B) \\
 B & = & (B - A) \cup (A \cap B)
 \end{array} \right.
 & & \text{por definición de diferencia} \\ \\
 \left\{ \begin{array}{c c c}
-P(A) & = & P \big( (A - B) \cup (A \cap B) \big) \\
-P(B) & = & P \big( (B - A) \cup (A \cap B) \big)
+\Pr (A) & = & \Pr \big( (A - B) \cup (A \cap B) \big) \\
+\Pr (B) & = & \Pr \big( (B - A) \cup (A \cap B) \big)
 \end{array} \right.
 & & \text{tomo probabilidades} \\ \\
 \left\{ \begin{array}{c c c}
-P(A) & = & P(A - B) + P(A \cap B) \\
-P(B) & = & P(B - A) + P(A \cap B)
+\Pr (A) & = & \Pr (A - B) + P(A \cap B) \\
+\Pr (B) & = & \Pr (B - A) + P(A \cap B)
 \end{array} \right.
 & & \text{por ser sucesos disjuntos} \\ \\
-P(A) + P(B) = P(A-B) + P(B-A) + 2 P(A \cap B) & & \text{sumo de ambos lados} \\ \\
-P(A) + P(B) - P(A \cap B) = P(A - B) + P(B - A) + P(A \cap B) & & \text{reordeno términos} \\ \\
-P(A) + P(B) - P(A \cap B) = P \big((A - B) \cup (B - A) \cup (A \cap B) \big) & & \text{sucesos disjuntos} \\ \\
-P(A) + P(B) - P(A \cap B) = P (A \cup B) & & 
+\Pr (A) + \Pr (B) = \Pr (A-B) + P(B-A) + 2 \Pr (A \cap B) & & \text{sumo de ambos lados} \\ \\
+\Pr (A) + \Pr (B) - \Pr (A \cap B) = \Pr (A - B) + \Pr (B - A) + \Pr (A \cap B) & & \text{reordeno términos} \\ \\
+\Pr (A) + \Pr (B) - \Pr (A \cap B) = \Pr \big((A - B) \cup (B - A) \cup (A \cap B) \big) & & \text{sucesos disjuntos} \\ \\
+\Pr (A) + \Pr (B) - \Pr (A \cap B) = \Pr (A \cup B) & & 
 \end{array}$$
 
 ***
 
-6) Si $A_!; \, \ldots; \, A_n \in \mathcal{A} \Rightarrow P \left( \bigcup\limits_{i = 1}^{n} A_i \right) \leq \sum\limits_{i = 1}^{n} P(A_i)$
+6) Si $A_!; \, \ldots; \, A_n \in \mathcal{A} \Rightarrow \Pr \left( \bigcup\limits_{i = 1}^{n} A_i \right) \leq \sum\limits_{i = 1}^{n} \Pr(A_i)$
 
-*Dem*: en la parte 5) de la proposición se demostró que $P(A \cup B) = P(A) + P(B) - P(A\cap B)$. Dado que $P(A\cap B) \geq 0$, esto implica que $P(A \cup B) \leq P(A) + P(B)$.
+*Dem*: en la parte 5) de la proposición se demostró que $\Pr (A \cup B) = \Pr (A) + \Pr (B) - \Pr (A\cap B)$. Dado que $\Pr (A\cap B) \geq 0$, esto implica que $\Pr (A \cup B) \leq \Pr (A) + \Pr (B)$.
 
 Siguiendo un procedimiento análogo podemos demostrar, para $n = 3$, que:
-$$P(A \cup B \cup C) = P(A) + P(B) - P(A \cap B) + P(C) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C) \Rightarrow$$
-$$\Rightarrow P(A \cup B \cup C) = P(A) + P(B) + P(C) - \big[ P(A \cap B) + P(A \cap C) + P(B \cap C) \big] + P(A \cap B \cap C) $$
-donde $P(A_i \cap A_j) \geq P(A_i \cap A_j \cap A_k)$ para cualquier par y terna de conjuntos, dado que del lado izquierdo estamos intersectando más conjuntos, es decir, excluyendo más sucesos. De donde obtenemos que $P(A \cup B \cup C) \leq P(A) + P(B) + P(C)$.
+$$\Pr (A \cup B \cup C) = \Pr (A) + \Pr (B) - \Pr (A \cap B) + \Pr (C) - \Pr (A \cap C) - \Pr (B \cap C) + \Pr (A \cap B \cap C) \Rightarrow$$
+$$\Rightarrow \Pr (A \cup B \cup C) = \Pr (A) + \Pr (B) + \Pr (C) - \big[ \Pr (A \cap B) + \Pr (A \cap C) + \Pr (B \cap C) \big] + \Pr (A \cap B \cap C)$$
+donde $\Pr (A_i \cap A_j) \geq \Pr (A_i \cap A_j \cap A_k)$ para cualquier par y terna de conjuntos, dado que del lado izquierdo estamos intersectando más conjuntos, es decir, excluyendo más sucesos. De donde obtenemos que $\Pr (A \cup B \cup C) \leq \Pr (A) + \Pr (B) + \Pr (C)$.
 
 Si continuamos con este proceso hasta llegar a $n$ sucesos, encontramos que:
-$$ P \left( \bigcup\limits_{k = 1}^{n} A_k \right) = \sum\limits_{k = 1}^{n} P(A_k) - \sum\limits_{\substack{i_1, i_2 = 1 \\ i_1 < i_2}}^{n} P(A_{i_1} \cap A_{i_2}) + \sum\limits_{\substack{i_1, i_2. i_3 = 1 \\ i_1 < i_2 < i_3 }}^{n} P(A_{i_1} \cap A_{i_2} \cap A_{i_3}) + $$
-$$ + \ldots + (-1)^{k-1} \sum\limits_{\substack{i_1. \ldots, i_k = 1 \\ i_1 < \ldots < i_k }}^{n} P(A_{i_1} \cap \ldots \cap A_{i_k}) + \ldots + (-1)^{n-1} P(A_{i_1} \cap \ldots \cap A_{i_n}) $$
-donde $P(A_{i_1} \cap A_{i_2}) \geq P(A_{i_1} \cap A_{i_2} \cap A_{i_3}) \geq P(A_{i_1} \cap A_{i_2} \cap A_{i_3} \cap A_{i_4}) \geq \ldots$ para cualquier comparación de $n$-úplas de conjuntos. De donde obtenemos que:
-$$P \left( \bigcup\limits_{i = 1}^{n} A_i \right) \leq \sum\limits_{i = 1}^{n} P(A_i)$$
+$$ \Pr \left( \bigcup\limits_{k = 1}^{n} A_k \right) = \sum\limits_{k = 1}^{n} \Pr (A_k) - \sum\limits_{\substack{i_1, i_2 = 1 \\ i_1 < i_2}}^{n} \Pr (A_{i_1} \cap A_{i_2}) + \sum\limits_{\substack{i_1, i_2. i_3 = 1 \\ i_1 < i_2 < i_3 }}^{n} \Pr (A_{i_1} \cap A_{i_2} \cap A_{i_3}) + $$
+$$ + \ldots + (-1)^{k-1} \sum\limits_{\substack{i_1. \ldots, i_k = 1 \\ i_1 < \ldots < i_k }}^{n} \Pr (A_{i_1} \cap \ldots \cap A_{i_k}) + \ldots + (-1)^{n-1} \Pr (A_{i_1} \cap \ldots \cap A_{i_n}) $$
+donde $\Pr (A_{i_1} \cap A_{i_2}) \geq \Pr (A_{i_1} \cap A_{i_2} \cap A_{i_3}) \geq \Pr (A_{i_1} \cap A_{i_2} \cap A_{i_3} \cap A_{i_4}) \geq \ldots$ para cualquier comparación de $n$-úplas de conjuntos. De donde obtenemos que:
+$$\Pr \left( \bigcup\limits_{i = 1}^{n} A_i \right) \leq \sum\limits_{i = 1}^{n} \Pr (A_i)$$
 
 ***
 
-7) si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ es tal que $A_1 \subset A_2 \subset A_3 \subset \ldots$, entonces $P \left( \bigcup\limits_{n \in \mathbb{N}} A_n \right) = \lim\limits_{n \rightarrow +\infty} P(A_n)$
+7) si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ es tal que $A_1 \subset A_2 \subset A_3 \subset \ldots$, entonces $\Pr \left( \bigcup\limits_{n \in \mathbb{N}} A_n \right) = \lim\limits_{n \rightarrow +\infty} \Pr (A_n)$
 
 *Dem*: comenzamos definiendo la siguiente sucesión de conjuntos disjuntos:
 $$B_1 = A_1; \, B_2 = A_2 - A_1; \, B_3 = A_3 - A_2; \ldots; \, B_n = A_n - A_{n-1}; \ldots$$
 
 Nótese que no es necesario unir los conjuntos de índices menores a $n$ a la hora de definir $B_n$ dado que la sucesión $\{A_n\}_{n \in \mathbb{N}}$ es creciente. Esto último implica que, al restar $A_{n-1}$ a $A_n$, ya estamos exluyendo a los elementos de los conjuntos $A_{n-2}; \, A_{n-3}; \ldots; \, A_3; \, A_2; \, A_1$. Por lo tanto, la sucesión $\{B_n\}_{n \in \mathbb{N}}$ es una sucesión de conjuntos disjuntos.
 
-$$\begin{array}{ c c c } 
-\bigcup\limits_{n \in \mathbb{N}} A_n = \bigcup\limits_{n \in \mathbb{N}} B_n & & \text{por definición de $B_n$} \\ \\
-P \left( \bigcup\limits_{n \in \mathbb{N}} A_n \right) = P \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) & & \text{dado que $\{A_n\}_{n \in \mathbb{N}}$ y $\{B_n\}_{n \in \mathbb{N}}$} \\
-& & \text{están definidas sobre el mismo $(\Omega, \mathcal{A}, P)$} \\ \\
-P \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) = \sum\limits_{n = 1}^{+\infty} P(B_n) & & \text{por el axioma ii.} \\ \\
-\sum\limits_{n = 1}^{+\infty} P(B_n) = P(B_1) + \sum\limits_{n = 2}^{+\infty} P(B_n) & & \text{reordeno términos}
+$$\begin{array}{r c l c l} 
+\bigcup\limits_{n \in \mathbb{N}} A_n & = & \bigcup\limits_{n \in \mathbb{N}} B_n & & \text{por definición de $B_n$} \\ \\
+\Pr \left( \bigcup\limits_{n \in \mathbb{N}} A_n \right) & = & \Pr \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) & & \text{dado que $\{A_n\}_{n \in \mathbb{N}}$ y $\{B_n\}_{n \in \mathbb{N}}$ están} \\
+  & & & & \text{definidas sobre el mismo $(\Omega, \mathcal{A}, P)$} \\ \\
+  & = & \sum\limits_{n = 1}^{+\infty} \Pr (B_n) & & \text{por el axioma ii.} \\ \\
+  & = & \Pr (B_1) + \sum\limits_{n = 2}^{+\infty} \Pr (B_n) & & \text{reordeno términos}
 \end{array}$$
 
 Continuando con la segunda igualdad, ahora solo resta desarmar la sucesión $\{B_n\}_{n \in \mathbb{N}}$ en términos de los sucesos $A_n$ y calcular la serie.
 
-$$\begin{array}{ c c c } 
-P(B_1) + \sum\limits_{n = 2}^{+\infty} P(B_n) = & & \text{} \\ \\
-= P(A_1) + \sum\limits_{n = 2}^{+\infty} P(A_n - A_{n-1}) = & & \text{re-escribo $B_n$ en términos de $A_n$} \\ \\
-= P(A_1) + \sum\limits_{n = 2}^{+\infty} \big[ P (A_n)  - P(A_{n-1}) \big] = & & \text{reordeno términos} \\ \\
-= P(A_1) + \lim_{m \rightarrow +\infty} \sum\limits_{n = 2}^{m} \big[ P (A_n) - P(A_{n-1}) \big] = & & \text{resuelvo la serie como el límite de} \\
-& & \text{sus sumas parciales} \\ \\
-= P(A_1) + \lim_{m \rightarrow +\infty} \big[ P (A_m) - P(A_1) \big] & & \text{por ser una serie telescópica} \\ \\
-= P(A_1) + \lim_{m \rightarrow +\infty} P (A_m) - P(A_1) & & \\ \\
-= \lim\limits_{m \rightarrow +\infty} P(A_m)
+$$\begin{array}{c c l c l} 
+\Pr \left( \bigcup\limits_{n \in \mathbb{N}} A_n \right) & = & \Pr (B_1) + \sum\limits_{n = 2}^{+\infty} \Pr (B_n) & & \text{} \\ \\
+  & = & \Pr (A_1) + \sum\limits_{n = 2}^{+\infty} \Pr (A_n - A_{n-1}) & & \text{re-escribo $B_n$ en términos de $A_n$} \\ \\
+  & = & \Pr (A_1) + \sum\limits_{n = 2}^{+\infty} \big[ \Pr (A_n) - \Pr (A_{n-1}) \big] & & \text{reordeno términos} \\ \\
+  & = & \Pr (A_1) + \lim_{m \rightarrow +\infty} \sum\limits_{n = 2}^{m} \big[ \Pr (A_n) - \Pr (A_{n-1}) \big] & & \text{resuelvo la serie como el límite de} \\
+  & & & & \text{sus sumas parciales} \\ \\
+  & = & \Pr (A_1) + \lim_{m \rightarrow +\infty} \big[ \Pr (A_m) - \Pr (A_1) \big] & & \text{por ser una serie telescópica} \\ \\
+  & = & \Pr (A_1) + \lim_{m \rightarrow +\infty} \Pr (A_m) - \Pr (A_1) & & \\ \\
+  & = & \lim\limits_{m \rightarrow +\infty} \Pr (A_m)
 \end{array}$$
 
 ***
 
-8) si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ es tal que $A_1 \supset A_2 \supset A_3 \supset \ldots$, entonces $P \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = \lim\limits_{n \rightarrow +\infty} P(A_n)$
+8) si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ es tal que $A_1 \supset A_2 \supset A_3 \supset \ldots$, entonces $\Pr \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = \lim\limits_{n \rightarrow +\infty} \Pr (A_n)$
 
 *Dem*: nótese que si $A_1 \supset A_2 \supset A_3 \supset \ldots \Rightarrow A_1^c \subset A_2^c \subset A_3^c \subset \ldots$. Luego dado que $\{A_n\}_{n \in \mathbb{N}}$ es una sucesión decreciente, $\{A_n^c\}_{n \in \mathbb{N}}$ es una sucesión creciente, por lo tanto, estamos en las hipótesis de la proposición anterior. Por lo tanto,
-
-$$\begin{array}{c c c}
-P \left( \bigcup\limits_{n \in \mathbb{N}} A_n^c \right) = \lim\limits_n P(A_n^c) & & \text{por prop. 1.9/7} \\ \\
-P \left[ \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right)^c \right] = \lim\limits_n P(A_n^c) & & \text{por De Morgan} \\ \\
-1 - P \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = \lim\limits_n \left[ 1 - P(A_n) \right] & & \text{por probabilidad del complemento} \\ \\
-1 - P \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = 1 - \lim\limits_n P(A_n) & & \text{por linealidad del límite}
-\end{array}$$
-\noindent
-$$\begin{array}{c c c}
-\lim\limits_n P(A_n) = P \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) & &
+$$\begin{array}{c c l}
+\Pr \left( \bigcup\limits_{n \in \mathbb{N}} A_n^c \right) = \lim\limits_n \Pr (A_n^c) & & \text{por prop. 1.9/7} \\ \\
+\Pr  \left[ \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right)^c \right] = \lim\limits_n \Pr (A_n^c) & & \text{por De Morgan} \\ \\
+1 - \Pr \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = \lim\limits_n \left[ 1 - \Pr (A_n) \right] & & \text{por probabilidad del complemento} \\ \\
+1 - \Pr \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = 1 - \lim\limits_n \Pr (A_n) & & \text{por linealidad del límite} \\ \\
+\Pr \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = \lim\limits_n \Pr (A_n) & &
 \end{array}$$
 
-***
+9) si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ es tal que $\Pr (A_n) = 1 \,\, \forall n \in \mathbb{N}$, entonces $\Pr \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = 1$
 
-9) si $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ es tal que $P(A_n) = 1 \,\, \forall n \in \mathbb{N}$, entonces $P \left( \bigcap\limits_{n \in \mathbb{N}} A_n \right) = 1$
+*Dem*: si $\Pr (A_n) = 1 \Rightarrow \Pr (A^c_n) = 1 - \Pr (A_n) = 0$, luego entonces:
 
-*Dem*: si $P(A_n) = 1 \Rightarrow P(A^c_n) = 1 - P(A_n) = 0$, luego entonces:
-
-$$\begin{array}{c c c}
-P \left( \bigcap\limits_{n = 1}^{+\infty} A_n \right) = P \left[ \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right)^c \right] & & \text{por De Morgan} \\ \\
-P \left[ \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right)^c \right] = 1 - P \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right) & & \text{por probabilidad del complemento}
+$$\begin{array}{c c l c l}
+\Pr \left( \bigcap\limits_{n = 1}^{+\infty} A_n \right) & = & \Pr \left[ \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right)^c \right] & & \text{por De Morgan} \\ \\
+  & = & 1 - \Pr \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right) & & \text{por probabilidad del complemento}
 \end{array}$$
 
-Luego, $0 \leq P \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right) \leq \sum\limits_{n = 1}^{+\infty} P(A_n^c) = 0$ por ser la suma de conjuntos de probabilidad cero. Por lo tanto, $P \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right) = 0$, dado que está acotado inferior y superiormente por cero. Esto implica que:
-$$P \left( \bigcap\limits_{n = 1}^{+\infty} A_n \right) = P \left[ \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right)^c \right] = 1 - P \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right) \geq 1$$
+Luego, $0 \leq \Pr \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right) \leq \sum\limits_{n = 1}^{+\infty} \Pr (A_n^c) = 0$ por ser la suma de conjuntos de probabilidad cero. Por lo tanto, $\Pr \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right) = 0$, dado que está acotado inferior y superiormente por cero. Esto implica que:
+$$\Pr \left( \bigcap\limits_{n = 1}^{+\infty} A_n \right) = \Pr \left[ \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right)^c \right] = 1 - \Pr \left( \bigcup\limits_{n = 1}^{+\infty} A_n^c \right) \geq 1$$
 
-Lo cual implica que: $P \left( \bigcap\limits_{n = 1}^{+\infty} A_n \right) = 1$ dado que está acotado superiormente por 1 por ser una probabilidad.
+Lo cual implica que: $\Pr \left( \bigcap\limits_{n = 1}^{+\infty} A_n \right) = 1$ dado que está acotado superiormente por 1 por ser una probabilidad.
 
 ## Límite superior e inferior
 
