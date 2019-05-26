@@ -5,9 +5,16 @@ date: "2019"
 output: pdf_document
 header-includes:
    - \everymath{\displaystyle}
+   - \usepackage[spanish]{babel}
    - \usepackage{xcolor}
    - \usepackage[makeroom]{cancel}
    - \DeclareMathOperator*{\plim}{plim}
+   - \usepackage{mathrsfs}
+   - \usepackage{amsmath}
+   - \usepackage{mathtools}
+   - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
+   - \DeclareMathOperator{\E}{\mathbf{E}}
+   - \DeclareMathOperator{\V}{\mathbf{V}}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -24,7 +31,7 @@ Si $X_n \overset{cs}{\rightarrow} X$ y $Y_n \overset{cs}{\rightarrow} Y$ entonce
 
 *Dem*:
 
-Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Análogamente, si $Y_n \overset{cs}{\rightarrow} Y \Rightarrow \exists B$ con $P(B) = 1$ tal que $\forall \omega \in B$, $Y_n(\omega) \overset{n}{\rightarrow} Y(\omega)$. Sea $D = A \cap B \Rightarrow$ por proposición 1.9/9, $P(D) = P(A \cap B) = 1 \Rightarrow X_n + Y_n \overset{cs}{\rightarrow} X + Y$.
+Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $\Pr (A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Análogamente, si $Y_n \overset{cs}{\rightarrow} Y \Rightarrow \exists B$ con $\Pr (B) = 1$ tal que $\forall \omega \in B$, $Y_n(\omega) \overset{n}{\rightarrow} Y(\omega)$. Sea $D = A \cap B \Rightarrow$ por proposición 1.9/9, $\Pr (D) = \Pr (A \cap B) = 1 \Rightarrow X_n + Y_n \overset{cs}{\rightarrow} X + Y$.
 
 ## Parte c
 
@@ -32,7 +39,7 @@ Si $X_n \overset{cs}{\rightarrow} X$ y $g$ es continua, entonces $g(X_n) \overse
 
 *Dem*:
 
-Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Si $g$ es continua, entonces $\forall \omega \in A$, $g(X_n(\omega)) \overset{n}{\rightarrow} g(X(\omega))$. Dado que $P(A) = 1$, $g(X_n) \overset{cs}{\rightarrow} g(X)$.
+Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $\Pr (A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Si $g$ es continua, entonces $\forall \omega \in A$, $g(X_n(\omega)) \overset{n}{\rightarrow} g(X(\omega))$. Dado que $\Pr (A) = 1$, $g(X_n) \overset{cs}{\rightarrow} g(X)$.
 
 ## Parte e
 
@@ -40,7 +47,7 @@ Si $X_n \overset{cs}{\rightarrow} X$ y $Y_n \overset{cs}{\rightarrow} Y$, y sean
 
 *Dem*: alcanza con demostrar que $a_n \, X_n \overset{cs}{\rightarrow} a \, X$ y luego usar el resultado de la parte a del ejercicio.
 
-Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Luego $a_n$ es una sucesión real que sabemos converge a $a$ (por hipótesis), por lo tanto, $\forall \omega \in A$, $a_n \, X_n(\omega) \overset{n}{\rightarrow} a \, X(\omega)$. Dado que $P(A) = 1$, $a_n \, X_n \overset{cs}{\rightarrow} a \, X$.
+Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $\Pr (A) = 1$ tal que $\forall \omega \in A$, $X_n(\omega) \overset{n}{\rightarrow} X(\omega)$. Luego $a_n$ es una sucesión real que sabemos converge a $a$ (por hipótesis), por lo tanto, $\forall \omega \in A$, $a_n \, X_n(\omega) \overset{n}{\rightarrow} a \, X(\omega)$. Dado que $\Pr (A) = 1$, $a_n \, X_n \overset{cs}{\rightarrow} a \, X$.
 
 \newpage
 
@@ -54,16 +61,16 @@ Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $P(A) = 1$ tal qu
 
 \vspace{.3cm}
 
-*Dem*: requiere demostrar que $P(\{ \omega : |X_n(\omega) + Y_n(\omega) - X(\omega) - Y(\omega) | > \varepsilon\} ) \overset{n}{\rightarrow} 0$, $\forall \varepsilon > 0$. Antes de demostrar la convergencia necesitamos explicitar tres resultados:
+*Dem*: requiere demostrar que $\Pr \big( \{ \omega : |X_n(\omega) + Y_n(\omega) - X(\omega) - Y(\omega) | > \varepsilon\} \big) \overset{n}{\rightarrow} 0$, $\forall \varepsilon > 0$. Antes de demostrar la convergencia necesitamos explicitar tres resultados:
 
-1. Si $X_n \overset{p}{\rightarrow} X \Rightarrow P(|X_n - X| > \varepsilon / 2) \overset{n}{\rightarrow} 0$, por definición de convergencia en probabilidad.
+1. Si $X_n \overset{p}{\rightarrow} X \Rightarrow \Pr \big( |X_n - X| > \varepsilon / 2 \big) \overset{n}{\rightarrow} 0$, por definición de convergencia en probabilidad.
 
-2. Si $Y_n \overset{p}{\rightarrow} Y \Rightarrow P(|Y_n - Y| > \varepsilon / 2) \overset{n}{\rightarrow} 0$, por definición de convergencia en probabilidad.
+2. Si $Y_n \overset{p}{\rightarrow} Y \Rightarrow \Pr \big( |Y_n - Y| > \varepsilon / 2 \big) \overset{n}{\rightarrow} 0$, por definición de convergencia en probabilidad.
 
 3. $\{ \omega \in \Omega : |X_n + Y_n - X - Y| > \varepsilon \} \subset \{ \omega \in \Omega : |X_n - X| + |Y_n - Y| > \varepsilon \}$ por lo tanto, $\varepsilon < |x_n + Y_n - X - Y| \leq |X_n - X| + |Y_n - Y|$
 
 Luego entonces,
-$$0 \leq P(|X_n + Y_n - X - Y | > \varepsilon ) \leq P(|X_n - X | > \varepsilon/2 ) + P(|Y_n - Y | > \varepsilon / 2 ) \overset{n}{\rightarrow} 0$$
+$$0 \leq \Pr \big( |X_n + Y_n - X - Y | > \varepsilon \big) \leq \Pr \big( |X_n - X | > \varepsilon/2 \big) + \Pr \big( |Y_n - Y | > \varepsilon / 2 \big) \overset{n}{\rightarrow} 0$$
 
 ***
 
@@ -72,7 +79,7 @@ $$0 \leq P(|X_n + Y_n - X - Y | > \varepsilon ) \leq P(|X_n - X | > \varepsilon/
 \vspace{.3cm}
 
 *Dem*: $g$ es continua $\Leftrightarrow \forall \varepsilon > 0$, $\exists \delta$ tal que si $|X_n(\omega) - X(\omega)| < \delta \Rightarrow |g(X_n(\omega)) - g(X(\omega))| < \varepsilon$. Por contra recíproco esto implíca que si $|g(X_n(\omega)) - g(X(\omega))| \geq \varepsilon \Rightarrow |X_n(\omega) - X(\omega)| \geq \delta$ . Luego entonces:
-$$0 \leq P( | g(X_n(\omega)) - g(X(\omega)) | \geq \varepsilon ) \leq P( | X_n(\omega) - X(\omega) | \geq \delta ) \overset{n}{\rightarrow} 0$$
+$$0 \leq \Pr \Big( \big| g[ X_n(\omega) ] - g[ X(\omega) ] \Big| \geq \varepsilon \big) \leq \Pr \Big( \big| X_n(\omega) - X(\omega) \big| \geq \delta \Big) \overset{n}{\rightarrow} 0$$
 dado que $\{ \omega : |g(X_n(\omega)) - g(X(\omega))| \geq \varepsilon \} \subseteq \{ \omega : |X_n(\omega) - X(\omega)| \geq \delta \}$. Por lo tanto, $g(X_n) \overset{p}{\rightarrow} g(X)$.
 
 ***
@@ -81,14 +88,14 @@ dado que $\{ \omega : |g(X_n(\omega)) - g(X(\omega))| \geq \varepsilon \} \subse
 
 \vspace{.3cm}
 
-*Dem*: al igual que con la convergencia $cs$, alcanza con demostrar que $a_n \, X_n \overset{p}{\rightarrow} a \, X$. Esto implica demostrar que $P(|a_n \, X_n - aX| > \varepsilon) \overset{n}{\rightarrow} 0$.
+*Dem*: al igual que con la convergencia $cs$, alcanza con demostrar que $a_n \, X_n \overset{p}{\rightarrow} a \, X$. Esto implica demostrar que $\Pr ( |a_n \, X_n - aX| > \varepsilon ) \overset{n}{\rightarrow} 0$.
 
-$$P(|a_n \, X_n - aX| > \varepsilon) = P(|a_n \, X_n - a \, X_n + a \, X_n - a \,X| > \varepsilon) \leq $$
-$$ \leq P(|a_n \, X_n - a \, X_n | > \varepsilon / 2) + P(| a \, X_n - a \,X | > \varepsilon / 2) = $$
-$$= P(|a_n - a| \, | X_n | > \varepsilon / 2) + P(| a | \, | X_n - X | > \varepsilon / 2) = $$
-$$= P(|a_n - a| \, | X_n - X + X | > \varepsilon / 2) + \underbrace{P(| a | \, | X_n - X | > \varepsilon / 2) }_{\rightarrow 0 \text{,  porque } X_n \overset{p}{\rightarrow} X} \leq $$
-$$ \leq \underbrace{P(|a_n - a| \, | X_n - X | > \varepsilon / 4)}_{{\rightarrow 0 \text{,  porque } X_n \overset{p}{\rightarrow} X}} + P(|a_n - a| \, | X | > \varepsilon / 4) \leq $$
-$$ = P \Bigg( \underbrace{|a_n - a|}_{ \substack{ \rightarrow 0 \text{, dado } \\ \text{que } a_n \overset{n}{\rightarrow} a} } > \frac{\varepsilon}{4|X|} \Bigg) \overset{n}{\rightarrow} 0 $$
+$$\Pr \big( |a_n \, X_n - aX| > \varepsilon \big) = \Pr \big( |a_n \, X_n - a \, X_n + a \, X_n - a \,X| > \varepsilon \big) \leq $$
+$$\leq \Pr \big( |a_n \, X_n - a \, X_n | > \varepsilon / 2 \big) + \Pr \big( | a \, X_n - a \,X | > \varepsilon / 2 \big) = $$
+$$= \Pr \big( |a_n - a| \, | X_n | > \varepsilon / 2 \big) + \Pr \big( | a | \, | X_n - X | > \varepsilon / 2 \big) = $$
+$$= \Pr \big( |a_n - a| \, | X_n - X + X | > \varepsilon / 2 \big) + \underbrace{ \Pr \big( | a | \, | X_n - X | > \varepsilon / 2 \big) }_{\rightarrow 0 \text{, porque } X_n \overset{p}{\rightarrow} X} \leq $$
+$$ \leq \underbrace{ \Pr \big( |a_n - a| \, | X_n - X | > \varepsilon / 4 \big) }_{ {\rightarrow 0 \text{, porque } X_n \overset{p}{\rightarrow} X}} + \Pr \big( |a_n - a| \, | X | > \varepsilon / 4 \big) \leq$$
+$$= \Pr \Bigg( \underbrace{|a_n - a|}_{ \substack{ \rightarrow 0 \text{, dado } \\ \text{que } a_n \overset{n}{\rightarrow} a} } > \frac{\varepsilon}{4|X|} \Bigg) \overset{n}{\rightarrow} 0 $$
 
 Procediendo de forma análoga se demuestra que $b_n \, Y_n \overset{p}{\rightarrow} b \, Y$, y aplicando el resultado de la parte 1 queda demostrado que $a_n \, X_n + b_n \, Y_n \overset{p}{\rightarrow} a_n \, X + b \, Y$.
 
@@ -96,99 +103,99 @@ Procediendo de forma análoga se demuestra que $b_n \, Y_n \overset{p}{\rightarr
 
 Verificar que si $X_1; \, X_2; \, \ldots$ iid, entonces $\bar{X}_n$ es un estimador consistente para
 
-a. el parámetro $p$, si $X_1 \sim Bin(1,p)$
-b. $\lambda$, si $X_1 \sim Poi(\lambda)$
-c. $1/\lambda$, si $X_1 \sim Exp(\lambda)$
+a. el parámetro $p$, si $X_1 \sim \text{Bin}(1,p)$
+b. $\lambda$, si $X_1 \sim \text{Poisson}(\lambda)$
+c. $1/\lambda$, si $X_1 \sim \text{Exp}(\lambda)$
 
 ## Parte a
 
 Por convergencia en media cuadrática:
 
 $$\left.\begin{array}{r}
-E(\bar{X}_n) = E(X_1) = p \\ \\
-V(\bar{X}_n) = \frac{V(X_1)}{n} = \frac{p(1 - p)}{n} \overset{n}{\rightarrow} 0
+\E(\bar{X}_n) = \E(X_1) = p \\ \\
+\V(\bar{X}_n) = \frac{ \V(X_1) }{n} = \frac{p(1 - p)}{n} \overset{n}{\rightarrow} 0
 \end{array} \right\}
 \Rightarrow \bar{X}_n \overset{mc}{\rightarrow} p \Rightarrow \bar{X}_n \overset{p}{\rightarrow} p$$
 
 Utilizando desigualdad de Chebychev:
 
-$$ P (| \bar{X}_n - p | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsilon^2} = \frac{ V(X_1) / n}{\varepsilon^2 } = \frac{ V(X_1) }{n \, \varepsilon^2 } = \frac{ p(1 - p) }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} p$$
+$$ \Pr \big( | \bar{X}_n - p | > \varepsilon \big) \leq \frac{ \V(\bar{X}_n) }{ \varepsilon^2 } = \frac{ \V(X_1) / n}{\varepsilon^2 } = \frac{ \V(X_1) }{n \, \varepsilon^2 } = \frac{ p(1 - p) }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} p$$
+
+\newpage
 
 ## Parte b
 
 Por convergencia en media cuadrática:
 
 $$\left.\begin{array}{r}
-E(\bar{X}_n) = E(X_1) = \lambda \\ \\
-V(\bar{X}_n) = \frac{V(X_1)}{n} = \frac{\lambda}{n} \overset{n}{\rightarrow} 0
+\E(\bar{X}_n) = \E(X_1) = \lambda \\ \\
+\V(\bar{X}_n) = \frac{\V(X_1)}{n} = \frac{\lambda}{n} \overset{n}{\rightarrow} 0
 \end{array} \right\}
 \Rightarrow \bar{X}_n \overset{mc}{\rightarrow} \lambda \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \lambda$$
 
-\newpage
-
 Utilizando desigualdad de Chebychev:
 
-$$ P (| \bar{X}_n - \lambda | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsilon^2} = \frac{ V(X_1) / n}{\varepsilon^2 } = \frac{ V(X_1) }{n \, \varepsilon^2 } = \frac{ \lambda }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \lambda$$
+$$ \Pr \big( | \bar{X}_n - \lambda | > \varepsilon \big) \leq \frac{ \V(\bar{X}_n) }{ \varepsilon^2 } = \frac{ \V(X_1) / n}{\varepsilon^2 } = \frac{ \V(X_1) }{n \, \varepsilon^2 } = \frac{ \lambda }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \lambda$$
 
 ## Parte c
 
 Por convergencia en media cuadrática:
 
 $$\left.\begin{array}{r}
-E(\bar{X}_n) = E(X_1) = \frac{1}{\lambda} \\ \\
-V(\bar{X}_n) = \frac{V(X_1)}{n} = \frac{ 1 / \lambda^2}{n} \overset{n}{\rightarrow} 0
+\E(\bar{X}_n) = \E(X_1) = \frac{1}{\lambda} \\ \\
+\V(\bar{X}_n) = \frac{ \V(X_1)}{n} = \frac{ 1 / \lambda^2}{n} \overset{n}{\rightarrow} 0
 \end{array} \right\}
 \Rightarrow \bar{X}_n \overset{mc}{\rightarrow} \frac{1}{\lambda} \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \frac{ 1 }{ \lambda}$$
 
 Utilizando desigualdad de Chebychev:
 
-$$ P (| \bar{X}_n - \lambda | > \varepsilon ) \leq \frac{V(\bar{X}_n)}{\varepsilon^2} = \frac{ V(X_1) / n}{\varepsilon^2 } = \frac{ V(X_1) }{n \, \varepsilon^2 } = \frac{ 1 / \lambda^2 }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \frac{1}{\lambda}$$
+$$ \Pr \big( | \bar{X}_n - \lambda | > \varepsilon \big) \leq \frac{ \V(\bar{X}_n) }{ \varepsilon^2 } = \frac{ \V(X_1) / n}{\varepsilon^2 } = \frac{ \V(X_1) }{ n \, \varepsilon^2 } = \frac{ 1 / \lambda^2 }{n \, \varepsilon^2 } \overset{n}{\rightarrow} 0 \Rightarrow \bar{X}_n \overset{p}{\rightarrow} \frac{1}{\lambda}$$
 
 # Ejercicio 3
 
 ## Estimador $T_n = 2 \sum\limits_{i = 1}^{n} X_i / n$
 
-Por el ejercicio 1 parte c sabemos que si $g$ es continua y $X_n \overset{cs}{\rightarrow} X$, entonces $g(X_n) \overset{cs}{\rightarrow} g(X)$. Por el LFGN sabemos que $S_n / n \overset{cs}{\rightarrow} E(X_1)$. Por último, dado que $X_n$ es una sucesión iid de variables aleatorias con distribución $Unif(0, \theta]$, sabemos que $E(X_i) = \theta / 2$. Con esto entonces:
-$$T_n = 2 \frac{S_n}{n} = g(S_n) \overset{cs}{\rightarrow} g(E(X_1)) = 2 \, \left( \frac{\theta}{2} \right) = \theta$$
+Por el ejercicio 1 parte c sabemos que si $g$ es continua y $X_n \overset{cs}{\rightarrow} X$, entonces $g(X_n) \overset{cs}{\rightarrow} g(X)$. Por el LFGN sabemos que $S_n / n \overset{cs}{\rightarrow} \E(X_1)$. Por último, dado que $X_n$ es una sucesión iid de variables aleatorias con distribución $Unif(0, \theta]$, sabemos que $\E(X_i) = \theta / 2$. Con esto entonces:
+$$T_n = 2 \frac{S_n}{n} = g(S_n) \overset{cs}{\rightarrow} g( \E(X_1) ) = 2 \, \left( \frac{\theta}{2} \right) = \theta$$
 dado que $g(z) = 2z$ es continua por ser polinómica.
 
 ## Estimador $X_{(n)}$
 
 Sea $X_{(n)} = \max\limits_n \{X_1, X_2, \ldots\} \Rightarrow f_{X_{(n)}}(x) = \frac{n x^{n-1}}{\theta^n} \, \mathbb{I}_{(0 < x < \theta]}$. Luego,
 
-$$P(|X_{(n)} - \theta| > \varepsilon) = 1 - P (|X_{(n)} - \theta | < \varepsilon ) = 1 - P(\theta - \varepsilon < X_{(n)} < \theta + \varepsilon) = $$
-$$= 1 - P(\theta - \varepsilon < X_{(n)} < \theta) = 1 - \int\limits_{\theta - \varepsilon}^{\theta} f_{X_{(n)}}(x) dx = 1 - \int\limits_{\theta - \varepsilon}^{\theta} \frac{n x^{n-1}}{\theta^n} dx =$$
+$$\Pr \big( |X_{(n)} - \theta| > \varepsilon \big) = 1 - \Pr \big( |X_{(n)} - \theta | < \varepsilon \big) = 1 - \Pr \big( \theta - \varepsilon < X_{(n)} < \theta + \varepsilon \big) =$$
+$$= 1 - \Pr \big( \theta - \varepsilon < X_{(n)} < \theta \big) = 1 - \int\limits_{\theta - \varepsilon}^{\theta} f_{X_{(n)}}(x) dx = 1 - \int\limits_{\theta - \varepsilon}^{\theta} \frac{n x^{n-1}}{\theta^n} dx =$$
 $$= 1 - \frac{1}{\theta^n} \left( x^n \big|_{\theta - \varepsilon}^{\theta} \right) = 1 - \left( \frac{\theta^n}{\theta^n} - \frac{(\theta - \varepsilon)^n}{\theta^n}\right) = \frac{(\theta - \varepsilon)^n}{\theta^n} = \left( \frac{\theta - \varepsilon}{\theta}\right)^n $$
 
-Luego por el corolario 2.4 sabemos que si $\forall \varepsilon > 0$, $\sum\limits_{n = 1}^{+\infty} P(|X_{(n)} - \theta| > \varepsilon) < \infty \Rightarrow X_{(n)} \overset{cs}{\rightarrow} \theta$. Lo cual se cumple en este caso:
+Luego por el corolario 2.4 sabemos que si $\forall \varepsilon > 0$, $\sum\limits_{n = 1}^{+\infty} \Pr \big( |X_{(n)} - \theta| > \varepsilon \big) < \infty \Rightarrow X_{(n)} \overset{cs}{\rightarrow} \theta$. Lo cual se cumple en este caso:
 
-$$ \sum\limits_{n = 1}^{+ \infty} P ( | X_{(n)} - \theta | > \varepsilon ) = \sum\limits_{n = 1}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n = - 1 + 1 + \sum\limits_{n = 1}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n =$$
+$$\sum\limits_{n = 1}^{+ \infty} \Pr \big( | X_{(n)} - \theta | > \varepsilon \big) = \sum\limits_{n = 1}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n = - 1 + 1 + \sum\limits_{n = 1}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n =$$
 $$= - 1 + \left( \frac{ \theta - \varepsilon }{ \theta } \right)^0 + \sum\limits_{n = 1}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n = - 1 + \sum\limits_{n = 0}^{+\infty} \left( \frac{ \theta - \varepsilon }{ \theta } \right)^n < +\infty \text{ dado que } \left| \frac{ \theta - \varepsilon }{ \theta } \right| < 1 $$
 
 Por lo tanto, encontramos que $X_{n} \overset{cs}{\rightarrow} \theta$.
 
 # Ejercicio 4
 
-**Parte a**: mostrar que $d_2(X,Y) = \sqrt{ E(X - Y)^2 }$ es una distancia en el conjunto de las variables aleatorias con momento de segundo orden finito.
+**Parte a**: mostrar que $d_2(X,Y) = \sqrt{ \E(X - Y)^2 }$ es una distancia en el conjunto de las variables aleatorias con momento de segundo orden finito.
 
-*Dem*: implica probar todas las características de una distance.
+*Dem*: implica probar todas las características de una distancia.
 
-1) *No negatividad*: $d_2(X,Y) > 0$, $\forall X \neq Y$ se cumple dado que $Z = (X - Y)^2 > 0 \Rightarrow \sqrt{E(Z)} > 0$.
+1) *No negatividad*: $d_2(X,Y) > 0$, $\forall X \neq Y$ se cumple dado que $Z = (X - Y)^2 > 0 \Rightarrow \sqrt{ \E(Z) } > 0$.
 
-2) *Identidad*: $d_2(X,Y) = 0 \Leftrightarrow X = Y$. El directo requiere definir clases de equivalencias. Es decir, no es cierto así como aparece planteado en el ejercicio. Ahora, si $X \overset{cs}{=} Y$, es decir, $X$ e $Y$ son iguales en un conjunto de probabilidad 1, entonces sí se cumple que si $d_2(X,Y) = 0$, $X$ debe ser igual ($cs$) a $Y$, dado que es la única forma de que su cuadrado sea cero. Por su parte, el recíproco sí es inmediato. Es decir, si $X = Y \Rightarrow d_2(X,Y) = \sqrt{E(X - Y)^2} = \sqrt{E(X - X)^2} = \sqrt{E(0)^2} = \sqrt{E(0)} = \sqrt{0} = 0$. 
+2) *Identidad*: $d_2(X,Y) = 0 \Leftrightarrow X = Y$. El directo requiere definir clases de equivalencias. Es decir, no es cierto así como aparece planteado en el ejercicio. Ahora, si $X \overset{cs}{=} Y$, es decir, $X$ e $Y$ son iguales en un conjunto de probabilidad 1, entonces sí se cumple que si $d_2(X,Y) = 0$, $X$ debe ser igual ($cs$) a $Y$, dado que es la única forma de que su cuadrado sea cero. Por su parte, el recíproco sí es inmediato. Es decir, si $X = Y \Rightarrow d_2(X,Y) = \sqrt{ \E(X - Y)^2 } = \sqrt{ \E(X - X)^2 } = \sqrt{ \E(0)^2 } = \sqrt{ \E(0) } = \sqrt{0} = 0$. 
 
-3) *Simetría*: $d_2(X,Y) = \sqrt{E(X - Y)^2} = \sqrt{E(Y - X)^2} = d_2(Y,X)$
+3) *Simetría*: $d_2(X,Y) = \sqrt{ \E(X - Y)^2 } = \sqrt{ \E(Y - X)^2 } = d_2(Y,X)$
 
 4) *Desigualdad triangular*:
-$$d_2(X,Y) = \sqrt{ E(X - Y)^2} = \sqrt{ E(X - Z + Z - Y)^2} = $$
-$$= \sqrt{ E (X - Z)^2 + 2 E(X - Z)(Z - Y) + E(Z - Y)^2 } \leq$$
-$$\leq \sqrt{ E (X - Z)^2 + 2 \sqrt{ E(X - Z)^2 \, E(Z - Y)^2 } + E(Z - Y)^2} \leq$$
-$$\leq \sqrt{ E (X - Z)^2 + E(Z - Y)^2} \leq \sqrt{ E (X - Z)^2} + \sqrt{ E(Z - Y)^2 } = d_2(X,Z) + d_2(Z,Y)$$
+$$d_2(X,Y) = \sqrt{ \E(X - Y)^2} = \sqrt{ \E(X - Z + Z - Y)^2} = $$
+$$= \sqrt{ \E (X - Z)^2 + 2 \E(X - Z)(Z - Y) + \E (Z - Y)^2 } \leq$$
+$$\leq \sqrt{ \E (X - Z)^2 + 2 \sqrt{ \E(X - Z)^2 \, \E(Z - Y)^2 } + \E(Z - Y)^2} \leq$$
+$$\leq \sqrt{ \E (X - Z)^2 + \E(Z - Y)^2} \leq \sqrt{ \E (X - Z)^2} + \sqrt{ \E(Z - Y)^2 } = d_2(X,Z) + d_2(Z,Y)$$
 
 **Parte b**: verificar que $d_2(X_n,Y) \rightarrow 0$ implíca $X_n \overset{p}{\rightarrow} Y$.
 
-$$0 \leq P \left( |X_n - Y| > \varepsilon \right) = P \left( \sqrt{|X_n - Y|^2} > \sqrt{\varepsilon^2} \right) \leq \frac{ E \left( \sqrt{|X_n - Y|^2} \right) }{ \sqrt{\varepsilon^2} }  \leq$$
-$$\leq \frac{ \sqrt{ E \left( |X_n - Y|^2 \right)} }{ \varepsilon } = \frac{d_2(X_n,Y)}{\varepsilon} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} Y$$
+$$0 \leq \Pr \left( |X_n - Y| > \varepsilon \right) = \Pr \left( \sqrt{|X_n - Y|^2} > \sqrt{\varepsilon^2} \right) \leq \frac{ \E \left( \sqrt{|X_n - Y|^2} \right) }{ \sqrt{\varepsilon^2} }  \leq$$
+$$\leq \frac{ \sqrt{ \E \left( |X_n - Y|^2 \right)} }{ \varepsilon } = \frac{d_2(X_n,Y)}{\varepsilon} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} Y$$
 Donde, para la primer desigualdad usamos que toda probabilidad está acotada inferiormente por cero. Para la segunda utilizamos la desigualdad de Markov dado que $|X_n - Y|^2$ es siempre positiva. Por último, para la tercer desigualdad utilizamos la desigualdad de Jensen donde $g(z) = \sqrt{z}$ es una función cóncava.
 
 \vspace{0.25cm}
@@ -197,29 +204,29 @@ Donde, para la primer desigualdad usamos que toda probabilidad está acotada inf
 
 \vspace{0.3cm}
 
-Sean $U \sim Unif(0,1)$ y $X_n = n \, \mathbb{I}_{ [0, \, ^1\!/_n] }(u)$.
-$$P_{X_n} ( X_n = n ) = P_{X_n} \big( n \, \mathbb{I}_{ [0, \, ^1\!/_n] }(u) = n \big) = P_{X_n} \big( \mathbb{I}_{ [0, \, ^1\!/_n] }(u) = 1 \big) =$$
-$$= P_U \big( u \in [0, \, ^1\!/_n] \big) = F_U \left( ^1\!/_n \right) - F_U(0) = \frac{1}{n}$$
-$$P_{X_n} ( X_n = 0 ) = P_U \big( u \notin [0, \, ^1\!/_n] \big) = 1 - P_U \big( u \in [0, \, ^1\!/_n] \big) = 1 -  \frac{1}{n} $$
+Sean $U \sim \text{Unif}(0,1)$ y $X_n = n \, \mathbb{I}_{ [0, \, ^1\!/_n] }(u)$.
+$${\Pr}_{X_n} ( X_n = n ) = {\Pr}_{X_n} \big( n \, \mathbb{I}_{ [0, \, ^1\!/_n] }(u) = n \big) = {\Pr}_{X_n} \big( \mathbb{I}_{ [0, \, ^1\!/_n] }(u) = 1 \big) =$$
+$$= {\Pr}_U \big( u \in [0, \, ^1\!/_n] \big) = F_U \left( ^1\!/_n \right) - F_U(0) = \frac{1}{n}$$
+$${\Pr}_{X_n} ( X_n = 0 ) = {\Pr}_U \big( u \notin [0, \, ^1\!/_n] \big) = 1 - {\Pr}_U \big( u \in [0, \, ^1\!/_n] \big) = 1 - \frac{1}{n} $$
 
 Luego entonces,
-$$ P (|X_n - 0| > \varepsilon) = P(X_n > \varepsilon) = \frac{1}{n} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} 0$$
+$$ \Pr \big( |X_n - 0| > \varepsilon \big) = \Pr ( X_n > \varepsilon ) = \frac{1}{n} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} 0$$
 
 Mientras que:
-$$E ( X_n ) = n \, P(X_n = n) + 0 \, P(X_n = 0) = n \, \frac{1}{n} = 1 \neq 0 = E(X) \Rightarrow E(X_n) \, \cancel{\overset{L^2}{\rightarrow}} \, E(X)$$
+$$\E ( X_n ) = n \, \Pr ( X_n = n ) + 0 \, \Pr ( X_n = 0 ) = n \, \frac{1}{n} = 1 \neq 0 = \E (X) \Rightarrow \E (X_n) \, \cancel{\overset{L^2}{\rightarrow}} \, \E (X)$$
 
 \newpage
 
 # Ejercicio 5
 
-## Parte a: Demostrar que $d_p(X,Y) = E \left( 1 - e^{-|X - Y|} \right)$ es una distancia en el espacio de todas las variables aleatorias.
+## Parte a: Demostrar que $d_p(X,Y) = \E \left( 1 - e^{-|X - Y|} \right)$ es una distancia en el espacio de todas las variables aleatorias.
 
-1) *No negatividad*: $d_p(X,Y) = E \Big( \underbrace{ 1 - \overbrace{ \exp\big\{ \underbrace{- |X - Y| }_{< 0} \big\} }^{< 1} }_{> 0} \Big) > 0$
+1) *No negatividad*: $d_p(X,Y) = \E \Big( \underbrace{ 1 - \overbrace{ \exp\big\{ \underbrace{- |X - Y| }_{< 0} \big\} }^{< 1} }_{> 0} \Big) > 0$
 
 2) *Identidad*: $d_p(X,Y) = 0 \Leftrightarrow X \overset{cs}{=} Y$. Si la distancia es cero entonces $X \overset{cs}{=} Y$ dado que es la única forma de que la esperanza considerada sea la esperanza de cero. Por su parte, si $X \overset{cs}{=} Y$ entonces la demostración es inmediata: 
-$$d_p(X,Y) = E \left( 1 - e^{-|X - X|} \right) = E(1 - e^{-0}) = E(1 - 1) = E(0) = 0$$
+$$d_p(X,Y) = \E \left( 1 - e^{-|X - X|} \right) = \E(1 - e^{-0}) = \E(1 - 1) = \E(0) = 0$$
 
-3) *Simetría*: $d_p(X,Y) = E \left( 1 - e^{- | X - Y |} \right) = E \left( 1 - e^{- | Y - X |} \right) = d_p(Y,X)$
+3) *Simetría*: $d_p(X,Y) = \E \left( 1 - e^{- | X - Y |} \right) = \E \left( 1 - e^{- | Y - X |} \right) = d_p(Y,X)$
 
 4) *Desigualdad triangular*: $d_p(X,Y) \leq d_p(X,Z) + d_p(Z,Y)$
 
@@ -239,43 +246,43 @@ $$ - e^{-c} \leq -e^{-a-b} \leq 1 - e^{-a} - e^{-b} \Rightarrow - e^{-c} \leq 1 
 Volviendo a nuestro problema:
 $$ - e^{-|X - Y|} \leq - e^{-|X - Z|} \, e^{-|Z - Y|} \leq 1 - e^{-|X - Z|} - e^{-|Z - Y|} \Rightarrow$$
 $$\Rightarrow 1 - e^{-|X - Y|} \leq 1 - e^{-|X - Z|} + 1 - e^{-|Z - Y|} \Rightarrow$$
-$$\Rightarrow E \left( 1 - e^{-|X - Y|} \right) \leq E \left( 1 - e^{-|X - Z|} + 1 - e^{-|Z - Y|} \right) \Rightarrow$$
-$$\Rightarrow E \left( 1 - e^{-|X - Y|} \right) \leq E \left( 1 - e^{-|X - Z|} \right) + E \left( 1 - e^{-|Z - Y|} \right) \Rightarrow$$
+$$\Rightarrow \E \left( 1 - e^{-|X - Y|} \right) \leq \E \left( 1 - e^{-|X - Z|} + 1 - e^{-|Z - Y|} \right) \Rightarrow$$
+$$\Rightarrow \E \left( 1 - e^{-|X - Y|} \right) \leq \E \left( 1 - e^{-|X - Z|} \right) + \E \left( 1 - e^{-|Z - Y|} \right) \Rightarrow$$
 $$\Rightarrow d_p(X,Y) \leq d_p(X,Z) + d_p(Z,Y)$$
 
 ## Parte b: Demostrar que $d_p(X,Y) \overset{n}{\rightarrow} 0 \Leftrightarrow X_n \overset{p}{\rightarrow} Y$
 
 $\boldsymbol{(\Rightarrow)}$
-$$ P(| X_n - Y | > \varepsilon ) = P \left( - | X_n - Y | < -\varepsilon \right) = P \left( e^{- | X_n - Y |} < e^{- \varepsilon} \right) =$$
-$$= P \left( - e^{- | X_n - Y |} > - e^{- \varepsilon} \right) = P \left( 1 - e^{- | X_n - Y |} > 1 - e^{- \varepsilon} \right) \leq \frac{ E \left( 1 - e^{- | X_n - Y |} \right) }{ 1 - e^{- \varepsilon} } = $$
+$$ \Pr \big( | X_n - Y | > \varepsilon \big) = \Pr \big( - | X_n - Y | < -\varepsilon \big) = \Pr \left( e^{- | X_n - Y |} < e^{- \varepsilon} \right) =$$
+$$= \Pr \left( - e^{- | X_n - Y |} > - e^{- \varepsilon} \right) = \Pr \left( 1 - e^{- | X_n - Y |} > 1 - e^{- \varepsilon} \right) \leq \frac{ \E \left( 1 - e^{- | X_n - Y |} \right) }{ 1 - e^{- \varepsilon} } = $$
 $$= \frac{ d_p \left( X_n, Y \right) }{ 1 - e^{- \varepsilon} } \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} Y $$
 
 $\boldsymbol{(\Leftarrow)}$
-$$0 \leq d_p(X_n,Y) = E \left( 1 - e^{-|X_n - Y|}\right) \leq 1 - e^{- E(|X_n - Y|)} = $$
-$$= 1 - \exp\left\{ - E \left[ |X_n - Y| \big( \mathbb{I}_{\{ |X_n - Y| > \varepsilon \}} + \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big) \right] \right\} =$$
-$$= 1 - \exp\left\{ - E \left[ |X_n - Y| \, \mathbb{I}_{\{ |X_n - Y| > \varepsilon \}} \right] - E \left[ |X_n - Y| \, \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \right] \right\} \leq $$
-$$\leq 1 - \exp\Big\{ - E \big[ \underbrace{|X_n - Y|}_{ \leq \varepsilon} \, \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big] \Big\} \leq $$
-$$\leq 1 - \exp\Big\{ - E \big[ \varepsilon \, \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big] \Big\} = 1 - \exp\Big\{ - \varepsilon \, E \big[ \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big] \Big\} = $$
-$$ = 1 - \exp\Big\{ - \varepsilon \, \underbrace{P \big( |X_n - Y| \leq \varepsilon \big)}_{ \overset{n}{\rightarrow} 1 } \Big\} = 1 - e^{-\varepsilon} \overset{n}{\rightarrow} 0 \Rightarrow d_p(X_n, Y) \overset{n}{\rightarrow} 0$$
+$$0 \leq d_p(X_n,Y) = \E \left( 1 - e^{-|X_n - Y|}\right) \leq 1 - e^{- \E (|X_n - Y|) } = $$
+$$= 1 - \exp\left\{ - \E \left[ |X_n - Y| \big( \mathbb{I}_{\{ |X_n - Y| > \varepsilon \}} + \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big) \right] \right\} =$$
+$$= 1 - \exp\left\{ - \E \left[ |X_n - Y| \, \mathbb{I}_{\{ |X_n - Y| > \varepsilon \}} \right] - \E \left[ |X_n - Y| \, \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \right] \right\} \leq $$
+$$\leq 1 - \exp\Big\{ - \E \big[ \underbrace{|X_n - Y|}_{ \leq \varepsilon} \, \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big] \Big\} \leq $$
+$$\leq 1 - \exp\Big\{ - \E \big[ \varepsilon \, \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big] \Big\} = 1 - \exp\Big\{ - \varepsilon \, \E \big[ \mathbb{I}_{\{ |X_n - Y| \leq \varepsilon \}} \big] \Big\} = $$
+$$ = 1 - \exp\Big\{ - \varepsilon \, \underbrace{ \Pr \big( |X_n - Y| \leq \varepsilon \big)}_{ \overset{n}{\rightarrow} 1 } \Big\} = 1 - e^{-\varepsilon} \overset{n}{\rightarrow} 0 \Rightarrow d_p(X_n, Y) \overset{n}{\rightarrow} 0$$
 
 Donde en la primera desigualdad utilizamos la no negatividad de la medida de distancia. En la segunda desigualdad utilizamos la desigualdad de Jensen. La tercera desigualdad se cumple por que $1 - e^{-(a+b)} \leq 1 - e^{-a}$ por ser $1 - e^{-(a+b)}$ monótona creciente en todos los reales. Mientras que la cuarta desigualdad se cumple por que es cuando la indicatriz toma valor 1 (por lo que $|X_n - Y|$ efectivamente es menor que $\varepsilon$).
 
 # Ejercicio 6
 
-## Parte a: probar que si $E \big[ (X_n - X)^2 \big] \overset{n}{\rightarrow} 0 \Rightarrow E(X_n) \overset{n}{\rightarrow} E(X)$.
+## Parte a: probar que si $\E \big[ (X_n - X)^2 \big] \overset{n}{\rightarrow} 0 \Rightarrow \E(X_n) \overset{n}{\rightarrow} \E(X)$.
 
-Comencemos notando que lo que debemos demostrar es que $E(X_n) \overset{n}{\rightarrow} E(X)$, lo cual implíca demostrar que $E(X_n - X) \overset{n}{\rightarrow} 0$. Por la desigualdad de Jensen tenemos que: 
-$$\big[ E(X_n - X)\big]^2 \leq E \big[ (X_n - X)^2 \big]$$
+Comencemos notando que lo que debemos demostrar es que $\E(X_n) \overset{n}{\rightarrow} \E(X)$, lo cual implíca demostrar que $\E(X_n - X) \overset{n}{\rightarrow} 0$. Por la desigualdad de Jensen tenemos que: 
+$$\big[ \E(X_n - X)\big]^2 \leq \E \big[ (X_n - X)^2 \big]$$
 dado que $g(z) = z^2$ es convexa. Luego entonces:
-$$\sqrt{ \big[ E(X_n - X)\big]^2 } = E(X_n - X) = E(X_n) - E(X) \leq \sqrt{E \big[ (X_n - X)^2 \big]} \overset{n}{\rightarrow} 0$$
+$$\sqrt{ \big[ \E(X_n - X)\big]^2 } = \E(X_n - X) = \E(X_n) - \E(X) \leq \sqrt{ \E \big[ (X_n - X)^2 \big]} \overset{n}{\rightarrow} 0$$
 
-Por lo tanto, $E(X_n) \overset{n}{\rightarrow} E(X)$.
+Por lo tanto, $\E(X_n) \overset{n}{\rightarrow} \E(X)$.
 
-## Parte b: probar que si $E \big[ (X_n - X)^2 \big] \overset{n}{\rightarrow} 0 \Rightarrow E(X_n^2) \overset{n}{\rightarrow} E(X^2)$.
+## Parte b: probar que si $\E \big[ (X_n - X)^2 \big] \overset{n}{\rightarrow} 0 \Rightarrow \E(X_n^2) \overset{n}{\rightarrow} \E(X^2)$.
 
-Queremos probar que, dadas las hipótesis, $E(X_n^2 - X^2) \overset{n}{\rightarrow} 0$. Utilizando la desigualdad de Cauchy-Schwarz obtenemos que:
-$$E(X_n^2 - X^2) = E \big[ (X_n - X)(X_n + X) \big] \leq \underbrace{ \sqrt{ E \big[ (X_n - X)^2 \big] } }_{ \overset{n}{\rightarrow} 0 \text{ por hipótesis}} \sqrt{E \big[ (X_n + X)^2 \big]} $$
-Vemos entonces que el límite de $E(X_n^2 - X^2)$ es igual al producto de dos factores, uno de los cuales tiende a cero. Si el otro factor está acotado (no tiende a $+\infty$), entonces el producto tiende a cero y queda demostrada la proposición. Veamos que esto se cumple.
+Queremos probar que, dadas las hipótesis, $\E (X_n^2 - X^2) \overset{n}{\rightarrow} 0$. Utilizando la desigualdad de Cauchy-Schwarz obtenemos que:
+$$\E (X_n^2 - X^2) = \E \big[ (X_n - X)(X_n + X) \big] \leq \underbrace{ \sqrt{ \E \big[ (X_n - X)^2 \big] } }_{ \overset{n}{\rightarrow} 0 \text{ por hipótesis}} \sqrt{ \E \big[ (X_n + X)^2 \big]} $$
+Vemos entonces que el límite de $\E(X_n^2 - X^2)$ es igual al producto de dos factores, uno de los cuales tiende a cero. Si el otro factor está acotado (no tiende a $+\infty$), entonces el producto tiende a cero y queda demostrada la proposición. Veamos que esto se cumple.
 $$(X_n + X)^2 = (X_n - X + 2X)^2 \leq 2(X_n - X)^2 + 2(2X)^2$$
 La desigualdad se cumple dado que:
 $$0 \leq (a - b)^2 = a^2 + b^2 - 2ab \Rightarrow 0 \leq (a^2 - b^2) \Leftrightarrow 2ab \leq a^2 + b^2$$ 
@@ -283,16 +290,16 @@ Sumando $a^2$ y $b^2$ a ambos lados de la desigualdad obtenemos que:
 $$2ab + a^2 + b^2 \leq 2a^2 + 2b^2 \Rightarrow (a + b)^2 \leq 2a^2 + 2b^2$$
 
 Volviendo a nuestro problema, si tomamos esperanza obtenemos que:
-$$ E \big[ (X_n + X)^2 \big] \leq E \big[ 2 ( X_n - X )^2 + 2 (2X)^2 \big] = 2 \Big[ \underbrace{ E \big[ ( X_n - X )^2 \big] }_{  \overset{n}{\rightarrow} 0 \text{ por hipótesis} } + 4 \, E(X^2) \Big] = 8 \, E(X) $$
+$$ \E \big[ (X_n + X)^2 \big] \leq \E \big[ 2 ( X_n - X )^2 + 2 (2X)^2 \big] = 2 \Big[ \underbrace{ \E \big[ ( X_n - X )^2 \big] }_{  \overset{n}{\rightarrow} 0 \text{ por hipótesis} } + 4 \, \E(X^2) \Big] = 8 \, \E(X) $$
 
 Por lo tanto,
-$$E(X_n^2 - X^2) = E \big[ (X_n - X)(X_n + X) \big] \leq \underbrace{ \sqrt{ E \big[ (X_n - X)^2 \big] } }_{ \overset{n}{\rightarrow} 0 \text{ por hipótesis}} \underbrace{ \sqrt{E \big[ (X_n + X)^2 \big]} }_{ \text{acotado por } \sqrt{8 \, E(X)} } \overset{n}{\rightarrow} 0$$
+$$\E (X_n^2 - X^2) = \E \big[ (X_n - X)(X_n + X) \big] \leq \underbrace{ \sqrt{ \E \big[ (X_n - X)^2 \big] } }_{ \overset{n}{\rightarrow} 0 \text{ por hipótesis}} \underbrace{ \sqrt{ \E \big[ (X_n + X)^2 \big]} }_{ \text{acotado por } \sqrt{8 \, E(X)} } \overset{n}{\rightarrow} 0$$
 
-Entonces, $E(X_n^2) \overset{n}{\rightarrow} E(X^2)$.
+Entonces, $\E (X_n^2) \overset{n}{\rightarrow} \E(X^2)$.
 
 ## Parte c: encontrar una sucesión que converga en media pero no en media cuardática
 
-Sea $\{ X_n \}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias iid con reocrrido $Rec(X_n) = \{-n, \, 0, \, n\}$ tales que:
+Sea $\{ X_n \}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias iid con reocrrido $\text{Rec}(X_n) = \{-n, \, 0, \, n\}$ tales que:
 $$p_{X_n}(x) = \left\{ 
 \begin{array}{r c c} 
 \frac{1}{n} & \text{si} & x = -n \\ \\
@@ -309,22 +316,21 @@ $$p_{X_n}(x) = \left\{
 
 ### Convergencia en media
 
-Esperanza de $X_n$: $E(X_n) = -n \left(\frac{1}{n}\right) + 0 \left( 1 - \frac{2}{n}\right) + n \left(\frac{1}{n}\right) = -1 + 1 = 0$
+Esperanza de $X_n$: $\E(X_n) = -n \left(\frac{1}{n}\right) + 0 \left( 1 - \frac{2}{n}\right) + n \left(\frac{1}{n}\right) = -1 + 1 = 0$
 
-Por lo tanto: $E(X_n - X) = E(X_n) = 0 \Rightarrow X_n \overset{L^1}{\rightarrow} 0$
+Por lo tanto: $\E(X_n - X) = \E(X_n) = 0 \Rightarrow X_n \overset{L^1}{\rightarrow} 0$
 
 ### Convergencia en media cuadrática
 
-Cuantía de $X_n^2$: $P(X_n^2 = x) = \left\{ \begin{array}{ccc} \frac{2}{n} & \text{si} & x = n^2 \\ \\ 1 - \frac{2}{n} & \text{si} & x = 0 \end{array} \right.$
+Cuantía de $X_n^2$: $\Pr (X_n^2 = x) = \left\{ \begin{array}{rcc} \frac{2}{n} & \text{si} & x = n^2 \\ \\ 1 - \frac{2}{n} & \text{si} & x = 0 \end{array} \right.$
 
-Segundo momento de $X_n$: $E(X_n^2) = n^2 \left(\frac{2}{n}\right) + 0 \left(1 - \frac{2}{n}\right) = 2n \overset{n}{\rightarrow} + \infty$. Por lo tanto, $E(X_n - 0)^2 = E(X_n^2) = 2n \Rightarrow X_n \,  \cancel{\overset{mc}{\rightarrow}} \, 0$.
+Segundo momento de $X_n$: $\E (X_n^2) = n^2 \left(\frac{2}{n}\right) + 0 \left(1 - \frac{2}{n}\right) = 2n \overset{n}{\rightarrow} + \infty$. Por lo tanto, $E(X_n - 0)^2 = E(X_n^2) = 2n \Rightarrow X_n \,  \cancel{\overset{mc}{\rightarrow}} \, 0$.
 
 \newpage
 
 # Ejercicio 7
 
 ## Parte a
-
 $$\begin{array}{ l l }
 f_{X_n}(x;\theta) = \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } & 
 F_{X_n}(x;\theta) = \left\{ 
@@ -342,13 +348,12 @@ F_{X_{1:n}}(x;\theta) = \left\{
    \end{array} \right.
 \end{array}$$
 
-$$P ( | X_{1:n} - \theta | > \varepsilon) = 1 - P ( | X_{1:n} - \theta | < \varepsilon) = 1 - P ( - \varepsilon < X_{1:n} - \theta < \varepsilon) = $$
-$$ = 1 - P ( \theta < X_{1:n} < \theta + \varepsilon) = 1 - \big[ F_{X_{1:n}}( \theta + \varepsilon) - F_{X_{1:n}}( \theta) \big] = 1 - F_{X_{1:n}}( \theta + \varepsilon) + F_{X_{1:n}}( \theta) =$$
+$$\Pr \big( | X_{1:n} - \theta | > \varepsilon \big) = 1 - \Pr \big( | X_{1:n} - \theta | < \varepsilon \big) = 1 - \Pr \big( - \varepsilon < X_{1:n} - \theta < \varepsilon \big) = $$
+$$ = 1 - \Pr \big( \theta < X_{1:n} < \theta + \varepsilon \big) = 1 - \big[ F_{X_{1:n}}( \theta + \varepsilon) - F_{X_{1:n}}( \theta) \big] = 1 - F_{X_{1:n}}( \theta + \varepsilon) + F_{X_{1:n}}( \theta) =$$
 $$= 1 - \big[ 1 - (\theta + 1 - \theta - \varepsilon)^n \big] + \big[ 1 - (\theta + 1 - \theta)^n \big] =$$
 $$= (1 - \varepsilon)^n + 1 - 1^n = (\underbrace{ 1 - \varepsilon }_{\leq 1})^n \overset{n}{\rightarrow} 0 \Rightarrow X_{1:n} \overset{p}{\rightarrow} \theta$$
 
 ## Parte b
-
 $$\begin{array}{ l l }
 f_{X_n}(x;\theta) = e^{-(x - \theta)} \, \mathbb{I}_{ \{ x \geq \theta \} } & 
 F_{X_n}(x;\theta) = \left( 1 - e^{-(x - \theta)} \right) \mathbb{I}_{ \{ x \geq \theta \} } \\ \\
@@ -356,12 +361,13 @@ f_{X_{1:n}}(x;\theta) = n \, e^{- n ( x - \theta ) } \, \mathbb{I}_{ \{ x \geq \
 F_{X_{1:n}}(x;\theta) = \left( 1 - e^{ -n ( x - \theta )} \right) \mathbb{I}_{ \{ x \geq \theta \} }
 \end{array}$$
 
-$$P ( | X_{1:n} - \theta | > \varepsilon) = 1 - P ( | X_{1:n} - \theta | < \varepsilon) = 1 - P ( - \varepsilon < X_{1:n} - \theta < \varepsilon) = $$
-$$ = 1 - P ( \theta < X_{1:n} < \theta + \varepsilon) = 1 - \big[ F_{X_{1:n}}( \theta + \varepsilon) - F_{X_{1:n}}( \theta) \big] = 1 - F_{X_{1:n}}( \theta + \varepsilon) + F_{X_{1:n}}( \theta) =$$
+$$\Pr \big( | X_{1:n} - \theta | > \varepsilon \big) = 1 - \Pr \big( | X_{1:n} - \theta | < \varepsilon \big) = 1 - \Pr \big( - \varepsilon < X_{1:n} - \theta < \varepsilon \big) =$$
+$$= 1 - \Pr \big( \theta < X_{1:n} < \theta + \varepsilon \big) = 1 - \big[ F_{X_{1:n}}( \theta + \varepsilon) - F_{X_{1:n}}( \theta) \big] = 1 - F_{X_{1:n}}( \theta + \varepsilon) + F_{X_{1:n}}( \theta) =$$
 $$ = 1 - \left( 1 - e^{ -n ( \theta + \varepsilon - \theta )} \right) + \left( 1 - e^{ -n ( \theta - \theta )} \right) = 1 - \left( 1 - e^{ - n \varepsilon } \right) = e^{-n \, \varepsilon} \overset{n}{\rightarrow} 0 \Rightarrow X_{1:n} \overset{p}{\rightarrow} \theta$$
 
-## Parte c
+\newpage
 
+## Parte c
 $$\begin{array}{ l l }
 f_{X_n}(x;\theta) = 2(x - \theta) \, \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } & 
 F_{X_n}(x;\theta) = \left( x - \theta \right)^2 \mathbb{I}_{ \{ \theta < x < \theta + 1 \} } + \mathbb{I}_{ \{ x \geq \theta + 1 \} } 
@@ -377,23 +383,20 @@ F_{X_{1:n}}(x;\theta) = \left\{
    \end{array} \right.
 \end{array}$$
 
-\newpage
-
-$$P ( | X_{1:n} - \theta | > \varepsilon) = 1 - P ( | X_{1:n} - \theta | < \varepsilon) = 1 - P ( - \varepsilon < X_{1:n} - \theta < \varepsilon) = $$
-$$ = 1 - P ( \theta < X_{1:n} < \theta + \varepsilon) = 1 - \big[ F_{X_{1:n}}( \theta + \varepsilon) - F_{X_{1:n}}( \theta) \big] = 1 - F_{X_{1:n}}( \theta + \varepsilon) + F_{X_{1:n}}( \theta) =$$
-$$ = 1 - \left( 1 - \big[ 1 - (\theta + \varepsilon - \theta)^2 \big]^n \right) + \left( 1 - \big[ 1 - (\theta - \theta)^2 \big]^n \right)  =$$
-$$ = 1 - 1 + \big( 1 - \varepsilon^2 \big)^n + 1 - 1^n = \big( \underbrace{ 1 - \varepsilon^2 }_{ \leq 1 }\big)^n \overset{n}{\rightarrow} 0 \Rightarrow X_{1:n} \overset{p}{\rightarrow} \theta $$
+$$\Pr \big( | X_{1:n} - \theta | > \varepsilon \big) = 1 - \Pr \big( | X_{1:n} - \theta | < \varepsilon \big) = 1 - \Pr \big( - \varepsilon < X_{1:n} - \theta < \varepsilon \big) =$$
+$$= 1 - \Pr \big( \theta < X_{1:n} < \theta + \varepsilon \big) = 1 - \big[ F_{X_{1:n}}( \theta + \varepsilon) - F_{X_{1:n}}( \theta) \big] = 1 - F_{X_{1:n}}( \theta + \varepsilon) + F_{X_{1:n}}( \theta) =$$
+$$= 1 - \left( 1 - \big[ 1 - (\theta + \varepsilon - \theta)^2 \big]^n \right) + \left( 1 - \big[ 1 - (\theta - \theta)^2 \big]^n \right) =$$
+$$= 1 - 1 + \big( 1 - \varepsilon^2 \big)^n + 1 - 1^n = \big( \underbrace{ 1 - \varepsilon^2 }_{ \leq 1 }\big)^n \overset{n}{\rightarrow} 0 \Rightarrow X_{1:n} \overset{p}{\rightarrow} \theta$$
 
 ## Parte d
 
-Condición: $\theta = \min\{ Rex(X_n) \}$
+Condición: $\theta = \min\{ \text{Rec}(X_n) \}$
 
 $$f(x; \theta) = \left\{
 \begin{array}{c c l}
 0     & \text{si} & x < \theta \\
-a > 0 & \text{si} & \theta < x < \max \{ Rec(X_n) \}
+a > 0 & \text{si} & \theta < x < \max \{ \text{Rec}(X_n) \}
 \end{array} \right.$$
-
 
 # Ejercicio 8
 
@@ -416,20 +419,18 @@ Por lo tanto, $\plim\limits_n \hat{\beta}_n = \beta \Leftrightarrow S_{z \vareps
 
 # Ejercicio 9
 
-Comenzamos con la definición de convergencia en probabilidad de $X_n$ a 0, e "introducimos" $Y_n$ haciendo uso de que $P(A) = P(A \cap \Omega) = P(A \cap (B \cup \bar{B})) = P((A \cap B) \cup (A \cap \bar{B})) = P(A \cap B) + P(A \cap \bar{B})$ dado que $(A \cap B)$ y $(A \cap \bar{B})$ son disjuntos.
-$$P \big( |X_n - 0| > \varphi \big) = P \big( |X_n| > \varphi \big) = P \big( |X_n| > \varphi, \, |Y_n| > K \big) + P \big( |X_n| > \varphi, \, |Y_n| \leq K \big)$$
+Comenzamos con la definición de convergencia en probabilidad de $X_n$ a 0, e "introducimos" $Y_n$ haciendo uso de que $\Pr (A) = \Pr (A \cap \Omega) = \Pr (A \cap (B \cup \bar{B})) = \Pr ((A \cap B) \cup (A \cap \bar{B})) = \Pr (A \cap B) + \Pr (A \cap \bar{B})$ dado que $(A \cap B)$ y $(A \cap \bar{B})$ son disjuntos.
+$$\Pr \big( |X_n - 0| > \varphi \big) = \Pr \big( |X_n| > \varphi \big) = \Pr \big( |X_n| > \varphi, \, |Y_n| > K \big) + \Pr \big( |X_n| > \varphi, \, |Y_n| \leq K \big)$$
 
 Trabajando ahora con el primer sumando tenemos que:
-$$P \big( |X_n| > \varphi, \, |Y_n| > K \big) \leq P \big( |Y_n| > K \big) = 1 - P \big( |Y_n| \leq K \big) = \varepsilon$$
+$$\Pr \big( |X_n| > \varphi, \, |Y_n| > K \big) \leq \Pr \big( |Y_n| > K \big) = 1 - \Pr \big( |Y_n| \leq K \big) = \varepsilon$$
 Donde la desigualdad se desprende del razonamiento aplicado al inicio para "introducir" $Y_n$, y el resto de la afirmación surge de la definición de la probabilidad del complemento de un suceso y la hipótesis de que $Y_n$ es estocásticamente acotada.
 
 Para el segundo sumando tenemos que:
-$$P \big( |X_n| > \varphi, \, |Y_n| \leq K \big) = P \left( |X_n| > \varphi, \, \frac{1}{|Y_n|} > \frac{1}{K} \right) = P \left( \frac{|X_n|}{|Y_n|} > \frac{\varphi}{K} \right) =$$
-$$= P \left( \left| \frac{|X_n|}{|Y_n|} - 0 \right| > \left| \frac{\varphi}{K} \right| \right) \overset{n}{\rightarrow} 0$$
+$$\Pr \big( |X_n| > \varphi, \, |Y_n| \leq K \big) = \Pr \left( |X_n| > \varphi, \, \frac{1}{|Y_n|} > \frac{1}{K} \right) = \Pr \left( \frac{|X_n|}{|Y_n|} > \frac{\varphi}{K} \right) =$$
+$$= \Pr \left( \left| \frac{|X_n|}{|Y_n|} - 0 \right| > \left| \frac{\varphi}{K} \right| \right) \overset{n}{\rightarrow} 0$$
 
-Por lo tanto, $P(|X_n - 0| > \varphi) \leq \varepsilon$, entonces $X_n \overset{p}{\rightarrow} 0$ dado que podemos hacer $\varepsilon$ tan chico como querramos.
-
-\newpage
+Por lo tanto, $\Pr \big( |X_n - 0| > \varphi \big) \leq \varepsilon$, entonces $X_n \overset{p}{\rightarrow} 0$ dado que podemos hacer $\varepsilon$ tan chico como queramos.
 
 # Ejercicio 10
 
@@ -454,7 +455,7 @@ $$= \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu)^2 - 2 (\mu - \bar{X}_n)^2 + 
 $$= \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu)^2 - (\mu - \bar{X}_n)^2$$
 
 Hemos mostrado que $S_X^2 = \frac{1}{n} \sum\limits_{i = 1}^{n} (X_i - \mu)^2 - (\mu - \bar{X}_n)^2$. Para estudiar la convergencia casi segura de esta expresión utilizamos el resultado del Ejercicio 1 parte a (la suma de suceciones convergentes converge a la suma de los límites). Por lo tanto, utilizando nuevamente la LFGN, tenemos que:
-$$S_X^2 \overset{cs}{\rightarrow} E \big[ (X_i - \mu)^2 \big] - ( \mu - \mu )^2 = E \big[ (X_i - \mu)^2 \big] = \sigma^2$$
+$$S_X^2 \overset{cs}{\rightarrow} \E \big[ (X_i - \mu)^2 \big] - ( \mu - \mu )^2 = \E \big[ (X_i - \mu)^2 \big] = \sigma^2$$
 
 Luego, re-escribimos el denominador de nuestro cociente de la siguiente forma: 
 $$X_1^2 + \ldots + X_n^2 = n ( S_X^2 + \bar{X}_n^2 ) \overset{cs}{\rightarrow} n ( \sigma^2 + \mu^2 )$$
@@ -511,7 +512,7 @@ Trabajando ahora con cada sumando por separado tenemos que:
 
 $$\color{red}{\text{A:}}\color{black} \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (X_i - \mu_X)(Y_i - \mu_Y) = \frac{1}{n} \sum\limits_{i = 1}^n \Big( X_i Y_i - X_i \mu_Y - \mu_x Y_i + \mu_X \mu_Y \Big) = $$
 $$= \frac{1}{n} \sum\limits_{i = 1}^n X_i Y_i - \frac{1}{n} \sum\limits_{i = 1}^n X_i \mu_Y - \frac{1}{n} \sum\limits_{i = 1}^n \mu_x Y_i + \frac{1}{n} \sum\limits_{i = 1}^n \mu_X \mu_Y =$$
-$$= \frac{1}{n} \sum\limits_{i = 1}^n X_i \, Y_i - \bar{X}_n \, \mu_Y - \mu_x \, \bar{Y}_n + \mu_X \mu_Y \overset{cs}{\rightarrow} E(X_i \, Y_i) - \mu_X \, \mu_Y = \sigma_{XY} $$
+$$= \frac{1}{n} \sum\limits_{i = 1}^n X_i \, Y_i - \bar{X}_n \, \mu_Y - \mu_x \, \bar{Y}_n + \mu_X \mu_Y \overset{cs}{\rightarrow} \E(X_i \, Y_i) - \mu_X \, \mu_Y = \sigma_{XY} $$
 donde la convergencia se cumple por Ley Fuerte de los Grandes Números, y luego solo se aplicar la definición de covarianza.
 
 Las expresiones \color{orange}B \color{black}y \color{green}C \color{black} son análogas por lo que solo resolvemos una de ellas:
@@ -524,8 +525,6 @@ Por último trabajamos con la expresión \color{blue}D\color{black}:
 $$\color{blue}{\text{D:}}\color{black} \,\,\,\,\, \frac{1}{n} \sum\limits_{i = 1}^n (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) = (\mu_X - \bar{X}_n)(\mu_Y - \bar{Y}_n) \overset{cs}{\rightarrow} 0$$
 donde, una vez más, la convergencia se cumple por Ley Fuerte de los Grandes Números.
 
-***
-
 Por lo tanto, uniendo todas las partes encontramos que:
 $$r_n = \frac{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } = \frac{ n \,\sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ n \, \sqrt{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)^2 \sum\limits_{i = 1}^n (Y_i - \bar{Y}_n)^2 } } \overset{cs}{\rightarrow} \frac{ \sigma_{XY} }{ \sigma_X \, \sigma_Y } $$
 
@@ -533,24 +532,25 @@ $$r_n = \frac{ \sum\limits_{i = 1}^n (X_i - \bar{X}_n)(Y_i - \bar{Y}_n) }{ \sqrt
 
 $$ \frac{1}{m} \log R_m = \frac{1}{m} \log \left( \prod\limits_{i = 1}^n p_i^{Z_m(i)} \right) = \frac{1}{m} \sum\limits_{i = 1}^n Z_m(i) \, \log (p_i) $$
 
-Sea $Y_{m_j}(i) = \mathbb{I}_{\{ X_j \in \text{ al $i$-ésimo sub-intervalo} \} } \Rightarrow Y_{m_j} \sim Ber(p_i)$, dado que las $X_j \sim Unif[0;1]$. Luego, sea $Z_m(i) = \sum\limits_{j = 1}^m Y_{m_j}(i)$ (es decir, la cantidad de $X$'s que cayeron en el $i$-ésimo intervalo). Por lo tanto, $Z_m(i) \sim Bin(m, \, p_i)$. Podemos entonces re-escribir el "estimador" de la siguiente forma:
-$$ \frac{1}{m} \log R_m = \frac{1}{m} \sum\limits_{i = 1}^n \sum\limits_{j = 1}^m Y_{m_j}(i) \, \log (p_i) = \frac{1}{m} \sum\limits_{j = 1}^m \sum\limits_{i = 1}^n Y_{m_j}(i) \, \log (p_i)$$
+Sea $Y_{m_j}(i) = \mathbb{I}_{\{ X_j \in \text{ al $i$-ésimo sub-intervalo} \} } \Rightarrow Y_{m_j} \sim \text{Ber}(p_i)$, dado que las $X_j \sim \text{Unif}[0;1]$. Luego, sea $Z_m(i) = \sum\limits_{j = 1}^m Y_{m_j}(i)$ (es decir, la cantidad de $X$'s que cayeron en el $i$-ésimo intervalo). Por lo tanto, $Z_m(i) \sim \text{Bin}(m, \, p_i)$. Podemos entonces re-escribir el "estimador" de la siguiente forma:
+$$\frac{1}{m} \log R_m = \frac{1}{m} \sum\limits_{i = 1}^n \sum\limits_{j = 1}^m Y_{m_j}(i) \, \log (p_i) = \frac{1}{m} \sum\limits_{j = 1}^m \sum\limits_{i = 1}^n Y_{m_j}(i) \, \log (p_i)$$
 
-Sea $W_j = \sum\limits_{i = 1}^n Y_{m_j}(i) \, \log (p_i) \Rightarrow \frac{1}{m} \log R_m = \frac{1}{m} \sum\limits_{j = 1}^m W_j$. Si logramos probar que estamos en las condiciones de la Ley Fuerte de los Grandes Números, entonces $\frac{1}{m} \sum\limits_{j = 1}^m W_j \overset{cs}{\rightarrow} E(W_j)$. Adicionalmente, si logramos probar que $E(W_j) = -H$, habremos resuelto el problema.
+Sea $W_j = \sum\limits_{i = 1}^n Y_{m_j}(i) \, \log (p_i) \Rightarrow \frac{1}{m} \log R_m = \frac{1}{m} \sum\limits_{j = 1}^m W_j$. Si logramos probar que estamos en las condiciones de la Ley Fuerte de los Grandes Números, entonces $\frac{1}{m} \sum\limits_{j = 1}^m W_j \overset{cs}{\rightarrow} \E(W_j)$. Adicionalmente, si logramos probar que $\E(W_j) = -H$, habremos resuelto el problema.
 
 ***
 
 El segundo postulado es sencillo de probar. Dado que $Y_{m_j}$ es una indicatriz que toma valor 1 si la variable $X_j$ cayó en el $i$-ésimo intervalo, la distribución de las mismas solo depende de las $X_j$, y dado que estas son independientes, también lo son las $Y_{m_j}$. Por lo tanto:
-
-$$E(W_j) = E \left[ \sum\limits_{i = 1}^n Y_{m_j}(i) \log (p_i) \right] = \sum\limits_{i = 1}^n \Big[ E \big( Y_{m_j}(i) \log (p_i) \big) \Big] = $$
-$$= \sum\limits_{i = 1}^n \log (p_i) \Big[ E \big( Y_{m_j}(i) \big) \Big] = \sum\limits_{i = 1}^n \log (p_i) P(X_j \in \text{ al $i$-ésimo sub-intervalo} ) = $$
+$$\E(W_j) = \E \left[ \sum\limits_{i = 1}^n Y_{m_j}(i) \log (p_i) \right] = \sum\limits_{i = 1}^n \Big[ \E \big( Y_{m_j}(i) \log (p_i) \big) \Big] = $$
+$$= \sum\limits_{i = 1}^n \log (p_i) \Big[ \E \big( Y_{m_j}(i) \big) \Big] = \sum\limits_{i = 1}^n \log (p_i) \Pr (X_j \in \text{ al $i$-ésimo sub-intervalo} ) = $$
 $$= \sum\limits_{i = 1}^n \log (p_i) \, p_i = -H$$
 
 ***
 
-Para probar que estamos en las hipótesis de la Ley Fuerte de los Grandes Números debemos probar que las $W_j$ son iid, y que $E|W_j| < \infty$. 
+\newpage
 
-Que son iid es sencillo de ver dado que las $W_j$ son sumas ponderadas (por el logaritmo de la longitud del intervalo) de indicatrices que dependen únicamente de variables iid (las $X_j$). Por lo tanto, las $W_j$ son iid. Por otro lado, $E|W_j| < \infty$ dado que es una suma finita.
+Para probar que estamos en las hipótesis de la Ley Fuerte de los Grandes Números debemos probar que las $W_j$ son iid, y que $\E|W_j| < \infty$. 
+
+Que son iid es sencillo de ver dado que las $W_j$ son sumas ponderadas (por el logaritmo de la longitud del intervalo) de indicatrices que dependen únicamente de variables iid (las $X_j$). Por lo tanto, las $W_j$ son iid. Por otro lado, $\E|W_j| < \infty$ dado que es una suma finita.
 
 ***
 
@@ -563,32 +563,32 @@ Sea $g : [0;1] \rightarrow [0;1]$ continua.
 ## Parte a
 
 Primero debemos notar que dado que las $\xi_n$ son iid y $g$ es continua, las $X_n = g(\xi_n)$ son variables aleatorias iid. Por otro lado, $E|X_n| < \infty$ dado que el soporte de las variables está acotado. Por lo tanto:
-$$E(X_n) = E \big[ g(\xi_n) \big] = \int\limits_0^1 g(\xi_n) \underbrace{ f_{\xi_n}(\xi_n) }_{= 1} d\xi_n = \int\limits_0^1 g(\xi)_n d\xi_n$$
+$$\E(X_n) = \E \big[ g(\xi_n) \big] = \int\limits_0^1 g(\xi_n) \underbrace{ f_{\xi_n}(\xi_n) }_{= 1} d\xi_n = \int\limits_0^1 g(\xi)_n d\xi_n$$
 donde $f_{\xi_n}(\xi_n) = 1$ dado que $\xi_n \sim Unif[0;1]$. Por lo tanto, podemos aplicar la Ley Fuerte de los Grandes Números:
-$$\bar{X}_n \overset{cs}{\rightarrow} E(X_n) = \int\limits_0^1 g(t) dt$$
+$$\bar{X}_n \overset{cs}{\rightarrow} \E(X_n) = \int\limits_0^1 g(t) dt$$
 
 ## Parte b
 
-Primero debemos notar que $Y_n$ son iid dado que tanto las $\xi_n$ como las $U_n$ lo son y $g$ es una función continua. Al igual que en la parte a, $E|Y_n| < \infty$ dado que los soportes están acotados. Luego entonces:
-$$ E(Y_n) = 1 \, P(Y_n = 1) + 0 \, P(Y_n = 0) = P(Y_n = 1) = P(g(\xi_n) \geq U_n) =$$
-$$= \int\limits_0^1 \int\limits_0^x f_X(x) \, f_U(u) dx du = \int\limits_0^1 f_X(x) \underbrace{ \left( \int\limits_0^x f_U(u) du \right) }_{ \substack{ = x \text{ dado que } \\ U \sim Unif[0;1] }} dx = $$
-$$= \int\limits_0^1 x \, f_X(x) dx = E(X_n) = E [ g(\xi_n) ] = \int\limits_0^1 g(t)dt$$
+Primero debemos notar que $Y_n$ son iid dado que tanto las $\xi_n$ como las $U_n$ lo son y $g$ es una función continua. Al igual que en la parte a, $\E|Y_n| < \infty$ dado que los soportes están acotados. Luego entonces:
+$$\E(Y_n) = 1 \, \Pr (Y_n = 1) + 0 \, \Pr (Y_n = 0) = \Pr (Y_n = 1) = \Pr \big( g(\xi_n) \geq U_n \big) =$$
+$$= \int\limits_0^1 \int\limits_0^x f_X(x) \, f_U(u) dx du = \int\limits_0^1 f_X(x) \underbrace{ \left( \int\limits_0^x f_U(u) du \right) }_{ \substack{ = x \text{ dado que } \\ U \sim \text{Unif}[0;1] }} dx = $$
+$$= \int\limits_0^1 x \, f_X(x) dx = \E (X_n) = \E \big[ g(\xi_n) \big] = \int\limits_0^1 g(t)dt$$
 Por lo tanto, utilizando la Ley Fuerte de los Grandes Números obtenemos que:
 $$ \bar{Y}_n \overset{cs}{\rightarrow} E(Y_n) = \int\limits_0^1 g(t)dt$$
 
 ## Parte c
 
-Para calcular la varianza de $\bar{X}_n$ debemos primero calcular $E(X^2)$ y luego utilizar la siguiente fórumla para la varianza: $V(X) = E(X^2) - E^2(X)$.
+Para calcular la varianza de $\bar{X}_n$ debemos primero calcular $\E (X^2)$ y luego utilizar la siguiente fórumla para la varianza: $\V(X) = \E(X^2) - {\E}^2(X)$.
 
-$$E(X_n^2) = E \big[ (g(\xi_n))^2 \big] = \int\limits_0^1 \big( g(t) \big)^2 \, 1 dt = \int\limits_0^1 \big( g(t) \big)^2 dt$$
-donde de nuevo utilizamos que $f_{\xi_n} (\xi_n) = 1$ dado que $\xi_n \sim Unif[0;1]$. Luego entonces:
+$$\E(X_n^2) = \E \big[ (g(\xi_n))^2 \big] = \int\limits_0^1 \big( g(t) \big)^2 \, 1 dt = \int\limits_0^1 \big( g(t) \big)^2 dt$$
+donde de nuevo utilizamos que $f_{\xi_n} (\xi_n) = 1$ dado que $\xi_n \sim \text{Unif}[0;1]$. Luego entonces:
 
-$$V(\bar{X}_n) = \frac{V(X)}{n} = \frac{1}{n} \big[ E(X_n^2) - E^2 (X_n) \big] = \frac{1}{n} \left[ \int\limits_0^1 \big( g(t) \big)^2 dt - \left( \int\limits_0^1 g(t) dt \right)^2 \right] $$
+$$\V(\bar{X}_n) = \frac{ \V(X) }{ n } = \frac{ 1 }{ n } \big[ \E(X_n^2) - {\E}^2 (X_n) \big] = \frac{1}{n} \left[ \int\limits_0^1 \big( g(t) \big)^2 dt - \left( \int\limits_0^1 g(t) dt \right)^2 \right] $$
 
-Por su parte, para calcular la varianzaa de $\bar{Y}_m$ debemos utilizar que, por ser una indicatriz, $Y_n \sim Ber( P(Y_n = 1 ) )$, mientras que $\bar{Y}_n \sim Bin(n, P(Y_n = 1))$. Por lo tanto,
+Por su parte, para calcular la varianzaa de $\bar{Y}_m$ debemos utilizar que, por ser una indicatriz, $Y_n \sim \text{Ber}( P(Y_n = 1 ) )$, mientras que $\bar{Y}_n \sim \text{Bin}(n, P(Y_n = 1))$. Por lo tanto,
 
-$$V(\bar{Y}_n) = \frac{1}{n} \Big[ P(Y_n = 1) \big( 1 - P(Y_n = 1) \big) \Big] = \frac{1}{n} \left[ \int\limits_0^1 g(t)dt \left( 1 - \int\limits_0^1 g(t) dt \right) \right] = $$
-$$ = \frac{1}{n} \left[ \int\limits_0^1 g(t)dt - \left( \int\limits_0^1 g(t) dt \right)^2 \right] $$
+$$\V( \bar{Y}_n ) = \frac{1}{n} \Big[ \Pr (Y_n = 1) \big( 1 - \Pr (Y_n = 1) \big) \Big] = \frac{1}{n} \left[ \int\limits_0^1 g(t)dt \left( 1 - \int\limits_0^1 g(t) dt \right) \right] = $$
+$$= \frac{1}{n} \left[ \int\limits_0^1 g(t)dt - \left( \int\limits_0^1 g(t) dt \right)^2 \right] $$
 
 \newpage
 
@@ -635,11 +635,11 @@ X_n & = & C \, \frac{2^{Y_n}}{2^{n - Y_n}} \\
 
 ## Parte b
 
-$$E(X_n) = E \left( C \, \frac{2^{Y_n}}{2^{n - Y_n}} \right) = E \left( C \, 2^{Y_n - (n - Y_n)} \right) = C \, 2^{-n} E \left( 2^{2Y_n} \right) =$$
+$$\E (X_n) = \E \left( C \, \frac{2^{Y_n}}{2^{n - Y_n}} \right) = \E \left( C \, 2^{Y_n - (n - Y_n)} \right) = C \, 2^{-n} \E \left( 2^{2Y_n} \right) =$$
 $$= C \, 2^{-n} \sum\limits_{i = 0}^{n} 2^{2i} P(Y_i = y_i) = C \, 2^{-n} \sum\limits_{i = 0}^{n} {{n}\choose{i}} 2^{2i} p^i (1 - p)^{n - i} = $$
 $$ = C \, 2^{-n} \sum\limits_{i = 0}^{n} {{n}\choose{i}} \big( 2^{2} p \big)^i (1 - p)^{n - i} = C \, 2^{-n} \left( 2^{2} p + 1 - p \right)^{n} = C \left( \frac{ 3 p + 1 }{2} \right)^n$$
 
-$$\lim\limits_{n \rightarrow +\infty} E(X_n) = \lim\limits_{n \rightarrow +\infty} C \left( \frac{ 3 p + 1 }{2} \right)^n = \left\{
+$$\lim\limits_{n \rightarrow +\infty} \E(X_n) = \lim\limits_{n \rightarrow +\infty} C \left( \frac{ 3 p + 1 }{2} \right)^n = \left\{
 \begin{array}{c c l} 
 0 & \text{si} & 0 \leq p < 1/3 \\
 C & \text{si} & p = 1/3 \\
@@ -648,7 +648,7 @@ C & \text{si} & p = 1/3 \\
 
 ## Parte c
 
-Por la parte c del ejercicio 1 sabemos que si $Y_n \overset{cs}{\rightarrow} Y \Rightarrow g(Y_n) \overset{cs}{\rightarrow} g(Y)$ para toda $g$ continua. En este caso, $Y_n \sim Bin(n, p)$. Entonces $( Y_n -np) \overset{cs}{\rightarrow} 0$ por la LFGN (teorema 2.34). Sea $g(z) = 2^{2z - n}$, entonces:
+Por la parte c del ejercicio 1 sabemos que si $Y_n \overset{cs}{\rightarrow} Y \Rightarrow g(Y_n) \overset{cs}{\rightarrow} g(Y)$ para toda $g$ continua. En este caso, $Y_n \sim \text{Bin}(n, p)$. Entonces $( Y_n - np ) \overset{cs}{\rightarrow} 0$ por la LFGN (teorema 2.34). Sea $g(z) = 2^{2z - n}$, entonces:
 $$\lim\limits_n 2^{2 Y_n - n} = \lim\limits_n 2^{2 (Y_n - n/2)} = \lim\limits_n 2^{2 (Y_n - np + np - n/2)} = \lim\limits_n 2^{2 \overbrace{(Y_n - np)}^{ \overset{n}{\rightarrow} 0} + 2n(p - 1/2)} = \lim\limits_n 2^{2n(p - 1/2)}  $$
 
 Luego si $0 < p < \frac{1}{2}$ entonces $2n(p - 1/2) < 0$ y $2^{2n(p - 1/2)} \overset{n}{\rightarrow} 0$, por lo que $X_n \overset{cs}{\rightarrow} 0$.
@@ -662,7 +662,7 @@ Cuando $\frac{1}{3} < p < \frac{1}{2}$ la sucesión converge casi seguramente a 
 ## Parte a
 
 Sea el siguiente espacio de probabilidad $\big( \Omega = [0;1]^n, \, \mathcal{B}([0;1]), \, P_{X_n} \big)$, donde:
-$$p_{X_n}(x) = P_{X_n}(X_n = x) = \left\{
+$$p_{X_n}(x) = {\Pr}_{X_n}(X_n = x) = \left\{
 \begin{array}{r c c}
 1 - \frac{1}{n} & \text{si} & x = 0 \\ \\
 \frac{1}{n} & \text{si} & x = 1
@@ -670,8 +670,7 @@ $$p_{X_n}(x) = P_{X_n}(X_n = x) = \left\{
 
 ## Parte b
 
-$$\forall \varepsilon > 0 \,\,\,\,\,\, \sum\limits_{n = 1}^{\infty} P(|X_n - 0 | > \varepsilon) = \sum\limits_{n = 1}^{\infty} P(X_n > \varepsilon) = \sum\limits_{n = 1}^{\infty} P( X_n = 1) = \sum\limits_{n = 1}^{\infty} \frac{1}{n} = + \infty$$
-
+$$\forall \varepsilon > 0 \,\,\,\,\,\, \sum\limits_{n = 1}^{\infty} \Pr (|X_n - 0 | > \varepsilon) = \sum\limits_{n = 1}^{\infty} \Pr (X_n > \varepsilon) = \sum\limits_{n = 1}^{\infty} \Pr ( X_n = 1) = \sum\limits_{n = 1}^{\infty} \frac{1}{n} = + \infty$$
 
 # Ejercicio 16
 
