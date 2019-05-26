@@ -5,6 +5,7 @@ date: "2019"
 output: pdf_document
 header-includes:
    - \everymath{\displaystyle}
+   - \usepackage[spanish]{babel}
    - \usepackage{xcolor}
    - \usepackage[makeroom]{cancel}
    - \DeclareMathOperator*{\plim}{plim}
@@ -12,6 +13,8 @@ header-includes:
    - \usepackage{amsmath}
    - \usepackage{mathtools}
    - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
+   - \DeclareMathOperator{\E}{\mathbf{E}}
+   - \DeclareMathOperator{\V}{\mathbf{V}}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -33,11 +36,11 @@ knitr::include_graphics(path = "diff_types_of_convgnc_color.png")
 
 Para demostrar la implicancia utilizaremos las siguientes definiciones de convergencia casi segura y de convergencia en probabilidad respectivamente:
 
-- $X_n \overset{cs}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0$ se cumple que $P \left( \Big\{ \omega \in \Omega \, : \, \big| X_k(\omega) - X(\omega) \big| > \varepsilon \Big\} \right) \overset{k}{\rightarrow} 0$  
+- $X_n \overset{cs}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0$ se cumple que $\Pr \left( \Big\{ \omega \in \Omega \, : \, \big| X_k(\omega) - X(\omega) \big| > \varepsilon \Big\} \right) \overset{k}{\rightarrow} 0$  
 
-- $X_n \overset{p}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0$ se cumple que $P \left( \bigcup\limits_{n = k}^{\infty} \Big\{ \omega \in \Omega \, : \, \big| X_n(\omega) - X(\omega) \big| > \varepsilon \Big\} \right) \overset{k}{\rightarrow} 0$  
+- $X_n \overset{p}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0$ se cumple que $\Pr \left( \bigcup\limits_{n = k}^{\infty} \Big\{ \omega \in \Omega \, : \, \big| X_n(\omega) - X(\omega) \big| > \varepsilon \Big\} \right) \overset{k}{\rightarrow} 0$  
 
-Llamemos $A_k = \Big\{ \omega \in \Omega \, : \, \big| X_k(\omega) - X(\omega) \big| > \varepsilon \Big\}$ y $A_n = \bigcup\limits_{n = k}^{\infty} \Big\{ \omega \in \Omega \, : \, \big| X_n(\omega) - X(\omega) \big| > \varepsilon \Big\}$ y notemos que $\bigcup\limits_{n = k}^{\infty} A_n = A_k \cup A_{k+1} \cup A_{k+2} \cup \ldots$. Entonces, $A_k \subset \bigcup\limits_{n = k}^{\infty}A_n$. Por lo tanto, $P(A_k) \leq P\left( \bigcup\limits_{n = k}^{\infty} A_n\right)$. Pero $P\left( \bigcup\limits_{n = k}^{\infty} A_n\right) \overset{k}{\rightarrow} 0$ dado que $X_n \overset{cs}{\rightarrow} X$ por hipótesis. Esto implica que $P(A_k) \overset{k}{\rightarrow} 0$, y por lo tanto, $X_n \overset{p}{\rightarrow} X$.
+Llamemos $A_k = \Big\{ \omega \in \Omega \, : \, \big| X_k(\omega) - X(\omega) \big| > \varepsilon \Big\}$ y $A_n = \bigcup\limits_{n = k}^{\infty} \Big\{ \omega \in \Omega \, : \, \big| X_n(\omega) - X(\omega) \big| > \varepsilon \Big\}$ y notemos que $\bigcup\limits_{n = k}^{\infty} A_n = A_k \cup A_{k+1} \cup A_{k+2} \cup \ldots$. Entonces, $A_k \subset \bigcup\limits_{n = k}^{\infty}A_n$. Por lo tanto, $\Pr (A_k) \leq \Pr \left( \bigcup\limits_{n = k}^{\infty} A_n \right)$. Pero $\Pr \left( \bigcup\limits_{n = k}^{\infty} A_n \right) \overset{k}{\rightarrow} 0$ dado que $X_n \overset{cs}{\rightarrow} X$ por hipótesis. Esto implica que $\Pr (A_k) \overset{k}{\rightarrow} 0$, y por lo tanto, $X_n \overset{p}{\rightarrow} X$.
 
 ## Contraejemplo del recíproco
 
@@ -51,20 +54,20 @@ I_3^1 = [0, \, ^1\!/_3] & I_3^2 = [^1\!/_3, \, ^2\!/_3] & I_3^3 = [^2\!/_3, 1] \
 
 Luego entonces, la distribución de probabilidades de $X_n$ viene dada por:
 
-- $P(X_n^i = 1) = P(x \in \mathbb{I}_{X_n^i}) = \frac{i}{n} - \frac{i-1}{n} = \frac{1}{n}$  
+- $\Pr (X_n^i = 1) = \Pr (x \in \mathbb{I}_{X_n^i}) = \frac{i}{n} - \frac{i-1}{n} = \frac{1}{n}$  
 
-- $P(X_n^i = 0) = 1 - \frac{1}{n}$
+- $\Pr (X_n^i = 0) = 1 - \frac{1}{n}$
 
 \vspace{0.3cm}
 
 **Convergencia en probabilidad**
-$$\forall \varepsilon > 0, \,\,\ P \left( \Big\{ \omega \in \Omega : \big| X_n^i(\omega) - 0 \big| > \varepsilon \Big\} \right) = P \left( \Big\{ \omega \in \Omega : X_n^i(\omega) = 1 \Big\} \right) = \frac{1}{n} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} 0$$
+$$\forall \varepsilon > 0, \,\,\ \Pr \left( \Big\{ \omega \in \Omega : \big| X_n^i(\omega) - 0 \big| > \varepsilon \Big\} \right) = \Pr \left( \Big\{ \omega \in \Omega : X_n^i(\omega) = 1 \Big\} \right) = \frac{1}{n} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} 0$$
 
 \vspace{0.3cm}
 
 **Convergencia casi segura**
-$$\forall \varepsilon > 0, \,\,\ P \left( \Big\{ \omega \in \Omega : \bigcup\limits_{n = k}^{\infty} \big| X_n^i(\omega) - 0 \big| > \varepsilon \Big\} \right) = P \left( \Big\{ \omega \in \Omega : \bigcup\limits_{n = k}^{\infty} X_n^i(\omega) = 1 \Big\} \right) = $$
-$$= P \big( x \in [0,1] \big) = 1 \Rightarrow X_n \not\overset{cs}{\rightarrow} 0$$
+$$\forall \varepsilon > 0, \,\,\ \Pr \left( \Big\{ \omega \in \Omega : \bigcup\limits_{n = k}^{\infty} \big| X_n^i(\omega) - 0 \big| > \varepsilon \Big\} \right) = \Pr \left( \Big\{ \omega \in \Omega : \bigcup\limits_{n = k}^{\infty} X_n^i(\omega) = 1 \Big\} \right) = $$
+$$= \Pr \big( x \in [0,1] \big) = 1 \Rightarrow X_n \not\overset{cs}{\rightarrow} 0$$
 
 \newpage
 
@@ -88,7 +91,7 @@ Sean la variable aleatorias $X \sim N(0,1)$ y la sucesión de variables aleatori
 $$F_{X_n} = \Phi(x) \overset{n}{\rightarrow} \Phi(x) = F_X(x) \Rightarrow X_n \overset{d}{\rightarrow} X$$
 
 Por otro lado tenemos que, si $n$ es par, entonces se cumple que $|X_n - X| = 0$ por lo tanto $P(|X_n - X| > \varepsilon) = 0$. Mientras que si $n$ es impar, tenemos que $|X_n - X| = 2|X|$, por lo tanto:
-$$P(|X_n - X| > \varepsilon) = P(2|X| > \varepsilon) = P(|X| > \varepsilon / 2) = 2 \, \Phi(\varepsilon/2) > 0$$
+$$\Pr (|X_n - X| > \varepsilon) = \Pr ( 2 \, |X| > \varepsilon ) = \Pr ( |X| > \varepsilon / 2 ) = 2 \, \Phi (\varepsilon / 2) > 0$$
 
 Por lo tanto, $X_n \not\overset{p}{\rightarrow} X$.
 
@@ -98,9 +101,8 @@ Por lo tanto, $X_n \not\overset{p}{\rightarrow} X$.
 
 ## Demostración
 
-$$\forall \varepsilon > 0, \,\,\,\,\,\, P(|X_n - X| > \varepsilon) = P(|X_n - X|^p > \varepsilon^p) \leq \frac{ E ( |X_n - X|^p ) }{ \varepsilon^p } \overset{n}{\rightarrow} 0$$
-
-Donde la convergencia está dada porque $X_n \overset{L^p}{\rightarrow} X$. Dado que converge a cero, queda demostrado que $X_n \overset{p}{\rightarrow} X$.
+$$\forall \varepsilon > 0, \,\,\,\,\,\, \Pr \big( |X_n - X| > \varepsilon \big) = \Pr \big( |X_n - X|^p > \varepsilon^p) \leq \frac{ \E \big( |X_n - X|^p \big) }{ \varepsilon^p } \overset{n}{\rightarrow} 0$$
+donde la convergencia está dada porque $X_n \overset{L^p}{\rightarrow} X$. Dado que converge a cero, queda demostrado que $X_n \overset{p}{\rightarrow} X$.
 
 ## Contraejemplo del recíproco
 
@@ -111,28 +113,8 @@ e^n & \text{si} & x \in [0, \, ^1\!/_n] \\
 \end{array} \right.$$
 
 Luego entonces:
-$$P( |X_n - 0| > \varepsilon) = P( X_n > \varepsilon) = P(X_n = e^n) = \frac{1}{n} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} 0$$
+$$\Pr \big( |X_n - 0| > \varepsilon \big) = \Pr \big( X_n > \varepsilon \big) = \Pr \big( X_n = e^n \big) = \frac{1}{n} \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} 0$$
 
 Mientras que:
-$$E( |X_n - 0|^p ) = E(|X_n|^p) = E(X^p) = (e^n)^p \frac{1}{n} + 0^p \left(1 - \frac{1}{n} \right) = e^{np} \overset{n}{\rightarrow} + \infty \Rightarrow X_n \not\overset{L^p}{\rightarrow} 0$$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$$\E \big( |X_n - 0|^p \big) = \E \big( |X_n|^p \big) = \E \big( X^p \big) = (e^n)^p \, \frac{1}{n} + 0^p \left(1 - \frac{1}{n} \right) = e^{np} \overset{n}{\rightarrow} + \infty \Rightarrow X_n \not\overset{L^p}{\rightarrow} 0$$
 
