@@ -373,7 +373,7 @@ Si $\omega \in \liminf\limits_{n} A_n \Rightarrow \exists n_0$ a partir del cual
 ***
 
 4) Como la sucesión $B_n = \bigcup\limits_{k = n}^{+\infty} A_k$ es decreciente, entonces:
-$$P \left( \limsup\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_n \right)$$
+$$\Pr \left( \limsup\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} \Pr \left( \bigcup\limits_{k = n}^{+\infty} A_n \right)$$
 
 *Dem*: veamos primero que la sucesión $B_n$ es decreciente. La misma está defiinida de la siguiente forma:
 
@@ -386,17 +386,17 @@ B_{n+2} & = &  &  &  &  & A_{n+2} & \cup & \ldots \\
 
 Dado que cada vez unimos menos conjuntos, el conjunto resultante es "más chico", y por tanto, la sucesión es decreciente. Luego entonces,
 $$\begin{array}{c c l c l}
-P \left( \limsup\limits_{n} A_n \right) & = & P \left( \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite superior} \\ \\
-& = & P \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
-& = & \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad de una} \\
-& & & & \text{sucesión decreciente (ver prop 1.8/8)} \\ \\
-& = & \lim\limits_{n \rightarrow +\infty} P \left( \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
+\Pr \left( \limsup\limits_{n} A_n \right) & = & \Pr \left( \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite superior} \\ \\
+  & = & \Pr \left( \bigcap\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \lim\limits_{n \rightarrow +\infty} \Pr (B_n) & & \text{por continuidad de la probabilidad de una} \\
+  & & & & \text{sucesión decreciente (ver prop 1.8/8)} \\ \\
+  & = & \lim\limits_{n \rightarrow +\infty} \Pr \left( \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
 \end{array}$$
 
 ***
 
 5) Como la sucesión $B_n = \bigcap\limits_{k = n}^{+\infty} A_k$ es creciente, entonces:
-$$P \left( \liminf\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} P \left( \bigcap\limits_{k = n}^{+\infty} A_n \right)$$
+$$\Pr \left( \liminf\limits_{n} A_n \right) = \lim\limits_{n \rightarrow + \infty} \Pr \left( \bigcap\limits_{k = n}^{+\infty} A_n \right)$$
 
 *Dem*: veamos primero que la sucesión $B_n$ es creciente. La misma está defiinida de la siguiente forma:
 
@@ -409,11 +409,11 @@ B_{n+2} & = &  &  &  &  & A_{n+2} & \cap & \ldots \\
 Dado que cada vez intersectamos menos conjuntos, el conjunto resultante es "más grande", y por tanto, la sucesión es creciente. Luego entonces,
 
 $$\begin{array}{c c l c l}
-P \left( \liminf\limits_{n} A_n \right) & = & P \left( \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite inferior} \\ \\
-  & = & P \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
-  & = & \lim\limits_{n \rightarrow +\infty} P(B_n) & & \text{por continuidad de la probabilidad de una } \\
+\Pr \left( \liminf\limits_{n} A_n \right) & = & \Pr \left( \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de límite inferior} \\ \\
+  & = & \Pr \left( \bigcup\limits_{n = 1}^{+\infty} B_n \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \lim\limits_{n \rightarrow +\infty} \Pr (B_n) & & \text{por continuidad de la probabilidad de una } \\
   &   &  & & \text{sucesión creciente (ver prop 1.8/7)} \\ \\
-  & = & \lim\limits_{n \rightarrow +\infty} P \left( \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
+  & = & \lim\limits_{n \rightarrow +\infty} \Pr \left( \bigcap\limits_{k = n}^{+\infty} A_k \right) & & \text{por definición de $B_n$}
 \end{array}$$
 
 ***
@@ -482,41 +482,41 @@ De lo anterior se desprende que $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}
 
 ***
 
-8) $P \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} P(A_n) \leq \limsup\limits_{n} P(A_n) \leq P \left( \limsup\limits_{n} A_n \right)$
+8) $\Pr \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} \Pr (A_n) \leq \limsup\limits_{n} \Pr (A_n) \leq \Pr \left( \limsup\limits_{n} A_n \right)$
 
 *Dem*: debemos demostrar tres de las cuatro desigualdades. La última queda demostrada por transitividad.
 
-Parte 1: $P \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} P(A_n)$
+Parte 1: $\Pr \left( \liminf\limits_{n} A_n \right) \leq \liminf\limits_{n} \Pr (A_n)$
 
 $$\begin{array}{c c l c l}
-P \left( \liminf\limits_{n} A_n \right) & = & P \left( \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de límite inferior} \\ \\
-  & = & P \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcap\limits_{k \geq n} A_k$} \\ \\
-  & = & \lim\limits_n P(B_n) & & \text{por ser $B_n$ creciente} \\ \\
-  & = & \lim\limits_n P \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
-  & = & \liminf\limits_n P \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
-  & \leq & \liminf\limits_n P(A_k) \,\,\, \forall k \geq n & & \text{por definición de intersecsión}
+\Pr \left( \liminf\limits_{n} A_n \right) & = & \Pr \left( \bigcup\limits_{n \in \mathbb{N}} \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de límite inferior} \\ \\
+  & = & \Pr \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcap\limits_{k \geq n} A_k$} \\ \\
+  & = & \lim\limits_n \Pr (B_n) & & \text{por ser $B_n$ creciente} \\ \\
+  & = & \lim\limits_n \Pr \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \liminf\limits_n \Pr \left( \bigcap\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
+  & \leq & \liminf\limits_n \Pr (A_k) \,\,\, \forall k \geq n & & \text{por definición de intersecsión}
 \end{array}$$
 
 \newpage
 
-Parte 2: $\liminf\limits_{n} P(A_n) \leq \limsup\limits_{n} P(A_n)$
+Parte 2: $\liminf\limits_{n} \Pr (A_n) \leq \limsup\limits_{n} \Pr (A_n)$
 
 En este caso estamos hablando del límite inferior y del límite superior de una sucesión real, los cuales se definen como:
 
-- $\liminf\limits_n P(A_n) = \lim\limits_n \left[ \inf\limits_{k \geq n} P(A_n) \right]$
-- $\limsup\limits_n P(A_n) = \lim\limits_n \left[ \sup\limits_{k \geq n} P(A_n) \right]$
+- $\liminf\limits_n \Pr (A_n) = \lim\limits_n \left[ \inf\limits_{k \geq n} \Pr (A_n) \right]$
+- $\limsup\limits_n \Pr (A_n) = \lim\limits_n \left[ \sup\limits_{k \geq n} \Pr (A_n) \right]$
 
-Por lo tanto, $\liminf\limits_n P(A_n) \leq \limsup\limits_n P(A_n)$
+Por lo tanto, $\liminf\limits_n \Pr (A_n) \leq \limsup\limits_n \Pr (A_n)$
 
-Parte 3: $\limsup\limits_{n} P(A_n) \leq P \left( \limsup\limits_{n} A_n \right)$
+Parte 3: $\limsup\limits_{n} \Pr (A_n) \leq \Pr \left( \limsup\limits_{n} A_n \right)$
 
 $$\begin{array}{c c l c l}
-P \left( \limsup\limits_{n} A_n \right) & = & P \left( \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de límite superior} \\ \\
-  & = & P \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcup\limits_{k \geq n} A_k$} \\ \\
-  & = & \lim\limits_n P(B_n) & & \text{por ser $B_n$ decreciente} \\ \\
-  & = & \lim\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
-  & = & \limsup\limits_n P \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
-  & \geq & \limsup\limits_n P(A_k) \, \forall k \geq n & & \text{por definición de unión}
+\Pr \left( \limsup\limits_{n} A_n \right) & = & \Pr \left( \bigcap\limits_{n \in \mathbb{N}} \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de límite superior} \\ \\
+  & = & \Pr \left( \bigcap\limits_{n \in \mathbb{N}} B_n \right) & & \text{definiendo a $B_n = \bigcup\limits_{k \geq n} A_k$} \\ \\
+  & = & \lim\limits_n \Pr (B_n) & & \text{por ser $B_n$ decreciente} \\ \\
+  & = & \lim\limits_n \Pr \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por definición de $B_n$} \\ \\
+  & = & \limsup\limits_n \Pr \left( \bigcup\limits_{k \geq n} A_k \right) & & \text{por ser el primero el límite de una sucesión} \\ \\
+  & \geq & \limsup\limits_n \Pr (A_k) \, \forall k \geq n & & \text{por definición de unión}
 \end{array}$$
 
 # Independencia
@@ -524,7 +524,7 @@ P \left( \limsup\limits_{n} A_n \right) & = & P \left( \bigcap\limits_{n \in \ma
 #### Definición 1.12
 
 Dada una familia de sucesos $\{A_{\alpha}\}_{\alpha \in I}$, donde $I$ es un conjunto cualquiera de índices, se dice que son independiente si, y solo si, para todo $F \subset I$ finito, se cumple que:
-$$ P \left( \bigcap\limits_{\alpha \in F} A_{\alpha}  \right) = \prod\limits_{\alpha \in F} P(A_{\alpha}) $$
+$$\Pr \left( \bigcap\limits_{\alpha \in F} A_{\alpha}  \right) = \prod\limits_{\alpha \in F} \Pr (A_{\alpha}) $$
 
 \newpage
 
@@ -534,29 +534,28 @@ Dada una sucesión $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$,
 
 ***
 
-i. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) < \infty \Rightarrow P \left( \limsup\limits_n A_n \right) = 0$
+i. Si $\sum\limits_{n = 1}^{+\infty} \Pr (A_n) < \infty \Rightarrow \Pr \left( \limsup\limits_n A_n \right) = 0$
 
 *Dem*: 
-
 $$\begin{array}{c c l c l}
-P \left( \limsup\limits_n A_n \right) & = & \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por prop. 1.11/4} \\ \\
-  & \leq & \sum\limits_{k = n}^{+\infty} P(A_k) & & \text{prop. 1.9/6} \\ \\
-  &      & \sum\limits_{k = n}^{+\infty} P(A_k) \overset{n}{\rightarrow} 0 & & \text{por ser la cola de una serie convergente}
+\Pr \left( \limsup\limits_n A_n \right) & = & \lim\limits_{n \rightarrow +\infty} \Pr \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right) & & \text{por prop. 1.11/4} \\ \\
+  & \leq & \sum\limits_{k = n}^{+\infty} \Pr (A_k) & & \text{prop. 1.9/6} \\ \\
+  &      & \sum\limits_{k = n}^{+\infty} \Pr (A_k) \overset{n}{\rightarrow} 0 & & \text{por ser la cola de una serie convergente}
 \end{array}$$
 
 ***
 
-ii. Si $\sum\limits_{n = 1}^{+\infty} P(A_n) = \infty$ y además $\{A_n\}_{n \in \mathbb{N}}$ son independientes $\Rightarrow P \left( \limsup\limits_n A_n \right) = 1$
+ii. Si $\sum\limits_{n = 1}^{+\infty} \Pr (A_n) = \infty$ y además $\{A_n\}_{n \in \mathbb{N}}$ son independientes $\Rightarrow \Pr \left( \limsup\limits_n A_n \right) = 1$
 
-*Dem*: como $P \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} P \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right)$ basta probar que $\lim\limits_{n \rightarrow +\infty} P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \overset{n}{\rightarrow} 0$. Para cada $m > n$ tenemos que:
+*Dem*: como $\Pr \left( \limsup\limits_n A_n \right) = \lim\limits_{n \rightarrow +\infty} \Pr \left(  \bigcup\limits_{k = n}^{+\infty} A_k \right)$ basta probar que $\lim\limits_{n \rightarrow +\infty} \Pr \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) \overset{n}{\rightarrow} 0$. Para cada $m > n$ tenemos que:
 
 $$\begin{array}{c c l c l}
-P \left(  \bigcap\limits_{k = n}^{+\infty} A^c_k \right) & \leq & P \left(  \bigcap\limits_{k = n}^{m} A^c_k \right) & & \text{por intersección} \\ \\
-  & = & \prod\limits_{k = n}^{m} P \left( A_k^c \right) & & \text{por independencia} \\ \\
-  & = & \prod\limits_{k = n}^{m} \left[ 1 - P \left( A_k \right) \right] & & \text{por probabilidad del complemento} \\ \\
-  & \leq & \prod\limits_{k = n}^{m} \exp\left\{ -P(A_k) \right\} & &  \text{por que } 1 - x \leq e^{-x} \, \forall x \\ \\
-  & = & \exp\left\{ \sum\limits_{k = n}^{m} -P(A_k) \right\} & & \text{por propiedad de la potencia} \\ \\
-  &   & \exp\left\{ - \sum\limits_{k = n}^{m} P(A_k) \right\} \overset{m}{\rightarrow} 0 & & \text{porque } \lim\limits_m \sum\limits_{k = n}^{m} P(A_k) = - \infty
+\Pr \left( \bigcap\limits_{k = n}^{+\infty} A^c_k \right) & \leq & \Pr \left( \bigcap\limits_{k = n}^{m} A^c_k \right) & & \text{por intersección} \\ \\
+  & = & \prod\limits_{k = n}^{m} \Pr \left( A_k^c \right) & & \text{por independencia} \\ \\
+  & = & \prod\limits_{k = n}^{m} \left[ 1 - \Pr \left( A_k \right) \right] & & \text{por probabilidad del complemento} \\ \\
+  & \leq & \prod\limits_{k = n}^{m} \exp\left\{ - \Pr (A_k) \right\} & & \text{por que } 1 - x \leq e^{-x} \, \forall x \\ \\
+  & = & \exp\left\{ \sum\limits_{k = n}^{m} - \Pr (A_k) \right\} & & \text{por propiedad de la potencia} \\ \\
+  &   & \exp\left\{ - \sum\limits_{k = n}^{m} \Pr (A_k) \right\} \overset{m}{\rightarrow} 0 & & \text{porque } \lim\limits_m \sum\limits_{k = n}^{m} \Pr (A_k) = - \infty
 \end{array}$$
 
 \newpage
@@ -649,7 +648,7 @@ Dado un espacio métrico $(F,d)$ la $\sigma$-álgebra de Borel de $F$ es la inte
 
 #### Definición 1.19: variable aleatoria
 
-Dado un espacio de probabilidad $(\Omega, \mathcal{A}, P)$ y un espacio métrico $(F,d)$, direms que $X : \Omega \rightarrow F$ es una variable aleatoria si para todo $B \in \mathcal{B}(F)$, se cumple que:
+Dado un espacio de probabilidad $(\Omega, \mathcal{A}, \Pr)$ y un espacio métrico $(F,d)$, direms que $X : \Omega \rightarrow F$ es una variable aleatoria si para todo $B \in \mathcal{B}(F)$, se cumple que:
 $$X^{-1}(B) = \{ \omega \in \Omega / X(\omega) \in B \} \in \mathcal{A}$$
 
 #### Proposición 1.20
@@ -715,7 +714,7 @@ $$\tau = \bigcap\limits_{n \in \mathbb{N}} \mathcal{F}_n'$$
 
 #### Ley 0 o 1 de Kolmogorov
 
-Sea $A \subset \tau \Rightarrow P(A) = 0$ o $P(A) = 1$
+Sea $A \subset \tau \Rightarrow \Pr (A) = 0$ o $\Pr (A) = 1$
 
 *Dem*:
 
@@ -723,16 +722,16 @@ a. $A \subset \tau = \bigcap\limits_{n \in \mathbb{N}} \mathcal{F}_n' \subset \m
 
 b. $\left. \begin{array}{l} A \in \mathcal{F}_n' \\ \mathcal{F}_n \perp \mathcal{F}_n' \end{array} \right\} \Rightarrow A \perp \mathcal{F}_n \Rightarrow A \perp \bigcup\limits_{n \in \mathbb{N}} \mathcal{F}_n \Rightarrow A \perp \sigma \left( \bigcup\limits_{n \in \mathbb{N}} \mathcal{F}_n \right) \Rightarrow A \perp \mathcal{F}_{\infty}$
 
-Por a. y b. obtenemos que $A \perp A$. Por lo tanto, $P(A) = P(A \cap A) = P(A) \, P(A) = P^2(A)$. Pero como $P(A)$ es una probabilidad, $0 \leq P(A) \leq 1$, entonces, $P(A) = 0$ o $P(A) = 1$ dado que estos son los únicos números que elevados al cuadrado dan como resultado ellos mismos.
+Por a. y b. obtenemos que $A \perp A$. Por lo tanto, $\Pr (A) = \Pr (A \cap A) = \Pr (A) \, \Pr (A) = \Pr^2(A)$. Pero como $\Pr (A)$ es una probabilidad, $0 \leq \Pr (A) \leq 1$, entonces, $\Pr (A) = 0$ o $\Pr (A) = 1$ dado que estos son los únicos números que elevados al cuadrado dan como resultado ellos mismos.
 
 ## Desigualdad de Kolmogorov
 
-Sean $X_1, \, X_2, \, \ldots, \, X_n$ variables aleatorias independientes tales que $E(X_i) = 0$ y $E(X_i^2) < \infty$ $\forall i = 1, \, \ldots, \, n$, y sea $S_k = X_1 + \ldots + X_k$, entonces, $\forall \varepsilon > 0$:
+Sean $X_1, \, X_2, \, \ldots, \, X_n$ variables aleatorias independientes tales que $\E (X_i) = 0$ y $\E (X_i^2) < \infty$ $\forall i = 1, \, \ldots, \, n$, y sea $S_k = X_1 + \ldots + X_k$, entonces, $\forall \varepsilon > 0$:
 
-1. $P \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \leq \frac{ E(S_n^2) }{ \varepsilon^2 }$
+1. $\Pr \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \leq \frac{ \E(S_n^2) }{ \varepsilon^2 }$
 
 2. Si además existe $c > 0$ tal que $P(|X_i| \leq c) = 1 \,\,\, \forall i$ entonces,
-$$ P \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \geq 1 - \frac{ (c + \varepsilon)^2 }{ E(S_n^2) } $$
+$$\Pr \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \geq 1 - \frac{ (c + \varepsilon)^2 }{ \E (S_n^2) }$$
 
 \newpage
 
@@ -744,20 +743,20 @@ i. $A = \left\{ \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right\}$
 ii. $A_k = \big\{ |S_i| < \varepsilon, \, i = 1, \, \ldots, \, k-1, |S_k| \geq \varepsilon \big\}$ para $k = 1, \, \ldots \, n$ con $S_0 = 0$
 
 Observese que $A_i \cap A_j = \emptyset \,\,\, \forall i \neq j$ y $A = \bigcup\limits_{k = 1}^{n} A_k$. Por lo tanto,
-$$ E(S_n^2) \geq E(S_n^2 \mathbb{I}_A) = \sum\limits_{k = 1}^{n} E(S_n^2 \mathbb{I}_{A_k}) $$
+$$\E (S_n^2) \geq \E (S_n^2 \mathbb{I}_A) = \sum\limits_{k = 1}^{n} \E (S_n^2 \mathbb{I}_{A_k}) $$
 
 Para cada una de las esperanzas del último sumando tenemos que:
-$$ E(S_n^2 \mathbb{I}_{A_k}) = E \Big[ \big( S_k + (X_{k+1} + \ldots + X_n) \big)^2 \mathbb{I}_{A_k} \Big] = $$
-$$ = E(S_k^2 \mathbb{I}_{A_k}) + 2 \underbrace{ E \Big[ S_k (X_{k+1} + \ldots + X_n) \mathbb{I}_{A_k} \Big] }_{ \substack{ = 0 \text{, dado que las variables } \\ X_{k+1} + \ldots + X_n \text{ son centradas} \\ \text{ e independientes de } S_k \mathbb{I}_{A_k} }} + E \big[(X_{k+1} + \ldots + X_n)^2 \mathbb{I}_{A_k} \big] = $$
-$$ = E(S_k^2 \mathbb{I}_{A_k}) + E \big[(X_{k+1} + \ldots + X_n)^2 \mathbb{I}_{A_k} \big] \geq E(S_k^2 \mathbb{I}_{A_k}) $$
+$$\E (S_n^2 \mathbb{I}_{A_k}) = \E \Big[ \big( S_k + (X_{k+1} + \ldots + X_n) \big)^2 \mathbb{I}_{A_k} \Big] = $$
+$$ = \E (S_k^2 \mathbb{I}_{A_k}) + 2 \underbrace{ \E \Big[ S_k (X_{k+1} + \ldots + X_n) \mathbb{I}_{A_k} \Big] }_{ \substack{ = 0 \text{, dado que las variables } \\ X_{k+1} + \ldots + X_n \text{ son centradas} \\ \text{ e independientes de } S_k \mathbb{I}_{A_k} }} + \E \big[(X_{k+1} + \ldots + X_n)^2 \mathbb{I}_{A_k} \big] = $$
+$$ = \E(S_k^2 \mathbb{I}_{A_k}) + \E \big[(X_{k+1} + \ldots + X_n)^2 \mathbb{I}_{A_k} \big] \geq \E (S_k^2 \mathbb{I}_{A_k}) $$
 
 Si $\omega \in A_k \Rightarrow$ por definición de $A_k$, $|S_k(\omega)| \geq \varepsilon$, es decir, $E(S_k^2 \mathbb{I}_{A_k}) \geq \varepsilon^2 P(A_k)$. Por lo tanto,
-$$E(S_n^2) \geq \sum\limits_{k = 1}^{n} E(S_k^2 \mathbb{I}_{A_K}) \geq \varepsilon^2 \sum\limits_{k = 1}^{n} P(A_k) = \varepsilon^2 P(A) = \varepsilon^2 P \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \Rightarrow$$
-$$\Rightarrow P \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \leq \frac{ E(S_n^2) }{ \varepsilon2 }$$
+$$\E (S_n^2) \geq \sum\limits_{k = 1}^{n} \E (S_k^2 \, \mathbb{I}_{A_K}) \geq \varepsilon^2 \, \sum\limits_{k = 1}^{n} \Pr (A_k) = \varepsilon^2 \Pr (A) = \varepsilon^2 \Pr \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \Rightarrow$$
+$$\Rightarrow \Pr \left( \max\limits_{1 \leq k \leq n} |S_k| \geq \varepsilon \right) \leq \frac{ \E (S_n^2) }{ \varepsilon2 }$$
 
 #### Corolario 1.30 Desigualdad de Markov
 
-$$P ( |X - E(X)| > \varepsilon) \leq \frac{V(X)}{\varepsilon^2}$$
+$$\Pr \big( |X - \E (X)| > \varepsilon \big) \leq \frac{ \V (X) }{ \varepsilon^2 }$$
 
 \newpage
 
@@ -979,8 +978,6 @@ $$m \big( F(b)-F(a) \big) \leq I \leq M \big( F(b)-F(a) \big) \Rightarrow m \leq
 
 Luego, por el teorema de Darboux sabemos que $\exists c \in [a,b]$ tal que $g(c) = \frac{1}{ F(b)-F(a) } \,\,  I$. Por lo tanto, $I = g(c) \big(F(b) - F(a) \big)$.
 
-\newpage
-
 ## Métodos de integración
 
 #### Teorema 1.42: Integración por partes
@@ -997,27 +994,28 @@ Si $g,F : [a,b] \rightarrow \mathbb{R}$ son tales que existe $\int\limits_a^b gd
 i. $\exists \int\limits_a^b (g \circ h) d(F \circ h)$
 ii. $\int\limits_c^d g \big( h(t) \big) d F \big( h(t) \big) = \int\limits_a^b g(x) d F(x)$
 
+\newpage
 
 ## Aplicaciones a la teoría de la probabilidad
 
 #### Proposición 1.44
 
 Si $F_X$ es la función de distribución de una variable aleatoria $X$, entonces:
-$$\int\limits_a^b dF_X(x) = P(a < X \leq b)$$
+$$\int\limits_a^b dF_X(x) = \Pr (a < X \leq b)$$
 
 #### Proposición 1.45
 
 Sea $X$ una variable aleatoria cuya función de distribución es $F_X$:
 
 - Si su recorrido es $A = \{x_1, x_2, \ldots \}$ y $g : [a,b] \rightarrow \mathbb{R}$ es continua, entonces:
-   $$\int\limits_a^b g(x) d F_X(x) = \sum\limits_{x \in (a,b] \cap A} g(x) p_X(x) = E \left( g(X) \mathbb{I}_{ \{ X \in (a,b] \} } \right) $$
+   $$\int\limits_a^b g(x) d F_X(x) = \sum\limits_{x \in (a,b] \cap A} g(x) \, p_X(x) = \E \left( g(X) \, \mathbb{I}_{ \{ X \in (a,b] \} } \right) $$
 
 - Si $X$ es absolutamente continua con densidad $f_X$ y $g : [a,b] \rightarrow \mathbb{R}$ es continua, entonces:
-   $$\int\limits_a^b g(x) d F_X(x) = \int\limits_a^b g(x) f_X(x) dx = E \left( g(X) \mathbb{I}_{ \{ X \in (a,b] \} } \right) $$
+   $$\int\limits_a^b g(x) d F_X(x) = \int\limits_a^b g(x) f_X(x) dx = \E \left( g(X) \mathbb{I}_{ \{ X \in (a,b] \} } \right) $$
 
 De lo anterior se desprende que podemos definir la esperanza de una variable aleatoria $X$ con función de distribución $F_X$ como:
 
-$$E(X) = \lim\limits_{\substack{a \rightarrow - \infty \\ b \rightarrow + \infty }} \int\limits_a^b x d F_X(x) = \int\limits_{-\infty}^{+\infty} x d F_X(x) $$
+$$\E (X) = \lim\limits_{\substack{a \rightarrow - \infty \\ b \rightarrow + \infty }} \int\limits_a^b x d F_X(x) = \int\limits_{-\infty}^{+\infty} x d F_X(x) $$
 
 #### Ejercicio 1.46 (Ejercicio 5 del práctico 1)
 
