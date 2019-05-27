@@ -1,10 +1,11 @@
 ---
-title: "Funciones características y TLC"
+title: "Capítulo 3 - Funciones características y TLC"
 author: "Daniel Czarnievicz"
 date: "2019"
 output: pdf_document
 header-includes:
    - \everymath{\displaystyle}
+   - \usepackage[spanish]{babel}
    - \usepackage{xcolor}
    - \usepackage[makeroom]{cancel}
    - \DeclareMathOperator*{\plim}{plim}
@@ -12,6 +13,8 @@ header-includes:
    - \usepackage{amsmath}
    - \usepackage{mathtools}
    - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
+   - \DeclareMathOperator{\E}{\mathbf{E}}
+   - \DeclareMathOperator{\V}{\mathbf{V}}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -20,6 +23,43 @@ fontsize: 12pt
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+- Denotaremos a $\mathbb{C}$ como el conjunto de números complejos.  
+- **Módulo**: si $z = a + ib \in \mathbb{C} \Rightarrow |z| = \sqrt{a^2 + b^2}$.  
+- **Conjugado**: si $z = a + ib \in \mathbb{C} \Rightarrow \bar{z} = a - ib$.  
+- **Exponencial compleja**: $e^z = e^a e^{ib} = e^a \big[ \cos(b) + i \sin(b) \big]$.
 
+# Función Característica
 
+#### Definición 3.1: Función característica
+
+Dado $(\Omega, \, \mathcal{A}, \, P)$ un espacio de probabilidad y $X : \Omega \rightarrow \mathbb{R}$ una variable aleatoria, definimos la función característica de $X$ como:
+$$\varphi_X : \mathbb{R} \rightarrow \mathbb{C} \, / \, \varphi_X(t) = \E \big( e^{itX} \big)$$
+
+#### Observación 3.2
+
+Dado que $e^{itX} = \cos(tX) + i \sin(tX)$ se tiene que:
+$$\varphi_X(t) = \int\limits_{-\infty}^{+\infty} e^{itx} dF_X(x) = \E \big[ \cos(tX) \big] + i \, \E \big[ \sin(tX) \big]$$
+como $|e^{itX}| = 1$ para todo $t$, $\exists \varphi(t) < \infty$ para todo $t$.
+
+#### Proposición 3.3: propiedades de la función característica
+
+1. $|\varphi_X(t)| \leq 1$ para todo $t \in \mathbb{R}$
+
+2. $\varphi_X(0) = 1$
+
+3. $\varphi_{aX+b}(t)= e^{itb} \, \varphi_X(at)$
+
+4. Si $X$ e $Y$ son independientes, entonces $\varphi_{X + Y}(t) = \varphi_X (t) \, \varphi_Y (t)$ para todo $t \in \mathbb{R}$
+
+5. $\varphi_X(t) = \overline{ \varphi_X (-t) }$
+
+#### Proposición 3.4: función característica de una variable aleatoria con distribución Normal
+
+Si $X \sim \text{N}(\mu, \, \sigma^2)$, entonces $\varphi_X(t) = \exp\left\{ i t \mu - \frac{1}{2} (\sigma t)^2 \right\}$
+
+# Teorema del Límite Central
+
+## Variables iid
+
+## Arreglos triangulares
 
