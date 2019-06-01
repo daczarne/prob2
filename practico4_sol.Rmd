@@ -48,6 +48,9 @@ $$\begin{array}{r c l}
                       & = & \overline{z_1} \, \overline{z_2}
 \end{array}$$
 
+## Probar que $\overline{\overline{z}} = z$ para todo $z \in \mathbb{C}$
+
+$$\overline{\overline{z}} = \overline{\overline{a + bi}} = \overline{a - bi} = a + bi = z$$
 
 # Ejercicio 2
 
