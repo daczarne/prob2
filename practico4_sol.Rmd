@@ -52,6 +52,24 @@ $$\begin{array}{r c l}
 
 $$\overline{\overline{z}} = \overline{\overline{a + bi}} = \overline{a - bi} = a + bi = z$$
 
+## Probar que $|z_1 + z_2| \leq |z_1| + |z_2|$ para todo $z_1$ y $z_2 \in 0mathbb{C}$
+
+$$\begin{array}{r c l}
+|z_1 + z_2|^2 & = & (z_1 + z_2) \overline{(z_1 + z_2)} \\
+              & = & (z_1 + z_2) (\overline{z_1} + \overline{z_2}) \\
+              & = & z_1 \overline{z_1} + z_1 \overline{z_2} + z_2 \overline{z_1} + z_2 \overline{z_2} \\
+              & = & |z_1|^2 + z_1 \overline{z_2} + \overline{\overline{z_2 \overline{z_1}}} + |z_2|^2 \\
+              & = & |z_1|^2 + z_1 \overline{z_2} + \overline{\overline{z_2} z_1} + |z_2|^2 \\
+              & = & |z_1|^2 + 2 \mathfrak{R}(z_1 \overline{z_2}) + |z_2|^2 \\
+              & \leq & |z_1|^2 + 2 | z_1 \overline{z_2} | + |z_2|^2 \\
+              & = & |z_1|^2 + 2 |z_1| \, |\overline{z_2}| + |z_2|^2 \\
+              & = & |z_1|^2 + 2 |z_1| \, |z_2| + |z_2|^2 \\
+              & = & \big( |z_1| + |z_2| \big)^2
+\end{array}$$
+
+Por lo tanto, hallamos que $|z_1 + z_2|^2 \leq \big( |z_1| + |z_2| \big)^2$ de donde se desprende que:
+$$|z_1 + z_2| \leq|z_1| + |z_2|2$$
+
 # Ejercicio 2
 
 
