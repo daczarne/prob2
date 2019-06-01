@@ -1,0 +1,61 @@
+---
+title: "Práctico 4"
+author: "Daniel Czarnievicz"
+date: "2019"
+output: pdf_document
+header-includes:
+   - \everymath{\displaystyle}
+   - \usepackage[spanish]{babel}
+   - \usepackage{xcolor}
+   - \usepackage[makeroom]{cancel}
+   - \DeclareMathOperator*{\plim}{plim}
+   - \usepackage{mathrsfs}
+   - \usepackage{amsmath}
+   - \usepackage{mathtools}
+   - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
+   - \DeclareMathOperator{\E}{\mathbf{E}}
+   - \DeclareMathOperator{\V}{\mathbf{V}}
+geometry: margin=1in
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Ejercicio 1
+
+## Calcular la parte real e imaginaria de $\frac{1}{a + bi}$, y $(a + bi)^2$
+
+$$\frac{1}{a + bi} = \frac{1}{a + bi} \times \frac{a - bi}{a - bi} = \frac{a - bi}{ a^2 - abi + bia -b^2 i^2 } = \frac{a - bi}{ a^2 + b^2 } = \frac{a}{a^2 + b^2} - \frac{b}{a^2 + b^2} \, i$$
+
+$$(a + bi)^2 = a^2 + 2abi + b^2 i^2 = a^2 - b^2 + 2abi$$
+
+## Probar que $\overline{z_1 z_2} = \overline{z_1} \, \overline{z_2}$ para todo $z_1$, $z_2 \in \mathbb{C}$
+
+$$\begin{array}{r c l}
+\overline{z_1 \, z_2} & = & \overline{ (a + bi)(c + di) } \\
+                      & = & \overline{ ac + adi + bic + bd i^2 } \\
+                      & = & \overline{ (ac - bd) + (ad + bc)i } \\
+                      & = & (ac - bd) - (ad + bc)i \\
+                      & = & ac - bd - adi - bci \\
+                      & = & ac + bd i^2 - adi - bci \\
+                      & = & ac + bi di - adi - bci \\
+                      & = & ac - adi + bi di - bci \\
+                      & = & a (c - di) + bi (di - c) \\
+                      & = & a (c - di) - bi (c - di) \\
+                      & = & (a - bi) (c - di) \\
+                      & = & \overline{z_1} \, \overline{z_2}
+\end{array}$$
+
+
+# Ejercicio 2
+
+
+# Ejercicio 3
+
+
+# Ejercicio 4
+
+
+# Ejercicio 5
