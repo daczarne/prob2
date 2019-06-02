@@ -157,7 +157,23 @@ $$= \int\limits_{\mathbb{R}} e^{itx} \sum\limits_{j = 1}^{n} a_j d F_j(x) = \int
 
 Por lo tanto, $Y$ debe ser tal que $Y = \sum\limits_{j = 1}^{n} a_j F_j(x)$. Es decir, una combinación lineal convexa de la variables aletorias origianles.
 
+\newpage
+
 # Ejercicio 5
+
+## Parte a
+
+Sea $X$ una variable aleatoria tal que $X \overset{cs}{=} c$. Entonces:
+
+$$\varphi_X(t) = \E \big( e^{itX} \big) = e^{itc}$$
+
+## Parte b
+
+## Parte c
+
+## Parte d
+
+## Parte e
 
 
 
