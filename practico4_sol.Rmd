@@ -25,13 +25,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Ejercicio 1
 
-## Calcular la parte real e imaginaria de $\frac{1}{a + bi}$, y $(a + bi)^2$
+## a) Calcular la parte real e imaginaria de $\frac{1}{a + bi}$, y $(a + bi)^2$
 
 $$\frac{1}{a + bi} = \frac{1}{a + bi} \times \frac{a - bi}{a - bi} = \frac{a - bi}{ a^2 - abi + bia -b^2 i^2 } = \frac{a - bi}{ a^2 + b^2 } = \frac{a}{a^2 + b^2} - \frac{b}{a^2 + b^2} \, i$$
 
 $$(a + bi)^2 = a^2 + 2abi + b^2 i^2 = a^2 - b^2 + 2abi$$
 
-## Probar que $\overline{z_1 z_2} = \overline{z_1} \, \overline{z_2}$ para todo $z_1$, $z_2 \in \mathbb{C}$
+## b) Probar que $\overline{z_1 z_2} = \overline{z_1} \, \overline{z_2}$ para todo $z_1$, $z_2 \in \mathbb{C}$
 
 $$\begin{array}{r c l}
 \overline{z_1 \, z_2} & = & \overline{ (a + bi)(c + di) } \\
@@ -48,11 +48,11 @@ $$\begin{array}{r c l}
                       & = & \overline{z_1} \, \overline{z_2}
 \end{array}$$
 
-## Probar que $\overline{\overline{z}} = z$ para todo $z \in \mathbb{C}$
+## c) Probar que $\overline{\overline{z}} = z$ para todo $z \in \mathbb{C}$
 
 $$\overline{\overline{z}} = \overline{\overline{a + bi}} = \overline{a - bi} = a + bi = z$$
 
-## Probar que $|z_1 + z_2| \leq |z_1| + |z_2|$ para todo $z_1$ y $z_2 \in 0mathbb{C}$
+## d) Probar que $|z_1 + z_2| \leq |z_1| + |z_2|$ para todo $z_1$ y $z_2 \in 0mathbb{C}$
 
 $$\begin{array}{r c l}
 |z_1 + z_2|^2 & = & (z_1 + z_2) \overline{(z_1 + z_2)} \\
@@ -70,7 +70,7 @@ $$\begin{array}{r c l}
 Por lo tanto, hallamos que $|z_1 + z_2|^2 \leq \big( |z_1| + |z_2| \big)^2$ de donde se desprende que:
 $$|z_1 + z_2| \leq|z_1| + |z_2|2$$
 
-## Probar que $|z_1 \, z_2| = |z_1| \, |z_2|$ para todo $z_1$ y $z_2 \in \mathbb{C}$
+## e) Probar que $|z_1 \, z_2| = |z_1| \, |z_2|$ para todo $z_1$ y $z_2 \in \mathbb{C}$
 
 $$\begin{array}{r c l}
 |z_1 \, z_2| & = & |(a + bi)(c + di)| \\
@@ -85,8 +85,28 @@ $$\begin{array}{r c l}
              & = & |z_1| \, |z_2|
 \end{array}$$
 
+\newpage
 
 # Ejercicio 2
+
+Recordar que:
+
+- $e^{itx} = \cos(tx) + i \sin(tx)$  
+- $\sin(x)$ es impar, por lo tanto, $\sin(x) = - \sin(-x)$, y $\int\limits_{\mathbb{R}} \sin(x) dx = 0$. 
+- $\cos(x)$ es par, por lo tanto, $\cos(x) = \cos(-x)$, y $\int\limits_{\mathbb{R}} \cos(x) dx = 2 \int\limits_0^{+\infty} \cos(x) dx$. 
+
+## a) $X \sim \text{Unif}(-a, a)$ con $a \in \mathbb{R}$
+
+$$\varphi_X(t) = \E \big( e^{itX} \big) = \int\limits_{-a}^{a} e^{itx} \frac{1}{2a} dx = \frac{1}{2a} \int\limits_{-a}^{a} e^{itx} dx = \frac{1}{2a} \int\limits_{-a}^{a} \big( \cos(tx) - i \sin(tx) \big) dx = $$
+$$= \frac{1}{2a} \int\limits_{-a}^{a} \cos(tx) dx - \frac{i}{2a} \underbrace{ \int\limits_{-a}^{a} \sin(tx) dx }_{ \substack{ = 0, \text{ por ser seno} \\ \text{ función impar} } } = \frac{1}{a} \int\limits_{0}^{a} \cos(tx) dx = \frac{1}{a} \left( \left. \frac{ \sin(tx) }{ t } \right|_{0}^{a} \right) = \frac{ \sin(ta) }{ ta }$$
+
+## b) $X \sim \text{Pois}(\lambda)$
+
+
+## c) $X \sim \text{Bin}(n, p)$
+
+
+## d) $X \sim \text{N}(\mu, \sigma^2)$
 
 
 # Ejercicio 3
