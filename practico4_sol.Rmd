@@ -196,13 +196,25 @@ $$\varphi_Z(t) = \varphi_{X + Y}(t) = \varphi_X(t) \, \varphi_Y(t) = \cos(t) \, 
 
 ## Parte e
 
+Primero notemos que:
 
+$$\varphi(t) = \frac{1}{8} \left( e^{it} + e^{2it} \right)^3 = \frac{1}{2^3} \left( e^{it} + e^{2it} \right)^3 = \left[ \frac{1}{2} \left( e^{it} + e^{2it} \right) \right]^3$$
 
+Por lo tanto, estamos buscando tres variables aleatorias independientes e idénticamente distribuidas con función característica:
 
+$$\varphi_{X_j}(t) = \frac{1}{2} \left( e^{it} + e^{2it} \right)$$
 
+Una posible candidata sería:
 
+$$X_j = \left\{ 
+\begin{array}{c c c} 
+1 & \text{ con probabilidad } & 1/2 \\
+2 & \text{ con probabilidad } & 1/2
+\end{array} \right.$$
 
+Con la cual, si llamamos $X = \sum\limits_{j = 1}^{3} X_j$, obtendríamos:
 
+$$\varphi_X(t) = \left[ \varphi_{x_j}(t) \right]^3 = \left[ \E \big( e^{itX_j}) \right]^3 = \left[ e^{it(1)} \frac{1}{2} + e^{it(2)} \frac{1}{2} \right]^3 = \left[ \frac{1}{2} \left( e^{it} + e^{2it} \right) \right]^3 = \frac{1}{8} \left( e^{it} + e^{2it} \right)^3 $$
 
 
 
