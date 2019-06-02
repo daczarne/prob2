@@ -70,6 +70,22 @@ $$\begin{array}{r c l}
 Por lo tanto, hallamos que $|z_1 + z_2|^2 \leq \big( |z_1| + |z_2| \big)^2$ de donde se desprende que:
 $$|z_1 + z_2| \leq|z_1| + |z_2|2$$
 
+## Probar que $|z_1 \, z_2| = |z_1| \, |z_2|$ para todo $z_1$ y $z_2 \in \mathbb{C}$
+
+$$\begin{array}{r c l}
+|z_1 \, z_2| & = & |(a + bi)(c + di)| \\
+             & = & |ac + adi + bic + bdi^2| \\
+             & = & |(ac - bd) + (bc+ ad)i | \\
+             & = & \sqrt{ (ac - bd)^2 + (bc + ad)^2 } \\
+             & = & \sqrt{ (ac)^2 - 2abcd + (bd)^2 + (bc)^2 + 2abcd + (ad)^2 } \\
+             & = & \sqrt{ (ac)^2 + (bd)^2 + (bc)^2 + (ad)^2 } \\
+             & = & \sqrt{  a^2c^2 + b^2d^2 + b^2c^2 + a^2d^2 } \\
+             & = & \sqrt{ a^2 (c^2 + d^2) + b^2 (c^2 + d^2) } \\
+             & = & \sqrt{ (a^2 + b^2)(c^2 + d^2) } \\
+             & = & |z_1| \, |z_2|
+\end{array}$$
+
+
 # Ejercicio 2
 
 
