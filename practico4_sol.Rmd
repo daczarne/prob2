@@ -184,11 +184,15 @@ $$\begin{array}{ r c l l}
 
 ## Parte c
 
-$\sin(0) = 1 \neq 0 \Rightarrow$ no es una función característica (no cumple propiedad 3.3/2)
+$\sin(0) = 0 \neq 1 \Rightarrow$ no es una función característica (no cumple propiedad 3.3/2).
+
+\newpage
 
 ## Parte d
 
+Sea $Y = X$, donde $X$ es la misma variable aleatoria de la parte b, y $X$ e $Y$ son independientes. Sea $Z = X + Y$ otra variable aleatoria. Luego entonces:
 
+$$\varphi_Z(t) = \varphi_{X + Y}(t) = \varphi_X(t) \, \varphi_Y(t) = \cos(t) \, \cos(t) = \cos^2(t)$$
 
 ## Parte e
 
