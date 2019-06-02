@@ -148,8 +148,17 @@ $$= \left. \frac{ 9 i^2}{2} e^{3it} \left( 2 \, e^{3it} + 1 \right) \right|_{t =
 
 $$\therefore \V(X) = \E(X^2) - {\E}^2(X) = \frac{27}{2} - 3^2 = \frac{27}{2} - 9 = \frac{9}{2}$$
 
-
 # Ejercicio 4
 
+Queremos hallar una variable aleatoria $Y$ tal que $\varphi_Y(t) = \sum\limits_{j = i}^{n} a_j \, \varphi_{X_j}(t)$.
+
+$$\varphi_Y(t) = \sum\limits_{j = 1}^{n} a_j \, \varphi_{X_j}(t) = \sum\limits_{j = 1}^{n} a_j \E \big( e^{itX_j} \big) = \sum\limits_{j = 1}^{n} a_j \int\limits_{\mathbb{R}} e^{itx} d F_j(x) = \int\limits_{\mathbb{R}} \sum\limits_{j = 1}^{n} a_j e^{itx} d F_j(x) =$$
+$$= \int\limits_{\mathbb{R}} e^{itx} \sum\limits_{j = 1}^{n} a_j d F_j(x) = \int\limits_{\mathbb{R}} e^{itx} d \left( \sum\limits_{j = 1}^{n} a_j F_j(x) \right) = \int\limits_{\mathbb{R}} e^{itx} d F_Y(x) = \E \big( e^{itY} \big) = \varphi_Y(t)$$
+
+Por lo tanto, $Y$ debe ser tal que $Y = \sum\limits_{j = 1}^{n} a_j F_j(x)$. Es decir, una combinación lineal convexa de la variables aletorias origianles.
 
 # Ejercicio 5
+
+
+
+
