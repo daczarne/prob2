@@ -184,7 +184,11 @@ $$\begin{array}{ r c l l}
 
 ## Parte c
 
+$\sin(0) = 1 \neq 0 \Rightarrow$ no es una función característica (no cumple propiedad 3.3/2)
+
 ## Parte d
+
+
 
 ## Parte e
 
