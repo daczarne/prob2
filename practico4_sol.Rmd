@@ -112,7 +112,7 @@ $$\varphi_X(t) = \E \big( e^{itX} \big) = \sum\limits_{x = 0}^{n} e^{itx} {{n}\c
 
 ## d) $X \sim \text{N}(\mu, \sigma^2)$
 
-Primero hallamos la función característica de una distribución $\text{Normal}(0, 1)$, y luego utilizamos la propiedad 3 para hallar la de una $\text{Normal}(\mu, \sigma^2)$.
+Primero hallamos la función característica de una distribución $\text{Normal}(0, 1)$, y luego utilizamos la propiedad 3 (prop 3.3) para hallar la de una $\text{Normal}(\mu, \sigma^2)$.
 
 $$\varphi_X(t) = \E \big[ e^{itX} \big] = \int\limits_{-\infty}^{+\infty} e^{itx} \, \phi_X(x) dx = \int\limits_{-\infty}^{+\infty} e^{itx} \, \frac{1}{ \sqrt{2 \pi} } e^{-x^2 / 2} dx$$
 
@@ -133,12 +133,20 @@ $$\left. \begin{array}{l}
 \varphi_X(0) = 1 \Rightarrow c = 1
 \end{array} \right\} \Rightarrow \varphi_X(t) = e^{-t^2 / 2}$$
 
-Aplicando ahora la propiedad 3, obtenemos que:
+Aplicando ahora la propiedad 3 (prop 3.3), obtenemos que:
 $$\varphi_{\sigma X + \mu} (t) = e^{it \mu} e^{-(\sigma t)^2 / 2} = \exp\left\{ it \mu - \frac{ (\sigma t)^2 }{2} \right\}$$
 
 \newpage
 
 # Ejercicio 3
+
+$$i \E(X) = \left. \frac{ \partial }{ \partial t } \varphi_X (t) \right|_{t = 0} = \left. \frac{1}{4} \, 2 \, \left( 1 + e^{3it} \right) \left( 3i e^{3it} \right) \right|_{t = 0} = \left. \frac{ 3i }{ 2 } \left( 1 + e^{3it} \right) e^{3it} \right|_{t = 0} =$$
+$$= \frac{ 3i }{ 2 } \left( 1 + e^{3i(0)} \right) e^{3i(0)} = \frac{ 3i }{ 2 } (1 + 1) = 3i \Rightarrow \E(X) = 3$$
+
+$$i^2 \E (X^2) = \left. \frac{ \partial^2 }{\partial^2 t } \varphi_X (t) \right|_{t = 0} = \left. \frac{ \partial }{ \partial t} \left[  \frac{ 3i }{ 2 } \left( 1 + e^{3it} \right) e^{3it} \right] \right|_{t = 0} = \left. \frac{3i}{2} \left( 3i e^{3it} e^{3it} + ( 1 + e^{3it} ) 3i e^{3it} \right) \right|_{t = 0} =$$
+$$= \left. \frac{ 9 i^2}{2} e^{3it} \left( 2 \, e^{3it} + 1 \right) \right|_{t = 0} = \frac{ 9 i^2}{2} e^{3i(0)} \left( 2 \, e^{3i(0)} + 1 \right) = \frac{ 9 i^2}{2} 3 = \frac{27}{2} i^2 \Rightarrow \E(X^2) = \frac{27}{2} $$
+
+$$\therefore \V(X) = \E(X^2) - {\E}^2(X) = \frac{27}{2} - 3^2 = \frac{27}{2} - 9 = \frac{9}{2}$$
 
 
 # Ejercicio 4
