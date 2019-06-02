@@ -169,11 +169,44 @@ $$\varphi_X(t) = \E \big( e^{itX} \big) = e^{itc}$$
 
 ## Parte b
 
+Sea $X$ una variable aleatoria tal que $X = \left\{ \begin{array}{c c c} -1 & \text{ con probabilidad } & 1/2 \\ 1 & \text{ con probabilidad } & 1/2 \end{array} \right.$
+
+$$\begin{array}{ r c l l}
+\varphi_X(t) & = & \E \big( e^{itX}) & \text{definición de función característica} \\ \\
+             & = & e^{it(-1)} \frac{1}{2} + e^{it(1)} \frac{1}{2} & \text{definición de esperanza de una va} \\ \\
+             & = & \frac{1}{2} \left[ e^{-it} + e^{it} \right] \\ \\
+             & = & \frac{1}{2} \Big[ \cos(-t) + i \sin(-t) + \cos(t) + i \sin(t) \Big] & \text{definición de exponencial compleja} \\ \\
+             & = & \frac{1}{2} \Big[ 2 \, \cos(t) + i \sin(-t) + i \sin(t) \Big] & \text{coseno es función par} \\ \\
+             & = & \frac{1}{2} \Big[ 2 \, \cos(t) - i \sin(t) + i \sin(t) \Big] & \text{seno es función impar} \\ \\
+             & = & \frac{1}{2} \Big[ 2 \, \cos(t) \Big] \\ \\
+             & = & \cos(t)
+\end{array}$$
+
 ## Parte c
 
 ## Parte d
 
 ## Parte e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
