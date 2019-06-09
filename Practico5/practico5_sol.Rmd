@@ -120,3 +120,14 @@ $$\varphi_Z(t) = \varphi_{X - Y}(t) = \varphi_X(t) \varphi_{-Y}(t) = \varphi_X(t
 Por lo tanto, no es posible encontrar dos variables iid tales que su resta tenga distribución $\text{Unif}(0, 1)$.
 
 # Ejercicio 6
+
+$$\begin{array}{rcl}
+\varphi_{ (X + Y)^s } & = & \E \left( e^{it(X + Y)^s} \right) \\
+   & = & \E \left( e^{it(X + Y - X' - Y')} \right) \\
+   & = & \E \left( e^{it(X - X') + it(Y - Y')} \right) \\
+   & = & \E \left( e^{ it(X - X') } \right) \, \E \left( e^{ it(Y - Y') } \right) \\
+   & = & \varphi_{X^s}(t) \, \varphi_{Y^s}(t) \\
+   & = & \varphi_{ X^s + Y^s } (t)
+\end{array}$$
+
+Por lo tanto, $(X + Y)^s \overset{d}{=} X^s + Y^s$.
