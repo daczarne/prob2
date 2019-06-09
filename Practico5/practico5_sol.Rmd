@@ -37,7 +37,15 @@ $$f_X(0) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-it(0)} \varphi_X 
 
 ## Parte b
 
-Consideremos 
+Consideremos ahora una segunda variable aleatoria $Y$ independiente de $X$ pero con la misma distribución. Por la propiedad 3.3/4 sabemos que $\varphi_{X + Y}(t) = \varphi_X(t) \, \varphi_Y(t)$. Pero dado que ambas variables tiene la misma distribución, la función característica de su suma será: 
+$$\varphi_Z(t) = \varphi_{X + Y}(t) = \varphi^2_X(t) = \left( \frac{\sin t}{t} \right)^2$$
+
+Por otro lado, que $X$ e $Y$ tienen distibución $\text{Unif}(-1, 1)$, $Z = X + Y \sim \text{Triag}(-2, 2)$. Por lo tanto, tenemos que:
+
+$$\left. \begin{array}{lcc}
+f_Z(0) = \frac{1}{2} \\
+f_Z(0) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-it(0)} \, \varphi_Z(t) dt
+\end{array} \right\} \Rightarrow \int\limits_{-\infty}^{+\infty} \varphi_Z(t) dt = \pi$$
 
 
 # Ejercicio 2
