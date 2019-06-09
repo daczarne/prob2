@@ -50,7 +50,23 @@ f_Z(0) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-it(0)} \, \varphi_Z
 
 # Ejercicio 2
 
+Primero hallamos la función característica de una variable con distribución exponencial:
 
+$$\varphi_X(t) = \E \big( e^{itX} \big) = \int\limits_0^{+\infty} e^{itx} \lambda e^{-\lambda x} dx = \lambda \int\limits_0^{+\infty} e^{x(it - \lambda)} dx = \lambda \left[ \left. \frac{ e^{x(it - \lambda)} }{ it - \lambda } \right|_{x = 0}^{x \rightarrow + \infty} \right] = \frac{ - \lambda }{ it - \lambda } = \frac{ \lambda }{ \lambda - it }$$
+
+Antes de proceder a integrar la función característica, conviene multiplicar por su conjugado de forma de lograr una expresión que no tenga a la constante imaginaria $i$ en el denominador.
+
+$$\frac{\lambda}{\lambda - it} \times \frac{\lambda + it}{\lambda + it} = \frac{ \lambda^2 + \lambda i t }{ \lambda^2 + t^2 } = \frac{\lambda^2}{\lambda^2 + t^2} + \frac{\lambda t}{ \lambda^2 + t^2 } \,\, i$$
+
+Luego procedemos a integrar el módulo de $\varphi_X$ de la siguiente forma:
+
+$$\int\limits_{-\infty}^{+\infty} \big| \varphi_X (t) \big| dt = \int\limits_{-\infty}^{+\infty} \left| \frac{\lambda^2}{\lambda^2 + t^2} + \frac{\lambda t}{ \lambda^2 + t^2 } \,\, i \right| dt \leq \int\limits_{-\infty}^{+\infty} \left| \frac{\lambda^2}{\lambda^2 + t^2} \right| + \left| \frac{\lambda t}{ \lambda^2 + t^2 } \,\, i \right| dt = $$
+$$ = \int\limits_{-\infty}^{+\infty} \left| \frac{\lambda^2}{\lambda^2 + t^2} \right| dt + \int\limits_{-\infty}^{+\infty} |i| \left| \frac{\lambda t}{ \lambda^2 + t^2 } \right| dt = \int\limits_{-\infty}^{+\infty} \left| \frac{\lambda^2}{\lambda^2 + t^2} \right| dt + \int\limits_{-\infty}^{+\infty} \left| \frac{\lambda t}{ \lambda^2 + t^2 } \right| dt$$
+
+Dado que todas las cantidades son positivas, no es necesario seguir trabajando con el valor absoluto. Por lo tanto:
+
+$$\int\limits_{-\infty}^{+\infty} \left| \frac{\lambda^2}{\lambda^2 + t^2} \right| dt + \int\limits_{-\infty}^{+\infty} \left| \frac{\lambda t}{ \lambda^2 + t^2 } \right| dt = \int\limits_{-\infty}^{+\infty} \frac{\lambda^2}{\lambda^2 + t^2} dt + \int\limits_{-\infty}^{+\infty} \frac{\lambda t}{ \lambda^2 + t^2 } dt =$$
+$$= \sqrt{\lambda} \left. \tan^{-1}  \left( \frac{t}{\sqrt{\lambda}} \right) \right|_{-\infty}^{+\infty} + \left. \frac{\lambda}{2} \, \ln| \lambda^2 + t^2| \right|_{-\infty}^{+\infty} = +\infty$$
 
 # Ejercicio 3
 
