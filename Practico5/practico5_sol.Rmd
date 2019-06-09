@@ -27,74 +27,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Parte a
 
-Primero notemos que tanto $h_1(t) = \sin(t)$ como $h_2(t) = t$ son impares, por lo tanto $\frac{\sin(t)}{t}$ es par. Entonces:
+Sea $X$ una variable aleatoria con distribución $\text{Unif}(-1, 1)$. La función característica de $X$ será entonces $\varphi_X(t) = \frac{\sin t }{t}$. Luego, por el teorema de inversión sabemos que:
 
-$$\int\limits_{-\infty}^{+\infty} \frac{\sin(t)}{t} dt = 2 \, \int\limits_{0}^{+\infty} \frac{\sin(t)}{t} dt$$
+$$f_X(x) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-itx} \varphi_X (t) dt$$
 
-Definamos la función $I : \mathbb{R}^+_0 \rightarrow \mathbb{R} / I(b) = \int\limits_{0}^{+\infty} \frac{ \sin(t) }{t} \, e^{-bt} dt$. Luego, entonces, nuestra objetivo es calcular: 
-$$2 \, I(0) = 2 \, \int\limits_{0}^{+\infty} \frac{ \sin(t) }{t} \, e^{-(0)t} dt = 2 \, \int\limits_{0}^{+\infty} \frac{ \sin(t) }{t} \, e^{0} dt = 2 \, \int\limits_{0}^{+\infty} \frac{ \sin(t) }{t} \, 1 dt = 2 \, \int\limits_{0}^{+\infty} \frac{ \sin(t) }{t} dt$$
+Por lo tanto, resolver la integral propuesta implíca resolver $f_X(0)$. Pero dado que $X \sim \text{Unif}(-1, 1)$, sabemos que $f_X(x) = 1/2$ para todo $x \in [-1, 1]$. Por lo tanto,
 
-Comencemos diferenciando $I(b)$ respecto de $b$:
-
-$$ \frac{d}{d b} I(b) = \frac{d}{db} \left( \int\limits_{0}^{+\infty} \frac{ \sin(t) }{t} \, e^{-bt} dt \right) =  \int\limits_{0}^{+\infty} \frac{ \partial }{ \partial b} \left( \frac{ \sin(t) }{t} \, e^{-bt} \right) dt = \int\limits_{0}^{+\infty} -t \, \frac{ \sin(t) }{t} \, e^{-bt} dt $$
-
-Por lo tanto, hemos hallado que:
-
-$$I'(b) = - \int\limits_{0}^{+\infty} \sin(t) \, e^{-bt} dt$$
-
-Procedemos integrando por partes dos veces de la siguiente forma: 
-
-- Si $f'(t) = \sin(t) \Rightarrow f(t) = -\cos(t)$  
-- Si $g(t) = e^{-bt} \Rightarrow g'(t) = -b e^{-bt}$
-
-Por lo tanto:
-
-$$\begin{array}{r c l}
-\int \sin(t) \, e^{-bt} dt & = & - \cos(t) e^{-bt} - \int \big( - \cos(t) \big) \big( -b e^{-bt} \big) dt \\
-  & = &- \cos(t) e^{-bt} - b \int \cos(t) e^{-bt} dt
-\end{array}$$
-
-Luego:
-
-- Si $f'(t) = \cos(t) \Rightarrow f(t) = \sin(t)$  
-- Si $g(t) = e^{-bt} \Rightarrow g'(t) = -b e^{-bt}$  
-
-Otenemos que:
-
-$$\begin{array}{r c l}
-\int \sin(t) \, e^{-bt} dt & = & - \cos(t) e^{-bt} - \int \big( - \cos(t) \big) \big( -b e^{-bt} \big) dt \\ \\
-  & = & - \cos(t) e^{-bt} - b \int \cos(t) e^{-bt} dt \\ \\
-  & = & - \cos(t) e^{-bt} - b \left[ \sin(t) e^{-bt} - \int \big( \sin(t) \big) \big( -b e^{-bt} \big) \right] \\ \\
-  & = & - \cos(t) e^{-bt} - \sin(t) e^{-bt} - b^2 \int \sin(t) e^{-bt}
-\end{array}$$
-
-Por lo tanto: 
-
-$$(b^2 + 1) \int \sin(t) \, e^{-bt} dt = - \cos(t) e^{-bt} - \sin(t) e^{-bt}$$
-
-Entonces:
-
-$$\int \sin(t) \, e^{-bt} dt = \frac{ - \cos(t) e^{-bt} - \sin(t) e^{-bt}}{ b^2 + 1 } = \frac{ - e^{-bt} \big( \cos(t) + b \sin(t) \big) }{ b^2 + 1 }$$
-
-Si ahora evaluamos entre $t = 0$ y $t \rightarrow + \infty$ obtenemos que:
-
-$$I'(b) = - \left. \frac{ -e^{-bt} \big( \cos(t) + b \sin(t) \big) }{ b^2 + 1 } \right|_{0}^{+\infty} = - \frac{1}{b^2 + 1}$$
-
-Luego, resolvemos la integral indefinida de $I'(b)$ respecto de $b$ para recuperar nuestra función $I$:
-
-$$\int I'(b) db = \int - \frac{1}{b^2 + 1} db = - \int \frac{1}{b^2 + 1} db = - \tan^{-1}(b) + C$$
-
-Por lo que, utilizando la definición de la función $I$ obtenemos que:
-
-$$I(b) = - \tan^{-1}(b) + C = \int\limits_{0}^{+\infty} \frac{ \sin(t) }{ t } \, e^{-bt} dx$$
-
-Si tomamos $b \rightarrow + \infty$ podemos despejar nuestra constante de integración $C$:
-
-$$- \frac{ \pi }{ 2 } + C = 0 \Rightarrow C = \frac{ \pi }{ 2 }$$
-
-Por lo tanto, $I(b) = - \tan^{-1}(b) + \frac{\pi}{2}$, y evaluando en $b = 0$ obtenemos que $I(0) = \pi / 2$. Por lo tanto, $2 \, I(0) = \pi$.
+$$f_X(0) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-it(0)} \varphi_X (t) dt = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} \varphi_X (t) dt = \frac{1}{2} \Rightarrow \int\limits_{-\infty}^{+\infty} \varphi_X (t) dt = \pi$$
 
 ## Parte b
+
+Consideremos 
 
 
 # Ejercicio 2
