@@ -79,19 +79,35 @@ $$= \frac{1}{2} \int\limits_{-\infty}^{0} e^{x(it + 1)} dx + \frac{1}{2} \int\li
 $$= \frac{1}{2(it + 1)} - \lim\limits_{x \rightarrow - \infty} \frac{e^{x(it + 1)}}{2(it + 1)} + \lim\limits_{x \rightarrow + \infty} \frac{e^{x(it - 1)}}{2(it - 1)} - \frac{1}{2(it - 1)} =$$
 $$= \frac{1}{2(it + 1)} - \lim\limits_{x \rightarrow - \infty} \underbrace{ \frac{ \overbrace{e^x}^{\rightarrow 0} \big( \overbrace{\cos(tx)}^{\text{acot}} + i \overbrace{\sin(tx)}^{\text{acot}} \big) }{2(it + 1)} }_{\rightarrow 0} + \lim\limits_{x \rightarrow + \infty} \frac{e^{x(it - 1)}}{2(it - 1)} - \frac{1}{2(it - 1)} =$$
 $$= \frac{1}{2(it + 1)} + \lim\limits_{x \rightarrow + \infty} \underbrace{ \frac{ \overbrace{e^{-x}}^{\rightarrow 0} \big( \overbrace{\cos(tx)}^{\text{acot}} + i \overbrace{\sin(tx)}^{\text{acot}} \big) }{2(it - 1)} }_{\rightarrow 0} - \frac{1}{2(it - 1)} =$$
-$$= \frac{1}{2(it + 1)} - \frac{1}{2(it - 1)} = \frac{ it + 1 - it + 1 }{ 2 (it + 1)(it - 1) } = \frac{1}{1 + t^2} $$
+$$= \frac{1}{2(it + 1)} - \frac{1}{2(it - 1)} = \frac{ it + 1 - it + 1 }{ 2 (it + 1)(it - 1) } = \frac{1}{1 + t^2}$$
+
+\newpage
 
 ## Parte b
 
+Antes de utilizar el enunciado 2 del teorema de inversión debemos verificar que estamos en las condiciones del mismo:
+$$\int\limits_{-\infty}^{+\infty} |\varphi_X(t)| dt = \int\limits_{-\infty}^{+\infty} \left| \frac{1}{1 + t^2} \right| dt = \arctan(t) \Big|_{-\infty}^{+\infty} = \frac{\pi}{2} - \left( - \frac{\pi}{2} \right) = \pi < \infty$$
 
+Luego entonces:
+$$\begin{array}{r c l}
+f_x(x) & = & \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} e^{itx} \varphi_X(t) dt \\
+   & = & \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} e^{itx} \frac{1}{1 + t^2} dt \\
+   & = & \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} \big( \cos(-tx) + i \sin(-tx) \big) \frac{1}{1 + t^2} dt \\
+   & = & \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} \frac{ \cos(tx) }{ 1 + t^2} dt - i \int\limits_{-\infty}^{+\infty} \frac{ \sin(-tx) }{1 + t^2} dt \\
+   & = & \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} \frac{ \cos(tx) }{ 1 + t^2} dt \\
+   & = & \frac{1}{2\pi} \pi e^{-|x|} \\ \\
+   & = & \frac{1}{2} e^{-|x|} \\
+\end{array}$$
 
 ## Parte c
 
-
+$$\varphi_X(t) = \E \big( e^{itX} \big) = \int\limits_{-\infty}^{+\infty} e^{itx} \frac{1}{ \pi(1 + x^2) } dx = \frac{1}{\pi} \int\limits_{-\infty}^{+\infty} \frac{ \cos(tx) + i \sin(tx) }{ 1 + x^2 } dx = \frac{1}{\pi} \int\limits_{-\infty}^{+\infty} \frac{ \cos(tx) }{ 1 + x^2 } dx = e^{-|t|}$$
 
 # Ejercicio 4
 
+$$\varphi_{\bar{X}_n}(t) = \E \left( e^{it\bar{X}_n} \right) = \E \left( e^{i (t/n) X_1 } \right) \ldots \E \left( e^{i (t/n) X_n } \right) = \left[ \varphi_X (^t\!/\!_n) \right]^n = \left[ e^{-|t/n|} \right]^n = e^{-n|t/n|} = e^{-|t|} $$
 
+Por lo tanto, $\bar{X}_n \sim \text{Cauchy}(0, 1)$.
 
 # Ejercicio 5
 
