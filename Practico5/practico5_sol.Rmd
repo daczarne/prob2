@@ -68,7 +68,24 @@ Dado que todas las cantidades son positivas, no es necesario seguir trabajando c
 $$\int\limits_{-\infty}^{+\infty} \left| \frac{\lambda^2}{\lambda^2 + t^2} \right| dt + \int\limits_{-\infty}^{+\infty} \left| \frac{\lambda t}{ \lambda^2 + t^2 } \right| dt = \int\limits_{-\infty}^{+\infty} \frac{\lambda^2}{\lambda^2 + t^2} dt + \int\limits_{-\infty}^{+\infty} \frac{\lambda t}{ \lambda^2 + t^2 } dt =$$
 $$= \sqrt{\lambda} \left. \tan^{-1}  \left( \frac{t}{\sqrt{\lambda}} \right) \right|_{-\infty}^{+\infty} + \left. \frac{\lambda}{2} \, \ln| \lambda^2 + t^2| \right|_{-\infty}^{+\infty} = +\infty$$
 
+\newpage
+
 # Ejercicio 3
+
+## Parte a
+
+$$\varphi_X(t) = \E \big( e^{itX} \big) = \int\limits_{-\infty}^{+\infty} e^{itx} \frac{1}{2} e^{-|x|} dx = $$
+$$= \frac{1}{2} \int\limits_{-\infty}^{0} e^{x(it + 1)} dx + \frac{1}{2} \int\limits_{0}^{+\infty} e^{x(it - 1)} dx = \frac{1}{2} \left. \frac{ e^{x(it + 1)} }{ it + 1 } \right|_{-\infty}^{0} + \frac{1}{2} \left. \frac{ e^{x(it - 1)} }{ it - 1 } \right|_{0}^{+\infty} =$$
+$$= \frac{1}{2(it + 1)} - \lim\limits_{x \rightarrow - \infty} \frac{e^{x(it + 1)}}{2(it + 1)} + \lim\limits_{x \rightarrow + \infty} \frac{e^{x(it - 1)}}{2(it - 1)} - \frac{1}{2(it - 1)} =$$
+$$= \frac{1}{2(it + 1)} - \lim\limits_{x \rightarrow - \infty} \underbrace{ \frac{ \overbrace{e^x}^{\rightarrow 0} \big( \overbrace{\cos(tx)}^{\text{acot}} + i \overbrace{\sin(tx)}^{\text{acot}} \big) }{2(it + 1)} }_{\rightarrow 0} + \lim\limits_{x \rightarrow + \infty} \frac{e^{x(it - 1)}}{2(it - 1)} - \frac{1}{2(it - 1)} =$$
+$$= \frac{1}{2(it + 1)} + \lim\limits_{x \rightarrow + \infty} \underbrace{ \frac{ \overbrace{e^{-x}}^{\rightarrow 0} \big( \overbrace{\cos(tx)}^{\text{acot}} + i \overbrace{\sin(tx)}^{\text{acot}} \big) }{2(it - 1)} }_{\rightarrow 0} - \frac{1}{2(it - 1)} =$$
+$$= \frac{1}{2(it + 1)} - \frac{1}{2(it - 1)} = \frac{ it + 1 - it + 1 }{ 2 (it + 1)(it - 1) } = \frac{1}{1 + t^2} $$
+
+## Parte b
+
+
+
+## Parte c
 
 
 
