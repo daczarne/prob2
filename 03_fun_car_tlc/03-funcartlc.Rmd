@@ -23,10 +23,10 @@ fontsize: 12pt
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-- Denotaremos a $\mathbb{C}$ como el conjunto de números complejos.  
+- Denotaremos como $\mathbb{C}$ al conjunto de los números complejos.  
 - **Módulo**: si $z = a + ib \in \mathbb{C} \Rightarrow |z| = \sqrt{a^2 + b^2}$.  
 - **Conjugado**: si $z = a + ib \in \mathbb{C} \Rightarrow \bar{z} = a - ib$.  
-- **Exponencial compleja**: $e^z = e^a e^{ib} = e^a \big[ \cos(b) + i \sin(b) \big]$.
+- **Exponencial compleja**: $e^z = e^{a + ib} = e^a \, e^{ib} = e^a \big[ \cos(b) + i \sin(b) \big]$.
 
 # Función Característica
 
@@ -107,9 +107,53 @@ $$\left. \begin{array}{l}
 Aplicando ahora la propiedad 3, obtenemos que:
 $$\varphi_{\sigma X + \mu} (t) = e^{it \mu} e^{-(\sigma t)^2 / 2} = \exp\left\{ it \mu - \frac{ (\sigma t)^2 }{2} \right\}$$
 
+#### Proposición 3.5
+
+$\varphi_X(t)$ es uniformemente continua.
+
+<!--
+*Dem*: observemos que:
+
+$$\varphi_X(t) - \varphi_X(s) = \E \big( e^{itX} \big) - \E \big( e^{isX} \big) $$
+-->
+
 # Teorema del Límite Central
 
 ## Variables iid
+
+#### Teorema 3.12: Teorema de Levy
+
+Sean $X_1; \, \ldots; \, X_n$ iid con función de distribución $F$ tal que $\E(X_1) = \mu$ y $\V(X_1) = \sigma^2$. Si denotamos a $S_n = \sum\limits_{i = 1}^{n} X_i$, entonces:
+$$\frac{ S_n - n \, \mu }{ \sigma \sqrt{n} } \overset{d}{\rightarrow} Z \sim \text{N}(0, 1)$$
+
+*Dem*: para facilitar notación, llamemos $Z_n = \frac{ S_n - n \, \mu }{ \sigma \sqrt{n} }$. Sean las variables $Y_i$ tales que:
+
+- $Y_i = \frac{ X_i - \mu }{ \sigma }$.
+
+- $\E(Y_i) = \E \left[ \frac{ X_i - \mu }{ \sigma } \right] = \frac{1}{\sigma} \left[ \E(X_i) - \mu \right] = 0$
+
+- $\V(Y_i) = \V \left[ \frac{ X_i - \mu }{ \sigma } \right] = \frac{1}{\sigma^2} \V(X_i) = 1$
+
+- $Z_n = \frac{ S_n - n \, \mu }{ \sigma \sqrt{n} } = \frac{ \sum\limits_{i = 1}^{n} X_i - n \, \mu }{ \sigma \sqrt{n} } = \frac{ \sum\limits_{i = 1}^{n} ( X_i - \mu ) }{ \sigma \sqrt{n} } = \frac{1}{\sqrt{n}} \sum\limits_{i = 1}^{n} \left( \frac{ X_i - \mu }{ \sigma } \right) = \frac{1}{\sqrt{n}} \sum\limits_{i = 1}^{n} Y_i$
+
+Luego entonces,
+
+$$\begin{array}{rclcl}
+\varphi_{Z_n}(t) & = & \E \big( e^{itZ_n} \big) & & \\ \\
+   & = & \E \left( \exp\left\{ it \frac{1}{\sqrt{n}} \sum\limits_{i = 1}^{n} Y_i \right\} \right) & & \\ \\
+   & = & \E \left( \exp\left\{ it \frac{1}{\sqrt{n}} Y_1 \right\} \right) \ldots \E \left( \exp\left\{ it \frac{1}{\sqrt{n}} Y_n \right\} \right) & & \text{por independencia} \\ \\
+   & = & \varphi_{Y_1} \left( ^t/\!_{\sqrt{n}} \right) \ldots \varphi_{Y_n} \left( ^t/\!_{\sqrt{n}} \right) & & \text{por definición de función característica} \\ \\
+   & = & \left[ \varphi_{Y_1} \left( ^t/\!_{\sqrt{n}} \right) \right]^n & & \text{por igual distribución}
+\end{array}$$
+
+Procedemos desarrollando el polinomio de Taylor de segundo orden (dado que sabemos que tiene derivada segunda por tener segundo momento centrado finito) en torno a $t = 0$, por lo que obtenemos que:
+$$\left[ \varphi_{Y_1} \left( ^t/\!_{\sqrt{n}} \right) \right]^n = \left[ \varphi_{Y_1} (0) + \varphi'_{Y_1} (0) \frac{^t/\!_{\sqrt{n}} }{1!} + \varphi''_{Y_1} (0) \frac{ (^t/\!_{\sqrt{n}} )^2 }{ 2! } + \varepsilon_2 \left( \frac{t_1}{ \sqrt{n} } \right) \frac{ (^t/\!_{\sqrt{n}})^2 }{ 2! } \right]^n \,\,\,\,\,\,\,\, \text{con } 0 \leq t_1 \leq t$$
+
+Luego $\varphi_{Y_1} (0) = 1$ por prop 3.3/2. Por otro lado, siguiendo la prop 3.6, obtenmos que $\varphi_{Y_1}'(0) = 0$ dado que $Y_1$ es una variable aleatoria centrada en 0, mientras que $\varphi''_{Y_1} (0) = -1$ dado que $\V(Y_1) = 1$. Por lo tanto,
+$$\left[ \varphi_{Y_1} \left( ^t/\!_{\sqrt{n}} \right) \right]^n = \left[ 1 - \frac{ t^2 }{ 2 n } + \frac{ t^2 }{ 2n } \, \varepsilon_2 \left( \frac{t_1}{ \sqrt{n} } \right) \right]^n$$
+
+Si tomamos el límite cuando $n \rightarrow +\infty$ hallamos que:
+$$\lim\limits_{n \rightarrow +\infty} \varphi_{Z_n}(t) = \lim\limits_{n \rightarrow +\infty} \left[ \varphi_{Y_1} \left( ^t/\!_{\sqrt{n}} \right) \right]^n = \lim\limits_{n \rightarrow +\infty} \left[ 1 - \frac{ t^2 }{ 2 n } + \frac{ t^2 }{ 2n } \, \varepsilon_2 \left( \frac{t_1}{ \sqrt{n} } \right) \right]^n = e^{ -t^2 /2 } = \varphi_Z(t)$$
 
 ## Arreglos triangulares
 
