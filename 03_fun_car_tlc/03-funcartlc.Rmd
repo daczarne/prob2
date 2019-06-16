@@ -153,6 +153,15 @@ $$\varphi_X : H \rightarrow \mathbb{C} / \varphi_X (t) = \E \big( e^{i \langle t
 Una condición necesaria y suficiente para que las componentes del vector $\xi = (\xi_1, \ldots, \xi_d)'$ sean independientes es que la función característica de $\xi$ sea el producto de las funciones características de las componentes $\xi_i$.
 $$\E \left[ \exp\big\{ i ( t_1 \xi_1 + \ldots + t_d \xi_d ) \big\} \right] = \prod\limits_{k = 1}^{d} \E \left[ \exp\big\{ i t_k \xi_k \big\} \right] $$
 
+#### Teorema 3.11
+
+Dada $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias definidas en $(\Omega_n, \, \mathcal{A}_n, \, P_n)$ y una variable aleatoria $X$ definida en $(\Omega, \, \mathcal{A}, \, P)$, son equivalentes:
+
+1. $X_n \overset{d}{\rightarrow} X$
+
+2. $\varphi_{X_n} (t) \overset{n}{\rightarrow} \varphi_X(t)$ para todo $t \in \mathbb{R}$
+
+
 # Teorema del Límite Central
 
 ## Variables iid
