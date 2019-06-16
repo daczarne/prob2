@@ -117,6 +117,28 @@ $\varphi_X(t)$ es uniformemente continua.
 $$\varphi_X(t) - \varphi_X(s) = \E \big( e^{itX} \big) - \E \big( e^{isX} \big) $$
 -->
 
+#### Proposición 3.6
+
+Si $\E |X|^n < \infty$ para algún $n \geq 1$ entonces:
+
+- Existen las derivadas de $\varphi_X$ de orden $1, \ldots, n$
+
+- $\varphi_X^{(r)}(t) = \int\limits_{\mathbb{R}} (ix)^r e^{itx} dF(x) = i^r \, \E(X^r \, e^{itX} )$
+
+- $i^r \, \E(X^r) = \varphi_X^{(r)}(0)$ 
+
+- $\varphi_X(t) = \sum\limits_{r = 0}^{n} \frac{(it)^r}{r!} \E (X^r) + \frac{(it)^n}{n!} \varepsilon_n(t)$ donde $|\varepsilon_n(t)| \leq 3 \E(|X|^n)$ y $\varepsilon_n(t) \overset{t}{\rightarrow} 0$
+
+#### Teorema 3.7: Fórmula de inversión
+
+sea $F = F(x)$ una función de distribución y $\varphi(t) = \int\limits_{\mathbb{R}} e^{itx} dF(x)$ su función característica, entonces:
+
+- Para todo par $a < b$ de puntos de continuidad de $F$ se cumple que:
+$$F(b) - F(a) = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \frac{ e^{-ita} - e^{-itb} }{it} \varphi(t) dt$$
+
+- Si además, $\int\limits_{\mathbb{R}} |\varphi (t)| dt < \infty$ entonces, $F$ tiene densidad $f$ dada por:
+$$f(x) = \frac{1}{2 \pi} \int\limits_{\mathbb{R}} e^{-tx} \varphi(t) dt$$
+
 # Teorema del Límite Central
 
 ## Variables iid
