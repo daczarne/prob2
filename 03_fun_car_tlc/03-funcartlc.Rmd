@@ -148,6 +148,11 @@ Si $F$ y $G$ son distribuciones tales que $\int\limits_{\mathbb{R}} e^{itx} dF(x
 Dado $(\Omega, \, \mathcal{A}, \, P)$ un espacio de probabilidad y $X : \Omega \rightarrow H$ siendo $H$ un espacio vectorial con un producto interno $\langle \cdot \, , \,  \cdot \rangle$ definimos la función característica como:
 $$\varphi_X : H \rightarrow \mathbb{C} / \varphi_X (t) = \E \big( e^{i \langle t, X \rangle } \big)$$
 
+#### Teorema 3.10
+
+Una condición necesaria y suficiente para que las componentes del vector $\xi = (\xi_1, \ldots, \xi_d)'$ sean independientes es que la función característica de $\xi$ sea el producto de las funciones características de las componentes $\xi_i$.
+$$\E \left[ \exp\big\{ i ( t_1 \xi_1 + \ldots + t_d \xi_d ) \big\} \right] = \prod\limits_{k = 1}^{d} \E \left[ \exp\big\{ i t_k \xi_k \big\} \right] $$
+
 # Teorema del Límite Central
 
 ## Variables iid
