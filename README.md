@@ -1,2 +1,3 @@
 # prob2
-Probabilidad 2
+Prácticos y resúmenes para el curso de Probabilidad 2  
+IESTA - FCEA - Udelar
