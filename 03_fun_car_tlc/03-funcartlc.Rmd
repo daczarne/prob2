@@ -215,3 +215,61 @@ donde:
 
 ## Arreglos triangulares
 
+Un arreglo triangular es un conjutno de variables aleatorias tales que en cada fila las variables son independientes (no necesariamente igualmente distribuidas). No tiene porqué existir independencia entre las filas, solo dentro de ellas.
+
+$$\begin{array}{ccccc}
+X_{11} \\
+X_{21} & X_{22} \\
+X_{31} & X_{32} & X_{33} \\
+\vdots & \vdots & \vdots & \ddots \\
+X_{n1} & X_{n2} & X_{n3} & \cdots & X_{nn}
+\end{array}$$
+
+Para lo que sigue consideraremos siempre un arreglo triangualr tal que:
+
+1. $\E(X_{nk}) = 0$
+
+2. $\E(X_{nk}^2) = \sigma_{nk}^2 > 0$
+
+3. $\sum\limits_{k = 1}^{n} \sigma_{nk}^2 = 1$
+
+Y denotaremos:
+
+1. $S_n = X_{n1} + \ldots + X_{nn}$ (es decir, $S_n$ es la suma de la $n$-ésima fila).
+
+2. $F_{nk}(x) = \Pr ( X_{nk} \leq x )$ (es decir, $F_{nk}(x)$ es la función de distribución de probabilidad de la $k$-ésima variable aleatoria de la $n$-ésima fila del arreglo).
+
+3. $\Phi(x) = \Pr( \text{N}(0,1) \leq x)$
+
+4. $\Phi_{nk}(x) = \Pr( \text{N}(0, \sigma_{nk}^2) \leq x) = \Phi(x/\sigma_{nk})$
+
+#### Teorema 3.14: Condición necesaria y suficiente de Lindeberg $(\Lambda)$
+
+$$(\Lambda) \,\,\,\,\,\,\,\, S_n \overset{d}{\rightarrow} Z \sim \text{N}(0,1) \Leftrightarrow \sum\limits_{k = 1}^{n} \int\limits_{|x| > \varepsilon} |x| \, \big| F_{nk}(x) - \Phi_{nk}(x) \big| dx \overset{n}{\rightarrow} 0$$
+
+Para demostrar la el teorema de Lindeeberg se hará uso de los siguientes dos lemas.
+
+#### Lema 3.15
+
+$$\left| e^{ix} - \sum\limits_{k = 0}^{n} \frac{ (ix)^k }{ k! } \right| \leq \frac{ |x|^n }{ n! }$$
+
+#### Lema 3.16
+
+Si $E(|X|^n) < \infty$, entonces $x^n \big( F(x) - F(-x) -1 \big) \overset{x}{\rightarrow} 0$ siendo $F$ la función de distribución de $X$.
+
+#### Teorema 3.18: Condición $L$ de Lindeberg
+
+Sean $X_{1n}, \, \ldots, \, X_{nn}$ variables aleatorias independientes tales que $\E(X_{nk}) = m_{nk}$ y $\V(X_{nk}) = \sigma_{nk}^2 < \infty$. Denotemos $S_n = \sum\limits_{k = 1}^{n} X_{nk}$ y $V^2_n = \sum\limits_{k = 1}^{n} \sigma_{nk}^2$. Si se cumple la siguiente condición de Lindeberg (condición $L$):
+$$(L) \,\,\,\,\,\,\, \varepsilon > 0, \, \lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^2} \sum\limits_{k = 1}^{n} \E \big[ ( X_{nk} - m_{nk} )^2 \, \mathbb{I}_{ \{ |X_{nk} - m_{nk} | > \varepsilon V_n  \} } \big] = 0$$
+entonces:
+$$\frac{1}{V_n} \sum\limits_{k = 1}^{n} (X_{nk} - m_{nk}) \overset{d}{\rightarrow} Z \sim \text{N}(0, 1)$$
+
+#### Definición 3.19: Condición de Lyapunov
+
+Sean $X_1, \, \ldots, \, X_n$ variables aleatorias independientes con segundo momento finito. Sean $m_{k} = \E(X_k)$, $\sigma_k^2 = \V(X_k)$, $S_n = X_1 + \ldots + X_n$, y $V_n^2 = \sum\limits_{k = 1}^{n} \sigma_k^2$. Decimos que las variables $X_i$ verifican la condición $LY$ de Lyapunov si $\exists \delta$ tal que:
+$$\lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^{2 + \delta}} \sum\limits \E \big| X_k - m_k \big|^{2 + \delta} = 0$$
+
+
+
+
+
