@@ -200,5 +200,18 @@ $$\left[ \varphi_{Y_1} \left( ^t/\!_{\sqrt{n}} \right) \right]^n = \left[ 1 - \f
 Si tomamos el límite cuando $n \rightarrow +\infty$ hallamos que:
 $$\lim\limits_{n \rightarrow +\infty} \varphi_{Z_n}(t) = \lim\limits_{n \rightarrow +\infty} \left[ \varphi_{Y_1} \left( ^t/\!_{\sqrt{n}} \right) \right]^n = \lim\limits_{n \rightarrow +\infty} \left[ 1 - \frac{ t^2 }{ 2 n } + \frac{ t^2 }{ 2n } \, \varepsilon_2 \left( \frac{t_1}{ \sqrt{n} } \right) \right]^n = e^{ -t^2 /2 } = \varphi_Z(t)$$
 
+#### Teorema 3.13: Desigualdad de Berry y Esseen
+
+Si $X_1, \, \ldots, \, X_n$ son varaiables aleatorias iid con $\E(X_1) = 0$, $\V(X_1) = \sigma^2 < \infty$, y $\E(|X_1|^3) < \infty$, entonces:
+$$\sup\limits_{x \in \mathbb{R}} \big| F_n(x) - \Phi(x) \big| \leq C \, \frac{ \E( |X_1|^3) }{ \sigma^3 \sqrt{n} } $$
+
+donde:
+
+- $F_n = \Pr (S_n \leq x)$
+
+- $S_n = \frac{X_1 + \ldots + X_n}{ \sigma \sqrt{n} }$
+
+- $\frac{1}{\sqrt{2 \pi}} \leq C < 0.8$
+
 ## Arreglos triangulares
 
