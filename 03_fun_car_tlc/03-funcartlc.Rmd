@@ -139,6 +139,15 @@ $$F(b) - F(a) = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_
 - Si además, $\int\limits_{\mathbb{R}} |\varphi (t)| dt < \infty$ entonces, $F$ tiene densidad $f$ dada por:
 $$f(x) = \frac{1}{2 \pi} \int\limits_{\mathbb{R}} e^{-tx} \varphi(t) dt$$
 
+#### Corolario 3.8
+
+Si $F$ y $G$ son distribuciones tales que $\int\limits_{\mathbb{R}} e^{itx} dF(x) = \int\limits_{\mathbb{R}} e^{itx} dG(x)$ para todo $t \in \mathbb{R} \Rightarrow F = G$. 
+
+#### Definicion 3.9: Función característica en general
+
+Dado $(\Omega, \, \mathcal{A}, \, P)$ un espacio de probabilidad y $X : \Omega \rightarrow H$ siendo $H$ un espacio vectorial con un producto interno $\langle \cdot \, , \,  \cdot \rangle$ definimos la función característica como:
+$$\varphi_X : H \rightarrow \mathbb{C} / \varphi_X (t) = \E \big( e^{i \langle t, X \rangle } \big)$$
+
 # Teorema del Límite Central
 
 ## Variables iid
