@@ -153,6 +153,19 @@ $$\varphi_X : H \rightarrow \mathbb{C} / \varphi_X (t) = \E \big( e^{i \langle t
 Una condición necesaria y suficiente para que las componentes del vector $\xi = (\xi_1, \ldots, \xi_d)'$ sean independientes es que la función característica de $\xi$ sea el producto de las funciones características de las componentes $\xi_i$.
 $$\E \left[ \exp\big\{ i ( t_1 \xi_1 + \ldots + t_d \xi_d ) \big\} \right] = \prod\limits_{k = 1}^{d} \E \left[ \exp\big\{ i t_k \xi_k \big\} \right] $$
 
+*Dem*:
+
+$(\Rightarrow)$
+$$\E \left[ e^{i(t_1X_1 + \ldots + t_d X_d)} \right] = \E \left[ e^{it_1X_1} \ldots e^{i t_d X_d} \right] = \E \left[ e^{it_1X_1} \right] \ldots \E \left[ e^{i t_d X_d} \right] =$$
+$$= \varphi_{X_1}(t_1) \ldots \varphi{X_d}(t_d) = \prod\limits_{j = 1}^{d} \varphi_{X_j}(t_j)$$
+
+$(\Leftarrow)$ Por un lado sabemos, por la hipótesis del teorema, que se cumple lo siiguiente:
+$$\varphi_X(t) = \prod\limits_{j = 1}^{d} \varphi_{X_j}(t_j) = \int\limits_{\mathbb{R}^d} e^{i(t_1 X_1 + \ldots + t_d X_d)} dF(\mathbf{x}) $$
+
+Por otro lado, aplicando el teorema de Fubini, tenemos que:
+$$\int\limits_{\mathbb{R}^d} e^{i(t_1 X_1 + \ldots + t_d X_d)} dG = \int\limits_{\mathbb{R}} e^{it_1 X_1} dF_1\int\limits_{\mathbb{R}}  \ldots \int\limits_{\mathbb{R}} e^{ i t_d X_d } dF_d = \prod\limits_{j = 1}^{d} \varphi_{x_j}(t_j)$$
+donde $G = \prod\limits_{j = 1}^{d} F_j$ siendo $F_j$ la $j$-ésima componente de $F : \mathbb{R}^d \rightarrow [0, 1]$. Pero si $G$ puede expresarse como la productoria de sus marginales, entonces las componentes de $G$ son independientes entre sí.
+
 #### Teorema 3.11
 
 Dada $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias definidas en $(\Omega_n, \, \mathcal{A}_n, \, P_n)$ y una variable aleatoria $X$ definida en $(\Omega, \, \mathcal{A}, \, P)$, son equivalentes:
@@ -268,8 +281,3 @@ $$\frac{1}{V_n} \sum\limits_{k = 1}^{n} (X_{nk} - m_{nk}) \overset{d}{\rightarro
 
 Sean $X_1, \, \ldots, \, X_n$ variables aleatorias independientes con segundo momento finito. Sean $m_{k} = \E(X_k)$, $\sigma_k^2 = \V(X_k)$, $S_n = X_1 + \ldots + X_n$, y $V_n^2 = \sum\limits_{k = 1}^{n} \sigma_k^2$. Decimos que las variables $X_i$ verifican la condición $LY$ de Lyapunov si $\exists \delta$ tal que:
 $$\lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^{2 + \delta}} \sum\limits \E \big| X_k - m_k \big|^{2 + \delta} = 0$$
-
-
-
-
-
