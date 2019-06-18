@@ -37,21 +37,23 @@ $$\varphi_X : \mathbb{R} \rightarrow \mathbb{C} \, / \, \varphi_X(t) = \E \big( 
 
 #### Observación 3.2
 
-Dado que $e^{itX} = \cos(tX) + i \sin(tX)$ se tiene que:
+Dado que $e^{itX} = \cos(tX) + i \sin(tX)$, se tiene que:
 $$\varphi_X(t) = \int\limits_{-\infty}^{+\infty} e^{itx} dF_X(x) = \E \big[ \cos(tX) \big] + i \, \E \big[ \sin(tX) \big]$$
 como $|e^{itX}| = 1$ para todo $t$, $\exists \varphi(t) < \infty$ para todo $t$.
 
 #### Proposición 3.3: propiedades de la función característica
 
-1. $|\varphi_X(t)| \leq 1$ para todo $t \in \mathbb{R}$
+1. $\big| \varphi_X(t) \big| \leq 1$ para todo $t \in \mathbb{R}$
 
-*Dem*: $|\varphi_X(t)| = \Big| \E \big(e^{itX} \big) \Big| \leq \E \big|e^{itX} \big| = \E (1) = 1$ dado que $g(z) = |z|$ es una función convexa.
+*Dem*: $|\varphi_X(t)| = \Big| \E \big(e^{itX} \big) \Big| \leq \E \big|e^{itX} \big| = \E (1) = 1$, dado que $g(z) = |z|$ es una función convexa.
 
 ***
 
 2. $\varphi_X(0) = 1$
 
-*Dem*: $|\varphi_X(0)| = \Big| \E \big(e^{it(0)} \big) \Big| = \E \big|e^{0} \big| = \E (1) = 1$.
+*Dem*: $\varphi_X(0) = \E \big(e^{i(0)X} \big) = \E \big( e^{0} \big) = \E (1) = 1$.
+
+\newpage
 
 3. $\varphi_{aX+b}(t) = e^{itb} \, \varphi_X(at)$
 
@@ -75,7 +77,7 @@ $$\varphi_{X + Y}(t) = \E \Big[ e^{it(X+Y)} \Big] = \E \Big[ e^{itX + itY} \Big]
 - $\sin(x)$ es impar, por lo tanto, $\sin(x) = - \sin(-x)$, y $\int\limits_{\mathbb{R}} \sin(x) dx = 0$. 
 - $\cos(x)$ es par, por lo tanto, $\cos(x) = \cos(-x)$, y $\int\limits_{\mathbb{R}} \cos(x) dx = 2 \int\limits_0^{+\infty} \cos(x) dx$. 
 
-$$\overline{ \varphi_X (-t) } = \overline{ \E \big[ \cos(-tX) + i \sin(-tX) \big] } = \overline{ \E \big[ \cos(tX) - i \sin(-tX) \big] } = \E \big[ \cos(tX) + i \sin(tX) \big] = \varphi_x(t)$$
+$$\overline{ \varphi_X (-t) } = \overline{ \E \big[ \cos(-tX) + i \sin(-tX) \big] } = \overline{ \E \big[ \cos(tX) - i \sin(tX) \big] } = \E \big[ \cos(tX) + i \sin(tX) \big] = \varphi_x(t)$$
 
 ***
 
@@ -133,11 +135,132 @@ Si $\E |X|^n < \infty$ para algún $n \geq 1$ entonces:
 
 sea $F = F(x)$ una función de distribución y $\varphi(t) = \int\limits_{\mathbb{R}} e^{itx} dF(x)$ su función característica, entonces:
 
-- Para todo par $a < b$ de puntos de continuidad de $F$ se cumple que:
+1. Para todo par $a < b$ de puntos de continuidad de $F$ se cumple que:
 $$F(b) - F(a) = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \frac{ e^{-ita} - e^{-itb} }{it} \varphi(t) dt$$
 
-- Si además, $\int\limits_{\mathbb{R}} |\varphi (t)| dt < \infty$ entonces, $F$ tiene densidad $f$ dada por:
+2. Si además, $\int\limits_{\mathbb{R}} |\varphi (t)| dt < \infty$ entonces, $F$ tiene densidad $f$ dada por:
 $$f(x) = \frac{1}{2 \pi} \int\limits_{\mathbb{R}} e^{-tx} \varphi(t) dt$$
+
+*Dem 1*: comencemos estableciendo la hoja de ruta de la demostración.
+
+i. Del capítulo 1 (prop 1.44) sabemos que $\int\limits_a^b dF_X(x) = \Pr(a < X \leq b) = F_X(b) - F_X(a)$. Por lo tanto, la demostración de la parte 1 se reduce a demostrar que:
+$$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \frac{ e^{-ita} - e^{-itb} }{it} \varphi(t) dt = \int\limits_a^b dF_X(x)$$
+
+ii. Por la definición de función característica sabemos que:
+$$\varphi_X(t) = \E \big( e^{itX} \big) = \int\limits_{-\infty}^{+\infty} e^{itx} dF_X(x)$$
+
+Por lo tanto, nuestra hoja de ruta tiene los siguientes pasos a cumplir:
+
+a. Usar la definición de función característica en 1 para obtener nuestro $dF_X(x)$ 
+
+b. Intercambiar las integrales (requiere demostrar que estamos en las hipótesis del teorema de Fubini).
+
+c. Resolver la integral interior (que estará en términos de $dt$ luego del intercambio del punto anterior).
+
+d. Intercambiar el límite con la integral (es decir, poner el límite dentro de la integral).
+
+e. Resolver el límite.
+
+f. Resolver la segunda integral.
+
+\newpage
+
+Comenzamos con el paso a. Para ello simplemente remplazamos $\varphi_X(t)$ por su definición, y obtenemos:
+$$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \frac{ e^{-ita} - e^{-itb} }{it} \varphi(t) dt = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \frac{ e^{-ita} - e^{-itb} }{it} \left[ \int\limits_{\mathbb{R}} e^{itx} dF(x) \right] dt = $$
+$$= \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \int\limits_{\mathbb{R}} \frac{ e^{-ita} - e^{-itb} }{it} e^{itx} dF(x) dt$$
+
+Para el paso b debemos probar que estamos en las hipótesis del teorema de Fubini. El mismo dice que, para resolver un integral doble, podemos intercambiar las integrales, sí y solo si, la integral del valor absoluto del integrando es finita. Es decir, si el integrando está en $L^1$. Para ello procedemos de la siguiente forma:
+$$\left| \frac{ e^{-ita} - e^{-itb} }{it} e^{itx} \right| = \left| \frac{ e^{-ita} - e^{-itb} }{it} \right| \underbrace{\left| e^{itx} \right|}_{ = 1} = \left| \frac{ e^{-ita} - e^{-itb} }{it} \right| = \left| \int\limits_a^b e^{itu} du \right| \leq \int\limits_a^b \underbrace{ \left| e^{itu} \right| }_{ = 1} du =$$
+$$= \int\limits_a^b du = \left. u \right|_{a}^{b} = b - a < +\infty$$
+
+Queda demostrado entonces que el valor absoluto del integrando está acotado, por lo tanto, podemos intercambiar las integrales, obteniendo:
+$$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \int\limits_{\mathbb{R}} \frac{ e^{-ita} - e^{-itb} }{it} e^{itx} dF(x) dt = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ e^{-ita} - e^{-itb} }{it} e^{itx} dt \, dF(x)$$
+
+Para el punto c de nuestra demostración debemos ahora resolver la integral "interior" (la que está en términos de $dt$). Para ello comencemos notando que podemos separar el problema en dos partes.
+$$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ e^{-ita} }{it} \, e^{itx} dt \, dF(x) - \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ e^{-itb} }{it} \, e^{itx} dt \, dF(x)$$
+
+Nótese que dichas partes son análogas, por lo que solo debemos demostrar una de ellas (por ejemplo la primera). Comencemos agrupando términos dentro de la integral, y utilizando la definición de la exponencial compleja:
+$$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ e^{-ita} }{it} \, e^{itx} dt \, dF(x) = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ e^{it(x-a)} }{it} dt \, dF(x) =$$
+$$= \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ \cos(t(x - a)) + i \, \sin(t(x - a)) }{it} dt \, dF(x) =$$
+$$= \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ \cos(t(x - a)) }{it} dt \, dF(x) + \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ \sin(t(x - a)) }{t} dt \, dF(x)$$
+
+Comenzamos con la integral del coseno. Para resolverla utilizamos el siguiente cambio de variable:
+
+$$u = t(x - a) \Rightarrow t = \frac{u}{x - a} \Rightarrow \frac{dt}{du} = \frac{1}{ x - a } \Rightarrow dt = (x - a) du$$
+
+$$\begin{array}{rclcrcl}
+\text{Si } t = c & \Rightarrow & u = c(x - a) & & \text{Si } t = -c & \Rightarrow & u = -c(x - a)
+\end{array}$$
+
+Por lo tanto,
+$$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ \cos(t(x - a)) }{it} dt \, dF(x) = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \cos(u) }{iu} du \, dF(x) $$
+
+Observemos que $\cos(u)$ es una función par, mientras que $u$ es una función impar, por lo que el cociente es impar, de donde concluimos que la integral vale 0.
+
+Resolvemos ahora la integral del seno. Comenzamos aplicando el mismo cambio de variable que en la parte anteerior para obtener:
+$$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ \sin(t(x - a)) }{t} dt \, dF(x) = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du \, dF(x)$$
+
+Para la parte d debemos intercambiar el límite con la primer integral. Ahora, notemos que el límite que estamos tomando es cuando $c \rightarrow + \infty$, mientras que la primer integral no depende de $c$. Por lo tanto, intercambiarlos no requiere probar que estemos en las hipótesis del teorema de convergencia dominada.
+$$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du \, dF(x) = \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du \right] dF(x)$$
+
+<!--
+Los pasos e y f nos conviene resolverlos conjuntamentes.Primero un comentario respecto del paso f. Supongamos que límite en cuestión tiene por resultado una constante $C$ (constante como función de $x$). En ese caso ya sabemos que, por el teorema 1.35 (ver capítulo 1), el resultado será:
+$$\frac{1}{2 \pi} \int\limits_{\mathbb{R}} C dF_X(x) = \frac{C}{2 \pi} \int\limits_{\mathbb{R}} dF_X(x) = \frac{C}{2 \pi} \int\limits_{\mathbb{R}} f_X(x) dx = \frac{C}{2 \pi}$$
+-->
+
+Para resolver el paso e debemos discutir respecto de la relación entre $a$, $x$, y $b$. Para ello es conveniente recordar que hasta ahora solo estabamos trabajando con la parte del problema que dependía de $a$ y tener presentes ambas partes. Entonces, el problema completo a resolver es el siguiente:
+$$\frac{1}{2 \pi} \int\limits_{\mathbb{R}} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du \right] dF(x) - \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] dF(x) =$$
+$$= \int\limits_{\mathbb{R}} \left( \frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du \right] - \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] \right) dF_X(x) =$$
+$$= \int\limits_{\mathbb{R}} \left( \frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du - \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] \right) dF_X(x)$$
+
+Supongamos, si pérdida de generalidad, que $a < b$, y discutamos en función de $x$. 
+
+$\bullet$ Si $x < a$ entonces $x < b$, por lo que tenemos que:
+$$\lim\limits_{c \rightarrow +\infty} c(x - a) = - \infty \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \lim\limits_{c \rightarrow +\infty} -c(x - a) = + \infty $$
+$$\lim\limits_{c \rightarrow +\infty} c(x - b) = - \infty \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \lim\limits_{c \rightarrow +\infty} -c(x - b) = + \infty$$
+
+Por lo que nuestro problema será entonces:
+$$\frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du - \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] = \frac{1}{2 \pi} \left[ \int\limits_{+ \infty}^{- \infty} \frac{ \sin(u) }{u} du - \int\limits_{+ \infty}^{- \infty} \frac{ \sin(u) }{u} du \right] = 0$$
+
+$\bullet$ Si $x > b$ entonces $x > a$, por lo que tenemos que:
+$$\lim\limits_{c \rightarrow +\infty} c(x - a) = + \infty \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \lim\limits_{c \rightarrow +\infty} -c(x - a) = - \infty $$
+$$\lim\limits_{c \rightarrow +\infty} c(x - b) = + \infty \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \lim\limits_{c \rightarrow +\infty} -c(x - b) = - \infty$$
+
+Por lo que nuestro problema será entonces:
+$$\frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du - \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] = \frac{1}{2 \pi} \left[ \int\limits_{- \infty}^{+ \infty} \frac{ \sin(u) }{u} du - \int\limits_{- \infty}^{+ \infty} \frac{ \sin(u) }{u} du \right] = 0$$
+
+$\bullet$ Si $x = a$ entonces $x < b$, por lo que tenemos que:
+$$\lim\limits_{c \rightarrow +\infty} c(x - a) = 0 \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \lim\limits_{c \rightarrow +\infty} -c(x - a) = 0$$
+$$\lim\limits_{c \rightarrow +\infty} c(x - b) = - \infty \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \lim\limits_{c \rightarrow +\infty} -c(x - b) = + \infty$$
+
+Por lo que nuestro problema será entonces:
+$$\frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du - \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] = \frac{1}{2 \pi} \left[ \int\limits_{0}^{0} \frac{ \sin(u) }{u} du - \int\limits_{+ \infty}^{- \infty} \frac{ \sin(u) }{u} du \right] = \frac{1}{2}$$
+
+$\bullet$ Si $x = b$ entonces $x > a$, por lo que tenemos que:
+$$\lim\limits_{c \rightarrow +\infty} c(x - a) = + \infty \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \lim\limits_{c \rightarrow +\infty} -c(x - a) = - \infty$$
+$$\lim\limits_{c \rightarrow +\infty} c(x - b) = 0 \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \lim\limits_{c \rightarrow +\infty} -c(x - b) = 0$$
+
+Por lo que nuestro problema será entonces:
+$$\frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du - \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] = \frac{1}{2 \pi} \left[ \int\limits_{- \infty}^{+ \infty} \frac{ \sin(u) }{u} du - \int\limits_{0}^{0} \frac{ \sin(u) }{u} du \right] = \frac{1}{2}$$
+
+$\bullet$ Si $a < x < b$, tenemos que:
+$$\lim\limits_{c \rightarrow +\infty} c(x - a) = + \infty \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \lim\limits_{c \rightarrow +\infty} -c(x - a) = - \infty$$
+$$\lim\limits_{c \rightarrow +\infty} c(x - b) = - \infty \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \lim\limits_{c \rightarrow +\infty} -c(x - b) = + \infty$$
+
+Por lo que nuestro problema será entonces:
+$$\frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du - \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] = \frac{1}{2 \pi} \left[ \int\limits_{- \infty}^{+ \infty} \frac{ \sin(u) }{u} du - \int\limits_{+ \infty}^{- \infty} \frac{ \sin(u) }{u} du \right] = 1$$
+
+Por lo tanto, obtuvimos que:
+$$\Psi(x) = \frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du - \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] = \left\{ 
+\begin{array}{ccc}
+0 & \text{si} & x < a \text{ ó } x > b \\
+1/2 & \text{si} & x = a \text{ ó } x = b \\
+1 & \text{si} & a < x < b
+\end{array}
+\right.$$
+
+Por lo que $\Psi(x)$ no es otra más que la función del ejercicio 5 del práctico 1. Utilizando el resultado de dicho ejercicio, sabemos que la parte f de nuestra demostración no es más que:
+$$\int\limits_{\mathbb{R}} \Psi(x) d F_X(x) = F_X(b) - F_X(a)$$
 
 #### Corolario 3.8
 
