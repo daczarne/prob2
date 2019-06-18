@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Parte a
 
-Sea $X$ una variable aleatoria con distribución $\text{Unif}(-1, 1)$. La función característica de $X$ será entonces $\varphi_X(t) = \frac{\sin t }{t}$. Luego, por el teorema de inversión sabemos que:
+Sea $X$ una variable aleatoria con distribución $\text{Unif}(-1, 1)$. La función característica de $X$ será entonces $\varphi_X(t) = \frac{\sin (t) }{t}$. Luego, por el teorema de inversión sabemos que:
 
 $$f_X(x) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-itx} \varphi_X (t) dt$$
 
