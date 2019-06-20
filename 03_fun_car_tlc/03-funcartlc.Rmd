@@ -99,7 +99,7 @@ Donde el primer sumando es cero dado que $-e^{-x^2 / 2}$ tiende a cero en los l�
 
 $$\frac{ \partial }{ \partial t } \varphi_X (t) = - i \int\limits_{-\infty}^{+\infty} \left( \frac{ -e^{-x^2 / 2} }{ \sqrt{2 \pi} } \right) e^{itx} (it) \, dx = - t \int\limits_{-\infty}^{+\infty} \left( \frac{ -e^{-x^2 / 2} }{ \sqrt{2 \pi} } \right) e^{itx} dx = - t \, \varphi_X(t)$$
 
-Por lo tanto, hallamos que $\varphi'_X(t) = - t \varphi_X(t)$. Esto equivale a resolver la ecuación diferencial lineal de primer orden $\varphi'_X(t) + t \varphi_X(t) = 0$. POr lo tanto, tenemos que:
+Por lo tanto, hallamos que $\varphi'_X(t) = - t \varphi_X(t)$. Esto equivale a resolver la ecuación diferencial lineal de primer orden $\varphi'_X(t) + t \varphi_X(t) = 0$. Por lo tanto, tenemos que:
 
 $$\left. \begin{array}{l}
 \varphi_X(t) = c \, e^{-t^2 / 2} \\
@@ -197,18 +197,18 @@ $$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \
 
 Observemos que $\cos(u)$ es una función par, mientras que $u$ es una función impar, por lo que el cociente es impar, de donde concluimos que la integral vale 0.
 
-Resolvemos ahora la integral del seno. Comenzamos aplicando el mismo cambio de variable que en la parte anteerior para obtener:
+Resolvemos ahora la integral del seno. Comenzamos aplicando el mismo cambio de variable que en la parte anterior para obtener:
 $$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c}^{c} \frac{ \sin(t(x - a)) }{t} dt \, dF(x) = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du \, dF(x)$$
 
 Para la parte d debemos intercambiar el límite con la primer integral. Ahora, notemos que el límite que estamos tomando es cuando $c \rightarrow + \infty$, mientras que la primer integral no depende de $c$. Por lo tanto, intercambiarlos no requiere probar que estemos en las hipótesis del teorema de convergencia dominada.
 $$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du \, dF(x) = \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du \right] dF(x)$$
 
 <!--
-Los pasos e y f nos conviene resolverlos conjuntamentes.Primero un comentario respecto del paso f. Supongamos que límite en cuestión tiene por resultado una constante $C$ (constante como función de $x$). En ese caso ya sabemos que, por el teorema 1.35 (ver capítulo 1), el resultado será:
+Los pasos e y f nos conviene resolverlos conjuntamente.Primero un comentario respecto del paso f. Supongamos que límite en cuestión tiene por resultado una constante $C$ (constante como función de $x$). En ese caso ya sabemos que, por el teorema 1.35 (ver capítulo 1), el resultado será:
 $$\frac{1}{2 \pi} \int\limits_{\mathbb{R}} C dF_X(x) = \frac{C}{2 \pi} \int\limits_{\mathbb{R}} dF_X(x) = \frac{C}{2 \pi} \int\limits_{\mathbb{R}} f_X(x) dx = \frac{C}{2 \pi}$$
 -->
 
-Para resolver el paso e debemos discutir respecto de la relación entre $a$, $x$, y $b$. Para ello es conveniente recordar que hasta ahora solo estabamos trabajando con la parte del problema que dependía de $a$ y tener presentes ambas partes. Entonces, el problema completo a resolver es el siguiente:
+Para resolver el paso e debemos discutir respecto de la relación entre $a$, $x$, y $b$. Para ello es conveniente recordar que hasta ahora solo estábamos trabajando con la parte del problema que dependía de $a$ y tener presentes ambas partes. Entonces, el problema completo a resolver es el siguiente:
 $$\frac{1}{2 \pi} \int\limits_{\mathbb{R}} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du \right] dF(x) - \frac{1}{2 \pi} \int\limits_{\mathbb{R}} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] dF(x) =$$
 $$= \int\limits_{\mathbb{R}} \left( \frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du \right] - \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] \right) dF_X(x) =$$
 $$= \int\limits_{\mathbb{R}} \left( \frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limits_{-c(x - a)}^{c (x - a)} \frac{ \sin(u) }{u} du - \int\limits_{-c(x - b)}^{c (x - b)} \frac{ \sin(u) }{u} du \right] \right) dF_X(x)$$
@@ -262,11 +262,17 @@ $$\Psi(x) = \frac{1}{2 \pi} \lim\limits_{c \rightarrow +\infty} \left[ \int\limi
 Por lo que $\Psi(x)$ no es otra más que la función del ejercicio 5 del práctico 1. Utilizando el resultado de dicho ejercicio, sabemos que la parte f de nuestra demostración no es más que:
 $$\int\limits_{\mathbb{R}} \Psi(x) d F_X(x) = F_X(b) - F_X(a)$$
 
+*Dem 2*: para probar la parte 2 del teorema debemos primero tener claro lo siguiente: el teorema nos da la "solución", lo que nosotros debemos demostrar es que dicha solución se corresponde con la función de densidad de la variable aleatoria cuyas funciones de distribución y característica están dadas en las hipótesis del teorema (es decir, $F$ y $\varphi$). 
+
+Para probar que $f(x) = \frac{1}{2\pi} \int\limits_{\mathbb{R}} e^{-itx} \varphi_X(t) dt$ es la función de densidad de una variable aleatoria cuya función de distribución es $F$, un posible camino (el que utilizaremos), será integrar $f$ en $[a, b]$ y probar que el resultado de dicha integral es $F(b) - F(a)$ (tal como debe suceder si $f$ es la función de densidad de una variable aleatoria con función de distribución $F$).
+
+Para empezar aplicaremos el Teorema Fundamental del Cálculo. El mismo establece que;:
+
 #### Corolario 3.8
 
 Si $F$ y $G$ son distribuciones tales que $\int\limits_{\mathbb{R}} e^{itx} dF(x) = \int\limits_{\mathbb{R}} e^{itx} dG(x)$ para todo $t \in \mathbb{R} \Rightarrow F = G$. 
 
-#### Definicion 3.9: Función característica en general
+#### Definición 3.9: Función característica en general
 
 Dado $(\Omega, \, \mathcal{A}, \, P)$ un espacio de probabilidad y $X : \Omega \rightarrow H$ siendo $H$ un espacio vectorial con un producto interno $\langle \cdot \, , \,  \cdot \rangle$ definimos la función característica como:
 $$\varphi_X : H \rightarrow \mathbb{C} / \varphi_X (t) = \E \big( e^{i \langle t, X \rangle } \big)$$
@@ -282,7 +288,7 @@ $(\Rightarrow)$
 $$\E \left[ e^{i(t_1X_1 + \ldots + t_d X_d)} \right] = \E \left[ e^{it_1X_1} \ldots e^{i t_d X_d} \right] = \E \left[ e^{it_1X_1} \right] \ldots \E \left[ e^{i t_d X_d} \right] =$$
 $$= \varphi_{X_1}(t_1) \ldots \varphi{X_d}(t_d) = \prod\limits_{j = 1}^{d} \varphi_{X_j}(t_j)$$
 
-$(\Leftarrow)$ Por un lado sabemos, por la hipótesis del teorema, que se cumple lo siiguiente:
+$(\Leftarrow)$ Por un lado sabemos, por la hipótesis del teorema, que se cumple lo siguiente:
 $$\varphi_X(t) = \prod\limits_{j = 1}^{d} \varphi_{X_j}(t_j) = \int\limits_{\mathbb{R}^d} e^{i(t_1 X_1 + \ldots + t_d X_d)} dF(\mathbf{x}) $$
 
 Por otro lado, aplicando el teorema de Fubini, tenemos que:
@@ -330,7 +336,7 @@ $$\begin{array}{rclcl}
 Procedemos desarrollando el polinomio de Taylor de segundo orden (dado que sabemos que tiene derivada segunda por tener segundo momento centrado finito) en torno a $t = 0$, por lo que obtenemos que:
 $$\left[ \varphi_{Y_1} \left( ^t/\!_{\sqrt{n}} \right) \right]^n = \left[ \varphi_{Y_1} (0) + \varphi'_{Y_1} (0) \frac{^t/\!_{\sqrt{n}} }{1!} + \varphi''_{Y_1} (0) \frac{ (^t/\!_{\sqrt{n}} )^2 }{ 2! } + \varepsilon_2 \left( \frac{t_1}{ \sqrt{n} } \right) \frac{ (^t/\!_{\sqrt{n}})^2 }{ 2! } \right]^n \,\,\,\,\,\,\,\, \text{con } 0 \leq t_1 \leq t$$
 
-Luego $\varphi_{Y_1} (0) = 1$ por prop 3.3/2. Por otro lado, siguiendo la prop 3.6, obtenmos que $\varphi_{Y_1}'(0) = 0$ dado que $Y_1$ es una variable aleatoria centrada en 0, mientras que $\varphi''_{Y_1} (0) = -1$ dado que $\V(Y_1) = 1$. Por lo tanto,
+Luego $\varphi_{Y_1} (0) = 1$ por prop 3.3/2. Por otro lado, siguiendo la prop 3.6, obtenemos que $\varphi_{Y_1}'(0) = 0$ dado que $Y_1$ es una variable aleatoria centrada en 0, mientras que $\varphi''_{Y_1} (0) = -1$ dado que $\V(Y_1) = 1$. Por lo tanto,
 $$\left[ \varphi_{Y_1} \left( ^t/\!_{\sqrt{n}} \right) \right]^n = \left[ 1 - \frac{ t^2 }{ 2 n } + \frac{ t^2 }{ 2n } \, \varepsilon_2 \left( \frac{t_1}{ \sqrt{n} } \right) \right]^n$$
 
 Si tomamos el límite cuando $n \rightarrow +\infty$ hallamos que:
@@ -338,7 +344,7 @@ $$\lim\limits_{n \rightarrow +\infty} \varphi_{Z_n}(t) = \lim\limits_{n \rightar
 
 #### Teorema 3.13: Desigualdad de Berry y Esseen
 
-Si $X_1, \, \ldots, \, X_n$ son varaiables aleatorias iid con $\E(X_1) = 0$, $\V(X_1) = \sigma^2 < \infty$, y $\E(|X_1|^3) < \infty$, entonces:
+Si $X_1, \, \ldots, \, X_n$ son variables aleatorias iid con $\E(X_1) = 0$, $\V(X_1) = \sigma^2 < \infty$, y $\E(|X_1|^3) < \infty$, entonces:
 $$\sup\limits_{x \in \mathbb{R}} \big| F_n(x) - \Phi(x) \big| \leq C \, \frac{ \E( |X_1|^3) }{ \sigma^3 \sqrt{n} } $$
 
 donde:
@@ -351,7 +357,7 @@ donde:
 
 ## Arreglos triangulares
 
-Un arreglo triangular es un conjutno de variables aleatorias tales que en cada fila las variables son independientes (no necesariamente igualmente distribuidas). No tiene porqué existir independencia entre las filas, solo dentro de ellas.
+Un arreglo triangular es un conjunto de variables aleatorias tales que en cada fila las variables son independientes (no necesariamente igualmente distribuidas). No tiene porqué existir independencia entre las filas, solo dentro de ellas.
 
 $$\begin{array}{ccccc}
 X_{11} \\
@@ -361,7 +367,7 @@ X_{31} & X_{32} & X_{33} \\
 X_{n1} & X_{n2} & X_{n3} & \cdots & X_{nn}
 \end{array}$$
 
-Para lo que sigue consideraremos siempre un arreglo triangualr tal que:
+Para lo que sigue consideraremos siempre un arreglo triangular tal que:
 
 1. $\E(X_{nk}) = 0$
 
