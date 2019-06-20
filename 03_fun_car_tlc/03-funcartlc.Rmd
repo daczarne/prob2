@@ -266,7 +266,27 @@ $$\int\limits_{\mathbb{R}} \Psi(x) d F_X(x) = F_X(b) - F_X(a)$$
 
 Para probar que $f(x) = \frac{1}{2\pi} \int\limits_{\mathbb{R}} e^{-itx} \varphi_X(t) dt$ es la función de densidad de una variable aleatoria cuya función de distribución es $F$, un posible camino (el que utilizaremos), será integrar $f$ en $[a, b]$ y probar que el resultado de dicha integral es $F(b) - F(a)$ (tal como debe suceder si $f$ es la función de densidad de una variable aleatoria con función de distribución $F$).
 
-Para empezar aplicaremos el Teorema Fundamental del Cálculo. El mismo establece que;:
+Para empezar aplicaremos el Teorema Fundamental del Cálculo. El mismo establece que: si $f : [a, b] \rightarrow \mathbb{R}$ es una función continua en $[a, b]$ y $F$ una función definida para todo $x \in [a, b]$ como $F(x) = \int\limits_a^x f(u) du$, entonces $F$ es uniformemente continua en $[a,b]$, y diferenciable en $(a,b)$ siendo su derivada $F'(x) = f(x)$. Del mismo se desprende que $\int\limits_a^b f(u)du = F(b) - F(a)$ si $f$ es continua en todo el intervalo $[a, b]$.
+
+De esta forma, la primer parte de nuestra prueba es demostrar que el integrando de $f$ es continuo. Para ello debemos hacer uso de la hipótesis adicional de la segunda parte del teorma: $\int\limits_{\mathbb{R}} |\varphi(t)| dt < \infty$. Ahora, consideremos una sucesión $x_n \overset{n}{\rightarrow} x$, entonces:
+$$e^{-itx_n} \varphi(t) \overset{n}{\rightarrow} e^{-itx} \varphi(t)$$
+dado que $e^{-itx_n}$ está acotada (dado que puede expresarse como la suma de $\cos$ y $\sin$), y $\varphi(t)$ es uniformemente continua. Para establecer la convergencia utilizamos tambien que $|e^{-itx_n}| = 1$. Dado que el integrando es continuo podemos utilizar el Teorema Fundamental del Cálculo.
+$$\begin{array}{rclcl}
+\int\limits_a^{b} f(x) dx & = & \int\limits_{a}^{b} \frac{1}{2\pi} \left( \int\limits_{t \in \mathbb{R}} e^{-itx} \varphi(t) dt \right) dx & & \text{por el teorema fundamental del cálculo} \\
+   & = & \int\limits_{t \in \mathbb{R}} \frac{1}{2\pi} \varphi(t) \left( \int\limits_{a}^{b} e^{-itx} dx \right) dt & & \text{por el teorema de Fubini} \\
+   & = & \int\limits_{t \in \mathbb{R}} \frac{1}{2\pi} \varphi(t) \left( \left. \frac{e^{-itx}}{-it} \right|_a^b \right) dt \\
+   & = & \int\limits_{t \in \mathbb{R}} \frac{1}{2\pi} \varphi(t) \left( \frac{e^{-ita} - e^{-itb} }{it} \right) dt \\
+   & = & \lim\limits_{c \rightarrow + \infty} \frac{1}{2\pi} \int\limits_{-c}^{c} \frac{e^{-ita} - e^{-itb} }{it} \varphi(t) dt \\
+   & = & F(b) - F(a)
+\end{array}$$
+
+donde la última desigualdad se desprende de utilizar la parte 1 del teorema, la cual nos asegura que la misma se cumple para todo $a$ y $b$ de continuidad de $F$. Adicionalmente, dado que $F$ es una función de densidad, $f \geq 0$. Por lo tanto, hemos probado que $f$ es una función tal que:
+
+1. $f$ es continua
+2. $F'(x) = f(x)$
+3. $f \geq 0$
+
+Por lo tanto, $f$ es la función de densidad de la variable aleatoria cuuyas funciones de distribución y características vienen dadas por $F$ y $\varphi$.
 
 #### Corolario 3.8
 
