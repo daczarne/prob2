@@ -424,9 +424,55 @@ $$\left| e^{ix} - \sum\limits_{k = 0}^{n - 1} \frac{ (ix)^k }{ k! } \right| = \B
 $$= \Bigg| \sum\limits_{k = 0}^{n - 1} i^k \left. e^{ix} \right|_{x = 0} \frac{x^k}{k!} + i^n \left. e^{ix} \right|_{x = y} \, \frac{x^n}{n!} - \sum\limits_{k = 0}^{n - 1} \frac{ (ix)^k }{ k! } \Bigg| = \Bigg| \sum\limits_{k = 0}^{n - 1} \frac{(ix)^k}{k!} + e^{iy} \frac{ (ix)^n }{ n! } - \sum\limits_{k = 0}^{n - 1} \frac{ (ix)^k }{ k! } \Bigg| =$$
 $$ = \left| e^{iy} \frac{ (ix)^n }{ n! } \right| = \left| e^{iy} \right| \, \left| \frac{ (ix)^n }{ n! } \right| = \left| \frac{ x^n }{ n! } \right| = \frac{|x^n|}{n!}$$
 
+\newpage
+
 #### Lema 3.16
 
 Si $E(|X|^n) < \infty$, entonces $x^n \big( F(x) - F(-x) -1 \big) \overset{x}{\rightarrow} 0$ siendo $F$ la función de distribución de $X$.
+
+*Dem*: el lema implíca resolver un límite indeterminado de la forma $+\infty$ por $0$:
+
+$$\lim\limits_{x \rightarrow + \infty} \underbrace{ x^n }_{ \rightarrow + \infty } \underbrace{ \big( F(x) - F(-x) -1 \big) }_{ \rightarrow 0 }$$
+
+Para levantar la indeterminación comenzamos operando con el segundo término:
+$$\begin{array}{rcl}
+F(x) - F(-x) - 1 & = & \Pr(X \leq x) - \Pr(X \leq -x) - 1 \\
+   & = & \Pr(X \leq x) - \Pr(-X \geq x) - 1 \\
+   & = & -\Pr(-X \geq x) - \big[ 1 - \Pr(X \leq x) \big] \\
+   & = & - \Pr(-X \geq x) - \Pr(X > x) \\
+   & = & - \big[ \Pr(-X \geq x) + \Pr(X > x) \big]
+\end{array}$$
+
+Multiplicando por $-1$ de ambos lados de la igualdad obtenemos que:
+$$\begin{array}{rcl}
+-F(x) + F(-x) + 1 & = & \Pr(-X \geq x) + \Pr(X > x) \\
+1 -F(x) + F(-x) & = & \Pr(-X \geq x) + \Pr(X > x) \\
+   & \leq & \Pr(-X \geq x) + \Pr(x \geq x) \\
+   & = & \Pr(|X| \geq x)
+\end{array}$$
+
+Por lo tanto, sabemos que $x^n \big( 1 - F(x) + F(-x) \big) \leq x^n \Pr(|X| \geq x)$ si $x > 0$. Esta restricción no son afecta dado que tomaremos el límite cuando $x \rightarrow +\infty$. Trabajando ahora con $\E|X|^n$ obtenemos que:
+$$\begin{array}{rcl}
+\E(|X|^n) & = & \E \big( |X|^n \mathbb{I}_{ \{ |X| \geq x \} } + |X|^n \mathbb{I}_{ \{ |X| < x \} } \big) \\
+   & = & \E \big( |X|^n \mathbb{I}_{ \{ |X| \geq x \} } \big) + \E \big( |X|^n \mathbb{I}_{ \{ |X| < x \} } \big)  \\
+   & < & +\infty
+\end{array}$$
+donde la cota superiror del último paso está proporcionada por las hipótesis del lema. Luego si $E|X|^n < \infty$, entonces ambos sumandos deben estar acotados superiormente, y podemos trabajar con cualquiera de ellos. Así, obtenemos que:
+$$\begin{array}{rcl}
+|x|^n \Pr(|X| \geq x) & = & |x|^n \E \left( \mathbb{I}_{ \{ |X| \geq x\} } \right) \\
+   & = & \E \left( |x|^n \, \mathbb{I}_{ \{ |X| \geq x\} } \right) \\
+   & \leq & \E \left( |X|^n \, \mathbb{I}_{ \{ |X| \geq x\} } \right) \\
+   & \leq & +\infty
+\end{array}$$
+
+Hemos demostrado entonces que $|x|^n \Pr(|X| \geq x)$ está acotado superiormente. Ahora tenemos todos los insumos para resolver el límite:
+$$\begin{array}{rcl}
+\lim\limits_{x \rightarrow + \infty} x^n \big( F(x) - F(-x) -1 \big)  & \leq & \lim\limits_{x \rightarrow + \infty} x^n \Pr(|X| \geq x) \\
+   & \leq & \lim\limits_{x \rightarrow + \infty} \E \big( |X|^n \, \mathbb{I}_{ \{ |X| \geq x \} } \big) \\
+   & = & \E \left( \lim\limits_{x \rightarrow + \infty} |X|^n \, \mathbb{I}_{ \{ |X| \geq x \} } \right) \\
+   & = & 0
+\end{array}$$
+donde en el tercer paso utilizamos convergencia dominada. Dicha expresión tiende a cero porque la indicatriz tiende a cero cuando $x \rightarrow + \infty$.
 
 #### Teorema 3.18: Condición $L$ de Lindeberg
 
