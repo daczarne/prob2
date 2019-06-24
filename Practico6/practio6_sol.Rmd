@@ -1,0 +1,105 @@
+---
+title: "Práctico 6"
+author: "Daniel Czarnievicz"
+date: "2019"
+output: pdf_document
+header-includes:
+   - \everymath{\displaystyle}
+   - \usepackage[spanish]{babel}
+   - \usepackage{xcolor}
+   - \usepackage[makeroom]{cancel}
+   - \DeclareMathOperator*{\plim}{plim}
+   - \usepackage{mathrsfs}
+   - \usepackage{amsmath}
+   - \usepackage{mathtools}
+   - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
+   - \DeclareMathOperator{\E}{\mathbf{E}}
+   - \DeclareMathOperator{\V}{\mathbf{V}}
+geometry: margin=1in
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Ejercicio 1
+
+Sean las variables aleatorias $A_i =$ "sale 6 en la $i$-ésima tirada", y $A = \sum\limits_{i = 1}^{n} A_i =$ "cantidad de veces que sale 6". Entonces $A_i \sim \text{Ber}(1/6)$, mientras que $A \sim \text{Bin}(180, \, 1/6)$. Luego entonces:
+
+$$\Pr ( \text{``sale 6 menos de 25 veces''} ) = \Pr ( A \leq 24 ) = \Pr \left( \frac{ \sum\limits_{i = 1}^{180} A_i - np }{ \sigma \sqrt{n} } < \frac{ 24 - np }{ \sigma \sqrt{n} } \right) =$$
+$$= \Pr \left( \frac{ \sum\limits_{i = 1}^{180} A_i - 180 \, (1/6) }{ \sqrt{ (1/6) (5/6) } \, \sqrt{180} } < \frac{ 24 - 180 \, (1/6) }{ \sqrt{ (1/6) (5/6) } \, \sqrt{180} } \right) = \Pr \left( Z < \frac{ 24 - 30 }{ 30 \sqrt{5} } \right)$$
+
+```{r, comment=""}
+n <- 180
+p <- 1 / 6
+mu <- (n * p)
+sigma <- sqrt(p * (1 - p))
+x <- 24
+pnorm((x - mu) / (sigma * sqrt(n)), mean = 0, sd = 1)
+pbinom(x, size = n, prob = p)
+sum(dbinom(1:x, size = n, prob = p))
+```
+
+
+# Ejercicio 2
+
+
+
+
+# Ejercicio 3
+
+
+
+
+# Ejercicio 4
+
+
+
+
+# Ejercicio 5
+
+
+
+# Ejercicio 6
+
+
+
+# Ejercicio 7
+
+
+
+
+# Ejercicio 8
+
+
+
+
+# Ejercicio 9
+
+
+
+
+# Ejercicio 10
+
+
+
+
+# Ejercicio 11
+
+
+
+
+# Ejercicio 12
+
+
+
+
+
+# Ejercicio 13
+
+
+
+
+
+# Ejercicio 14
