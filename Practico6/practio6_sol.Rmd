@@ -27,8 +27,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Sean las variables aleatorias $A_i =$ "sale 6 en la $i$-ésima tirada", y $A = \sum\limits_{i = 1}^{n} A_i =$ "cantidad de veces que sale 6". Entonces $A_i \sim \text{Ber}(1/6)$, mientras que $A \sim \text{Bin}(180, \, 1/6)$. Luego entonces:
 
-$$\Pr ( \text{``sale 6 menos de 25 veces''} ) = \Pr ( A \leq 24 ) = \Pr \left( \frac{ \sum\limits_{i = 1}^{180} A_i - np }{ \sigma \sqrt{n} } < \frac{ 24 - np }{ \sigma \sqrt{n} } \right) =$$
-$$= \Pr \left( \frac{ \sum\limits_{i = 1}^{180} A_i - 180 \, (1/6) }{ \sqrt{ (1/6) (5/6) } \, \sqrt{180} } < \frac{ 24 - 180 \, (1/6) }{ \sqrt{ (1/6) (5/6) } \, \sqrt{180} } \right) = \Pr \left( Z < \frac{ 24 - 30 }{ 30 \sqrt{5} } \right)$$
+$$\Pr ( \text{``sale 6 menos de 25 veces''} ) = \Pr ( A \leq 24 ) = \Pr \left( \frac{ \sum\limits_{i = 1}^{180} A_i - np }{ \sigma \sqrt{n} } \leq \frac{ 24 - np }{ \sigma \sqrt{n} } \right) =$$
+$$= \Pr \left( \frac{ \sum\limits_{i = 1}^{180} A_i - 180 \, (1/6) }{ \sqrt{ (1/6) (5/6) } \, \sqrt{180} } \leq \frac{ 24 - 180 \, (1/6) }{ \sqrt{ (1/6) (5/6) } \, \sqrt{180} } \right) = \Pr \left( Z \leq \frac{ 24 - 30 }{ 30 \sqrt{5} } \right)$$
 
 ```{r, comment=""}
 n <- 180
@@ -41,11 +41,27 @@ pbinom(x, size = n, prob = p)
 sum(dbinom(1:x, size = n, prob = p))
 ```
 
+\newpage
 
-# Ejercicio 2
+# Ejercicio 2: LDGN de Khinchin
 
+Probar que si $\{X_n\}_{n \geq 1}$ es una sucesión de variables aleatorias iid con $\E(X_1) = \mu$, entonces $\bar{X}_n \overset{p}{\rightarrow} \mu$.
 
+*Dem*: por el teorema de Slutsky sabemos que si una sucesión de variables aleatorias converge en distribución a una constante, entonces también converge en probabilidad a dicha constante. A su vez, por el teorema 3.11 sabemos que la convergencia de funciones características equivale a la convergencia en distribución. Por lo tanto, debemos obtener las funciones características de $\{X_n\}_{n \geq 1}$ y de $\bar{X}_n$, y verificar que se cumpla la convergencia. Primero hallamos la función característica de $\bar{X}_n$:
+$$\varphi_{\bar{X}_n}(t) = \E( \exp\{ it \bar{X}_n \}) = \E \left( \exp\left\{ it \frac{1}{n} \sum\limits_{j = 1}^{n} X_j \right\} \right) = \left[ \E \left( \exp\left\{ \frac{it}{n} X \right\} \right) \right]^n = \left[ \varphi_{X} \big( t/n \big) \right]^n$$
 
+Luego, si la sucesión converge a $\mu$ en distribución, entonces converge a una variable aleatoria con distribución degenerada en $\mu$. Por lo tanto, su función característica estará dada por:
+$$\varphi_{X}(t) = \E \big( e^{itX} \big) = e^{it\mu} \, \Pr(X = \mu) + 0 \, \Pr( X \neq \mu) = e^{it\mu}$$
+
+Para evaluar el límite cunado $n \rightarrow +\infty$ de $\left[ \varphi_{X} \big( t/n \big) \right]^n$ utilizamos un desarrollo de Taylor en torno a $t = 0$. Dado que por hipótesis sabemos que la variable tiene primer momento finito, sabemos que es diferenciable al menos una vez, por lo tanto, nuestro desarrollo será de primer orden:
+$$\begin{array}{rcl}
+\lim\limits_{n \rightarrow +\infty} \left[ \varphi_{X} \big( t/n \big) \right]^n & = & \lim\limits_{n \rightarrow +\infty} \left[ \varphi_X(0) + \varphi'_X(0) \frac{t}{n} + \frac{t}{n} \varepsilon_1(t_1 / n) \right]^n \\ \\
+   & = & \lim\limits_{n \rightarrow +\infty} \left[ 1 + i \mu \frac{t}{n} + \frac{t}{n} \varepsilon_1(t_1 / n) \right]^n \\ \\
+   & = & \lim\limits_{n \rightarrow +\infty} \exp\left\{ n \log \left[ 1 + i \mu \frac{t}{n} + \frac{t}{n} \varepsilon_1(t_1 / n) \right] \right\} \\ \\
+   & = & \lim\limits_{n \rightarrow +\infty} \exp\left\{ n \left( i \mu \frac{t}{n} + \frac{t}{n} \varepsilon_1(t_1 / n) \right) \right\} \\ \\
+   & = & \lim\limits_{n \rightarrow +\infty} \exp\left\{ i \mu t + t \, \varepsilon_1(t_1 / n) \right\} \\ \\
+   & = & e^{it\mu}
+\end{array}$$
 
 # Ejercicio 3
 
