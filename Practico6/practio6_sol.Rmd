@@ -63,6 +63,8 @@ $$\begin{array}{rcl}
    & = & e^{it\mu}
 \end{array}$$
 
+Por lo tanto, hemos probado que $\varphi_{\bar{X}_n}(t) \overset{n}{\rightarrow} \varphi_X(t)$ lo cual implíca que $\bar{X}_n \overset{d}{\rightarrow} X$ donde $X$ es tal que $\Pr( X = \mu) = 1$. Por lo tanto, $\bar{X}_n \overset{p}{\rightarrow} \mu$.
+
 # Ejercicio 3
 
 
