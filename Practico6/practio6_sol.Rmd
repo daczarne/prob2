@@ -167,7 +167,16 @@ $$= \underbrace{ \left( \sqrt{ ^9\!/_2 } \right) \overbrace{ \sqrt{n} \left( \ba
 
 # Ejercicio 6
 
+Por el Teorema del Límite Central de Levy sabemos que $\big( \sigma^2 n \big)^{-^1/_2} \sum\limits_{j = 1}^{n} X_j \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$, por lo que:
+$$\frac{ \bar{X}_n }{ \sigma / \sqrt{n} } \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$$
 
+Luego, sobre el denominador sabemos que:
+$$S_n^2 = \frac{1}{n} \sum\limits_{j = 1}^{n} \big( X_j - \bar{X}_n \big)^2 = \frac{1}{n} \sum\limits_{j = 1}^{n} X_j^2 - n \underbrace{ \bar{X}_n^2}_{ \overset{p}{\rightarrow} \mu = 0 } \overset{p}{\rightarrow} \sigma^2$$
+
+Por lo tanto,
+$$\frac{1}{n \sigma^2} \sum\limits_{j = 1}^{n} X_j^2 \overset{p}{\rightarrow} 1 \Rightarrow \sqrt{ \frac{1}{n \sigma^2} \sum\limits_{j = 1}^{n} X_j^2 } = \frac{ 1 }{ \sigma \sqrt{n} } \sqrt{ \sum\limits_{j = 1}^{n} X_j^2 } \overset{p}{\rightarrow} \sqrt{1}$$
+dado que $f(z) = \sqrt{z}$ es continua en todo su dominio. Luego entonces, por el teorema de Slutsky, tenemos que:
+$$\frac{ \sum\limits_{j = 1}^{n} X_j }{ \sqrt{ \sum\limits_{j = 1}^{n} X_j^2 } } = \frac{ \left( \frac{1}{\sigma / \sqrt{n}} \right) \sum\limits_{j = 1}^{n} X_j }{ \left( \frac{1}{\sigma / \sqrt{n}} \right) \sqrt{ \sum\limits_{j = 1}^{n} X_j^2 } } \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$$
 
 # Ejercicio 7
 
