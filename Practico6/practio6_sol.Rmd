@@ -96,6 +96,9 @@ Por lo tanto, $Y_n \overset{d}{\rightarrow} Y \sim \text{N}(0, 1)$.
 
 ## Parte b: utilizando el Teorema del Límite Central
 
+Sea laa sucesión de variables aleatorias $\{X_n\}_{n \geq 1}$ iid donde $X_1 \sim \text{Exp}(\lambda)$. Luego, entonces $\E(X_1) = \lambda^{-1}$, $\V(X_1) = \lambda^{-2}$, y $Z_n = \sum\limits_{j = 1}^{n} X_j \sim \Gamma(n, \, \lambda)$. Luego, si aplicamos el Teoremal del Límite Central de Levy, obtenemos que:
+$$\frac{ \sum\limits_{j = 1}^{n} X_j - n \E(X_1)}{ \sqrt{n \V(X_1)} } = \frac{Z_n - n \E(X_1)}{ \sqrt{n \V(X_1)} } = \frac{Z_n - n (1 / \lambda)}{ \sqrt{n (1 / \lambda^2) } } = \frac{Z_n - n / \lambda }{ \sqrt{n} / \lambda } =$$
+$$= \frac{ \lambda Z_n - n }{ \sqrt{n} } = \frac{ \lambda Z_n }{ \sqrt{n} } - \sqrt{n} = Y_n \overset{d}{\rightarrow} Y \sim \text{N}(0, 1)$$
 
 
 # Ejercicio 4
