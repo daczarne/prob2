@@ -149,18 +149,21 @@ $$\lim\limits_{n \rightarrow + \infty} \varphi_{ \sqrt{n}( \bar{Y}_n - 1) }(t) =
 $$= \lim\limits_{n \rightarrow + \infty} \exp\left\{ -\frac{n}{2} \log  \left( 1 - \frac{2it}{\sqrt{n}} \right) - it \sqrt{n} \right\} = \exp\left\{ - \lim\limits_{n \rightarrow + \infty} \left[ \frac{n}{2} \log  \left( 1 + \frac{-2it}{\sqrt{n}} \right) + it \sqrt{n} \right] \right\}$$
 
 A continuación utilizamos la equivalencia $\log(1 + u) \leadsto u - \frac{u^2}{2}$ cuando $u \rightarrow 0$, y obtenemos que:
-$$= \exp\left\{ - \lim\limits_{n \rightarrow + \infty} \left[ \frac{n}{2} \left( \frac{-2it}{\sqrt{n}} - \frac{(-2it)^2}{2n} \right) + it \sqrt{n} \right] \right\} = \exp\left\{ - \lim\limits_{n \rightarrow + \infty} \left[ - it \sqrt{n} + \frac{t^2}{2} + it \sqrt{n} \right] \right\} = e^{-t^2 /2 }$$
+$$= \exp\left\{ - \lim\limits_{n \rightarrow + \infty} \left[ \frac{n}{2} \left( \frac{-2it}{\sqrt{n}} - \frac{(-2it)^2}{2n} \right) + it \sqrt{n} \right] \right\} = \exp\left\{ - \lim\limits_{n \rightarrow + \infty} \left[ - it \sqrt{n} + t^2 + it \sqrt{n} \right] \right\} = e^{-t^2}$$
 
-Por lo tanto, $\sqrt{n} \big( \bar{Y}_n - 1 \big) \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$.
-
+Por lo tanto, $\sqrt{n} \big( \bar{Y}_n - 1 \big) \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 2)$.
 
 ## Parte ii
 
-
+Dado el resultado de la parte i, y dado que $f:f(x) = x^r$ es continua y derivable, podemos aplicar el Método Delta. De esta forma, obtenemos que para todo $r > 0$:
+$$\sqrt{n} \big( \bar{Y}_n^r - 1 \big) = \sqrt{n} \big( \bar{Y}_n^r - 1^r \big) = \sqrt{n} \big( f(\bar{Y}_n) - f(1) \big) \overset{d}{\rightarrow} W \sim \text{N}\big( 0, \, 2 (f'(1))^2 \big) \overset{d}{=} \text{N}\big( 0, \, V^2(r) \big)$$
+donde, dado que $f:f(x) = x^r$, $f':f'(x) = r x^{r-1}$. Por lo tanto, $(f'(1))^2 = r^2$ entonces $V^2(r) = 2r^2$.
 
 ## Parte iii
 
-
+Aplicando el resultado de la parte ii obtenemos que:
+$$\frac{ \sqrt{n} \left( \bar{Y}_n^{^1/_3} - \left( 1 - \frac{2}{9n} \right) \right) }{ \sqrt{ ^2\!/_9 } } = \frac{ \sqrt{n} \left( \bar{Y}_n^{^1/_3} - 1 \right) }{ \sqrt{ ^2\!/_9 } } + \frac{ \sqrt{n} \left( ^2 / _{9n} \right) }{ \sqrt{ ^2\!/_9 } } =$$
+$$= \underbrace{ \left( \sqrt{ ^9\!/_2 } \right) \overbrace{ \sqrt{n} \left( \bar{Y}_n^{^1/_3} - 1 \right)}^{ \overset{d}{\rightarrow} \text{N}(0, \, ^2\!/_9) }}_{ \overset{d}{\rightarrow} \text{N}(0, \, 1) } + \underbrace{ \sqrt{ ^2 / _{9n} } }_{ \overset{n}{\rightarrow} 0 } \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$$
 
 # Ejercicio 6
 
