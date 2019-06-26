@@ -16,6 +16,7 @@ header-includes:
    - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
    - \DeclareMathOperator{\E}{\mathbf{E}}
    - \DeclareMathOperator{\V}{\mathbf{V}}
+   - \usepackage[inline]{enumitem}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -178,9 +179,37 @@ $$\frac{1}{n \sigma^2} \sum\limits_{j = 1}^{n} X_j^2 \overset{p}{\rightarrow} 1 
 dado que $f(z) = \sqrt{z}$ es continua en todo su dominio. Luego entonces, por el teorema de Slutsky, tenemos que:
 $$\frac{ \sum\limits_{j = 1}^{n} X_j }{ \sqrt{ \sum\limits_{j = 1}^{n} X_j^2 } } = \frac{ \left( \frac{1}{\sigma / \sqrt{n}} \right) \sum\limits_{j = 1}^{n} X_j }{ \left( \frac{1}{\sigma / \sqrt{n}} \right) \sqrt{ \sum\limits_{j = 1}^{n} X_j^2 } } \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$$
 
+\newpage
+
 # Ejercicio 7
 
+**Hipótesis:**
 
+\begin{itemize}
+  \item $X_{n1}, \, \ldots, \, X_{nn}$ sucesión de variable aleatorias independientes.
+  \item $\E(X_{nk}) = m_{nk}$
+  \item $\V(X_{nk}) = \sigma_{nk}^2 < +\infty$
+  \item $S_n = \sum\limits_{k = 1}^{n} X_{nk}$
+  \item $V_n^2 = \sum\limits_{k = 1}^{n} \sigma^2_{nk}$
+\end{itemize}
+
+## Paete a
+
+Demostrar que:
+$$\text{Si } \lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^2} \sum\limits_{k = 1}^{n} \E \left[ \big( X_{nk} - m_{nk} \big)^2 \, \mathbb{I}_{ \{ |X_{nk} - m_{nk}| \geq \varepsilon V_n \} } \right] = 0 \Rightarrow \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \{ \sigma^2_{ni} \} \overset{n}{\rightarrow} 0$$
+
+*Dem:*
+$$\lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \{ \sigma^2_{ni} \} = \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \left\{ \E \big( X_{nk} - m_{nk} \big)^2 \right\} =$$
+$$= \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \Big\{ \underbrace{ \E \big( X_{nk} - m_{nk} \big)^2 \mathbb{I}_{ \{ |X_{nk} - m_{nk}| \geq \varepsilon V_n \} } }_{ \overset{n}{\rightarrow} 0 \text{ por hipótesis } } + \E \big( X_{nk} - m_{nk} \big)^2 \mathbb{I}_{ \{ |X_{nk} - m_{nk}| < \varepsilon V_n \} } \Big\} \leq$$
+$$\leq \frac{ \delta }{ 2 } + \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \left\{ \E \big( X_{nk} - m_{nk} \big)^2 \mathbb{I}_{ \{ |X_{nk} - m_{nk}| < \varepsilon V_n \} } \right\} =$$
+$$= \frac{ \delta }{ 2 } + \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \Bigg\{ \underbrace{ \E \big( X_{nk} - m_{nk} \big)^2 \mathbb{I}_{ \left\{ \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| < \varepsilon \right\} } }_{ \leq \varepsilon^2 \text{ por la indicatriz }} \Bigg\} \leq \frac{\delta}{2} + \varepsilon^2 \leq \delta$$
+
+Luego, dado que $\delta$ es arbitrario, eligo $\varepsilon$ tal que $\varepsilon^2 < \frac{\delta}{2}$, y entonces el límite tiende a cero.
+
+## Parte b
+
+Probar que: 
+$$\text{Si } \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \{ \sigma^2_{ni} \} \overset{n}{\rightarrow} 0 \Rightarrow \max\limits_{i = 1, \ldots, n} \Big\{ \Pr \big( |X_{nk} - m_{nk}| \geq \varepsilon V_n \big) \Big\} \overset{n}{\rightarrow} 0$$
 
 # Ejercicio 8
 
