@@ -205,10 +205,26 @@ $$= \frac{ \delta }{ 2 } + \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2} \
 
 Luego, dado que $\delta$ es arbitrario, eligo $\varepsilon$ tal que $\varepsilon^2 < \frac{\delta}{2}$, y entonces el límite tiende a cero.
 
+\newpage
+
 ## Parte b
 
+<!--
 Probar que: 
 $$\text{Si } \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \{ \sigma^2_{ni} \} \overset{n}{\rightarrow} 0 \Rightarrow \max\limits_{i = 1, \ldots, n} \Big\{ \Pr \big( |X_{nk} - m_{nk}| \geq \varepsilon V_n \big) \Big\} \overset{n}{\rightarrow} 0$$
+-->
+
+Demostrar que:
+$$\text{Si } \lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^2} \sum\limits_{k = 1}^{n} \E \left[ \big( X_{nk} - m_{nk} \big)^2 \, \mathbb{I}_{ \{ |X_{nk} - m_{nk}| \geq \varepsilon V_n \} } \right] = 0 \Rightarrow \max\limits_{i = 1, \ldots, n} \Big\{ \Pr \big( |X_{nk} - m_{nk}| \geq \varepsilon V_n \big) \Big\} \overset{n}{\rightarrow} 0$$
+
+*Dem*:
+$$\lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^2} \sum\limits_{k = 1}^{n} \E \left[ \big( X_{nk} - m_{nk} \big)^2 \, \mathbb{I}_{ \{ |X_{nk} - m_{nk}| \geq \varepsilon V_n \} } \right] \geq$$
+$$\geq \lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^2} \max\limits_{k = 1, \ldots, n} \left\{ \E \left[ \big( X_{nk} - m_{nk} \big)^2 \, \mathbb{I}_{ \{ |X_{nk} - m_{nk}| \geq \varepsilon V_n \} } \right] \right\} =$$
+$$= \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ \E \left[ \left( \frac{ X_{nk} - m_{nk} }{V_n} \right)^2 \, \mathbb{I}_{ \left\{ \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| \geq \varepsilon \right\} } \right] \right\} \geq$$
+$$\geq \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ \E \left[ \varepsilon^2 \, \mathbb{I}_{ \left\{ \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| \geq \varepsilon \right\} } \right] \right\} = \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ \varepsilon^2 \E \left[ \mathbb{I}_{ \left\{ \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| \geq \varepsilon \right\} } \right] \right\} =$$
+$$= \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ \varepsilon^2 \Pr \left( \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| \geq \varepsilon \right) \right\} = \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ \varepsilon^2 \Pr \big( \left| X_{nk} - m_{nk} \right| \geq \varepsilon \, V_n \big) \right\} \overset{n}{\rightarrow} 0$$
+
+Donde el límite se cumple dado que está acotado inferiormente por cero (por ser una probabilidad), y superiormente por una expresión que tiende a cero (por hipótesis).
 
 # Ejercicio 8
 
