@@ -16,7 +16,6 @@ header-includes:
    - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
    - \DeclareMathOperator{\E}{\mathbf{E}}
    - \DeclareMathOperator{\V}{\mathbf{V}}
-   - \usepackage[inline]{enumitem}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -193,7 +192,7 @@ $$\frac{ \sum\limits_{j = 1}^{n} X_j }{ \sqrt{ \sum\limits_{j = 1}^{n} X_j^2 } }
   \item $V_n^2 = \sum\limits_{k = 1}^{n} \sigma^2_{nk}$
 \end{itemize}
 
-## Paete a
+## Parte a
 
 Demostrar que:
 $$\text{Si } \lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^2} \sum\limits_{k = 1}^{n} \E \left[ \big( X_{nk} - m_{nk} \big)^2 \, \mathbb{I}_{ \{ |X_{nk} - m_{nk}| \geq \varepsilon V_n \} } \right] = 0 \Rightarrow \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \{ \sigma^2_{ni} \} \overset{n}{\rightarrow} 0$$
