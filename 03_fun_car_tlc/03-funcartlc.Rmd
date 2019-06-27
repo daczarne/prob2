@@ -474,14 +474,14 @@ $$\begin{array}{rcl}
 \end{array}$$
 donde en el tercer paso utilizamos convergencia dominada. Dicha expresión tiende a cero porque la indicatriz tiende a cero cuando $x \rightarrow + \infty$.
 
-#### Teorema 3.18: Condición $L$ de Lindeberg
+#### Teorema 3.18: Condición **(L)** de Lindeberg
 
-Sean $X_{1n}, \, \ldots, \, X_{nn}$ variables aleatorias independientes tales que $\E(X_{nk}) = m_{nk}$ y $\V(X_{nk}) = \sigma_{nk}^2 < \infty$. Denotemos $S_n = \sum\limits_{k = 1}^{n} X_{nk}$ y $V^2_n = \sum\limits_{k = 1}^{n} \sigma_{nk}^2$. Si se cumple la siguiente condición de Lindeberg (condición $L$):
-$$(L) \,\,\,\,\,\,\, \varepsilon > 0, \, \lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^2} \sum\limits_{k = 1}^{n} \E \big[ ( X_{nk} - m_{nk} )^2 \, \mathbb{I}_{ \{ |X_{nk} - m_{nk} | > \varepsilon V_n  \} } \big] = 0$$
+Sean $X_{1n}, \, \ldots, \, X_{nn}$ v.a.s independientes tales que $\E(X_{nk}) = m_{nk}$, y $\V(X_{nk}) = \sigma_{nk}^2 < \infty$. Denotemos $S_n = \sum\limits_{k = 1}^{n} X_{nk}$ y $V^2_n = \sum\limits_{k = 1}^{n} \sigma_{nk}^2$. Si se cumple la siguiente condición de Lindeberg (condición **L**):
+$$\mathbf{(L)} \,\,\,\,\,\,\, \varepsilon > 0, \, \lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^2} \sum\limits_{k = 1}^{n} \E \big[ ( X_{nk} - m_{nk} )^2 \, \mathbb{I}_{ \{ |X_{nk} - m_{nk} | > \varepsilon V_n  \} } \big] = 0$$
 entonces:
 $$\frac{1}{V_n} \sum\limits_{k = 1}^{n} (X_{nk} - m_{nk}) \overset{d}{\rightarrow} Z \sim \text{N}(0, 1)$$
 
 #### Definición 3.19: Condición de Lyapunov
 
-Sean $X_1, \, \ldots, \, X_n$ variables aleatorias independientes con segundo momento finito. Sean $m_{k} = \E(X_k)$, $\sigma_k^2 = \V(X_k)$, $S_n = X_1 + \ldots + X_n$, y $V_n^2 = \sum\limits_{k = 1}^{n} \sigma_k^2$. Decimos que las variables $X_i$ verifican la condición $LY$ de Lyapunov si $\exists \delta$ tal que:
+Sean $X_1, \, \ldots, \, X_n$ variables aleatorias independientes con segundo momento finito. Sean $m_{k} = \E(X_k)$, $\sigma_k^2 = \V(X_k)$, $S_n = X_1 + \ldots + X_n$, y $V_n^2 = \sum\limits_{k = 1}^{n} \sigma_k^2$. Decimos que las variables $X_i$ verifican la condición **(LY)** de Lyapunov si $\exists \delta$ tal que:
 $$\lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^{2 + \delta}} \sum\limits \E \big| X_k - m_k \big|^{2 + \delta} = 0$$
