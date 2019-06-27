@@ -228,7 +228,17 @@ Donde el límite se cumple dado que está acotado inferiormente por cero (por se
 
 # Ejercicio 8
 
+Primero debemos establecer que efectivamente estamos en las condiciones del teorema de Lindeberg. Esto se cumple dado que si las variables son independientes, entonces la suma de las varianzas es la varianza de la suma: $V_n = \V \big(S_n\big) = \sum\limits_{j = 1}^{n} \sigma_{nj}^2$ donde $\sigma_{nj}^2$ es la varianza de la $j$-ésima variable aleatoria en la sucesión. 
 
+Por otro lado, debemos establecer también que las variables deben estar centradas. Esto no nos hace perder generalidad, dado que, si no fuera así, entonces solo debemos centrarlas (restar la media a cada una). Luego entonces:
+
+$$\lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} \E \left[ \left| X_j \right|^2 \, \mathbb{I}_{ \left\{ |X_j| > \varepsilon \, \sqrt{V_n} \right\} } \right] \leq \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} \E \left[ K^2 \, \mathbb{I}_{ \left\{ |X_j| > \varepsilon \, \sqrt{V_n} \right\} } \right] =$$
+$$= \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} K^2 \E \left[ \mathbb{I}_{ \left\{ |X_j| > \varepsilon \, \sqrt{V_n} \right\} } \right] = \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} K^2 \Pr \left( |X_j| > \varepsilon \, \sqrt{V_n} \right) =$$
+$$= \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} K^2 \Pr \left( |X_j|^2 > \varepsilon^2 \, V_n \right) \leq \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} \frac{ K^2 \, \E \big( |X_j|^2 \big) }{ \varepsilon^2 \, V_n } =$$
+$$= \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} \frac{ K^2 \, \sigma_{nj}^2 }{ \varepsilon^2 \, V_n } = \lim\limits_{n \rightarrow +\infty} \frac{ K^2 }{ \varepsilon^2 \, V_n } \underbrace{ \sum\limits_{j = 1}^{n} \frac{ \sigma_{nj}^2 }{ V_n } }_{ = 1 } = \lim\limits_{n \rightarrow +\infty} \frac{ K^2 }{ \varepsilon^2 \, \underbrace{ V_n }_{ \rightarrow +\infty} } = 0$$
+donde en la primer desiguladad utilizamos el hecho de que las variables están uniformemente acotadas (por hipótesis), mientras que en la segunda desigualdad utilizamos la desigualdad de Markov.
+
+Dado que las variables cumplen la condición **(L)** de Lindeberg, $\frac{ S_n }{\sqrt{V_n}} \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$.
 
 # Ejercicio 9
 
