@@ -16,6 +16,7 @@ header-includes:
    - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
    - \DeclareMathOperator{\E}{\mathbf{E}}
    - \DeclareMathOperator{\V}{\mathbf{V}}
+   - \usepackage{tasks}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -178,19 +179,17 @@ $$\frac{1}{n \sigma^2} \sum\limits_{j = 1}^{n} X_j^2 \overset{p}{\rightarrow} 1 
 dado que $f(z) = \sqrt{z}$ es continua en todo su dominio. Luego entonces, por el teorema de Slutsky, tenemos que:
 $$\frac{ \sum\limits_{j = 1}^{n} X_j }{ \sqrt{ \sum\limits_{j = 1}^{n} X_j^2 } } = \frac{ \left( \frac{1}{\sigma / \sqrt{n}} \right) \sum\limits_{j = 1}^{n} X_j }{ \left( \frac{1}{\sigma / \sqrt{n}} \right) \sqrt{ \sum\limits_{j = 1}^{n} X_j^2 } } \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$$
 
-\newpage
-
 # Ejercicio 7
 
 **Hipótesis:**
 
-\begin{itemize}
-  \item $X_{n1}, \, \ldots, \, X_{nn}$ sucesión de variable aleatorias independientes.
-  \item $\E(X_{nk}) = m_{nk}$
-  \item $\V(X_{nk}) = \sigma_{nk}^2 < +\infty$
-  \item $S_n = \sum\limits_{k = 1}^{n} X_{nk}$
-  \item $V_n^2 = \sum\limits_{k = 1}^{n} \sigma^2_{nk}$
-\end{itemize}
+\begin{tasks}(2)
+  \task* $X_{n1}, \, \ldots, \, X_{nn}$ sucesión de variable aleatorias independientes.
+  \task $\E(X_{nk}) = m_{nk}$
+  \task $\V(X_{nk}) = \sigma_{nk}^2 < +\infty$
+  \task $S_n = \sum\limits_{k = 1}^{n} X_{nk}$
+  \task $V_n^2 = \sum\limits_{k = 1}^{n} \sigma^2_{nk}$
+\end{tasks}
 
 ## Parte a
 
@@ -204,8 +203,6 @@ $$\leq \frac{ \delta }{ 2 } + \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2
 $$= \frac{ \delta }{ 2 } + \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \Bigg\{ \underbrace{ \E \big( X_{nk} - m_{nk} \big)^2 \mathbb{I}_{ \left\{ \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| < \varepsilon \right\} } }_{ \leq \varepsilon^2 \text{ por la indicatriz }} \Bigg\} \leq \frac{\delta}{2} + \varepsilon^2 \leq \delta$$
 
 Luego, dado que $\delta$ es arbitrario, eligo $\varepsilon$ tal que $\varepsilon^2 < \frac{\delta}{2}$, y entonces el límite tiende a cero.
-
-\newpage
 
 ## Parte b
 
@@ -226,6 +223,8 @@ $$= \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ 
 
 Donde el límite se cumple dado que está acotado inferiormente por cero (por ser una probabilidad), y superiormente por una expresión que tiende a cero (por hipótesis).
 
+\newpage
+
 # Ejercicio 8
 
 Primero debemos establecer que efectivamente estamos en las condiciones del teorema de Lindeberg. Esto se cumple dado que si las variables son independientes, entonces la suma de las varianzas es la varianza de la suma: $V_n = \V \big(S_n\big) = \sum\limits_{j = 1}^{n} \sigma_{nj}^2$ donde $\sigma_{nj}^2$ es la varianza de la $j$-ésima variable aleatoria en la sucesión. 
@@ -240,7 +239,21 @@ donde en la primer desiguladad utilizamos el hecho de que las variables están u
 
 Dado que las variables cumplen la condición **(L)** de Lindeberg, $\frac{ S_n }{\sqrt{V_n}} \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$.
 
-# Ejercicio 9
+\newpage
+
+# Ejercicio 9: TLC $(2 + \delta)$ de Lyapunov
+
+\begin{tasks}(2)
+   \task* $X_n1, \, \ldots, \, X_{nn}$ variables aleatorias independientes $\forall n \geq 1$
+   \task $\E \left( X_{nj} \right) = 0$
+   \task $\V \left( X_{nj} \right) = \sigma_{nj}^2$
+   \task $\exists \delta > 0$ tal que $\frac{ 1 }{ B_n^{1 + \frac{\delta}{2}} } \sum\limits_{j = 1}^{n} \E \big( |X_{nj}|^{2 + \delta} \big) \overset{n}{\rightarrow} 0$
+   \task $B_n = \sum\limits_{j = 1}^{n} \sigma_{nj}^2$
+\end{tasks}
+
+Probar que $\frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} X_{nj} \overset{d}{\rightarrow} Z \sim \text{N}(0, 1)$
+
+*Dem*:
 
 
 
