@@ -483,5 +483,7 @@ $$\frac{1}{V_n} \sum\limits_{k = 1}^{n} (X_{nk} - m_{nk}) \overset{d}{\rightarro
 
 #### Definición 3.19: Condición de Lyapunov
 
-Sean $X_1, \, \ldots, \, X_n$ variables aleatorias independientes con segundo momento finito. Sean $m_{k} = \E(X_k)$, $\sigma_k^2 = \V(X_k)$, $S_n = X_1 + \ldots + X_n$, y $V_n^2 = \sum\limits_{k = 1}^{n} \sigma_k^2$. Decimos que las variables $X_i$ verifican la condición **(LY)** de Lyapunov si $\exists \delta$ tal que:
-$$\lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^{2 + \delta}} \sum\limits \E \big| X_k - m_k \big|^{2 + \delta} = 0$$
+Sean $X_1, \, \ldots, \, X_n$ variables aleatorias independientes con segundo momento finito. Sean $m_{k} = \E(X_k)$, $\sigma_k^2 = \V(X_k)$, $S_n = X_1 + \ldots + X_n$, y $V_n^2 = \sum\limits_{k = 1}^{n} \sigma_k^2$. Decimos que las variables $X_i$ verifican la condición **(LY)** de Lyapunov si $\exists \delta > 0$ tal que:
+$$\lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^{2 + \delta}} \sum\limits_{k = 1}^{n} \E \big| X_k - m_k \big|^{2 + \delta} = 0$$
+
+Luego si la sucesión de variables aleatorias cumple la condición **LY**, entonces $\frac{1}{V_n^2} \sum\limits_{k = 1}^{n} |X_{k} - m_{k}| \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$.
