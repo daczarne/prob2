@@ -253,9 +253,25 @@ Dado que las variables cumplen la condición **(L)** de Lindeberg, $\frac{ S_n }
 
 Probar que $\frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} X_{nj} \overset{d}{\rightarrow} Z \sim \text{N}(0, 1)$
 
-*Dem*:
+*Dem*: si probamos que $\frac{ 1 }{ B_n^{1 + \frac{\delta}{2}} } \sum\limits_{j = 1}^{n} \E \big( |X_{nj}|^{2 + \delta} \big) \overset{n}{\rightarrow} 0$ implíca que $\frac{ 1 }{ B_n^2 } \sum\limits_{j = 1}^{n} \E \big( |X_{nj}|^2 \mathbb{I}_{ \left\{ |X_{nj}| \geq \varepsilon \sqrt{B_n} \right\} } \big) \overset{n}{\rightarrow} 0$, es decir, que la condición **LY** implíca la condición **L**, entonces queda demostrado que $\frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} X_{nj} \overset{d}{\rightarrow} Z \sim \text{N}(0, 1)$, dado que la condición **L** implíca la condición $\mathbf{\Lambda}$ de Lindeberg, la cual es condición necesaria y suficiente para la convergencia.
 
+Comencemos estudiando la relación entre los dos sumandos.
+$$\E \big( |X_{nj}|^{2 + \delta} \big) = \int\limits_{ \mathbb{R} } |x|^{2 + \delta} dF_{nj}(x) \geq \int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^{2 + \delta} dF_{nj}(x)$$
+Esta desigualdad se cumple dado que en la integral del lado izquierdo estmaos integrando sobre todo $\mathbb{R}$ (es decir, sobre toda la recata real), mientras que en la integral de la derecha estamos integrando sobre una semirrecta de $\mathbb{R}$ dado que $\left\{ x : |x| \geq \varepsilon \sqrt{B_n} \right\} \subset \mathbb{R}$.
+$$\int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^{2 + \delta} dF_{nj}(x) = \int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^2 |x|^{\delta} dF_{nj}(x) = \int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^2 |x|^{\delta} \color{magenta}{\left( \frac{ \varepsilon \sqrt{B_n} }{ \varepsilon \sqrt{B_n} } \right)^{\delta}} \color{black}{dF_{nj}(x)} =$$
+$$= \left( \varepsilon \sqrt{B_n} \right)^{\delta} \int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^2 \left| \frac{ x }{ \varepsilon \sqrt{B_n} } \right|^{\delta} dF_{nj}(x)$$
+Luego, nuestro de integración establece que $|x| \geq \varepsilon \sqrt{B_n}$, por lo tanto, $\left| \frac{ x }{ \varepsilon \sqrt{B_n} } \right| \geq 1$ de donde obtenemos que $\left| \frac{ x }{ \varepsilon \sqrt{B_n} } \right|^{\delta} \geq 1^{\delta} = 1$, con lo que se cumple entonces la siguiente desigualdad (dado que hacemos más pequeño el integrando):
+$$= \left( \varepsilon \sqrt{B_n} \right)^{\delta} \int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^2 \underbrace{ \left| \frac{ x }{ \varepsilon \sqrt{B_n} } \right|^{\delta}}_{ \geq 1 } dF_{nj}(x) \geq \left( \varepsilon \sqrt{B_n} \right)^{\delta} \int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^2 dF_{nj}(x) =$$
+$$= \left( \varepsilon \sqrt{B_n} \right)^{\delta} \E \left[ |X_{nj}|^2 \, \mathbb{I}_{ \left\{ |X_{nj}| \geq \varepsilon \sqrt{B_n} \right\} } \right]$$
 
+Por lo tanto, hemos hallado que:
+$$\E \big( |X_{nj}|^{2 + \delta} \big) \geq \left( \varepsilon \sqrt{B_n} \right)^{\delta} \E \left[ |X_{nj}|^2 \, \mathbb{I}_{ \left\{ |X_{nj}| \geq \varepsilon \sqrt{B_n} \right\} } \right]$$
+Lo cual implíca que:
+$$\E \left[ |X_{nj}|^2 \, \mathbb{I}_{ \left\{ |X_{nj}| \geq \varepsilon \sqrt{B_n} \right\} } \right] \leq \frac{ \E \big( |X_{nj}|^{2 + \delta} \big) }{ \left( \varepsilon \sqrt{B_n} \right)^{\delta} }$$
+
+Si ahora, sumamos sobre las $j$ variables, multiplicamos por $1 / B_n$ y tomamos límites cuando $n \rightarrow + \infty$, obtenemos que:
+$$\lim\limits_{n \rightarrow +\infty} \frac{1}{B_n} \sum\limits_{j = 1}^{n} \E \left[ |X_{nj}|^2 \, \mathbb{I}_{ \left\{ |X_{nj}| \geq \varepsilon \sqrt{B_n} \right\} } \right] \leq \lim\limits_{n \rightarrow +\infty} \frac{1}{B_n} \sum\limits_{j = 1}^{n} \frac{ \E \big( |X_{nj}|^{2 + \delta} \big) }{ \left( \varepsilon \sqrt{B_n} \right)^{\delta} } =$$
+$$= \lim\limits_{n \rightarrow +\infty} \sum\limits_{j = 1}^{n} \frac{ \E \big( |X_{nj}|^{2 + \delta} \big) }{ \varepsilon^{\delta} \, B_n^{1 + \frac{\delta}{2}}} = \frac{1}{\varepsilon^{\delta}} \underbrace{ \left[ \frac{1}{B_n^{1 + \frac{\delta}{2}}} \lim\limits_{n \rightarrow +\infty} \sum\limits_{j = 1}^{n} \E \big( |X_{nj}|^{2 + \delta} \big) \right] }_{ \overset{n}{\rightarrow} 0 \text{ por hipótesis}} \overset{n}{\rightarrow} 0$$
 
 # Ejercicio 10
 
