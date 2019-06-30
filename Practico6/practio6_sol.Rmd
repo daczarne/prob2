@@ -287,10 +287,27 @@ $$\frac{1}{ \sqrt{B_n^3} } \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^3 \b
 $$\leq \frac{1}{ B_n \, \sqrt{B_n} } \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^2 \, (b - a) \big] = \frac{(b - a)}{ \sqrt{B_n} } \underbrace{ \left[ \frac{1}{B_n} \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^2 \big] \right] }_{ = 1} \overset{n}{\rightarrow} 0$$
 donde la desigualdad se cumple dado que $X$ es una variable aletoria de recorrido acotado entre $a$ y $b$.
 
-
 # Ejercicio 11: Teorema del Límite de Poisson
 
+Primero debemos derivar la función característica de una variable aleatoria con distribución Bernoulli.
+$$\varphi_{X_{nj}}(t) = \E \left( e^{itX_{nj}} \right) = e^{it(0)} \lambda_{nj}^{(0)} \big( 1 - \lambda_{nj} \big)^{1 - (0)} + e^{it(1)} \lambda_{nj}^{(1)} \big( 1 - \lambda_{nj} \big)^{1 - (1)} = 1 - \lambda_{nj} + e^{it} \lambda_{nj}$$
 
+Luego, dado que las variables aleatorias son independientes, la función característica de su suma será:
+$$\varphi_{T_n}(t) = \prod\limits_{j = 1}^{n} \varphi_{X_{nj}}(t) = \prod\limits_{j = 1}^{n} \left[ 1 - \lambda_{nj} + e^{it} \lambda_{nj} \right]$$
+
+Por último, debemos probar que estamos en las condiciones de la sugerencia donde $z_{nj} = e^{it} \lambda_{nj} - \lambda_{nj}$.
+
+i) $\sum\limits_{j = 1}^{n} z_{nj} = \sum\limits_{j = 1}^{n} \left[ e^{it} \lambda_{nj} - \lambda_{nj} \right] = \sum\limits_{j = 1}^{n} e^{it} \lambda_{nj} - \sum\limits_{j = 1}^{n} \lambda_{nj} \overset{n}{\rightarrow} \lambda e^{it} - \lambda = \lambda(e^{it} - 1)$
+
+ii) dado que $\max\limits_j(\lambda_{nj}) \leq \sum\limits_{j = 1}^{n} \lambda_{nj}$ tenemos que:
+$$\delta_n = \max\limits_j |z_{nj}| = \max\limits_j \left| e^{it} \lambda_{nj} - \lambda_{nj} \right| = \max\limits_j \left| \lambda_{nj} \big( e^{it} - 1\big) \right| = \left| e^{it} - 1 \right| \max\limits_j \left| \lambda_{nj} \right| =$$
+$$= \left| e^{it} - 1 \right| \max\limits_j \left\{ \sqrt{ \lambda_{nj}^2 } \right\} = \left| e^{it} - 1 \right| \sqrt{ \max\limits_j \left( \lambda_{nj}^2 \right) } \leq \underbrace{ \left| e^{it} - 1 \right| }_{\text{acotado}} \underbrace{ \sqrt{ \sum\limits_{j = 1}^{n} \lambda_{nj}^2 } }_{ \overset{n}{\rightarrow} 0} \overset{n}{\rightarrow} 0$$
+
+iii) $\underbrace{ \delta_n }_{\overset{n}{\rightarrow} 0} \underbrace{ \sum\limits_{j = 1}^{n} z_{nj} }_{\text{acotado}} \overset{n}{\rightarrow} 0$
+
+Por lo tanto:
+$$\varphi_{T_n}(t) = \prod\limits_{j = 1}^{n} \varphi_{X_{nj}}(t) = \prod\limits_{j = 1}^{n} \left[ 1 - \lambda_{nj} + e^{it} \lambda_{nj} \right] \overset{n}{\rightarrow} \exp\left\{ \lambda \left( e^{it} - 1 \right) \right\}$$
+lo cual es la función característica de una variable aleatoria con distribución $\text{Poisson}(\lambda)$.
 
 # Ejercicio 12
 
