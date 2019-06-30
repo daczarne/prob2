@@ -357,4 +357,46 @@ $$\sqrt{n} \Big[ f(Y_n(\omega)) - f(\mu) \Big] = \underbrace{ f'(X_n(\omega)) }_
 
 # Ejercicio 14
 
+## Parte a
+
+Provar que si $\E \left( |X|^n \right) < +\infty$ entonces: $\E \left( |X|^n \right) = n \int\limits_{0}^{+\infty} x^{n - 1} \big( F_X(-x) + 1 - F_X(x) \big) dx$
+
+*Dem*:
+$$\begin{array}{rcl}
+\E \left( |X|^n \right) & = & \int\limits_{-\infty}^{+\infty} |x|^n dF_X(x) \\
+   & = & \int\limits_{-\infty}^{0} |x|^n dF_X(x) + \int\limits_{0}^{+\infty} |x|^n dF_X(x) \\
+   & = & \underbrace{ \int\limits_{-\infty}^{0} (-x)^n dF_X(x) }_{I_1} + \underbrace{ \int\limits_{0}^{+\infty} x^n dF_X(x) }_{I_2}
+\end{array}$$
+
+Comenzamos trabajando con $I_1$. Para ello primero realizamos el cambio de variable $y = -x$ y luego integramos por partes:
+<!--
+$$\begin{array}{lcl}
+y = -x \Rightarrow x = -y & & \frac{dx}{dy} = -1 \Rightarrow dx = -dy \\ \\
+\text{Si } x \rightarrow -\infty \Rightarrow y \rightarrow + \infty & & \text{Si } x = 0 \Rightarrow y = 0
+\end{array}$$
+de donde obtenemos que:
+-->
+$$\begin{array}{rcl}
+I_1 = \int\limits_{-\infty}^{0} (-x)^n dF_X(x) & = & \int\limits_{+\infty}^{0} y^n dF_X(-y) \\ \\
+    & = & \underbrace{ y^n F_X(-y) \Big|_{0}^{+\infty} }_{ \overset{y}{\rightarrow} 0 \text{ por lema 3.16}} - \int\limits_{+\infty}^{0}  F_X(-y) d(y^n) \\ \\ 
+    & = & \int\limits_{0}^{+\infty} n y^{n - 1} F_X(-y) dy \\ \\
+    & = & \int\limits_{0}^{+\infty} n x^{n - 1} F_X(-x) dx \\
+\end{array}$$
+
+Trabajndo con $I_2$ obtenemos que, si integramos por partes:
+$$\begin{array}{rcl}
+I_2 & = & \int\limits_{0}^{+\infty} x^n dF_X(x) \\ \\
+    & = & \int\limits_{0}^{+\infty} (-x^n) d(1 - F_X(x)) \\ \\
+    & = & \underbrace{ (-x^n) \big[ 1 - F_X(x) \big] \Big|_{0}^{+\infty} }_{ \overset{x}{\rightarrow} 0 \text{ por lema 3.16}} - \int\limits_{0}^{+\infty} \big[ 1 - F_X(x) \big] d(-x^n) \\ \\
+    & = & \int\limits_{0}^{+\infty} n x^{n - 1} \big[ 1 - F_X(x) \big] dx 
+\end{array}$$
+
+Por lo tanto, concluimos que:
+$$\E \left( |X|^n \right) = I_1 + I_2 = \int\limits_{0}^{+\infty} n x^{n - 1} F_X(-x) dx + \int\limits_{0}^{+\infty} n x^{n - 1} \big[ 1 - F_X(x) \big] dx =$$
+$$= \int\limits_{0}^{+\infty} \Big( n x^{n - 1} F_X(-x) + n x^{n - 1} \big[ 1 - F_X(x) \big] \Big) dx = \int\limits_{0}^{+\infty} n x^{n - 1} \big[ F_X(-x) + 1 - F_X(x) \big] dx$$
+
+\newpage
+
+## Parte b
+
 
