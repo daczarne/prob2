@@ -295,7 +295,7 @@ $$\varphi_{X_{nj}}(t) = \E \left( e^{itX_{nj}} \right) = e^{it(0)} \lambda_{nj}^
 Luego, dado que las variables aleatorias son independientes, la función característica de su suma será:
 $$\varphi_{T_n}(t) = \prod\limits_{j = 1}^{n} \varphi_{X_{nj}}(t) = \prod\limits_{j = 1}^{n} \left[ 1 - \lambda_{nj} + e^{it} \lambda_{nj} \right]$$
 
-Por último, debemos probar que estamos en las condiciones de la sugerencia donde $z_{nj} = e^{it} \lambda_{nj} - \lambda_{nj}$.
+Por último, debemos probar que estamos en las condiciones de la sugerencia provista, tomando, para este caso $z_{nj} = e^{it} \lambda_{nj} - \lambda_{nj}$.
 
 i) $\sum\limits_{j = 1}^{n} z_{nj} = \sum\limits_{j = 1}^{n} \left[ e^{it} \lambda_{nj} - \lambda_{nj} \right] = \sum\limits_{j = 1}^{n} e^{it} \lambda_{nj} - \sum\limits_{j = 1}^{n} \lambda_{nj} \overset{n}{\rightarrow} \lambda e^{it} - \lambda = \lambda(e^{it} - 1)$
 
@@ -309,13 +309,51 @@ Por lo tanto:
 $$\varphi_{T_n}(t) = \prod\limits_{j = 1}^{n} \varphi_{X_{nj}}(t) = \prod\limits_{j = 1}^{n} \left[ 1 - \lambda_{nj} + e^{it} \lambda_{nj} \right] \overset{n}{\rightarrow} \exp\left\{ \lambda \left( e^{it} - 1 \right) \right\}$$
 lo cual es la función característica de una variable aleatoria con distribución $\text{Poisson}(\lambda)$.
 
+\newpage
+
 # Ejercicio 12
 
+Dado que $X_{n1}, \, \ldots, X_{nn}$ son independientes con distribución Bernoulli, $\text{Rec}(X_{nj}) = \{0, \, 1\}$ para toda variable en la sucesión. Por lo tanto, también lo será para el máximo. Luego entonces:
 
+$$\Pr \left( M_n = 0 \right) = \Pr \left( \text{``todas sean cero''} \right) = \prod\limits_{j = 1}^{n} \left( 1 - \lambda_{nj} \right) = \prod\limits_{j = 1}^{n} \big( 1 + (- \lambda_{nj}) \big) \overset{n}{\rightarrow} e^{-\lambda}$$
+donde, al igual que en el Teorema del Límite de Poisson, la convergencia se cumple dado que:
+
+i) $\sum\limits_{j = 1}^{n} \lambda_{nj} \overset{n}{\rightarrow} \lambda$
+
+ii) $\delta_n = \max\limits_j|\lambda_{nj}| = \sqrt{ \max\limits_j \left( \lambda_{nj}^2 \right) } \leq \sqrt{ \sum\limits_{j = 1}^{n} \lambda_{nj}^2 } \overset{n}{\rightarrow} 0$
+
+iii) $\delta_n \sum\limits_{j = 1}^{n} \left| \lambda_{nj} \right| \overset{n}{\rightarrow} 0$
+
+Por lo tanto, dado que la probabilidad de fracaso es $e^{-\lambda}$, la probabilidad de éxito debe ser:
+$$\Pr\left( M_n = 1 \right) = 1 - \Pr\left( M_n = 0 \right) = 1 - e^{-\lambda}$$
+
+Por lo que $M_n \overset{d}{\rightarrow} M \sim \text{Ber}\left( 1 - e^{-\lambda} \right)$.
 
 # Ejercicio 13: Método Delta
 
+Comencemos notando que, en este caso, $\mu$ no es la esperanza de las variables aleatorias $Y_n$. Para demostrar el teorema del Método Delta debemos utilizar un desarrollo de Taylor de primer orden de $f(Y_n)$ entorno a $\mu$, donde $f$ es una función derivable en $\mu$ y con derivada continua en $\mu$. Así, obtenemos que:
+$$f(Y_n(\omega)) = f(\mu) + f'(X_n(\omega)) ( Y_n(\omega) - \mu )$$
+donde $0 \leq |X_n(\omega) - \mu| \leq |Y_n(\omega) - \mu|$. Luego multiplicamos ambos lados de la igualdad por $\sqrt{n}$ y reacomodamos términos para obtener:
+$$\begin{array}{rcl}
+\sqrt{n} \Big[ f(Y_n(\omega)) - f(\mu) \Big] & = & \sqrt{n} \Big[ f'(X_n(\omega)) \big( Y_n(\omega) - \mu \big) \Big] \\ \\
+    & = & f'(X_n(\omega)) \underbrace{ \Big[ \sqrt{n} \big( Y_n(\omega) - \mu \big) \Big] }_{\overset{d}{\rightarrow} V \sim \text{N}(0, \, \sigma^2)}
+\end{array}$$
 
+Nótese que cuando trabajamos con la variable aleatoria $Y_n$, su derivada debemos evaluarla en $X_n$ y no en $\mu$ (como haríamos con un desarrollo de Taylor de una función no aleatoria). Debemos entonces demostrar la convergencia de $f'(X_n) \overset{p}{\rightarrow} f'(\mu)$.
+
+Para demostrar la convergencia de $f'(X_n)$ debemos utilizar el hecho de que $X_n$ está acotado superiormente por $Y_n$ (dado que no sabemos nada acerca de $X_n$ que podamos utilizar para demostrar su convergencia de forma más directa). Entonces:
+$$\begin{array}{rcl}
+\Pr \left( |Y_n - \mu| > \varepsilon \right) & = & \Pr \left( \sqrt{n} |Y_n - \mu| > \sqrt{n} \,\varepsilon \right) \\ \\
+   & = & \Pr \left( \sqrt{n} |Y_n - \mu| > \sqrt{n} \,\varepsilon \right) \\ \\
+   & = & \Pr \left( \sqrt{n} ( Y_n - \mu ) < - \sqrt{n} \,\varepsilon \right) + \Pr \left( \sqrt{n} ( Y_n - \mu ) > \sqrt{n} \,\varepsilon \right) \\ \\
+   & = & \Pr \left( \sqrt{n} ( Y_n - \mu ) < - \sqrt{n} \,\varepsilon \right) + 1 - \Pr \left( \sqrt{n} ( Y_n - \mu ) < \sqrt{n} \,\varepsilon \right) \\ \\
+   & = & \underbrace{ F_{\sqrt{n} ( Y_n - \mu )} \big( \underbrace{ - \sqrt{n} \,\varepsilon }_{ \overset{n}{\rightarrow} - \infty } \big) }_{\overset{n}{\rightarrow} 0 } + 1 - \underbrace{ F_{\sqrt{n} ( Y_n - \mu )} \big( \underbrace{ \sqrt{n} \,\varepsilon }_{ \overset{n}{\rightarrow} + \infty } \big) }_{ \overset{n}{\rightarrow} 1 } \overset{n}{\rightarrow} 0 \Rightarrow Y_n \overset{p}{\rightarrow} \mu
+\end{array}$$
+Luego, dado que $X_n$ fue construido de forma tal que $\big\{ | X_n - \mu | > \varepsilon \big\} \subset \big\{ | Y_n - \mu | > \varepsilon \big\}$ obtenemos que:
+$$0 \leq \Pr \left( |X_n - \mu| > \varepsilon \right) \leq \Pr \left( |Y_n - \mu| > \varepsilon \right) \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} \mu$$
+
+Por último, dado que $f$ es tal que su derivada es continua, al menos en un entorno de $\mu$, tenemos que $f'(X_n) \overset{p}{\rightarrow} f'(\mu)$. Ahora, utilizando el teorema de Slutsky, podemos afirmar que:
+$$\sqrt{n} \Big[ f(Y_n(\omega)) - f(\mu) \Big] = \underbrace{ f'(X_n(\omega)) }_{ \overset{p}{\rightarrow} \mu } \underbrace{ \Big[ \sqrt{n} \big( Y_n(\omega) - \mu \big) \Big] }_{\overset{d}{\rightarrow} V \sim \text{N}(0, \, \sigma^2)} \overset{d}{\rightarrow} W \sim \text{N} \Big( 0, \sigma^2(f'(\mu))^2 \Big)$$
 
 # Ejercicio 14
 
