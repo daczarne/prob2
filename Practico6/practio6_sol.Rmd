@@ -244,7 +244,7 @@ Dado que las variables cumplen la condición **(L)** de Lindeberg, $\frac{ S_n }
 # Ejercicio 9: TLC $(2 + \delta)$ de Lyapunov
 
 \begin{tasks}(2)
-   \task* $X_n1, \, \ldots, \, X_{nn}$ variables aleatorias independientes $\forall n \geq 1$
+   \task* $X_{n1}, \, \ldots, \, X_{nn}$ variables aleatorias independientes $\forall n \geq 1$
    \task $\E \left( X_{nj} \right) = 0$
    \task $\V \left( X_{nj} \right) = \sigma_{nj}^2$
    \task $\exists \delta > 0$ tal que $\frac{ 1 }{ B_n^{1 + \frac{\delta}{2}} } \sum\limits_{j = 1}^{n} \E \big( |X_{nj}|^{2 + \delta} \big) \overset{n}{\rightarrow} 0$
@@ -275,9 +275,20 @@ $$= \lim\limits_{n \rightarrow +\infty} \sum\limits_{j = 1}^{n} \frac{ \E \big( 
 
 # Ejercicio 10
 
+$(\Rightarrow)$
 
 
-# Ejercicio 11
+
+$(\Leftarrow)$
+
+Para probar la condición suficiente, basta con tomar $\delta = 1$ y probar que se cumple la condición de **LY**. Es decir, alcanza con probar que $\frac{1}{ \sqrt{B_n^3} } \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^3 \big] \overset{n}{\rightarrow} 0$. Para ello veamos que:
+
+$$\frac{1}{ \sqrt{B_n^3} } \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^3 \big] = \frac{1}{ B_n \, \sqrt{B_n} } \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^2 \, (X_{j} - \mu_j) \big] \leq$$
+$$\leq \frac{1}{ B_n \, \sqrt{B_n} } \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^2 \, (b - a) \big] = \frac{(b - a)}{ \sqrt{B_n} } \underbrace{ \left[ \frac{1}{B_n} \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^2 \big] \right] }_{ = 1} \overset{n}{\rightarrow} 0$$
+donde la desigualdad se cumple dado que $X$ es una variable aletoria de recorrido acotado entre $a$ y $b$.
+
+
+# Ejercicio 11: Teorema del Límite de Poisson
 
 
 
@@ -285,7 +296,7 @@ $$= \lim\limits_{n \rightarrow +\infty} \sum\limits_{j = 1}^{n} \frac{ \E \big( 
 
 
 
-# Ejercicio 13
+# Ejercicio 13: Método Delta
 
 
 
