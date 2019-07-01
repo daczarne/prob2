@@ -369,13 +369,6 @@ $$\begin{array}{rcl}
 \end{array}$$
 
 Comenzamos trabajando con $I_1$. Para ello primero realizamos el cambio de variable $y = -x$ y luego integramos por partes:
-<!--
-$$\begin{array}{lcl}
-y = -x \Rightarrow x = -y & & \frac{dx}{dy} = -1 \Rightarrow dx = -dy \\ \\
-\text{Si } x \rightarrow -\infty \Rightarrow y \rightarrow + \infty & & \text{Si } x = 0 \Rightarrow y = 0
-\end{array}$$
-de donde obtenemos que:
--->
 $$\begin{array}{rcl}
 I_1 = \int\limits_{-\infty}^{0} (-x)^n dF_X(x) & = & \int\limits_{+\infty}^{0} y^n dF_X(-y) \\ \\
     & = & \underbrace{ y^n F_X(-y) \Big|_{0}^{+\infty} }_{ \overset{y}{\rightarrow} 0 \text{ por lema 3.16}} - \int\limits_{+\infty}^{0}  F_X(-y) d(y^n) \\ \\ 
@@ -398,5 +391,27 @@ $$= \int\limits_{0}^{+\infty} \Big( n x^{n - 1} F_X(-x) + n x^{n - 1} \big[ 1 - 
 \newpage
 
 ## Parte b
+
+$$\begin{array}{rcl}
+\int\limits_{-\infty}^{+\infty} |x| \, \big| F_{nk}(x) - \Phi_{nk}(x) \big| dx & = & \int\limits_{-\infty}^{0} |x| \, \big| F_{nk}(x) - \Phi_{nk}(x) \big| dx + \int\limits_{0}^{+\infty} |x| \, \big| F_{nk}(x) - \Phi_{nk}(x) \big| dx \\ \\
+   & = & \int\limits_{-\infty}^{0} (-x) \, \big| F_{nk}(x) - \Phi_{nk}(x) \big| dx + \int\limits_{0}^{+ \infty} x \, \big| 1 - 1 + F_{nk}(x) - \Phi_{nk}(x) \big| dx \\ \\
+   & = & \int\limits_{-\infty}^{0} (-x) \, \underbrace{ \big| F_{nk}(x) - \Phi_{nk}(x) \big| }_{ \leq \big| F_{nk}(x) \big| + \big| \Phi_{nk}(x) \big| } dx + \int\limits_{0}^{+\infty} x \, \underbrace{ \big| (F_{nk}(x) - 1) + (1 - \Phi_{nk}(x)) \big| }_{ \leq \big| 1 - F_{nk}(x) \big| + \big| 1 - \Phi_{nk}(x) \big| } dx \\ \\
+   & \leq & \int\limits_{-\infty}^{0} (-x) \Big[ \big| F_{nk}(x) \big| + \big| \Phi_{nk}(x) \big| \Big] dx + \int\limits_{0}^{+ \infty} x \Big[ \big| 1 - F_{nk}(x) \big| + \big| 1 - \Phi_{nk}(x) \big| \Big] dx \\ \\
+\end{array}$$
+Dado que tanto $F_{nk}$ como $\Phi_{nk}$ son funciones de distribución, $F_{nk}(x) > 0$ y $\Phi_{nk}(x) > 0$ para todo $x$. Adicionalmente, realizamos el siguiente cambio de variable:
+$$\begin{array}{lcl}
+u = -x \Rightarrow x = -u & & \frac{dx}{du} = -1 \Rightarrow dx = -du \\ \\
+\text{Si } x \rightarrow -\infty \Rightarrow u \rightarrow + \infty & & \text{Si } x = 0 \Rightarrow u = 0
+\end{array}$$
+de donde obtenemos que:
+$$\begin{array}{rcl}
+\int\limits_{- \infty}^{+\infty} |x| \, \big| F_{nk}(x) - \Phi_{nk}(x) \big| dx & \leq & \int\limits_{- \infty}^{0} (-x) \Big[ F_{nk}(x) + \Phi_{nk}(x) \Big] dx + \int\limits_{0}^{+ \infty} x \Big[ \big( 1 - F_{nk}(x) \big) + \big( 1 - \Phi_{nk}(x) \big) \Big] dx \\ \\ 
+   & = & - \int\limits_{+\infty}^{0} u \Big[ F_{nk}(-u) + \Phi_{nk}(-u) \big| \Big] du + \int\limits_{0}^{+ \infty} x \Big[ \big( 1 - F_{nk}(x) \big) + \big( 1 - \Phi_{nk}(x) \big) \Big] dx \\ \\ 
+   & = & \int\limits_{0}^{+\infty} u \Big[ F_{nk}(-u) + \Phi_{nk}(-u) \Big] du + \int\limits_{0}^{+ \infty} x \Big[ \big( 1 - F_{nk}(x) \big) + \big( 1 - \Phi_{nk}(x) \big) \Big] dx \\ \\ 
+   & = & \int\limits_{0}^{+\infty} x \Big[ F_{nk}(-x) + \Phi_{nk}(-x) \Big] dx + \int\limits_{0}^{+ \infty} x \Big[ \big( 1 - F_{nk}(x) \big) + \big( 1 - \Phi_{nk}(x) \big) \Big] dx \\ \\ 
+   & = & \int\limits_{0}^{+\infty} x \Bigg[ F_{nk}(-x) + \Phi_{nk}(-x) + \big( 1 - F_{nk}(x) \big) + \big( 1 - \Phi_{nk}(x) \big) \Bigg] dx \\ \\ 
+   & = & \int\limits_{0}^{+\infty} x \Bigg[ \big( F_{nk}(-x) + 1 - F_{nk}(x) \big) + \big( 1 - \Phi_{nk}(x) + \Phi_{nk}(-x) \big) \Bigg] dx \\ \\ 
+   & = & \int\limits_{0}^{+\infty} x \big( F_{nk}(-x) + 1 - F_{nk}(x) \big) dx + \int\limits_{0}^{+\infty} x \big( 1 - \Phi_{nk}(x) + \Phi_{nk}(-x) \big) dx \\ \\ 
+\end{array}$$
 
 
