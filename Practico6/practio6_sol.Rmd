@@ -428,21 +428,3 @@ $$\begin{array}{rcl}
    & = & \frac{ \V \big( X_{nk} \big) }{2} + \frac{ \V \big( \Phi_{nk} \big) }{2} \\ \\
    & = & \frac{ \sigma_{nk}^2 }{2} + \frac{ \sigma_{nk}^2 }{2} = \sigma_{nk}^2 \leq 2 \sigma_{nk}^2 \\ \\   
 \end{array}$$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
