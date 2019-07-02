@@ -414,4 +414,35 @@ $$\begin{array}{rcl}
    & = & \int\limits_{0}^{+\infty} x \big( F_{nk}(-x) + 1 - F_{nk}(x) \big) dx + \int\limits_{0}^{+\infty} x \big( 1 - \Phi_{nk}(x) + \Phi_{nk}(-x) \big) dx \\ \\ 
 \end{array}$$
 
+Por la parte a del ejercicio sabemos que:
+$$\E \left( |X|^n \right) = \int\limits_{0}^{+\infty} n x^{n - 1} \big[ F_X(-x) + 1 - F_X(x) \big] dx$$
+Luego, si $n = 2$ tenemos que:
+$$\E \left( |X|^2 \right) = 2 \int\limits_{0}^{+\infty} x\big[ F_X(-x) + 1 - F_X(x) \big] dx$$
+
+\newpage
+
+Por lo tanto,
+$$\begin{array}{rcl}
+\int\limits_{-\infty}^{+\infty} |x| \, \big| F_{nk}(x) - \Phi_{nk}(x) \big| dx & \leq & \int\limits_{0}^{+\infty} x \big( F_{nk}(-x) + 1 - F_{nk}(x) \big) dx + \int\limits_{0}^{+\infty} x \big( 1 - \Phi_{nk}(x) + \Phi_{nk}(-x) \big) dx \\ \\ 
+   & = & \frac{ \E \big( |X_{nk}|^2 \big) }{2} + \frac{ \E \big( |\Phi_{nk}|^2 \big) }{2} \\ \\
+   & = & \frac{ \V \big( X_{nk} \big) }{2} + \frac{ \V \big( \Phi_{nk} \big) }{2} \\ \\
+   & = & \frac{ \sigma_{nk}^2 }{2} + \frac{ \sigma_{nk}^2 }{2} = \sigma_{nk}^2 \leq 2 \sigma_{nk}^2 \\ \\   
+\end{array}$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
