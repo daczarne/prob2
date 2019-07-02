@@ -314,15 +314,14 @@ lo cual es la función característica de una variable aleatoria con distribuci�
 # Ejercicio 12
 
 Dado que $X_{n1}, \, \ldots, X_{nn}$ son independientes con distribución Bernoulli, $\text{Rec}(X_{nj}) = \{0, \, 1\}$ para toda variable en la sucesión. Por lo tanto, también lo será para el máximo. Luego entonces:
-
 $$\Pr \left( M_n = 0 \right) = \Pr \left( \text{``todas sean cero''} \right) = \prod\limits_{j = 1}^{n} \left( 1 - \lambda_{nj} \right) = \prod\limits_{j = 1}^{n} \big( 1 + (- \lambda_{nj}) \big) \overset{n}{\rightarrow} e^{-\lambda}$$
 donde, al igual que en el Teorema del Límite de Poisson, la convergencia se cumple dado que:
 
-i) $\sum\limits_{j = 1}^{n} \lambda_{nj} \overset{n}{\rightarrow} \lambda$
+i) $\sum\limits_{j = 1}^{n} (-\lambda_{nj}) = - \sum\limits_{j = 1}^{n} \lambda_{nj} \overset{n}{\rightarrow} -\lambda$
 
-ii) $\delta_n = \max\limits_j|\lambda_{nj}| = \sqrt{ \max\limits_j \left( \lambda_{nj}^2 \right) } \leq \sqrt{ \sum\limits_{j = 1}^{n} \lambda_{nj}^2 } \overset{n}{\rightarrow} 0$
+ii) $\delta_n = \max\limits_j|-\lambda_{nj}| = \max\limits_j|\lambda_{nj}| = \sqrt{ \max\limits_j \left( \lambda_{nj}^2 \right) } \leq \sqrt{ \sum\limits_{j = 1}^{n} \lambda_{nj}^2 } \overset{n}{\rightarrow} 0$
 
-iii) $\delta_n \sum\limits_{j = 1}^{n} \left| \lambda_{nj} \right| \overset{n}{\rightarrow} 0$
+iii) $\delta_n \sum\limits_{j = 1}^{n} \left| -\lambda_{nj} \right| = \delta_n \sum\limits_{j = 1}^{n} \left| \lambda_{nj} \right| \overset{n}{\rightarrow} 0$
 
 Por lo tanto, dado que la probabilidad de fracaso es $e^{-\lambda}$, la probabilidad de éxito debe ser:
 $$\Pr\left( M_n = 1 \right) = 1 - \Pr\left( M_n = 0 \right) = 1 - e^{-\lambda}$$
