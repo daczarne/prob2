@@ -53,7 +53,7 @@ Probar que si $\{X_n\}_{n \geq 1}$ es una sucesión de variables aleatorias iid 
 $$\varphi_{\bar{X}_n}(t) = \E( \exp\{ it \bar{X}_n \}) = \E \left( \exp\left\{ it \frac{1}{n} \sum\limits_{j = 1}^{n} X_j \right\} \right) = \left[ \E \left( \exp\left\{ \frac{it}{n} X \right\} \right) \right]^n = \left[ \varphi_{X} \big( t/n \big) \right]^n$$
 
 Luego, si la sucesión converge a $\mu$ en distribución, entonces converge a una variable aleatoria con distribución degenerada en $\mu$. Por lo tanto, su función característica estará dada por:
-$$\varphi_{X}(t) = \E \big( e^{itX} \big) = e^{it\mu} \, \Pr(X = \mu) + 0 \, \Pr( X \neq \mu) = e^{it\mu}$$
+$$\varphi_{X}(t) = \E \big( e^{itX} \big) = e^{it\mu} \, \Pr(X = \mu) = e^{it\mu} (1) = e^{it\mu}$$
 
 Para evaluar el límite cunado $n \rightarrow +\infty$ de $\left[ \varphi_{X} \big( t/n \big) \right]^n$ utilizamos un desarrollo de Taylor en torno a $t = 0$. Dado que por hipótesis sabemos que la variable tiene primer momento finito, sabemos que es diferenciable al menos una vez, por lo tanto, nuestro desarrollo será de primer orden:
 $$\begin{array}{rcl}
