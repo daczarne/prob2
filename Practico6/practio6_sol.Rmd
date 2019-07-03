@@ -275,11 +275,16 @@ $$= \lim\limits_{n \rightarrow +\infty} \sum\limits_{j = 1}^{n} \frac{ \E \big( 
 
 # Ejercicio 10
 
-$(\Rightarrow)$
+$(\Rightarrow)$ Si $\frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} \big( X_j - \E(X_j) \big) \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1) \Rightarrow \sqrt{B_n} \overset{n}{\rightarrow} +\infty$
 
+Supongamos por absurdo que $\sqrt{B_n} \overset{n}{\rightarrow} b < +\infty$. Luego entonces:
+$$\frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} \big( X_j - \E(X_j) \big) = \frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n - 1} \big( X_j - \E(X_j) \big) + \frac{1}{\sqrt{B_n}} \big( X_n - \E(X_n) \big) =$$
+$$= \frac{ \sqrt{B_{n - 1}} }{\sqrt{B_n}} \underbrace{ \frac{1}{\sqrt{B_{n - 1}}} \sum\limits_{j = 1}^{n - 1} \big( X_j - \E(X_j) \big) }_{ \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1) \text{ por hipótesis}} + \underbrace{ \frac{1}{\sqrt{B_n}} \big( X_n - \E(X_n) \big) }_{ \overset{n}{\rightarrow} (c/b) } \overset{d}{\not{\rightarrow}} Z \sim \text{N}(0, \, 1)$$
+Lo cual es un absurdo dado que la convergencia era la hipótesis de partida.
 
+***
 
-$(\Leftarrow)$
+$(\Leftarrow)$ Si $\sqrt{B_n} \overset{n}{\rightarrow} +\infty \Rightarrow \frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} \big( X_j - \E(X_j) \big) \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$
 
 Para probar la condición suficiente, basta con tomar $\delta = 1$ y probar que se cumple la condición de **LY**. Es decir, alcanza con probar que $\frac{1}{ \sqrt{B_n^3} } \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^3 \big] \overset{n}{\rightarrow} 0$. Para ello veamos que:
 
