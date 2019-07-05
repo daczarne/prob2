@@ -31,7 +31,7 @@ Sea $X$ una variable aleatoria con distribución $\text{Unif}(-1, 1)$. La funci�
 
 $$f_X(x) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-itx} \varphi_X (t) dt$$
 
-Por lo tanto, resolver la integral propuesta implíca resolver $f_X(0)$. Por otro lado, dado que $X \sim \text{Unif}(-1, 1)$, sabemos que $f_X(x) = 1/2$ para todo $x \in [-1, 1]$. Por lo tanto,
+Por lo tanto, resolver la integral propuesta implica resolver $f_X(0)$. Por otro lado, dado que $X \sim \text{Unif}(-1, 1)$, sabemos que $f_X(x) = 1/2$ para todo $x \in [-1, 1]$. Por lo tanto,
 
 $$f_X(0) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-it(0)} \varphi_X (t) dt = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} \varphi_X (t) dt = \frac{1}{2} \Rightarrow \int\limits_{-\infty}^{+\infty} \varphi_X (t) dt = \pi$$
 
@@ -40,7 +40,7 @@ $$f_X(0) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-it(0)} \varphi_X 
 Consideremos ahora una segunda variable aleatoria $Y$ independiente de $X$ pero con la misma distribución. Por la propiedad 3.3/4 sabemos que $\varphi_{X + Y}(t) = \varphi_X(t) \, \varphi_Y(t)$. Pero dado que ambas variables tiene la misma distribución, la función característica de su suma será: 
 $$\varphi_Z(t) = \varphi_{X + Y}(t) = \varphi^2_X(t) = \left( \frac{\sin t}{t} \right)^2$$
 
-Por otro lado, que $X$ e $Y$ tienen distibución $\text{Unif}(-1, 1)$, $Z = X + Y \sim \text{Triag}(-2, 2)$. Por lo tanto, tenemos que:
+Por otro lado, que $X$ e $Y$ tienen distribución $\text{Unif}(-1, 1)$, $Z = X + Y \sim \text{Triag}(-2, 2)$. Por lo tanto, tenemos que:
 
 $$\left. \begin{array}{lcc}
 f_Z(0) = \frac{1}{2} \\
