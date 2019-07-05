@@ -133,18 +133,18 @@ Si $\E |X|^n < \infty$ para algún $n \geq 1$ entonces:
 
 #### Teorema 3.7: Fórmula de inversión
 
-sea $F = F(x)$ una función de distribución y $\varphi(t) = \int\limits_{\mathbb{R}} e^{itx} dF(x)$ su función característica, entonces:
+Sea $F = F(x)$ una función de distribución y $\varphi_X(t) = \int\limits_{\mathbb{R}} e^{itx} dF(x)$ su función característica, entonces:
 
 1. Para todo par $a < b$ de puntos de continuidad de $F$ se cumple que:
-$$F(b) - F(a) = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \frac{ e^{-ita} - e^{-itb} }{it} \varphi(t) dt$$
+$$F(b) - F(a) = \lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \frac{ e^{-ita} - e^{-itb} }{it} \varphi_X(t) dt$$
 
 2. Si además, $\int\limits_{\mathbb{R}} |\varphi (t)| dt < \infty$ entonces, $F$ tiene densidad $f$ dada por:
-$$f(x) = \frac{1}{2 \pi} \int\limits_{\mathbb{R}} e^{-tx} \varphi(t) dt$$
+$$f(x) = \frac{1}{2 \pi} \int\limits_{\mathbb{R}} e^{-itx} \varphi_X(t) dt$$
 
 *Dem 1*: comencemos estableciendo la hoja de ruta de la demostración.
 
 i. Del capítulo 1 (prop 1.44) sabemos que $\int\limits_a^b dF_X(x) = \Pr(a < X \leq b) = F_X(b) - F_X(a)$. Por lo tanto, la demostración de la parte 1 se reduce a demostrar que:
-$$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \frac{ e^{-ita} - e^{-itb} }{it} \varphi(t) dt = \int\limits_a^b dF_X(x)$$
+$$\lim\limits_{c \rightarrow +\infty} \frac{1}{2 \pi} \int\limits_{-c}^{c} \frac{ e^{-ita} - e^{-itb} }{it} \varphi_X(t) dt = \int\limits_a^b dF_X(x)$$
 
 ii. Por la definición de función característica sabemos que:
 $$\varphi_X(t) = \E \big( e^{itX} \big) = \int\limits_{-\infty}^{+\infty} e^{itx} dF_X(x)$$
