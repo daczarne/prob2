@@ -31,7 +31,7 @@ Sea $X$ una variable aleatoria con distribución $\text{Unif}(-1, 1)$. La funci�
 
 $$f_X(x) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-itx} \varphi_X (t) dt$$
 
-Por lo tanto, resolver la integral propuesta implíca resolver $f_X(0)$. Pero dado que $X \sim \text{Unif}(-1, 1)$, sabemos que $f_X(x) = 1/2$ para todo $x \in [-1, 1]$. Por lo tanto,
+Por lo tanto, resolver la integral propuesta implíca resolver $f_X(0)$. Por otro lado, dado que $X \sim \text{Unif}(-1, 1)$, sabemos que $f_X(x) = 1/2$ para todo $x \in [-1, 1]$. Por lo tanto,
 
 $$f_X(0) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-it(0)} \varphi_X (t) dt = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} \varphi_X (t) dt = \frac{1}{2} \Rightarrow \int\limits_{-\infty}^{+\infty} \varphi_X (t) dt = \pi$$
 
@@ -46,7 +46,6 @@ $$\left. \begin{array}{lcc}
 f_Z(0) = \frac{1}{2} \\
 f_Z(0) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{-it(0)} \, \varphi_Z(t) dt
 \end{array} \right\} \Rightarrow \int\limits_{-\infty}^{+\infty} \varphi_Z(t) dt = \pi$$
-
 
 # Ejercicio 2
 
@@ -81,23 +80,15 @@ $$= \frac{1}{2(it + 1)} - \lim\limits_{x \rightarrow - \infty} \underbrace{ \fra
 $$= \frac{1}{2(it + 1)} + \lim\limits_{x \rightarrow + \infty} \underbrace{ \frac{ \overbrace{e^{-x}}^{\rightarrow 0} \big( \overbrace{\cos(tx)}^{\text{acot}} + i \overbrace{\sin(tx)}^{\text{acot}} \big) }{2(it - 1)} }_{\rightarrow 0} - \frac{1}{2(it - 1)} =$$
 $$= \frac{1}{2(it + 1)} - \frac{1}{2(it - 1)} = \frac{ it + 1 - it + 1 }{ 2 (it + 1)(it - 1) } = \frac{1}{1 + t^2}$$
 
-\newpage
-
 ## Parte b
 
 Antes de utilizar el enunciado 2 del teorema de inversión debemos verificar que estamos en las condiciones del mismo:
 $$\int\limits_{-\infty}^{+\infty} |\varphi_X(t)| dt = \int\limits_{-\infty}^{+\infty} \left| \frac{1}{1 + t^2} \right| dt = \arctan(t) \Big|_{-\infty}^{+\infty} = \frac{\pi}{2} - \left( - \frac{\pi}{2} \right) = \pi < \infty$$
 
 Luego entonces:
-$$\begin{array}{r c l}
-f_x(x) & = & \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} e^{itx} \varphi_X(t) dt \\
-   & = & \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} e^{itx} \frac{1}{1 + t^2} dt \\
-   & = & \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} \big( \cos(-tx) + i \sin(-tx) \big) \frac{1}{1 + t^2} dt \\
-   & = & \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} \frac{ \cos(tx) }{ 1 + t^2} dt - i \int\limits_{-\infty}^{+\infty} \frac{ \sin(-tx) }{1 + t^2} dt \\
-   & = & \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} \frac{ \cos(tx) }{ 1 + t^2} dt \\
-   & = & \frac{1}{2\pi} \pi e^{-|x|} \\ \\
-   & = & \frac{1}{2} e^{-|x|} \\
-\end{array}$$
+$$f_x(x) = \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} e^{-itx} \varphi_X(t) dt = \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} e^{-itx} \frac{1}{1 + t^2} dt =$$
+$$= \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} \big( \cos(-tx) + i \sin(-tx) \big) \frac{1}{1 + t^2} dt = \frac{1}{2\pi} \int\limits_{-\infty}^{+\infty} \frac{ \cos(tx) }{ 1 + t^2} dt - i \int\limits_{-\infty}^{+\infty} \frac{ \sin(tx) }{1 + t^2} dt =$$
+$$= \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} \frac{ \cos(tx) }{ 1 + t^2} dt = \frac{1}{2\pi} \pi e^{-|x|} = \frac{1}{2} e^{-|x|}$$
 
 ## Parte c
 
@@ -122,7 +113,7 @@ Por lo tanto, no es posible encontrar dos variables iid tales que su resta tenga
 # Ejercicio 6
 
 $$\begin{array}{rcl}
-\varphi_{ (X + Y)^s } & = & \E \left( e^{it(X + Y)^s} \right) \\
+\varphi_{ (X + Y)^s } (t) & = & \E \left( e^{it(X + Y)^s} \right) \\
    & = & \E \left( e^{it(X + Y - X' - Y')} \right) \\
    & = & \E \left( e^{it(X - X') + it(Y - Y')} \right) \\
    & = & \E \left( e^{ it(X - X') } \right) \, \E \left( e^{ it(Y - Y') } \right) \\
