@@ -65,7 +65,7 @@ $$\begin{array}{rcl}
    & = & e^{it\mu}
 \end{array}$$
 
-Por lo tanto, hemos probado que $\varphi_{\bar{X}_n}(t) \overset{n}{\rightarrow} \varphi_X(t)$ lo cual implíca que $\bar{X}_n \overset{d}{\rightarrow} X$ donde $X$ es tal que $\Pr( X = \mu) = 1$. Por lo tanto, $\bar{X}_n \overset{p}{\rightarrow} \mu$.
+Por lo tanto, hemos probado que $\varphi_{\bar{X}_n}(t) \overset{n}{\rightarrow} \varphi_X(t)$ lo cual implica que $\bar{X}_n \overset{d}{\rightarrow} X$ donde $X$ es tal que $\Pr( X = \mu) = 1$. Por lo tanto, $\bar{X}_n \overset{p}{\rightarrow} \mu$.
 
 # Ejercicio 3
 
@@ -99,13 +99,13 @@ Por lo tanto, $Y_n \overset{d}{\rightarrow} Y \sim \text{N}(0, 1)$.
 
 ## Parte b: utilizando el Teorema del Límite Central
 
-Sea laa sucesión de variables aleatorias $\{X_n\}_{n \geq 1}$ iid donde $X_1 \sim \text{Exp}(\lambda)$. Luego, entonces $\E(X_1) = \lambda^{-1}$, $\V(X_1) = \lambda^{-2}$, y $Z_n = \sum\limits_{j = 1}^{n} X_j \sim \Gamma(n, \, \lambda)$. Luego, si aplicamos el Teoremal del Límite Central de Levy, obtenemos que:
+Sea la sucesión de variables aleatorias $\{X_n\}_{n \geq 1}$ iid donde $X_1 \sim \text{Exp}(\lambda)$. Luego, entonces $\E(X_1) = \lambda^{-1}$, $\V(X_1) = \lambda^{-2}$, y $Z_n = \sum\limits_{j = 1}^{n} X_j \sim \Gamma(n, \, \lambda)$. Luego, si aplicamos el Teorema del Límite Central de Levy, obtenemos que:
 $$\frac{ \sum\limits_{j = 1}^{n} X_j - n \E(X_1)}{ \sqrt{n \V(X_1)} } = \frac{Z_n - n \E(X_1)}{ \sqrt{n \V(X_1)} } = \frac{Z_n - n (1 / \lambda)}{ \sqrt{n (1 / \lambda^2) } } = \frac{Z_n - n / \lambda }{ \sqrt{n} / \lambda } =$$
 $$= \frac{ \lambda Z_n - n }{ \sqrt{n} } = \frac{ \lambda Z_n }{ \sqrt{n} } - \sqrt{n} = Y_n \overset{d}{\rightarrow} Y \sim \text{N}(0, 1)$$
 
 # Ejercicio 4: aproximación Normal de la Poisson
 
-Primero hallamos la función característica de una varaible aleatoria con distribución $\text{Poisson}(\lambda)$:
+Primero hallamos la función característica de una variable aleatoria con distribución $\text{Poisson}(\lambda)$:
 $$\varphi_{Z_{\lambda}}(t) = \E \big( e^{itz} \big) = \sum\limits_{z = 0}^{+\infty} e^{itz} e^{-\lambda} \frac{\lambda^z}{z!} = e^{-\lambda} \sum\limits_{z = 0}^{+\infty} \frac{ (\lambda e^{it})^z }{ z! } = e^{-\lambda} e^{ \lambda e^{it} } = \exp\left\{ \lambda \big( e^{it} - 1 \big) \right\} $$
 
 Luego calculamos el límite de la función característica de la transformación propuesta cuando $\lambda \rightarrow + \infty$.
@@ -115,7 +115,7 @@ $$= \exp\left\{ \lim\limits_{\lambda \rightarrow + \infty} \lambda \left( e^{it 
 
 \newpage
 
-Utilizamos el siguiente dearrollo de Taylor de orden 2 entorno a $x = 0$.
+Utilizamos el siguiente desarrollo de Taylor de orden 2 entorno a $x = 0$.
 $$e^{x} = e^{0} +  e^{0} \, \frac{x}{1!} + e^{0} \, \frac{x^2}{2!} + \varepsilon_2(x_1) \frac{x^2}{2!}$$
 donde $\varepsilon_2(x_1)$ es tal que $\varepsilon_2(x_1) \rightarrow 0$ cuando $x \rightarrow 0$ con $0 < x_1 < t$. Si $x = it / \sqrt{\lambda}$, obtenemos que:
 $$\begin{array}{rcl}
@@ -202,7 +202,7 @@ $$= \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2} \max\limits_{i = 1, \ldo
 $$\leq \frac{ \delta }{ 2 } + \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \left\{ \E \big( X_{nk} - m_{nk} \big)^2 \mathbb{I}_{ \{ |X_{nk} - m_{nk}| < \varepsilon V_n \} } \right\} =$$
 $$= \frac{ \delta }{ 2 } + \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \Bigg\{ \underbrace{ \E \big( X_{nk} - m_{nk} \big)^2 \mathbb{I}_{ \left\{ \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| < \varepsilon \right\} } }_{ \leq \varepsilon^2 \text{ por la indicatriz }} \Bigg\} \leq \frac{\delta}{2} + \varepsilon^2 \leq \delta$$
 
-Luego, dado que $\delta$ es arbitrario, eligo $\varepsilon$ tal que $\varepsilon^2 < \frac{\delta}{2}$, y entonces el límite tiende a cero.
+Luego, dado que $\delta$ es arbitrario, elijo $\varepsilon$ tal que $\varepsilon^2 < \frac{\delta}{2}$, y entonces el límite tiende a cero.
 
 ## Parte b
 
@@ -235,7 +235,7 @@ $$\lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} \E \
 $$= \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} K^2 \E \left[ \mathbb{I}_{ \left\{ |X_j| > \varepsilon \, \sqrt{V_n} \right\} } \right] = \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} K^2 \Pr \left( |X_j| > \varepsilon \, \sqrt{V_n} \right) =$$
 $$= \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} K^2 \Pr \left( |X_j|^2 > \varepsilon^2 \, V_n \right) \leq \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} \frac{ K^2 \, \E \big( |X_j|^2 \big) }{ \varepsilon^2 \, V_n } =$$
 $$= \lim\limits_{n \rightarrow +\infty} \frac{1}{V_n} \sum\limits_{j = 1}^{n} \frac{ K^2 \, \sigma_{nj}^2 }{ \varepsilon^2 \, V_n } = \lim\limits_{n \rightarrow +\infty} \frac{ K^2 }{ \varepsilon^2 \, V_n } \underbrace{ \sum\limits_{j = 1}^{n} \frac{ \sigma_{nj}^2 }{ V_n } }_{ = 1 } = \lim\limits_{n \rightarrow +\infty} \frac{ K^2 }{ \varepsilon^2 \, \underbrace{ V_n }_{ \rightarrow +\infty} } = 0$$
-donde en la primer desiguladad utilizamos el hecho de que las variables están uniformemente acotadas (por hipótesis), mientras que en la segunda desigualdad utilizamos la desigualdad de Markov.
+donde en la primer desigualdad utilizamos el hecho de que las variables están uniformemente acotadas (por hipótesis), mientras que en la segunda desigualdad utilizamos la desigualdad de Markov.
 
 Dado que las variables cumplen la condición **(L)** de Lindeberg, $\frac{ S_n }{\sqrt{V_n}} \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$.
 
@@ -253,11 +253,11 @@ Dado que las variables cumplen la condición **(L)** de Lindeberg, $\frac{ S_n }
 
 Probar que $\frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} X_{nj} \overset{d}{\rightarrow} Z \sim \text{N}(0, 1)$
 
-*Dem*: si probamos que $\frac{ 1 }{ B_n^{1 + \frac{\delta}{2}} } \sum\limits_{j = 1}^{n} \E \big( |X_{nj}|^{2 + \delta} \big) \overset{n}{\rightarrow} 0$ implíca que $\frac{ 1 }{ B_n } \sum\limits_{j = 1}^{n} \E \big( |X_{nj}|^2 \mathbb{I}_{ \left\{ |X_{nj}| \geq \varepsilon \sqrt{B_n} \right\} } \big) \overset{n}{\rightarrow} 0$, es decir, que la condición **LY** implíca la condición **L**, entonces queda demostrado que $\frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} X_{nj} \overset{d}{\rightarrow} Z \sim \text{N}(0, 1)$, dado que la condición **L** implíca la condición $\mathbf{\Lambda}$ de Lindeberg, la cual es condición necesaria y suficiente para la convergencia.
+*Dem*: si probamos que $\frac{ 1 }{ B_n^{1 + \frac{\delta}{2}} } \sum\limits_{j = 1}^{n} \E \big( |X_{nj}|^{2 + \delta} \big) \overset{n}{\rightarrow} 0$ implica que $\frac{ 1 }{ B_n } \sum\limits_{j = 1}^{n} \E \big( |X_{nj}|^2 \mathbb{I}_{ \left\{ |X_{nj}| \geq \varepsilon \sqrt{B_n} \right\} } \big) \overset{n}{\rightarrow} 0$, es decir, que la condición **LY** implica la condición **L**, entonces queda demostrado que $\frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} X_{nj} \overset{d}{\rightarrow} Z \sim \text{N}(0, 1)$, dado que la condición **L** implica la condición $\mathbf{\Lambda}$ de Lindeberg, la cual es condición necesaria y suficiente para la convergencia.
 
 Comencemos estudiando la relación entre los dos sumandos.
 $$\E \big( |X_{nj}|^{2 + \delta} \big) = \int\limits_{ \mathbb{R} } |x|^{2 + \delta} dF_{nj}(x) \geq \int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^{2 + \delta} dF_{nj}(x)$$
-Esta desigualdad se cumple dado que en la integral del lado izquierdo estmaos integrando sobre todo $\mathbb{R}$ (es decir, sobre toda la recata real), mientras que en la integral de la derecha estamos integrando sobre una semirrecta de $\mathbb{R}$ dado que $\left\{ x : |x| \geq \varepsilon \sqrt{B_n} \right\} \subset \mathbb{R}$.
+Esta desigualdad se cumple dado que en la integral del lado izquierdo estamos integrando sobre todo $\mathbb{R}$ (es decir, sobre toda la recata real), mientras que en la integral de la derecha estamos integrando sobre una semirrecta de $\mathbb{R}$ dado que $\left\{ x : |x| \geq \varepsilon \sqrt{B_n} \right\} \subset \mathbb{R}$.
 $$\int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^{2 + \delta} dF_{nj}(x) = \int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^2 |x|^{\delta} dF_{nj}(x) = \int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^2 |x|^{\delta} \color{magenta}{\left( \frac{ \varepsilon \sqrt{B_n} }{ \varepsilon \sqrt{B_n} } \right)^{\delta}} \color{black}{dF_{nj}(x)} =$$
 $$= \left( \varepsilon \sqrt{B_n} \right)^{\delta} \int\limits_{|x| \geq \varepsilon \sqrt{B_n} } |x|^2 \left| \frac{ x }{ \varepsilon \sqrt{B_n} } \right|^{\delta} dF_{nj}(x)$$
 Luego, nuestro de integración establece que $|x| \geq \varepsilon \sqrt{B_n}$, por lo tanto, $\left| \frac{ x }{ \varepsilon \sqrt{B_n} } \right| \geq 1$ de donde obtenemos que $\left| \frac{ x }{ \varepsilon \sqrt{B_n} } \right|^{\delta} \geq 1^{\delta} = 1$, con lo que se cumple entonces la siguiente desigualdad (dado que hacemos más pequeño el integrando):
@@ -266,7 +266,7 @@ $$= \left( \varepsilon \sqrt{B_n} \right)^{\delta} \E \left[ |X_{nj}|^2 \, \math
 
 Por lo tanto, hemos hallado que:
 $$\E \big( |X_{nj}|^{2 + \delta} \big) \geq \left( \varepsilon \sqrt{B_n} \right)^{\delta} \E \left[ |X_{nj}|^2 \, \mathbb{I}_{ \left\{ |X_{nj}| \geq \varepsilon \sqrt{B_n} \right\} } \right]$$
-Lo cual implíca que:
+Lo cual implica que:
 $$\E \left[ |X_{nj}|^2 \, \mathbb{I}_{ \left\{ |X_{nj}| \geq \varepsilon \sqrt{B_n} \right\} } \right] \leq \frac{ \E \big( |X_{nj}|^{2 + \delta} \big) }{ \left( \varepsilon \sqrt{B_n} \right)^{\delta} }$$
 
 Si ahora, sumamos sobre las $j$ variables, multiplicamos por $1 / B_n$ y tomamos límites cuando $n \rightarrow + \infty$, obtenemos que:
@@ -277,12 +277,16 @@ $$= \lim\limits_{n \rightarrow +\infty} \sum\limits_{j = 1}^{n} \frac{ \E \big( 
 
 $(\Rightarrow)$ Si $\frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} \big( X_j - \E(X_j) \big) \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1) \Rightarrow \sqrt{B_n} \overset{n}{\rightarrow} +\infty$
 
-Supongamos por absurdo que $\sqrt{B_n} \overset{n}{\rightarrow} b < +\infty$. Luego entonces:
-$$\frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} \big( X_j - \E(X_j) \big) = \frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n - 1} \big( X_j - \E(X_j) \big) + \frac{1}{\sqrt{B_n}} \big( X_n - \E(X_n) \big) =$$
-$$= \frac{ \sqrt{B_{n - 1}} }{\sqrt{B_n}} \underbrace{ \frac{1}{\sqrt{B_{n - 1}}} \sum\limits_{j = 1}^{n - 1} \big( X_j - \E(X_j) \big) }_{ \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1) \text{ por hipótesis}} + \underbrace{ \frac{1}{\sqrt{B_n}} \big( X_n - \E(X_n) \big) }_{ \overset{n}{\rightarrow} (c/b) } \overset{d}{\not{\rightarrow}} Z \sim \text{N}(0, \, 1)$$
-Lo cual es un absurdo dado que la convergencia era la hipótesis de partida.
+Para demostrar la condición necesaria, utilizamos el condición $\mathbf{\Lambda}$ de Lindeberg:
+$$\forall \varepsilon > 0, \,\,\, \frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} \int\limits_{|x| > \varepsilon \sqrt{B_n}} |x| \, \big| F_{j}(x) - \Phi_{j}(x) \big| dx \overset{n}{\rightarrow} 0 \Leftrightarrow \frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} \big( X_j - \E(X_j) \big) \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$$
 
-***
+Supongamos por absurdo que $\sqrt{B_n} \overset{n}{\rightarrow} b < +\infty$. Si esto ocurre, entonces alcanza con demostrar que al menos uno de los $n$ sumandos anteriores es mayor que una constante $c \in \mathbb{R}$ para que la condición de Lindeberg no se cumpla. Para probarlo debemos tener en cuenta que integrar entre $|x| > \varepsilon \sqrt{B_n}$ implica integrar las colas de la distribución. Al observar el integrando, vemos que lo que estamos intentando probar es que la función de distribución de la variables $X_j$ tiende a la de una variable aleatoria con distribución normal estándar. Supongamos, sin pérdida de generalidad de que el intervalo $(a, \, b) \subset \big\{x < \varepsilon \, \sqrt{B_n}  \big\}$. Luego entonces, si trabajamos con la cola derecha (lo mismo podría hacerse con la cola izquierda), obtenemos que:
+$$\int\limits_{|x| > \varepsilon \sqrt{B_n}} |x| \, \big| \Phi_{j}(x) \big| dx = \int\limits_{|x| > \varepsilon \sqrt{B_n}} |x| \, \big| F_{j}(x) - \Phi_{j}(x) \big| dx \int\limits_{x > \varepsilon \sqrt{B_n}} x d\Phi_{j}x > c \in \mathbb{R}$$
+donde, en la primera igualdad utilizamos que las variables tienen soporte acotado, y en la segunda igualdad utilizamos que, por estar trabajando con la con la derecha $x$ es positiva.
+
+Dado que hemos encontrado (al menos) un sumando que no tiende a cero, y $\sqrt{B_n} \overset{n}{\rightarrow} b < +\infty$, entonces no se cumple la condición $\mathbf{\Lambda}$ de Lindeberg. Por lo tanto, para que sí se cumpla dicha condición $\sqrt{B_n} \overset{n}{\rightarrow} +\infty$.
+
+\newpage
 
 $(\Leftarrow)$ Si $\sqrt{B_n} \overset{n}{\rightarrow} +\infty \Rightarrow \frac{1}{\sqrt{B_n}} \sum\limits_{j = 1}^{n} \big( X_j - \E(X_j) \big) \overset{d}{\rightarrow} Z \sim \text{N}(0, \, 1)$
 
@@ -290,7 +294,7 @@ Para probar la condición suficiente, basta con tomar $\delta = 1$ y probar que 
 
 $$\frac{1}{ \sqrt{B_n^3} } \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^3 \big] = \frac{1}{ B_n \, \sqrt{B_n} } \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^2 \, (X_{j} - \mu_j) \big] \leq$$
 $$\leq \frac{1}{ B_n \, \sqrt{B_n} } \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^2 \, (b - a) \big] = \frac{(b - a)}{ \sqrt{B_n} } \underbrace{ \left[ \frac{1}{B_n} \sum\limits_{j = 1}^{n} \E \big[ (X_{j} - \mu_j)^2 \big] \right] }_{ = 1} \overset{n}{\rightarrow} 0$$
-donde la desigualdad se cumple dado que $X$ es una variable aletoria de recorrido acotado entre $a$ y $b$.
+donde la desigualdad se cumple dado que $X$ es una variable aleatoria de recorrido acotado entre $a$ y $b$.
 
 # Ejercicio 11: Teorema del Límite de Poisson
 
@@ -314,8 +318,6 @@ Por lo tanto:
 $$\varphi_{T_n}(t) = \prod\limits_{j = 1}^{n} \varphi_{X_{nj}}(t) = \prod\limits_{j = 1}^{n} \left[ 1 - \lambda_{nj} + e^{it} \lambda_{nj} \right] \overset{n}{\rightarrow} \exp\left\{ \lambda \left( e^{it} - 1 \right) \right\}$$
 lo cual es la función característica de una variable aleatoria con distribución $\text{Poisson}(\lambda)$.
 
-\newpage
-
 # Ejercicio 12
 
 Dado que $X_{n1}, \, \ldots, X_{nn}$ son independientes con distribución Bernoulli, $\text{Rec}(X_{nj}) = \{0, \, 1\}$ para toda variable en la sucesión. Por lo tanto, también lo será para el máximo. Luego entonces:
@@ -337,7 +339,7 @@ Por lo que $M_n \overset{d}{\rightarrow} M \sim \text{Ber}\left( 1 - e^{-\lambda
 
 Comencemos notando que, en este caso, $\mu$ no es la esperanza de las variables aleatorias $Y_n$. Para demostrar el teorema del Método Delta debemos utilizar un desarrollo de Taylor de primer orden de $f(Y_n)$ entorno a $\mu$, donde $f$ es una función derivable en $\mu$ y con derivada continua en $\mu$. Así, obtenemos que:
 $$f(Y_n(\omega)) = f(\mu) + f'(X_n(\omega)) ( Y_n(\omega) - \mu )$$
-donde $0 \leq |X_n(\omega) - \mu| \leq |Y_n(\omega) - \mu|$. Luego multiplicamos ambos lados de la igualdad por $\sqrt{n}$ y reacomodamos términos para obtener:
+donde $0 \leq |X_n(\omega) - \mu| \leq |Y_n(\omega) - \mu|$. Luego multiplicamos ambos lados de la igualdad por $\sqrt{n}$ y re-acomodamos términos para obtener:
 $$\begin{array}{rcl}
 \sqrt{n} \Big[ f(Y_n(\omega)) - f(\mu) \Big] & = & \sqrt{n} \Big[ f'(X_n(\omega)) \big( Y_n(\omega) - \mu \big) \Big] \\ \\
     & = & f'(X_n(\omega)) \underbrace{ \Big[ \sqrt{n} \big( Y_n(\omega) - \mu \big) \Big] }_{\overset{d}{\rightarrow} V \sim \text{N}(0, \, \sigma^2)}
@@ -359,11 +361,13 @@ $$0 \leq \Pr \left( |X_n - \mu| > \varepsilon \right) \leq \Pr \left( |Y_n - \mu
 Por último, dado que $f$ es tal que su derivada es continua, al menos en un entorno de $\mu$, tenemos que $f'(X_n) \overset{p}{\rightarrow} f'(\mu)$. Ahora, utilizando el teorema de Slutsky, podemos afirmar que:
 $$\sqrt{n} \Big[ f(Y_n(\omega)) - f(\mu) \Big] = \underbrace{ f'(X_n(\omega)) }_{ \overset{p}{\rightarrow} \mu } \underbrace{ \Big[ \sqrt{n} \big( Y_n(\omega) - \mu \big) \Big] }_{\overset{d}{\rightarrow} V \sim \text{N}(0, \, \sigma^2)} \overset{d}{\rightarrow} W \sim \text{N} \Big( 0, \sigma^2(f'(\mu))^2 \Big)$$
 
+\newpage
+
 # Ejercicio 14
 
 ## Parte a
 
-Provar que si $\E \left( |X|^n \right) < +\infty$ entonces: $\E \left( |X|^n \right) = n \int\limits_{0}^{+\infty} x^{n - 1} \big( F_X(-x) + 1 - F_X(x) \big) dx$
+Probar que si $\E \left( |X|^n \right) < +\infty$ entonces: $\E \left( |X|^n \right) = n \int\limits_{0}^{+\infty} x^{n - 1} \big( F_X(-x) + 1 - F_X(x) \big) dx$
 
 *Dem*:
 $$\begin{array}{rcl}
@@ -380,7 +384,7 @@ I_1 = \int\limits_{-\infty}^{0} (-x)^n dF_X(x) & = & \int\limits_{+\infty}^{0} y
     & = & \int\limits_{0}^{+\infty} n x^{n - 1} F_X(-x) dx \\
 \end{array}$$
 
-Trabajndo con $I_2$ obtenemos que, si integramos por partes:
+Trabajando con $I_2$ obtenemos que, si integramos por partes:
 $$\begin{array}{rcl}
 I_2 & = & \int\limits_{0}^{+\infty} x^n dF_X(x) \\ \\
     & = & \int\limits_{0}^{+\infty} (-x^n) d(1 - F_X(x)) \\ \\
@@ -391,8 +395,6 @@ I_2 & = & \int\limits_{0}^{+\infty} x^n dF_X(x) \\ \\
 Por lo tanto, concluimos que:
 $$\E \left( |X|^n \right) = I_1 + I_2 = \int\limits_{0}^{+\infty} n x^{n - 1} F_X(-x) dx + \int\limits_{0}^{+\infty} n x^{n - 1} \big[ 1 - F_X(x) \big] dx =$$
 $$= \int\limits_{0}^{+\infty} \Big( n x^{n - 1} F_X(-x) + n x^{n - 1} \big[ 1 - F_X(x) \big] \Big) dx = \int\limits_{0}^{+\infty} n x^{n - 1} \big[ F_X(-x) + 1 - F_X(x) \big] dx$$
-
-\newpage
 
 ## Parte b
 
