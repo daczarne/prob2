@@ -68,7 +68,7 @@ $$\begin{array}{r c l}
 \end{array}$$
 
 Por lo tanto, hallamos que $|z_1 + z_2|^2 \leq \big( |z_1| + |z_2| \big)^2$ de donde se desprende que:
-$$|z_1 + z_2| \leq|z_1| + |z_2|2$$
+$$|z_1 + z_2| \leq|z_1| + |z_2|$$
 
 ## e) Probar que $|z_1 \, z_2| = |z_1| \, |z_2|$ para todo $z_1$ y $z_2 \in \mathbb{C}$
 
@@ -112,29 +112,25 @@ $$\varphi_X(t) = \E \big( e^{itX} \big) = \sum\limits_{x = 0}^{n} e^{itx} {{n}\c
 
 ## d) $X \sim \text{N}(\mu, \sigma^2)$
 
-Primero hallamos la función característica de una distribución $\text{Normal}(0, 1)$, y luego utilizamos la propiedad 3 (prop 3.3) para hallar la de una $\text{Normal}(\mu, \sigma^2)$.
+Primero hallamos la función característica de una variable aleatoria $Y$ con distribución $\text{Normal}(0, 1)$, y luego utilizamos la propiedad 3 (prop 3.3) para hallar la de una $\text{Normal}(\mu, \sigma^2)$.
 
-$$\varphi_X(t) = \E \big[ e^{itX} \big] = \int\limits_{-\infty}^{+\infty} e^{itx} \, \phi_X(x) dx = \int\limits_{-\infty}^{+\infty} e^{itx} \, \frac{1}{ \sqrt{2 \pi} } e^{-x^2 / 2} dx$$
+$$\varphi_Y(t) = \E \big[ e^{ity} \big] = \int\limits_{-\infty}^{+\infty} e^{ity} \, \phi_Y(y) dy = \int\limits_{-\infty}^{+\infty} e^{ity} \, \frac{1}{ \sqrt{2 \pi} } e^{-y^2 / 2} dx$$
+$$\frac{ \partial }{ \partial t } \varphi_Y (t) = \frac{ \partial }{\partial t} \int\limits_{-\infty}^{+\infty} e^{ity} \frac{1}{ \sqrt{2 \pi} } \, e^{- y^2 / 2} dy = \int\limits_{-\infty}^{+\infty} \left( \frac{ \partial }{\partial t} \, e^{ity} \right) \frac{1}{ \sqrt{2 \pi} } \, e^{- y^2 / 2} dy =$$
+$$= \int\limits_{-\infty}^{+\infty} i x \, e^{ity} \frac{1}{ \sqrt{2 \pi} } \, e^{- y^2 / 2} dy = -\frac{ i }{ \sqrt{2 \pi} } \int\limits_{-\infty}^{+\infty} e^{ity} \, (-y) \, e^{- y^2 / 2} dy$$
 
-$$\frac{ \partial }{ \partial t } \varphi_X (t) = \frac{ \partial }{\partial t} \int\limits_{-\infty}^{+\infty} e^{itx} \frac{1}{ \sqrt{2 \pi} } \, e^{- x^2 / 2} dx = \int\limits_{-\infty}^{+\infty} \left( \frac{ \partial }{\partial t} \, e^{itx} \right) \frac{1}{ \sqrt{2 \pi} } \, e^{- x^2 / 2} dx =$$
-$$= \int\limits_{-\infty}^{+\infty} i x \, e^{itx} \frac{1}{ \sqrt{2 \pi} } \, e^{- x^2 / 2} dx = -\frac{ i }{ \sqrt{2 \pi} } \int\limits_{-\infty}^{+\infty} e^{itx} \, (-x) \, e^{- x^2 / 2} dx$$
+Podemos luego entonces aplicar integración por partes donde $g(y) = e^{ity} \Rightarrow g'(y) = it \, e^{ity}$, y $f'(y) = (-y) \, e^{- y^2 / 2} \Rightarrow f(y) = e^{-y^2 / 2}$ y obtenemos que:
+$$\frac{ \partial }{ \partial t } \varphi_Y (t) = i \left[ \frac{ \big( -e^{-y^2 / 2} \big) \big( e^{ity} \big) }{ \sqrt{2 \pi} } \, \Bigg|_{-\infty}^{+\infty} - \int\limits_{-\infty}^{+\infty} \left( \frac{ -e^{-y^2 / 2} }{ \sqrt{2 \pi} } \right) e^{ity} (it) \, dy \right]$$
+donde el primer sumando es cero dado que $-e^{-y^2 / 2}$ tiende a cero en los límites propuestos, mientras que $e^{ity}$ está acotada, dado que podemos escribirla como una función de senos y cosenos, los cuales están acotados. Por lo tanto, obtenemos que:
+$$\frac{ \partial }{ \partial t } \varphi_Y (t) = - i \int\limits_{-\infty}^{+\infty} \left( \frac{ -e^{-y^2 / 2} }{ \sqrt{2 \pi} } \right) e^{ity} (it) \, dy = - t \int\limits_{-\infty}^{+\infty} \left( \frac{ e^{-y^2 / 2} }{ \sqrt{2 \pi} } \right) e^{ity} dy = - t \, \varphi_Y(t)$$
 
-Podemos luego entonces aplicar integración por partes donde $g(x) = e^{itx} \Rightarrow g'(x) = it \, e^{itx}$, y $f'(x) = (-x) \, e^{- x^2 / 2} \Rightarrow f(x) = e^{-x^2 / 2}$ y obtenemos que:
-
-$$\frac{ \partial }{ \partial t } \varphi_X (t) = i \left[ \frac{ \big( -e^{-x^2 / 2} \big) \big( e^{itx} \big) }{ \sqrt{2 \pi} } \, \Bigg|_{-\infty}^{+\infty} - \int\limits_{-\infty}^{+\infty} \left( \frac{ -e^{-x^2 / 2} }{ \sqrt{2 \pi} } \right) e^{itx} (it) \, dx \right]$$
-Donde el primer sumando es cero dado que $-e^{-x^2 / 2}$ tiende a cero en los límites propuestos, mientras que $e^{itx}$ está acotada, dado que podemos escribirla como una función de senos y cosenos, los cuales están acotados. Por lo tanto, obtenemos que:
-
-$$\frac{ \partial }{ \partial t } \varphi_X (t) = - i \int\limits_{-\infty}^{+\infty} \left( \frac{ -e^{-x^2 / 2} }{ \sqrt{2 \pi} } \right) e^{itx} (it) \, dx = - t \int\limits_{-\infty}^{+\infty} \left( \frac{ -e^{-x^2 / 2} }{ \sqrt{2 \pi} } \right) e^{itx} dx = - t \, \varphi_X(t)$$
-
-Por lo tanto, hallamos que $\varphi'_X(t) = - t \varphi_X(t)$. Esto equivale a resolver la ecuación diferencial lineal de primer orden $\varphi'_X(t) + t \varphi_X(t) = 0$. POr lo tanto, tenemos que:
-
+Por lo tanto, hallamos que $\varphi'_Y(t) = - t \varphi_Y (t)$. Esto equivale a resolver la ecuación diferencial lineal de primer orden $\varphi'_Y(t) + t \varphi_Y(t) = 0$. Por lo tanto, tenemos que:
 $$\left. \begin{array}{l}
-\varphi_X(t) = c \, e^{-t^2 / 2} \\
-\varphi_X(0) = 1 \Rightarrow c = 1
-\end{array} \right\} \Rightarrow \varphi_X(t) = e^{-t^2 / 2}$$
+\varphi_Y(t) = c \, e^{-t^2 / 2} \\
+\varphi_Y(0) = 1 \Rightarrow c = 1
+\end{array} \right\} \Rightarrow \varphi_Y(t) = e^{-t^2 / 2}$$
 
 Aplicando ahora la propiedad 3 (prop 3.3), obtenemos que:
-$$\varphi_{\sigma X + \mu} (t) = e^{it \mu} e^{-(\sigma t)^2 / 2} = \exp\left\{ it \mu - \frac{ (\sigma t)^2 }{2} \right\}$$
+$$\varphi_{X} (t) = \varphi_{\sigma Y + \mu} (t) = e^{it \mu} \varphi_{Y} (t \, \sigma) = e^{it \mu} e^{-(\sigma t)^2 / 2} = \exp\left\{ it \mu - \frac{ (\sigma t)^2 }{2} \right\}$$
 
 \newpage
 
@@ -150,12 +146,12 @@ $$\therefore \V(X) = \E(X^2) - {\E}^2(X) = \frac{27}{2} - 3^2 = \frac{27}{2} - 9
 
 # Ejercicio 4
 
-Queremos hallar una variable aleatoria $Y$ tal que $\varphi_Y(t) = \sum\limits_{j = i}^{n} a_j \, \varphi_{X_j}(t)$.
+Queremos hallar una variable aleatoria $Y$ tal que $\varphi_Y(t) = \sum\limits_{j = 1}^{n} a_j \, \varphi_{X_j}(t)$.
 
 $$\varphi_Y(t) = \sum\limits_{j = 1}^{n} a_j \, \varphi_{X_j}(t) = \sum\limits_{j = 1}^{n} a_j \E \big( e^{itX_j} \big) = \sum\limits_{j = 1}^{n} a_j \int\limits_{\mathbb{R}} e^{itx} d F_j(x) = \int\limits_{\mathbb{R}} \sum\limits_{j = 1}^{n} a_j e^{itx} d F_j(x) =$$
 $$= \int\limits_{\mathbb{R}} e^{itx} \sum\limits_{j = 1}^{n} a_j d F_j(x) = \int\limits_{\mathbb{R}} e^{itx} d \left( \sum\limits_{j = 1}^{n} a_j F_j(x) \right) = \int\limits_{\mathbb{R}} e^{itx} d F_Y(x) = \E \big( e^{itY} \big) = \varphi_Y(t)$$
 
-Por lo tanto, $Y$ debe ser tal que $Y = \sum\limits_{j = 1}^{n} a_j F_j(x)$. Es decir, una combinación lineal convexa de la variables aletorias origianles.
+Por lo tanto, $Y$ debe ser tal que $Y = \sum\limits_{j = 1}^{n} a_j F_j(x)$. Es decir, una combinación lineal convexa de la variables aleatorias originales.
 
 \newpage
 
