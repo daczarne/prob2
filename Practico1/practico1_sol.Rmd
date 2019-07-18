@@ -284,5 +284,3 @@ Si, en cambio, $\xi_i \in [c, \, c_{j+1}]$, entonces:
 $$\lim\limits_{||P|| \rightarrow 0} g(\xi_i) \Big[ \underbrace{F(c_j)}_{= 0} - \underbrace{F(c)}_{= 1} \Big] = \lim\limits_{||P|| \rightarrow 0} g(\xi_i) = 1$$
 
 Dado que los límites por derecha e izquierda de $c$ no coinciden, entonces no existe dicho límite, y por tanto no existe la integral.
-
-this was a test commit
