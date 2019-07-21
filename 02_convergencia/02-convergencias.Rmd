@@ -25,6 +25,55 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Convergencia casi segura, sucesiones de Cauchy, convergencia de series
 
+#### Definición 2.1: Convergencia casi segura
+
+Sean $X$ y $\{X_n\}_{n \in \mathbb{N}}$ variable aleatorias definidas en el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$ entonces, decimos que:
+
+$$X_n \overset{cs}{\rightarrow} X \Leftrightarrow \Pr \big( \{ \omega \in \Omega : X_n(\omega) \overset{n}{\rightarrow} X(\omega) \} \big) = 1$$
+
+#### Observación 2.2
+
+- Si $X_n \overset{cs}{\rightarrow} X$, entonces $X$ es una variable aleatoria.  
+
+- Si $g : \mathbb{R}^{d} \rightarrow \mathbb{R}$ es continua y $X_n^i \overset{cs}{\rightarrow} X^i$ para todo $1 \leq i \leq d$, entonces:
+$$g \big(X_n^1, \, \ldots, \, X_n^d \big) \overset{cs}{\rightarrow} g \big(X^1, \, \ldots, \, X^d \big)$$
+
+- Si $X_n \overset{cs}{\rightarrow} 0$ y $\exists k > 0$ tal que $\Pr \big( |Y_n| > k \big) = 0$ para todo $n$, entonces $X_n \, Y_n \overset{cs}{\rightarrow} 0$.
+
+#### Teorema 2.3
+
+$$X_n \overset{cs}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0, \,\,\, \lim\limits_{k \rightarrow + \infty} \Pr \left( \bigcap\limits_{n = k}^{+\infty} \big\{ |X_n - X| < \varepsilon \big\} \right) = 1 $$
+
+#### Corolario 2.4
+
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias tal que $\forall \varepsilon > 0$, $\sum\limits_{n = 1}^{+\infty} \Pr \big( |X_n - X| > \varepsilon \big) < +\infty$ entonces $X_n \overset{cs}{\rightarrow} X$.
+
+#### Teorema 2.5
+
+$$X_n \overset{cs}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0, \,\,\, \Pr \left( \sup\limits_{n \geq k} |X_n - X| > \varepsilon \right) = 0$$
+
+#### Sucesión de Cauchy
+
+Una sucesión $\{x_n\}_{n \in \mathbb{N}}$ es de Cauchy $\Leftrightarrow |x_n - x_m| \rightarrow 0$ cuando $n \rightarrow + \infty$ y $m \rightarrow + \infty$.
+
+#### Definición 2.6: Sucesión de Cauchy (versión para variables aleatorias)
+
+Sean $X$ y $\{X_n\}_{n \in \mathbb{N}}$ variables aleatorias definidas en el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$ a valores de $\mathbb{R}^d$. Entonces, decimos que:
+$$X_n \text{ es de Cauchy con proabilidad 1 } \Leftrightarrow \Pr \big( \{ \omega \in \Omega : X_n(\omega) \text{ es de Cauchy} \} \big) = 1$$
+
+#### Teorema 2.7: definiciones equivalentes de sucesión de Cauchy con prob. 1
+
+La sucesión $\{X_n\}_{n \in \mathbb{N}}$ es de Cauchy con probabilidad 1 sí, y solo sí:
+
+1. para todo $\varepsilon > 0$ se cumple que:
+$$\Pr \left( \sup\limits_{ \substack{ k \geq n \\ l \geq n } } \big\{ | X_k - X_l | > \varepsilon \big\} \right) \overset{n}{\rightarrow} +\infty$$
+
+2. para todo $\varepsilon > 0$ se cumple que:
+$$\Pr \left( \sup\limits_{ k \geq 0 } \big\{ | X_{n + k} - X_n | > \varepsilon \big\} \right) \overset{n}{\rightarrow} +\infty$$
+
+#### Teorema 2.8
+
+Una sucesión $\{X_n\}_{n \in \mathbb{N}}$ es de Cauchy con probabilidad 1 $\Leftrightarrow \exists X$ tal que $X_n \overset{cs}{\rightarrow} X$.
 
 ## Teoremas de convergencia monótona y dominada
 
@@ -51,6 +100,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 # Convergencia en $L^p$
+
 
 ## Desigualdades en espacios $L^p$
 
