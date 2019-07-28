@@ -77,10 +77,75 @@ Una sucesión $\{X_n\}_{n \in \mathbb{N}}$ es de Cauchy con probabilidad 1 $\Lef
 
 ## Teoremas de convergencia monótona y dominada
 
+#### Teorema 2.9: Convergencia monótona
+
+Sean $X$ y $\{X_n\}_{n \in \mathbb{N}}$ variables aleatorias definidas en el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$ tal que existe $\E(X)$, $X_n(\omega) \geq 0$ y $X_n(\omega) \uparrow X(\omega)$ para casi todo $\omega \in \Omega$ (es decir, $\exists D \subset \Omega$ con $\Pr(D) = 1$ tal que $X_n(\omega) \uparrow X(\omega)$ para todo $\omega \in D$). Entonces:
+
+1. existe $\E(X_n)$ para todo $n$
+
+2. $\lim\limits_{n \rightarrow +\infty} \E(X_n) = \E(X)$
+
+#### Observación 2.10
+
+El teorema 2.9 sigue siendo válido si $\E(X) = \infty$, pero lo único que se puede concluir es que $\E(X_n) \overset{n}{\rightarrow} \infty$.
+
+#### Teorema 2.11: Convergencia dominada
+
+Sean $X$, $Y$, y $\{X_n\}_{n \in \mathbb{N}}$ variables aleatorias definidas sobre el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$ tales que $X_n(\omega) \overset{cs}{\rightarrow} X(\omega)$, $|X_n(\omega)| \leq Y$ para casi todo $\omega \in \Omega$, y existe $\E(Y)$, entonces:
+
+1. existe $\E(X_n)$ para todo $n$
+
+2. existe $\E(X)$
+
+3. $\lim\limits_{n \rightarrow +\infty} \E(X_n) = \E(X)$
+
+#### Corolario 2.12
+
+Si $f_n : [a,b] \rightarrow \mathbb{R}$ y $g : [a,b] \rightarrow \mathbb{R}$ son Riemann integrables tales que $\lim\limits_n f_n(x) = f(x)$ y $|f_n(x)| \leq g(x)$ para todo $x \in [a,b]$, entonces:
+$$\lim\limits_n \int\limits_a^b f_n(x) dx = \int\limits_a^b f(x) dx$$
+
+#### Teorema 2.13
+
+Sean:
+
+i. dos reales $a$ y $b$ tales que $-\infty < a < b < + \infty$
+
+ii. $f : \mathbb{R} \times [a,b] \rightarrow \mathbb{R}$
+
+iii. $F : \mathbb{R} \rightarrow \mathbb{R}$ una función monótona no decreciente tal que para todo $t \in [a,b]$ existe y es finita $\int\limits_{\mathbb{R}} f(t,x) dF(x)$
+
+iv. $G(t) = \int\limits_{\mathbb{R}} f(x,t) d F(x)$
+
+Supongamos que:
+
+i. $\frac{\partial f(x,t)}{\partial t}$ existe para todo $x$
+
+ii. existe $g$ tal que $\int\limits_{\mathbb{R}} g(x) dF(x) < \infty$ y $\left| \frac{\partial f(x,t)}{\partial t} \right| < g(x)$ para todo $t$, $x$
+
+Entonces:
+
+1. $G$ es derivable
+
+2. $G'(x) = \int\limits_{\mathbb{R}} \frac{\partial f(x,t)}{\partial t} dF(x)$
+
+<!--
+Sea $f : \mathbb{R} \times [a,b] \rightarrow \mathbb{R}$ y $F : \mathbb{R} \rightarrow \mathbb{R}$ una función monótona no decrecientes con $-\infty < a < b < + \infty$, tal que para todo $t \in [a,b]$ la función $f(.,t) : \mathbb{R} \rightarrow \mathbb{R}$ es integrable respecto de $dF(x)$ (es decir, existe y es finita $\int\limits_{\mathbb{R}} f(t,x) dF(x)$), denotemos:
+$$G(t) = \int\limits_{\mathbb{R}} f(x,t) d F(x)$$
+supongamos que $\frac{\partial f(x,t)}{\partial t}$ existe para todo $x$ y además existe $g$ tal que $\int\limits_{\mathbb{R}} g(x) dF(x) < \infty$ y $\left| \frac{\partial f(x,t)}{\partial t} \right| < g(x)$ para todo $t$, $x$, entonces $G$ es derivable y vale:
+$$G'(x) = \int\limits_{\mathbb{R}} \frac{\partial f(x,t)}{\partial t} dF(x)$$
+-->
 
 ## Convergencia casi segura de series
 
+#### Teorema 2.14: Kolmogorov-Khinchin
 
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias independientes tales que $\E(X_n) = 0$ para $n \geq 1$. 
+$$\text{Si } \sum\limits_{n = 1}^{+\infty} \E(X_n^2) < +\infty \Rightarrow \sum\limits_{n = 1}^{+\infty} X_n < +\infty \text{ con probabilidad 1}$$
+
+***
+
+Si las variables $X_k$ son uniformemente acotadas (es decir, existe un real $c < +\infty$ tal que $\Pr(|X_k| < c) = 1$ para todo $k$), el recíproco es cierto. Por lo tanto, se cumple que:
+$$\text{Si } \sum\limits_{n = 1}^{+\infty} X_n < +\infty \Rightarrow \sum\limits_{n = 1}^{+\infty} \E(X_n^2) < +\infty$$
 
 # Convergencia en Probabilidad
 
