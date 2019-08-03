@@ -149,6 +149,42 @@ $$\text{Si } \sum\limits_{n = 1}^{+\infty} X_n < +\infty \Rightarrow \sum\limits
 
 # Convergencia en Probabilidad
 
+#### Definición 2.15: Convergencia en probabilidad
+
+Sean $X$ y $\{X_n\}_{n \in \mathbb{N}}$ variable aleatorias definidas sobre el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$.
+$$X_n \overset{p}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0, \,\, \Pr \left( \big\{ \omega \in \Omega : |X_n(\omega) - X(\omega)| > \varepsilon \big\} \right) \overset{n}{\rightarrow} 0$$
+
+#### Proposición 2.16
+
+Si $X_n \overset{p}{\rightarrow} X$ y $X_n \overset{p}{\rightarrow} Y$, entonces $\Pr(X = Y) = 1$.
+
+#### Teorema 2.17
+
+Sean $X$ y $\{X_n\}_{n \in \mathbb{N}}$ variable aleatorias definidas sobre el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$. Si $X_n \overset{cs}{\rightarrow} X$, entonces $X_n \overset{p}{\rightarrow} X$.
+
+#### Proposición 2.19
+
+Si $g : \mathbb{R}^d \rightarrow \mathbb{R}$ es una función continua, y $X_n^i \overset{p}{\rightarrow} X^i$ para todo $1 \leq i \leq d$ (es decir, cada uno de sus componentes converge en probabilidad), entonces $g \big( X_n^1, \, \ldots, \, X_n^d \big) \overset{p}{\rightarrow} g \big( X^1, \, \ldots, \, X^d \big)$.
+
+***
+
+En particular, tomando $d = 2$, obtenemos que si $X_n \overset{p}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} Y$ entonce se cumple que para todo $a, b \in \mathbb{R}$:
+
+1. $a \, X_n + b \, Y_n \overset{p}{\rightarrow} a \, X + b \, Y$
+
+2. $(a \, X_n) (b \, Y_n) \overset{p}{\rightarrow} (a \, X) (b \, Y)$
+
+#### Proposición 2.20
+
+Si $X_n \overset{p}{\rightarrow} 0$ y $\exists k > 0$ tal que $\Pr ( | Y_n | > k ) = 0$ para todo $n$, entonces $X_n \, Y_n \overset{p}{\rightarrow} 0$.
+
+#### Teorema 2.21
+
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias. Enotnces $X_n \overset{p}{\rightarrow} X \Leftrightarrow$ para toda subsucesión $\{X_{n_k}\}_{k \in \mathbb{N}}$ existe una sub-subsucesión $\{X_{n_{k_j}}\}_{j \in \mathbb{N}}$ (es decir, una subsucesión de $\{X_{n_k}\}_{k \in \mathbb{N}}$) tal que $\{X_{n_{k_j}}\}_{j \in \mathbb{N}} \overset{cs}{\rightarrow} X$ cuando $j \rightarrow +\infty$.
+
+#### Teorema 2.22
+
+$$X_n \overset{p}{\rightarrow} X \Leftrightarrow \E \left( \frac{ |X_n - X| }{ 1 + |X_n - X| } \right) \overset{n}{\rightarrow} 0$$
 
 # Ley Débil de los Grandes Números
 
