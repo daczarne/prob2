@@ -288,9 +288,86 @@ Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias independi
 
 # Convergencia en Distribución
 
+#### Definición 2.36
+
+Sean $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias definidas en $(\Omega_n, \, \mathcal{A}_n, \, \Pr_n)$, y $X$ una variable aleatoria definida en $(\Omega, \, \mathcal{A}, \, \Pr)$.
+$$X_n \overset{d}{\rightarrow} X \Leftrightarrow \lim\limits_{n \rightarrow + \infty} F_{X_n}(x) = F_X(x) \,\,\,\, \forall x \in \mathcal{C}(F_X)$$
+
+#### Observación 2.37
+
+Las descontinuidades de una función de distribución son de salto (el límite por izquiera y el límite por derecha no coinciden), con lo cual, dado que la suma de dichos saltos tiene que estar incluido en $[0,1]$, solo pueden ser una cantidad numerable de saltos.
+
+#### Teorema 2.38
+
+Si $X_n \overset{d}{\rightarrow} X$ y $F_X(x)$ es continua para todo $x$, entonces $F_{X_n} \overset{n}{\rightarrow} F_X$ uniformemente.
+
+#### Teorema 2.39
+
+Sean $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias definidas en $(\Omega_n, \, \mathcal{A}_n, \, {\Pr}_n)$, y $X$ una variable aleatoria definida en $(\Omega, \, \mathcal{A}, \, \Pr)$. Sea $f$ una función de codominio real, continua y acotada, entonces, se verifica que:
+$$X_n \overset{d}{\rightarrow} X \Leftrightarrow \lim\limits_{n \rightarrow +\infty} \E \big( f(X_n) \big) = \E \big( f(X) \big)$$
+
+#### Proposición 2.40
+
+Sean $\{X_n\}_{n \in \mathbb{N}}$ y $X$ variables aleatorias definidas en $(\Omega, \, \mathcal{A}, \, \Pr)$. Sean $a$ y $b$ dos reales tales que $a < x < b$. Si $X_n \overset{p}{\rightarrow} X$, entonces:
+$$F_X(a) \leq \liminf\limits_n F_n(x) \leq \limsup\limits_n F_n(x) \leq F_X (b)$$
+
+#### Corolario 2.41
+
+Sean $\{X_n\}_{n \in \mathbb{N}}$ y $X$ variables aleatorias definidas en $(\Omega, \, \mathcal{A}, \, \Pr)$. Sea $x$ un punto de continuidad de $F_X$. Si $X_n \overset{p}{\rightarrow} X$, entocnes $F_{X_n}(x) \overset{n}{\rightarrow} F_X(x)$.
+
+El recíproco del corolario 2.41 no es cierto.
+
+Si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} Y$, no es cierto en general que $X_n + Y_n \overset{d}{\rightarrow} X + Y$.
+
+#### Teorema 2.42: Teorema de representación de Skorokhod
+
+Sean $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias definidas en $(\Omega_n, \, \mathcal{A}_n, \, {\Pr}_n)$ y $X$ una variable aleatoria definida en $(\Omega_0, \, \mathcal{A}_0, \, {\Pr}_{0})$ tal que $X_n \overset{d}{\rightarrow} X$. Entonces:
+
+1. existen $X^*_n$ y $X^*$ definidas en $(\Omega, \, \mathcal{A}, \, \Pr)$
+
+2. $X_n^* \overset{d}{=} X_n$ para todo $n$ y $X^* \overset{d}{=} X$
+
+3. $X_n^* \overset{cs}{\rightarrow} X^*$
+
+#### Lema 2.43: Lema dee Slutsky
+
+Si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} c \in \mathbb{R}$, entonces:
+
+1. $X_n + Y_n \overset{d}{\rightarrow} X + c$
+
+2. $X_n \, Y_n \overset{d}{\rightarrow} c \,X$
+
+3. $X_n / Y_n \overset{d}{\rightarrow} X / c$ siempre que $c \neq 0$
 
 ## Métricas entre distribuciones
 
+Definiremos distancias entre funciones de distribución $F$ y $G$ de dos variables aleatorias $X$ e $Y$ a valores reales de modo tal que la convergencia en distribución de una sucesión de variables aleatorias sea equivalente a la convergencia en dicha distancia.
+
+### Distancia de Levy
+
+#### Definición 2.44
+
+Sean $F$ y $G$ dos distribuciones de probabilidad en $\mathbb{R}$. Se define la **distancia de Levy** entre $F$ y $G$ como:
+$$d_L(F, G) = \inf \big\{ \varepsilon > 0 : F (x - \varepsilon) - \varepsilon \leq G(x) \leq F (x + \varepsilon) + \varepsilon \,\,\, \forall x \in \mathbb{R} \big\}$$
+
+#### Teorema 2.45
+
+Sean $\{F_n\}_{n \in \mathbb{N}}$ funciones de distribución de variables aleatorias a valores reales, y $F$ otra función dee distribución. Entonces, son equivalentes:
+
+1. $F_n(x) \overset{n}{\rightarrow} F(x)$ para todo $x$ punto de continuidad de $F$
+
+2. $d_L(F_n, \, F) \overset{n}{\rightarrow} 0$
+
+### Distancia de Wasserstein
+
+#### Definición 2.46
+
+Se define la **distancia de Wasserstein** entre la función de distribución $F$ y la función de distribución $G$ como:
+$$\mathcal{W}_2^2(F, \, G) = \inf \big\{ \E |X - Y|^2 : X \sim F \,\,\, \text{ y } \,\,\, Y \sim G \big\} $$
+
+***
+
+Se puede probar que $\mathcal{W}_2^2(F_n, \, F) \overset{n}{\rightarrow} 0 \Leftrightarrow F_n \overset{n}{\rightarrow} F$ y el segundo momento de variables con distribución $F_n$ converge al segundo momento de una variable aleatoria con distribución $F$. Es decir, $\int x^2 dF_n(x) \overset{n}{\rightarrow} \int x^2 dF(x)$.
 
 # Convergencia en $L^p$
 
