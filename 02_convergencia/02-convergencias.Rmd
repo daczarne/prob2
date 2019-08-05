@@ -14,7 +14,8 @@ header-includes:
    - \usepackage{mathtools}
    - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
    - \DeclareMathOperator{\E}{\mathbf{E}}
-   - \DeclareMathOperator{\V}{\mathbf{V}}
+   - \DeclareMathOperator{\Var}{\mathbf{Var}}
+   - \DeclareMathOperator{\Cov}{\mathbf{Cov}}
 geometry: margin=1in
 fontsize: 12pt
 ---
@@ -188,7 +189,40 @@ $$X_n \overset{p}{\rightarrow} X \Leftrightarrow \E \left( \frac{ |X_n - X| }{ 1
 
 # Ley Débil de los Grandes Números
 
+#### Teorema 2.23
 
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias con esperanza finita.
+$$\text{Si } \frac{1}{n^2} \Var \left( \sum\limits_{i = 1}^{n} X_i \right) \overset{n}{\rightarrow} 0 \Rightarrow \frac{1}{n} \left[ \sum\limits_{i = 1}^n \big( X_i - \E(X_i) \big) \right] \overset{p}{\rightarrow} 0$$
+
+En particular, si las $X_i$ son independientes dos a dos, y existe $C$ tal que $\Var(X_i) < C$ para todo $i$, entonces se cumple el Teorema 2.8
+
+#### Definición 2.24: Coeficiente de correlación
+
+Sean $X$ e $Y$ variables aleatorias definidas en un mismo espacio de probabilidad con varianza finita, se define el coeficiente de correlación entre ellas como:
+$$\rho(X,Y) = \frac{ \Cov(X,Y) }{ \sqrt{ \Var(X) } \sqrt{ \Var(Y) } } $$
+
+#### Observación 2.25
+
+- Si $X$ e $Y$ son independientes, $\rho(X,Y) = 0$. El recíproco no es cierto en general
+
+- $-1 \leq \rho(X,Y) \leq 1$
+
+- $|\rho(X,Y)| = 1 \Leftrightarrow X = a Y + b$ con $a,b \in \mathbb{R}$
+
+#### Definición 2.26: Sucesión débilmente estacionaria
+
+Una sucesión $\{X_n\}_{n \in \mathbb{N}}$ se dice débilmente estacionaria si:
+
+1. $\E \big( X_n \big) = c < +\infty$ para todo $n$ (la esperanza de cada variable es constante).
+
+2. $\E \big( X_n^2 \big) < +\infty$ (segundo momento finito).
+
+3. $\E \big( X_n, X_m \big) = f(n - m)$ (la covarianza depende únicamente de la diferencia $n - m$). 
+
+#### Teorema 2.28
+
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias tales que $\E(X_i) = a$. Si $\rho(X_n, \, X_m) \rightarrow 0$ cuando $|n - m| \rightarrow +\infty$ entonces:
+$$\frac{1}{n} \sum\limits_{i = 1}^n X_i \overset{p}{\rightarrow} a$$
 
 # Ley Fuerte de los Grandes Números
 
