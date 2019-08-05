@@ -226,7 +226,65 @@ $$\frac{1}{n} \sum\limits_{i = 1}^n X_i \overset{p}{\rightarrow} a$$
 
 # Ley Fuerte de los Grandes Números
 
+#### Lema 2.29: Lema de Kronecker
 
+Sea $\{x_n\}_{n \in \mathbb{N}}$ una sucesión real tal que $\sum\limits_{i = 1}^{+\infty} x_n = s$. Sea $b_n \uparrow + \infty$ una sucesión real no decreciente de números positivos. Entonces:
+$$\lim\limits_{n \rightarrow + \infty} \frac{1}{b_n} \sum\limits_{k = 1}^{n} b_k \, x_k = 0$$
+
+En particular, si $b_n = n$ y $x_n = y_n / n$ tal que $\sum\limits_{n = 1}^{\infty} y_n / n$ converge, entonces:
+$$\frac{y_1 + \ldots + y_n}{n} \overset{n}{\rightarrow} 0$$
+
+#### Teorema 2.30: Ley Fuerte de Kolmogorov
+
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias independientes con segundo momento finito. Supongamos que existen números positivos $b_n$ tales que:
+$$\left.
+\begin{array}{cl}
+1. & b_n \uparrow +\infty \\ \\
+2. & \sum\limits_{n = 1}^{\infty} \frac{\Var(X_n)}{b_n^2} < \infty
+\end{array} \right\}
+\Rightarrow
+\frac{ S_n - \E(S_n) }{ b_n } \overset{cs}{\rightarrow} 0$$
+
+En particular,
+$$\text{Si } \sum\limits_{n = 1}^{\infty} \frac{\Var(X_n)}{n^2} < \infty \Rightarrow \frac{ S_n - \E(S_n) }{ n } \overset{cs}{\rightarrow} 0$$
+
+#### Lema 2.31
+
+Sea $X$ una variable aleatoria no necativa, entonces:
+$$\sum\limits_{n = 1}^{\infty} \Pr \big( X \geq n \big) \leq \E(X) \leq 1 + \sum\limits_{n = 1}^{\infty} \Pr \big( X \geq n \big)$$
+
+#### Lema 2.32
+
+Sea $X$ una variable aleatoria no negativa, entonces:
+$$\E(X) = \int\limits_0^{+\infty} \Pr \big(X > x\big) dx$$
+
+Esto es el área entre la recta $y = 1$ y la gráfica de la función de distribución (acumulada) de $X$. Podemos entonces rescribir la fórumla anterior como:
+$$\begin{array}{rcl}
+\E(X) & = & \int\limits_0^{+\infty} \Pr \big(X > x\big) dx \\ \\
+   & = & \int\limits_0^{+\infty} \left[ 1 - \Pr \big(X \leq x\big) \right] dx \\ \\
+   & = & \int\limits_0^{+\infty} \big[ 1 - F_X(x) \big] dx
+\end{array}$$
+
+#### Lema 2.33: Lema de Toeplitz
+
+Sea $\{a_n\}_{n \in \mathbb{N}}$ una sucesión de números no negativos tales que $a_1 > 0$. Sea $b_n = \sum\limits_{i = 1}^{n} a_i$. Supongamos que $b_n \uparrow +\infty$. Sea $\{x_n\}_{n \in \mathbb{N}}$ tal que $x_n \overset{n}{\rightarrow} x$, entonces:
+$$\frac{1}{b_n} \sum\limits_{j = 1}^{n} a_j \, x_j \overset{n}{\rightarrow} x$$
+
+En particular, si $a_n = 1$ para todo $n$, entonces:
+$$\frac{x_1 + \ldots + x_n}{n} \overset{n}{\rightarrow} x$$
+
+#### Teorema 2.34
+
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias independientes e idénticamente distribuidas tales que $\E|X_i| < \infty$, entonces:
+$$\frac{S_n}{n} \overset{cs}{\rightarrow} \E (X_1)$$
+
+#### Teorema 2.35: recíproco del teorema 2.34
+
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias independientes e idénticamente distribuidas tales que $\frac{X_1 + \ldots + X_n}{n} \overset{cs}{\rightarrow} C$, entonces:
+
+1. $\E|X_i| < \infty$
+
+2. $\E(X_1) = C$
 
 # Convergencia en Distribución
 
