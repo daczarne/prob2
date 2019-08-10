@@ -371,6 +371,43 @@ Se puede probar que $\mathcal{W}_2^2(F_n, \, F) \overset{n}{\rightarrow} 0 \Left
 
 # Convergencia en $L^p$
 
+#### Definición 2.47
+
+Sean $X$ y $\{X_n\}_{n \in \mathbb{N}}$ variables aleatorias definidas en el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$. Para $p > 0$, decimos que:
+$$X_n \overset{L^p}{\rightarrow} X \Leftrightarrow \E |X_n - X|^p \overset{n}{\rightarrow} 0$$
+
+- Si $X_n \overset{L^p}{\rightarrow} X$ entonces $X_n \overset{p}{\rightarrow} X$.
+
+- El recíproco no es cierto.
+
+#### Proposición 2.40
+
+Si $\{X_n\}_{n \in \mathbb{N}}$ es una sucesión de variables aleatorias no negativas tales que $X_n \overset{cs}{\rightarrow} X$ y $\E(X_n) \overset{n}{\rightarrow} \E(X) < \infty$ entonces $\E |X_n - X| \overset{n}{\rightarrow} 0$.
 
 ## Desigualdades en espacios $L^p$
 
+#### Teorema 2.50: desigualdades de variables aleatorias
+
+- **Desigualdad de Jensen**
+
+Si $g$ es convexa y $\E|X| < \infty$, entonces $g \big( \E(X) \big) \leq \E\big( g(X) \big)$.
+
+- **Desigualdad de Lyapunov**
+
+Si $0 < s < t$, entonces $\big( \E|X|^s \big)^{1/s} \leq \big( \E|X|^t \big)^{1/t}$.
+
+- **Desigualdad de Hölder**
+
+Sean $p$ y $q$ tales que $1 < p < \infty$ y $(1/p) + (1/q) = 1$. Si $\E|X|^p < \infty$ y $\E|Y|^q < \infty$, entonces:
+
+   i. $\E |XY| < \infty$
+   
+   ii. $\E |XY| \leq \left( \E|X|^p \right)^{1/p} \left( \E|Y|^q \right)^{1/q}$
+
+- **Desigualdad de Minkowski**
+
+Si $\E|X|^p < \infty$ y $\E|Y|^p < \infty$, con $1 < p < \infty$, entonces:
+
+   i. $\E |X + Y |^p < \infty$
+ 
+   ii. $\big( \E |X + Y |^p \big)^{1/p} \leq \big( \E|X|^p \big)^{1/p} + \big( \E|Y|^p \big)^{1/p}$
