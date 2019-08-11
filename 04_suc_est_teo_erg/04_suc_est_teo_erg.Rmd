@@ -26,8 +26,116 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Sucesiones estacionarias (en sentido estricto) de variables aleatorias
 
+#### Operador shift
+
+Sea $X = \{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias en el espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$. Dado $k > 0$ se define el *operador shift* entre sucesiones, $\theta_k$, tal que:
+$$X \, \theta_k = \{X_n\}_{n > k} = \{X_{k+1}, \, X_{k+2}, \ldots \}$$
+
+#### Definición 4.1: Sucesión estadicionaria (en sentido estricto)
+
+Una sucesión de variables aleatorias $X$ es estacionaria si la distribución de probabilidad de $X$ es igual a la de $X \, \theta_k$, para todo $k \geq 1$. Es decir,
+$$\Pr \big( (X_1, \, X_2, \ldots) \in B \big) = \Pr \big( (X_{k+1}, \, X_{k+2}, \ldots) \in B \big) \,\,\, \forall B \in \mathcal{B}(\mathbb{R}^{\infty}) $$
+
+#### Definición 4.2: Función medible
+
+Una función $T : \Omega \rightarrow \Omega$ es medible si para todo $A \in \mathcal{A}$ se cumple que:
+$$T^{-1}(A) = \big\{ \omega \in \Omega : T(\omega) \in A \big\} \in \mathcal{A}$$
+
+#### Preservación de la medida
+
+Una función medible preserva la medida si para todo $A \in \mathcal{A}$ se cumple que 
+$$\Pr(A) = \Pr (T^{-1}(A))$$
+
+#### Proposición 4.4
+
+Sean $T$ una función que preserva la medida y $X_1$ una variable aleatoria. Si definimos la variable $X_k$ tal que $X_k(\omega) = X_1 \big( T^{k-1}(\omega) \big)$, entonces la sucesión $X = \big\{ X_1, \, X_2, \, \ldots \big\}$ es estacionaria.
+
+#### Proposición 4.5
+
+Dada una sucesión estacionaria $X = \{X_n\}_{n \in \mathbb{N}}$ definida en $(\Omega, \, \mathcal{A}, \, \Pr)$, podemeos construir un nuevo espacio de probabilidad $(\tilde{\Omega}, \, \tilde{\mathcal{A}}, \, \tilde{\Pr)}$, una variable aletoria $\tilde{X}_1$ y una transformación $\tilde{T}$ que preserva la medida, tales que la distribución de $\tilde{X} = \big\{ \tilde{X}_1, \, \tilde{X}_1(\tilde{T}), \, \tilde{X}_1(\tilde{T}^2), \, \ldots \big\}$ es igual a la de $X$.
+
+#### Teorema 4.6
+
+Sean $(\Omega, \, \mathcal{A}, \, \Pr)$ un espacio de probabilidad y $T$ una función que preserva la medida. Dado $A \in \mathcal{A}$, existe $D \subset A$ tal que $\Pr(D) = \Pr(A)$ y para todo $\omega \in D$ se cumple que $T^n(\omega) \in A$ para infinitos $n$.
+
+#### Corolario 4.7
+
+Sea $X$ una variable aleatoria no negativa. Existe un conjunto $D \subset \big\{ \omega : X(\omega) > 0 \big\}$ con $\Pr(D) = \Pr \big( \big\{ \omega : X(\omega) > 0 \big\} \big)$ tal que para todo $\omega \in D$ se cumple que:
+$$\sum\limits_{k = 0}^{+\infty} X \big( T^k(\omega) \big) = \infty$$
 
 # Ergodicidad y mixing
+
+#### Definición 4.8: Invarianza
+
+Sean $(\Omega, \, \mathcal{A}, \, \Pr)$ un espacio de probabilidad y $T$ una transformación que preserva la medida.
+
+1. Un conjunto $A \in \mathcal{A}$ es invariante si $T^{-1}(A) = A$.
+
+2. $T$ es ergódica si todo conjunto invariante tienen medida 0 o 1.
+
+3. Una variable aleatoria $X$ es invariante si $X(\omega) = X \big( T(\omega) \big)$ para todo $\omega \in \Omega$.
+
+#### Definición 4.9: Mixing
+
+Una función $T$ que preserva la medida es mixing si para todo $A$, $B \in \mathcal{A}$ se cumple que:
+$$\lim\limits_{n \rightarrow + \infty} \Pr \big( A \cap T^{-n}(B) \big) = \Pr(A) \, \Pr(B)$$
+
+#### Deifnición 4.10: $\alpha$-mixing
+
+Sea $X = X_1, \, X_2 \, \ldots$ una sucesión estacionaria. Denotamos:
+
+1. $\mathcal{A}_n^{\infty} = \sigma(X_n, \, X_{n+1}, \, \ldots)$
+
+2. $\mathcal{A}^n_1 = \sigma(X_1, \, \ldots, \, X_n)$
+
+3. $\alpha_n = \sup\limits_{ \substack{ A \in \mathcal{A}_1 \\ B \in \mathcal{A}_n } } \big| \Pr (A \cap B) - \Pr(A) \, \Pr(B) \big|$
+
+Decimos que $X$ es $\alpha$-mixing si $\alpha_n \overset{n}{\rightarrow} 0$.
+
+#### Lema 4.12: Teorema Eergódico Maximal
+
+Sean $T$ una transformación que preserva la medida y $X$ una variable aleatoria tal que $\E|X| < \infty$. Sean también:
+
+1. $S_k = X(\omega) + X(T(\omega)) + \ldots + X(T^{k-1}(\omega))$
+
+2. $M_k(\omega) = \max \big\{ 0, \, S_1(\omega), \ldots, S_k(\omega) \big\}$
+
+entonces $\E \left( X \, \mathbb{I}_{ \{ M_n > 0\} }\right) \geq 0$
+
+#### Teorema 4.13: Teorema de Birkhoff-Khinchin
+
+Sean $T$ una transformación ergódica y $X$ una variable aleatoria tal que $\E|X| < \infty$, entonces:
+$$\lim\limits_{n \rightarrow + \infty} \frac{1}{n} \sum\limits_{k = 0}^{n - 1} X \big( T^k (\omega) \big) = \E (X)$$
+
+#### Teorema 4.14: Teorema de Bradley
+
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias estacionarias y centradas. Supongamos que:
+
+1. $\E \big( X_n^2 \big) = \sigma_n < \infty$ para todo $n$
+
+2. $\sigma_n \overset{n}{\rightarrow} \infty$
+
+3. existe $\delta > 0$ tal que:
+
+   i. $\E \left( |X_1|^{2 + \delta} \right) < \infty$ 
+   
+   ii. $\sum\limits_{n = 1}^{\infty} \alpha_n^{ ^{\delta} \!/\! _{( 2 + \delta)} } < \infty$
+
+entonces $\sum\limits_{k = 2}^{\infty} \big| \E (X_1 \, X_k) \big| < \infty$ si $\sigma^2 = \E \big( X_1^2 \big) + 2 \sum\limits_{k = 2}^{\infty} \E (X_1 \, X_k) > 0$. Entonces:
+$$\frac{1}{\sqrt{n}} \sum\limits_{n = 1}^{\infty} X_n \overset{d}{\rightarrow} Z \sim \text{N}(0, \, \sigma^2)$$
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
