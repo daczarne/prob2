@@ -123,20 +123,3 @@ Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias estaciona
 
 entonces $\sum\limits_{k = 2}^{\infty} \big| \E (X_1 \, X_k) \big| < \infty$ si $\sigma^2 = \E \big( X_1^2 \big) + 2 \sum\limits_{k = 2}^{\infty} \E (X_1 \, X_k) > 0$. Entonces:
 $$\frac{1}{\sqrt{n}} \sum\limits_{n = 1}^{\infty} X_n \overset{d}{\rightarrow} Z \sim \text{N}(0, \, \sigma^2)$$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
