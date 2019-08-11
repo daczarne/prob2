@@ -92,7 +92,7 @@ El teorema 2.9 sigue siendo válido si $\E(X) = \infty$, pero lo único que se p
 
 #### Teorema 2.11: Convergencia dominada
 
-Sean $X$, $Y$, y $\{X_n\}_{n \in \mathbb{N}}$ variables aleatorias definidas sobre el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$ tales que $X_n(\omega) \overset{cs}{\rightarrow} X(\omega)$, $|X_n(\omega)| \leq Y$ para casi todo $\omega \in \Omega$, y existe $\E(Y)$, entonces:
+Sean $X$, $Y$, y $\{X_n\}_{n \in \mathbb{N}}$ variables aleatorias definidas sobre el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$ tales que $X_n \overset{cs}{\rightarrow} X$, $|X_n(\omega)| \leq Y$ para casi todo $\omega \in \Omega$, y existe $\E(Y)$, entonces:
 
 1. existe $\E(X_n)$ para todo $n$
 
@@ -161,7 +161,7 @@ Si $X_n \overset{p}{\rightarrow} X$ y $X_n \overset{p}{\rightarrow} Y$, entonces
 
 #### Teorema 2.17
 
-Sean $X$ y $\{X_n\}_{n \in \mathbb{N}}$ variable aleatorias definidas sobre el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$. Si $X_n \overset{cs}{\rightarrow} X$, entonces $X_n \overset{p}{\rightarrow} X$.
+Sean $X$ y $\{X_n\}_{n \in \mathbb{N}}$ variables aleatorias definidas sobre el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$. Si $X_n \overset{cs}{\rightarrow} X$, entonces $X_n \overset{p}{\rightarrow} X$.
 
 #### Proposición 2.19
 
@@ -186,6 +186,18 @@ Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias. Enotnces
 #### Teorema 2.22
 
 $$X_n \overset{p}{\rightarrow} X \Leftrightarrow \E \left( \frac{ |X_n - X| }{ 1 + |X_n - X| } \right) \overset{n}{\rightarrow} 0$$
+
+## Sobre la diferencia entre la convergencia casi segura y la convergencia en probabilidad
+
+> Supongamos que el comité de una empresa está compuesto por 100 miembros, los cuales se deben reunir todos los días durante un año, y queremos estudiar la asistencia a las reuniones por parte de los miembros del comité. La *convergencia casi segura* es como preguntarse si casi todos los miembros del comité tuvieron asistencia perfecta. La *convergencia en probabilidad* es como preguntarse si todas las reuniones estuvieron casi completas.
+
+> Si casi todos los miembros tuvieron asistencia perfecta (convergencia casi segura), entonces cada reunión estuvo casi completa (convergencia en probabilidad). Por lo tanto, la convergencia casi segura, implica la convergencia en probabilidad.
+
+> Pero que todas las reuniones hayan estado casi completas (convergencia en probabilidad), no implica que ninguno de los miembros haya tenido asistencia perfecta (convergencia casi segura). Por ejemplo, cada miembro podría haber faltado unas pocas veces. Por lo tanto, la convergencia en probabilidad no implíca la convergencia casi segura.
+
+Vemos entonces que la convergencia casi segura implica que $X_n(\omega)$ ``se acerca'' a $X(\omega)$ a medida que $n$ aumenta para casi todos los elementos ($\omega$) del espacio muestral ($\Omega$). Es entonces una afirmación acerca de la convergencia de $X_n(\omega)$ para casi todos los $\omega$'s, de forma individual.
+
+Por su parte, la convergencia en probabilidad implica que el sub-conjunto de elementos $\omega$ para los cuales $X_n(\omega)$ ``se acerca'' a $X(\omega)$, tiene una probabilidad que "se acerca" a 1, a medida que $n$ aumenta. Es entonces una afirmación acerca del tamaño del sub-conjunto de $\omega$'s que satisfacen la "propiedad de acercamiento", pero no acerca de los $\omega$'s de forma individual.
 
 # Ley Débil de los Grandes Números
 
@@ -250,7 +262,7 @@ $$\text{Si } \sum\limits_{n = 1}^{\infty} \frac{\Var(X_n)}{n^2} < \infty \Righta
 
 #### Lema 2.31
 
-Sea $X$ una variable aleatoria no necativa, entonces:
+Sea $X$ una variable aleatoria no negativa, entonces:
 $$\sum\limits_{n = 1}^{\infty} \Pr \big( X \geq n \big) \leq \E(X) \leq 1 + \sum\limits_{n = 1}^{\infty} \Pr \big( X \geq n \big)$$
 
 #### Lema 2.32
@@ -258,7 +270,7 @@ $$\sum\limits_{n = 1}^{\infty} \Pr \big( X \geq n \big) \leq \E(X) \leq 1 + \sum
 Sea $X$ una variable aleatoria no negativa, entonces:
 $$\E(X) = \int\limits_0^{+\infty} \Pr \big(X > x\big) dx$$
 
-Esto es el área entre la recta $y = 1$ y la gráfica de la función de distribución (acumulada) de $X$. Podemos entonces rescribir la fórumla anterior como:
+Esto es, el área entre la recta $y = 1$ y la gráfica de la función de distribución (acumulada) de $X$, es igual a la esperanza de la variable $X$. Podemos entonces rescribir la fórumla anterior como:
 $$\begin{array}{rcl}
 \E(X) & = & \int\limits_0^{+\infty} \Pr \big(X > x\big) dx \\ \\
    & = & \int\limits_0^{+\infty} \left[ 1 - \Pr \big(X \leq x\big) \right] dx \\ \\
@@ -286,11 +298,13 @@ Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias independi
 
 2. $\E(X_1) = C$
 
+\newpage
+
 # Convergencia en Distribución
 
 #### Definición 2.36
 
-Sean $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias definidas en $(\Omega_n, \, \mathcal{A}_n, \, \Pr_n)$, y $X$ una variable aleatoria definida en $(\Omega, \, \mathcal{A}, \, \Pr)$.
+Sean $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias definidas en $(\Omega_n, \, \mathcal{A}_n, \, {\Pr}_n)$, y $X$ una variable aleatoria definida en $(\Omega, \, \mathcal{A}, \, \Pr)$.
 $$X_n \overset{d}{\rightarrow} X \Leftrightarrow \lim\limits_{n \rightarrow + \infty} F_{X_n}(x) = F_X(x) \,\,\,\, \forall x \in \mathcal{C}(F_X)$$
 
 #### Observación 2.37
@@ -380,9 +394,9 @@ $$X_n \overset{L^p}{\rightarrow} X \Leftrightarrow \E |X_n - X|^p \overset{n}{\r
 
 - El recíproco no es cierto.
 
-#### Proposición 2.40
+#### Proposición 2.49
 
-Si $\{X_n\}_{n \in \mathbb{N}}$ es una sucesión de variables aleatorias no negativas tales que $X_n \overset{cs}{\rightarrow} X$ y $\E(X_n) \overset{n}{\rightarrow} \E(X) < \infty$ entonces $\E |X_n - X| \overset{n}{\rightarrow} 0$.
+Si $\{X_n\}_{n \in \mathbb{N}}$ es una sucesión de variables aleatorias no negativas tales que $X_n \overset{cs}{\rightarrow} X$ y $\E(X_n) \overset{n}{\rightarrow} \E(X) < \infty$, entonces $\E |X_n - X| \overset{n}{\rightarrow} 0$.
 
 ## Desigualdades en espacios $L^p$
 
