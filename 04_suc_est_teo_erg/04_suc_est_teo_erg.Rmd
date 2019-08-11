@@ -1,0 +1,34 @@
+---
+title: "Capítulo 4 - Sucesiones estacionarias y teoría ergódica"
+author: "Daniel Czarnievicz"
+date: "2019"
+output: pdf_document
+header-includes:
+   - \everymath{\displaystyle}
+   - \usepackage[spanish]{babel}
+   - \usepackage{xcolor}
+   - \usepackage[makeroom]{cancel}
+   - \DeclareMathOperator*{\plim}{plim}
+   - \usepackage{mathrsfs}
+   - \usepackage{amsmath}
+   - \usepackage{mathtools}
+   - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
+   - \DeclareMathOperator{\E}{\mathbf{E}}
+   - \DeclareMathOperator{\Var}{\mathbf{Var}}
+   - \DeclareMathOperator{\Cov}{\mathbf{Cov}}
+geometry: margin=1in
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Sucesiones estacionarias (en sentido estricto) de variables aleatorias
+
+
+# Ergodicidad y mixing
+
+
+
+
