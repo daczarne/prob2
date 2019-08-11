@@ -45,6 +45,13 @@ $$g \big(X_n^1, \, \ldots, \, X_n^d \big) \overset{cs}{\rightarrow} g \big(X^1, 
 
 $$X_n \overset{cs}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0, \,\,\, \lim\limits_{k \rightarrow + \infty} \Pr \left( \bigcap\limits_{n = k}^{+\infty} \big\{ |X_n - X| < \varepsilon \big\} \right) = 1 $$
 
+*Dem*: observemos que:
+$$\Pr \left( \lim\limits_{n \rightarrow +\infty} X_n = X \right) = 1 \Leftrightarrow \Pr \left( \bigcap\limits_{\varepsilon \in \mathbb{Q}^+} \bigcup\limits_{k = 1}^{+\infty} \bigcap\limits_{n = k}^{+\infty} \big\{ |X_n - X| < \varepsilon \big\} \right) = 1 \Leftrightarrow$$
+$$\Leftrightarrow \Pr \left( \bigcup\limits_{k = 1}^{+\infty} \bigcap\limits_{n = k}^{+\infty} \big\{ |X_n - X| < \varepsilon \big\} \right) = 1 \,\,\, \forall \varepsilon \in \mathbb{Q}^+$$
+
+Si llamemos $B_k = \bigcap\limits_{n = k}^{+\infty} \big\{ |X_n - X| < \varepsilon \big\}$, $B_k$ es entonces una sucesión creciente, por lo que:
+$$\Pr \left( \bigcup\limits_{k = 1}^{+\infty} B_k \right) = \lim\limits_{k \rightarrow + \infty} \Pr \big( B_k \big) = \Pr \left( \bigcap\limits_{n = k}^{+\infty} \big\{ |X_n - X| < \varepsilon \big\} \right)$$
+
 #### Corolario 2.4
 
 Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias tal que $\forall \varepsilon > 0$, $\sum\limits_{n = 1}^{+\infty} \Pr \big( |X_n - X| > \varepsilon \big) < +\infty$ entonces $X_n \overset{cs}{\rightarrow} X$.
