@@ -332,6 +332,81 @@ $$X_n \overset{d}{\rightarrow} X \Leftrightarrow \lim\limits_{n \rightarrow +\in
 Sean $\{X_n\}_{n \in \mathbb{N}}$ y $X$ variables aleatorias definidas en $(\Omega, \, \mathcal{A}, \, \Pr)$. Sean $a$ y $b$ dos reales tales que $a < x < b$. Si $X_n \overset{p}{\rightarrow} X$, entonces:
 $$F_X(a) \leq \liminf\limits_n F_n(x) \leq \limsup\limits_n F_n(x) \leq F_X (b)$$
 
+*Demostración*: 
+
+Parte 1: $F_X(a) \leq \liminf\limits_n F_n(x)$
+
+$$\begin{array}{rcl}
+F_X(a) & = & \Pr (X \leq a) \\ \\
+   & = & \Pr \left( \big\{ X \leq a \big\} \cap \Omega \right) \\ \\
+   & = & \Pr \left( \big\{ X \leq a \big\} \cap \left( \big\{ X_n - X < x - a \big\} \cup \big\{ X_n - X \geq x - a \big\} \right) \right) \\ \\
+   & = & \Pr \left[ \left( \big\{ X \leq a \big\} \cap \big\{ X_n - X < x - a \big\} \right) \cup \left( \big\{ X \leq a \big\} \cap \big\{ X_n - X \geq x - a \big\} \right) \right] \\ \\
+\end{array}$$
+
+Notemos que la unión es de conjuntos disjuntos por construncción, dado que $\big\{ X_n - X < x - a \big\}$ y $\big\{ X_n - X \geq x - a \big\}$ son complementarios (su unión da como resultado $\Omega$). Por lo tanto:
+$$\begin{array}{rcl}
+F_X(a) & = & \Pr \left[ \left( \big\{ X \leq a \big\} \cap \big\{ X_n - X < x - a \big\} \right) \cup \left( \big\{ X \leq a \big\} \cap \big\{ X_n - X \geq x - a \big\} \right) \right] \\ \\
+   & = & \Pr \left( \big\{ X \leq a \big\} \cap \big\{ X_n - X < x - a \big\} \right) + \color{orange}{\Pr \left( \big\{ X \leq a \big\} \cap \big\{ X_n - X \geq x - a \big\} \right)} \\ \\
+   & \color{orange}{\leq} & \color{blue}{ \Pr \left( \big\{ X \leq a \big\} \cap \big\{ X_n - X < x - a \big\} \right)} \color{black}{+} \color{orange}{ \Pr \big( X_n - X \geq x - a \big)} \\ \\
+   & \color{blue}{\leq} & \color{blue}{\Pr \left( X_n \leq x \right)} \color{black}{ + } \color{magenta}{\Pr \big( X_n - X \geq x - a \big)} \\ \\
+   & \color{magenta} \leq & \color{black} \Pr \left( X_n \leq x \right) + \color{magenta} \Pr \big( |X_n - X| \geq x - a \big) \\ \\
+\end{array}$$
+donde:
+
+- en la primer desigualdad utilizamos que:
+$$\underbrace{ \color{orange}{ \big\{ X \leq a \big\} } }_{A} \color{orange}{ \cap } \color{black}{ \underbrace{ \color{orange}{ \big\{ X_n - X \geq x - a \big\} } }_{B} } \color{black}{ \subset } \underbrace{ \color{orange}{ \big\{ X_n - X \geq x - a \big\} } }_{B}$$
+lo cual se cumple por construcción, $(A \cap B) \subset B$.
+
+- en la segunda desigualdad utilizamos que:
+$$\color{blue} \big\{ X \leq a \big\} \cap \big\{ X_n - X < x - a \big\} \color{black} \subset  \color{blue} \big\{ X_n \leq x \big\}$$
+
+- en la tercer desigualdad utilizamos que:
+$$\color{magenta} \big\{ X_n - X \geq x - a \big\} \color{black} \subset \color{magenta} \big\{ |X_n - X| \geq x - a \big\}$$
+dado que el término de la derecha podemos escribirlo como la unión de ambas colas.
+
+Por lo tanto, obtenemos que:
+$$F_X(a) \leq \underbrace{ Pr \left( X_n \leq x \right) }_{F_{X_n}(x)} + \underbrace{ \Pr \big( |X_n - X| \geq x - a \big) }_{ \substack{ \overset{n}{\rightarrow} 0 \text{, dado que } X_n \overset{p}{\rightarrow} X \\ \text{por hipótesis}}}$$
+Si ahora tomamos $\liminf\limits_n$ a ambos lados obtenemos que:
+$$\liminf\limits_n F_X(a) \leq \liminf\limits_n F_{X_n}(x)$$
+$$F_X(a) \leq \liminf\limits_n F_{X_n}(x)$$
+
+\newpage
+
+Parte 2: $\liminf\limits_n F_n(x) \leq \limsup\limits_n F_n(x)$
+
+Esta desigualdad se desprende del análisis real dado que $F_{X_n}(x)$ es una sucesión de números reales positivos (entre 0 y 1).
+
+Parte 3: $\limsup\limits_n F_n(x) \leq F_X(b)$
+
+Procediendo de forma análoga a la parte 1 obtenemos que:
+$$\begin{array}{rcl}
+F_{X_n}(x) & = & \Pr(X_n \leq x) \\ \\
+   & = & \Pr \left[ \big\{ X_n \leq x \big\} \cap \Omega \right] \\ \\
+   & = & \Pr \left[ \big\{ X_n \leq x \big\} \cap \big( \big\{ X - X_n \leq b - x \big\} \cup \big\{ X - X_n > b - x \big\} \big) \right] \\ \\
+   & = & \Pr \left[ \left( \big\{ X_n \leq x \big\} \cap \big\{ X - X_n \leq b - x \big\} \right) \cup \left( \big\{ X_n \leq x \big\} \cap \big\{ X - X_n > b - x \big\} \right) \right] \\ \\
+   & = & \Pr \left( \big\{ X_n \leq x \big\} \cap \big\{ X - X_n \leq b - x \big\} \right) + \Pr \left( \big\{ X_n \leq x \big\} \cap \big\{ X - X_n > b - x \big\} \right) \\ \\
+   & \leq & \Pr \left( \big\{ X_n \leq x \big\} \cap \big\{ X - X_n \leq b - x \big\} \right) + \Pr \big( X - X_n > b - x \big) \\ \\
+   & \leq & \Pr \big( X \leq b \big) + \Pr \big( X - X_n > b - x \big) \\ \\
+   & \leq & \Pr \big( X \leq b \big) + \Pr \big( |X - X_n| > b - x \big) \\ \\
+\end{array}$$
+
+donde:
+
+- en la primer desigualdad utilizamos que:
+$$\big\{ X_n \leq x \big\} \cap \big\{ X - X_n > b - x \big\} \subset \big\{ X - X_n > b - x \big\}$$
+
+- en la segunda desigualdad utilizamos que:
+$$\big\{ X_n \leq x \big\} \cap \big\{ X - X_n \leq b - x \big\} \subset \big\{ X \leq b \big\}$$
+
+- en la tercer desigualdad utilizamos que:
+$$\big\{ X - X_n > b - x \big\} \subset \big\{ |X - X_n| > b - x \big\}$$
+
+Por lo tanto, obtuvimos que:
+$$F_{X_n}(x) \leq \underbrace{ \Pr \big( X \leq b \big) }_{F_X(b)} + \underbrace{ \Pr \big( |X - X_n| > b - x \big) }_{ \substack{ \overset{n}{\rightarrow} 0 \text{, dado que } X_n \overset{p}{\rightarrow} X \\ \text{por hipótesis} }} \Rightarrow F_{X_n}(x) \leq F_X(b)$$
+
+Tomando $\limsup\limits_n$ concluimos que:
+$$\limsup\limits_n F_{X_n}(x) \leq \limsup\limits_n F_X(b) \Rightarrow \limsup\limits_n F_{X_n}(x) \leq F_X(b)$$
+
 #### Corolario 2.41
 
 Sean $\{X_n\}_{n \in \mathbb{N}}$ y $X$ variables aleatorias definidas en $(\Omega, \, \mathcal{A}, \, \Pr)$. Sea $x$ un punto de continuidad de $F_X$. Si $X_n \overset{p}{\rightarrow} X$, entocnes $F_{X_n}(x) \overset{n}{\rightarrow} F_X(x)$.
