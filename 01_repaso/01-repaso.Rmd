@@ -132,6 +132,7 @@ Para el resto de los conjuntos solo debemos demostrar que los mismos pueden ser 
 Dado $\Omega \neq \emptyset$, diremos que la terna $(\Omega, \, \mathcal{A}, \, \Pr)$ es un espacio de probabilidad sobre $\Omega \Leftrightarrow \mathcal{A}$ es una $\sigma$-álgebra de conjuntos sobre $\Omega$, y $\Pr$ es una función $\Pr: \mathcal{A} \rightarrow [0;1]$ que cumple:
 
 i. $\Pr(\Omega) = 1$
+
 ii. si la familia de sucesos $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ son tales que $A_i \cap A_j = \emptyset \, \forall i \neq j$ (disjuntos dos a dos), entonces:
 $$\Pr \left( \bigcup\limits_{n = 1}^{+ \infty} A_n \right) = \sum\limits_{n = 1}^{+\infty} \Pr(A_n) $$
 
@@ -267,7 +268,7 @@ Nótese que no es necesario unir los conjuntos de índices menores a $n$ a la ho
 $$\begin{array}{r c l c l} 
 \bigcup\limits_{n \in \mathbb{N}} A_n & = & \bigcup\limits_{n \in \mathbb{N}} B_n & & \text{por definición de $B_n$} \\ \\
 \Pr \left( \bigcup\limits_{n \in \mathbb{N}} A_n \right) & = & \Pr \left( \bigcup\limits_{n \in \mathbb{N}} B_n \right) & & \text{dado que $\{A_n\}_{n \in \mathbb{N}}$ y $\{B_n\}_{n \in \mathbb{N}}$ están} \\
-  & & & & \text{definidas sobre el mismo $(\Omega, \mathcal{A}, P)$} \\ \\
+  & & & & \text{definidas sobre el mismo $(\Omega, \mathcal{A}, \Pr)$} \\ \\
   & = & \sum\limits_{n = 1}^{+\infty} \Pr (B_n) & & \text{por el axioma ii.} \\ \\
   & = & \Pr (B_1) + \sum\limits_{n = 2}^{+\infty} \Pr (B_n) & & \text{reordeno términos}
 \end{array}$$
@@ -319,6 +320,7 @@ Lo cual implica que: $\Pr \left( \bigcap\limits_{n = 1}^{+\infty} A_n \right) = 
 Sea $\{a_n\}_{n \in \mathbb{N}} \subset \mathbb{R}$ una sucesión de números reales, entonces:
 
 i. $\limsup\limits_{n} a_n = \lim\limits_{n \rightarrow +\infty} \sup\limits_{k \geq n} a_n$
+
 ii. $\liminf\limits_{n} a_n = \lim\limits_{n \rightarrow +\infty} \inf\limits_{k \geq n} a_n$
 
 #### Definición 1.10: Limite superior e inferior de conjuntos
@@ -326,7 +328,8 @@ ii. $\liminf\limits_{n} a_n = \lim\limits_{n \rightarrow +\infty} \inf\limits_{k
 Sea $\{A_n\}_{n \in \mathbb{N}} \subset \mathcal{A}$ una sucesión de conjuntos, entonces:
 
 i. $\limsup\limits_{n} A_n = \bigcap\limits_{n = 1}^{+\infty} \bigcup\limits_{k = n}^{+\infty} A_k$
-i. $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k$
+
+ii. $\liminf\limits_{n} A_n = \bigcup\limits_{n = 1}^{+\infty} \bigcap\limits_{k = n}^{+\infty} A_k$
 
 #### Proposición 1.11: propiedades del límite superior e inferior
 
