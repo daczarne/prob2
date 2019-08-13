@@ -71,8 +71,8 @@ Por lo tanto, hemos probado que $\varphi_{\bar{X}_n}(t) \overset{n}{\rightarrow}
 
 ## Parte a: utilizando funciones características
 
-Primero calculamos la función característica de una variable aleatoria con distribución Gamma.
-$$\varphi_{Z_n}(t) = \E \big( e^{itz_n} \big) = \int\limits_{\mathbb{R}^+} e^{itz_n} f_{Z_n}(z_n) dz_n = \int\limits_{\mathbb{R}^+} e^{itz_n} \frac{\lambda^n}{\Gamma(n)} e^{-\lambda z_n} z_n^{n - 1} dz_n =$$
+Primero calculamos la función característica de una variable aleatoria con distribución $\Gamma(n, \, \lambda)$.
+$$\varphi_{Z_n}(t) = \E \big( e^{itZ_n} \big) = \int\limits_{\mathbb{R}^+} e^{itz_n} f_{Z_n}(z_n) dz_n = \int\limits_{\mathbb{R}^+} e^{itz_n} \frac{\lambda^n}{\Gamma(n)} e^{-\lambda z_n} z_n^{n - 1} dz_n =$$
 $$= \frac{\lambda^n}{\Gamma(n)} \int\limits_{\mathbb{R}^+} \exp\big\{ itz_n -\lambda z_n \big\} z_n^{n - 1} dz_n = \frac{\lambda^n}{\Gamma(n)} \int\limits_{\mathbb{R}^+} \exp\big\{ -( \lambda - it) z_n \big\} z_n^{n - 1} dz_n $$
 
 Realizamos el siguiente cambio de variable (los límites de integración no cambian):
@@ -87,8 +87,7 @@ $$= \frac{\lambda^n}{(\lambda - it)^n} \underbrace{ \int\limits_{\mathbb{R}^+} e
 $$= \left( \frac{\lambda - it}{\lambda}\right)^{-n} = \left( 1 - \frac{it}{\lambda}\right)^{-n}$$
 
 Luego, calculamos el límite buscado.
-$$\lim\limits_{n \rightarrow +\infty} \varphi_{Y_n}(t) = \lim\limits_{n \rightarrow +\infty} \varphi_{ \frac{\lambda Z_n}{\sqrt{n}} - \sqrt{n} } (t) = \lim\limits_{n \rightarrow +\infty} e^{-it\sqrt{n}} \varphi_{Z_n} \left( ^{t \lambda} \!/ \!_{\sqrt{n}} \right) =$$
-$$= \lim\limits_{n \rightarrow +\infty} e^{-it\sqrt{n}} \varphi_{Z_n} \left( ^{t \lambda} \!/ \!_{\sqrt{n}} \right) = \lim\limits_{n \rightarrow +\infty} e^{-it\sqrt{n}} \, \left(  1 - \frac{ ^{t \lambda} \!/ \!_{\sqrt{n}}}{\lambda} \right)^{-n} = \lim\limits_{n \rightarrow +\infty} e^{-it\sqrt{n}} \, \left(  1 - \frac{ it }{ \sqrt{n} } \right)^{-n} =$$
+$$\lim\limits_{n \rightarrow +\infty} \varphi_{Y_n}(t) = \lim\limits_{n \rightarrow +\infty} \varphi_{ \frac{\lambda Z_n}{\sqrt{n}} - \sqrt{n} } (t) = \lim\limits_{n \rightarrow +\infty} e^{-it\sqrt{n}} \varphi_{Z_n} \left( ^{t \lambda} \!/ \!_{\sqrt{n}} \right) = \lim\limits_{n \rightarrow +\infty} e^{-it\sqrt{n}} \, \left(  1 - \frac{ ^{it \lambda} \!/ \!_{\sqrt{n}}}{\lambda} \right)^{-n} =$$
 $$= \lim\limits_{n \rightarrow +\infty} e^{-it\sqrt{n}} \, \left(  1 - \frac{ it }{ \sqrt{n} } \right)^{-n} = \lim\limits_{n \rightarrow +\infty} \exp\left\{ -n \log \left( 1 - \frac{ it }{ \sqrt{n} } \right) - it \sqrt{n} \right\} =$$
 $$= \exp\left\{ - \lim\limits_{n \rightarrow +\infty} \left[ n \log \left( 1 - \frac{ it }{ \sqrt{n} } \right) + it \sqrt{n} \right] \right\} = \exp\left\{ - \lim\limits_{n \rightarrow +\infty} \left[ n \log \left( 1 + \frac{ -it }{ \sqrt{n} } \right) + it \sqrt{n} \right] \right\} =$$
 Utilizamos el siguiente equivalente: $\log(1 + u) \leadsto u - \frac{u^2}{2}$ cuando $u \rightarrow 0$, de donde obtenemos:
@@ -106,7 +105,7 @@ $$= \frac{ \lambda Z_n - n }{ \sqrt{n} } = \frac{ \lambda Z_n }{ \sqrt{n} } - \s
 # Ejercicio 4: aproximación Normal de la Poisson
 
 Primero hallamos la función característica de una variable aleatoria con distribución $\text{Poisson}(\lambda)$:
-$$\varphi_{Z_{\lambda}}(t) = \E \big( e^{itz} \big) = \sum\limits_{z = 0}^{+\infty} e^{itz} e^{-\lambda} \frac{\lambda^z}{z!} = e^{-\lambda} \sum\limits_{z = 0}^{+\infty} \frac{ (\lambda e^{it})^z }{ z! } = e^{-\lambda} e^{ \lambda e^{it} } = \exp\left\{ \lambda \big( e^{it} - 1 \big) \right\} $$
+$$\varphi_{Z_{\lambda}}(t) = \E \big( e^{itZ_{\lambda}} \big) = \sum\limits_{z = 0}^{+\infty} e^{itz} e^{-\lambda} \frac{\lambda^z}{z!} = e^{-\lambda} \sum\limits_{z = 0}^{+\infty} \frac{ (\lambda e^{it})^z }{ z! } = e^{-\lambda} e^{ \lambda e^{it} } = \exp\left\{ \lambda \big( e^{it} - 1 \big) \right\} $$
 
 Luego calculamos el límite de la función característica de la transformación propuesta cuando $\lambda \rightarrow + \infty$.
 $$\lim\limits_{\lambda \rightarrow + \infty} \varphi_{ \frac{ Z_{\lambda} }{ \sqrt{\lambda} } - \sqrt{\lambda} }(t) = \lim\limits_{\lambda \rightarrow + \infty} e^{-it \sqrt{\lambda}} \, \varphi_{ Z_{\lambda} } \left( ^t\! / \!_{\sqrt{\lambda}} \right)  = \lim\limits_{\lambda \rightarrow + \infty} e^{-it \sqrt{\lambda}} \, \exp\left\{ \lambda \big( e^{it / \sqrt{\lambda}} - 1 \big) \right\} =$$
@@ -137,8 +136,8 @@ $$\begin{array}{rcl}
 ## Parte i
 
 Comenzamos utilizando las propiedades de la proposición 3.3, de donde obtenemos que:
-$$\varphi_{ \sqrt{n}( \bar{Y}_n - 1) }(t) = e^{-it \sqrt{n}} \varphi_{ \bar{Y}_n }(t \sqrt{n}) = e^{-it \sqrt{n}} \varphi_{ \frac{1}{n} \sum\limits_{j = 0}^{n} Y_j }(t \sqrt{n}) =$$
-$$= e^{-it \sqrt{n}} \prod\limits_{j = 0}^{n} \varphi_{ \frac{1}{n} Y_j }(t \sqrt{n}) = e^{-it \sqrt{n}} \prod\limits_{j = 0}^{n} \varphi_{ Y_j }(t / \sqrt{n}) = e^{-it \sqrt{n}} \left[ \varphi_{ Y_1 }(t / \sqrt{n}) \right]^n$$
+$$\varphi_{ \sqrt{n}( \bar{Y}_n - 1) }(t) = e^{-it \sqrt{n}} \varphi_{ \bar{Y}_n }(t \sqrt{n}) = e^{-it \sqrt{n}} \varphi_{ \frac{1}{n} \sum\limits_{j = 1}^{n} Y_j }(t \sqrt{n}) =$$
+$$= e^{-it \sqrt{n}} \prod\limits_{j = 1}^{n} \varphi_{ \frac{1}{n} Y_j }(t \sqrt{n}) = e^{-it \sqrt{n}} \prod\limits_{j = 1}^{n} \varphi_{ Y_j }(t / \sqrt{n}) = e^{-it \sqrt{n}} \left[ \varphi_{ Y_1 }(t / \sqrt{n}) \right]^n$$
 
 \newpage
 
@@ -206,11 +205,6 @@ Luego, dado que $\delta$ es arbitrario, elijo $\varepsilon$ tal que $\varepsilon
 
 ## Parte b
 
-<!--
-Probar que: 
-$$\text{Si } \frac{1}{V_n^2} \max\limits_{i = 1, \ldots, n} \{ \sigma^2_{ni} \} \overset{n}{\rightarrow} 0 \Rightarrow \max\limits_{i = 1, \ldots, n} \Big\{ \Pr \big( |X_{nk} - m_{nk}| \geq \varepsilon V_n \big) \Big\} \overset{n}{\rightarrow} 0$$
--->
-
 Demostrar que:
 $$\text{Si } \lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^2} \sum\limits_{k = 1}^{n} \E \left[ \big( X_{nk} - m_{nk} \big)^2 \, \mathbb{I}_{ \{ |X_{nk} - m_{nk}| \geq \varepsilon V_n \} } \right] = 0 \Rightarrow \max\limits_{i = 1, \ldots, n} \Big\{ \Pr \big( |X_{nk} - m_{nk}| \geq \varepsilon V_n \big) \Big\} \overset{n}{\rightarrow} 0$$
 
@@ -220,8 +214,7 @@ $$\geq \lim\limits_{n \rightarrow + \infty} \frac{1}{V_n^2} \max\limits_{k = 1, 
 $$= \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ \E \left[ \left( \frac{ X_{nk} - m_{nk} }{V_n} \right)^2 \, \mathbb{I}_{ \left\{ \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| \geq \varepsilon \right\} } \right] \right\} \geq$$
 $$\geq \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ \E \left[ \varepsilon^2 \, \mathbb{I}_{ \left\{ \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| \geq \varepsilon \right\} } \right] \right\} = \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ \varepsilon^2 \E \left[ \mathbb{I}_{ \left\{ \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| \geq \varepsilon \right\} } \right] \right\} =$$
 $$= \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ \varepsilon^2 \Pr \left( \left| \frac{ X_{nk} - m_{nk} }{ V_n } \right| \geq \varepsilon \right) \right\} = \lim\limits_{n \rightarrow + \infty} \max\limits_{k = 1, \ldots, n} \left\{ \varepsilon^2 \Pr \big( \left| X_{nk} - m_{nk} \right| \geq \varepsilon \, V_n \big) \right\} \overset{n}{\rightarrow} 0$$
-
-Donde el límite se cumple dado que está acotado inferiormente por cero (por ser una probabilidad), y superiormente por una expresión que tiende a cero (por hipótesis).
+donde el límite se cumple dado que está acotado inferiormente por cero (por ser una probabilidad), y superiormente por una expresión que tiende a cero (por hipótesis).
 
 \newpage
 
