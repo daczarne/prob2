@@ -42,7 +42,7 @@ Para demostrar la implicancia utilizaremos las siguientes definiciones de conver
 
 Sean: 
 
-i. $A_n = \bigcup\limits_{n = k}^{\infty} \Big\{ \omega \in \Omega \, : \, \big| X_n(\omega) - X(\omega) \big| > \varepsilon \Big\}$
+i. $A_n = \Big\{ \omega \in \Omega \, : \, \big| X_n(\omega) - X(\omega) \big| > \varepsilon \Big\}$
 
 ii. $A_k = \Big\{ \omega \in \Omega \, : \, \big| X_k(\omega) - X(\omega) \big| > \varepsilon \Big\}$
 

@@ -155,6 +155,8 @@ $$\text{Si } \sum\limits_{n = 1}^{+\infty} \E(X_n^2) < +\infty \Rightarrow \sum\
 Si las variables $X_k$ son uniformemente acotadas (es decir, existe un real $c < +\infty$ tal que $\Pr(|X_k| < c) = 1$ para todo $k$), el recíproco es cierto. Por lo tanto, se cumple que:
 $$\text{Si } \sum\limits_{n = 1}^{+\infty} X_n < +\infty \Rightarrow \sum\limits_{n = 1}^{+\infty} \E(X_n^2) < +\infty$$
 
+\newpage
+
 # Convergencia en Probabilidad
 
 #### Definición 2.15: Convergencia en probabilidad
@@ -169,6 +171,27 @@ Si $X_n \overset{p}{\rightarrow} X$ y $X_n \overset{p}{\rightarrow} Y$, entonces
 #### Teorema 2.17
 
 Sean $X$ y $\{X_n\}_{n \in \mathbb{N}}$ variables aleatorias definidas sobre el mismo espacio de probabilidad $(\Omega, \, \mathcal{A}, \, \Pr)$. Si $X_n \overset{cs}{\rightarrow} X$, entonces $X_n \overset{p}{\rightarrow} X$.
+
+*Demostración*: para demostrar la implicancia utilizaremos las siguientes definiciones de convergencia casi segura y de convergencia en probabilidad respectivamente:
+
+- $X_n \overset{cs}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0$ se cumple que $\Pr \left( \bigcup\limits_{n = k}^{\infty} \Big\{ \omega \in \Omega \, : \, \big| X_n(\omega) - X(\omega) \big| > \varepsilon \Big\} \right) \overset{k}{\rightarrow} 0$
+
+- $X_n \overset{p}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0$ se cumple que $\Pr \left( \Big\{ \omega \in \Omega \, : \, \big| X_k(\omega) - X(\omega) \big| > \varepsilon \Big\} \right) \overset{k}{\rightarrow} 0$
+
+Sean: 
+
+i. $A_n = \Big\{ \omega \in \Omega \, : \, \big| X_n(\omega) - X(\omega) \big| > \varepsilon \Big\}$
+
+ii. $A_k = \Big\{ \omega \in \Omega \, : \, \big| X_k(\omega) - X(\omega) \big| > \varepsilon \Big\}$
+
+De esta forma, podemos rescribir las definiciones a utilizar de la siguiente forma:
+
+- $X_n \overset{cs}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0$ se cumple que $\Pr \left( \bigcup\limits_{n = k}^{\infty} A_n \right) \overset{k}{\rightarrow} 0$
+
+- $X_n \overset{p}{\rightarrow} X \Leftrightarrow \forall \varepsilon > 0$ se cumple que $\Pr \left( A_k \right) \overset{k}{\rightarrow} 0$
+
+Notemos ahora que $\bigcup\limits_{n = k}^{\infty} A_n = A_k \cup A_{k+1} \cup A_{k+2} \cup \ldots$. Esto implica que $A_k \subset \bigcup\limits_{n = k}^{\infty}A_n$. Por lo tanto, $\Pr (A_k) \leq \Pr \left( \bigcup\limits_{n = k}^{\infty} A_n \right)$. Pero $\Pr \left( \bigcup\limits_{n = k}^{\infty} A_n \right) \overset{k}{\rightarrow} 0$ dado que $X_n \overset{cs}{\rightarrow} X$ por hipótesis. Esto implica que $\Pr (A_k)$ está acotado inferirormente por $0$ (por ser una probabilidad) y superiormente por una probabilidad que converge a cero. Entonces $\Pr (A_k) \overset{k}{\rightarrow} 0$, y por lo tanto, $X_n \overset{p}{\rightarrow} X$.
+
 
 #### Proposición 2.19
 
