@@ -103,9 +103,11 @@ Procediendo de forma análoga se demuestra que $b_n \, Y_n \overset{p}{\rightarr
 
 Verificar que si $X_1; \, X_2; \, \ldots$ iid, entonces $\bar{X}_n$ es un estimador consistente para
 
-a. el parámetro $p$, si $X_1 \sim \text{Bin}(1,p)$
-b. $\lambda$, si $X_1 \sim \text{Poisson}(\lambda)$
-c. $1/\lambda$, si $X_1 \sim \text{Exp}(\lambda)$
+a. el parámetro $p$, si $X_1 \sim \text{Bin}(1,p)$  
+
+b. $\lambda$, si $X_1 \sim \text{Poisson}(\lambda)$  
+
+c. $1/\lambda$, si $X_1 \sim \text{Exp}(\lambda)$  
 
 ## Parte a
 
