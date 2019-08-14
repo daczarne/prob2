@@ -59,6 +59,8 @@ $$\Pr \big( |X_n - c| > \varepsilon \big) = 1 - \Pr \big( |X_n - c| \leq \vareps
 $$1 - \Pr ( -\varepsilon \leq X_n - c \leq \varepsilon) = 1 - \Pr ( c - \varepsilon \leq X_n \leq c + \varepsilon) =$$
 $$= 1 - \big[ \underbrace{ F_{X_n}(\underbrace{ c + \varepsilon }_{> c}) }_{= 1} - \underbrace{ F_{X_n}(\underbrace{ c - \varepsilon }_{< c}) }_{ = 0} \big] = 1 - 1 = 0 \Rightarrow X_n \overset{p}{\rightarrow} c$$
 
+dado que $c + \varepsilon$ y $c - \varepsilon$ son puntos de continuidad de $F_c$.
+
 $(\Leftarrow)$ Si $X_n \overset{p}{\rightarrow} c$ entonces sabemos que $X_n \overset{d}{\rightarrow} c$ siempre.
 
 ## Parte b: si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} c \in \mathbb{R}$ entonces $X_n + Y_n \overset{d}{\rightarrow} X + c$
