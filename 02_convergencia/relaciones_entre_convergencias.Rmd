@@ -100,7 +100,7 @@ $$F_X(x) = \liminf\limits_n F_{X_n}(x) = \limsup\limits_n F_{X_n}(x)$$
 ## Contraejemplo del recíproco
 
 Sean la variable aleatorias $X \sim \text{N}(0,1)$ y la sucesión de variables aleatorias $X_n = (-1)^n X$. Entonces, dado que la distribución normal es simétrica, se cumple que $X_n \sim \text{N}(0,1)$. Por lo tanto, 
-$$F_{X_n} = \Phi_n(x) \overset{n}{\rightarrow} \Phi(x) = F_X(x) \Rightarrow X_n \overset{d}{\rightarrow} X$$
+$$F_{X_n}(x) = \Phi_n(x) \overset{n}{\rightarrow} \Phi(x) = F_X(x) \Rightarrow X_n \overset{d}{\rightarrow} X$$
 
 Por otro lado tenemos que, si $n$ es par, entonces se cumple que $|X_n - X| = 0$ por lo tanto $P(|X_n - X| > \varepsilon) = 0$. Mientras que si $n$ es impar, tenemos que $|X_n - X| = 2|X|$, por lo tanto:
 $$\Pr (|X_n - X| > \varepsilon) = \Pr ( 2 \, |X| > \varepsilon ) = \Pr ( |X| > \varepsilon / 2 ) = 2 \, \Phi (\varepsilon / 2) > 0$$
@@ -119,9 +119,9 @@ donde la convergencia está dada porque $X_n \overset{L^p}{\rightarrow} X$. Dado
 ## Contraejemplo del recíproco
 
 Sea $\Omega = [0, \, 1]$ y la siguiente sucesión de variables aleatorias:
-$$X_n(x) = \left\{ \begin{array}{c c c}
-e^n & \text{si} & x \in [0, \, ^1\!/_n] \\
-0   & \text{si} & x \in (^1\!/_n, \, 1]
+$$X_n(\omega) = \left\{ \begin{array}{c c c}
+e^n & \text{si} & \omega \in \left[ 0, \, ^1\!/_n \right] \\ \\
+0   & \text{si} & \omega \in \left( ^1\!/_n, \, 1 \right]
 \end{array} \right.$$
 
 Luego entonces:
