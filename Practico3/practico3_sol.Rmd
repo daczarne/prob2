@@ -173,13 +173,28 @@ x <- seq(-3, 3, by = 0.01)
 cdf <- pnorm(x)
 epsilon <- .1
 par(las = 1)
-plot(x, cdf, type = "l", col = "red", axes = FALSE, ylab = expression(F[n]), xlab = expression(x))
-axis(side = 1, at = c(-3, -2, 2, 3), labels = c("", "-R", "R", ""))
-axis(side = 2, at = c(0, epsilon, 1 - epsilon, 1), 
+plot(x, 
+     cdf, 
+     type = "l",
+     col = "red",
+     axes = FALSE, 
+     ylab = expression(F[n]),
+     xlab = expression(x))
+axis(side = 1, 
+     at = c(-3, -2, 2, 3), 
+     labels = c("", "-R", "R", ""))
+axis(side = 2, 
+     at = c(0, epsilon, 1 - epsilon, 1), 
      labels = c("0", expression(epsilon), expression(1 - epsilon), "1"))
-abline(h = 1, lty = "dashed", col = "black")
-abline(h = epsilon, lty = "dashed", col = "darkgreen")
-abline(h = 1 - epsilon, lty = "dashed", col = "darkgreen")
+abline(h = 1,
+       lty = "dashed", 
+       col = "black")
+abline(h = epsilon, 
+       lty = "dashed",
+       col = "darkgreen")
+abline(h = 1 - epsilon, 
+       lty = "dashed",
+       col = "darkgreen")
 ```
 
 Dado que $F$ es continua en $R$ y en $-R$ (por hipótesis) y $F_n$ converge puntualmente a $F$ (dado que, por hipótesis, converge en distribución), sabemos que $\exists N_0$ tal que $\forall n \geq N_0$ se cumple que $|F_n(R) - F(R)| < \varepsilon$ y $|F_n(-R) - F(-R)| < \varepsilon$. Es decir, $d_n(F_n, F) \overset{n}{\rightarrow} 0$ en $x = R$ y en $x = -R$.
@@ -275,7 +290,7 @@ $$\E \big[ f( g(X_n) ) \big] = \E \big[ h(X_n) \big] \overset{n}{\rightarrow} \E
 
 \newpage
 
-**Demostración utilizando el teorema de representación de Skorohod.**
+**Demostración utilizando el teorema de representación de Skorokhod.**
 
 Dado que $X_n \overset{d}{\rightarrow} X$ el teorema de Skorohod nos asegura que existen $X_n^* \overset{d}{=} X_n$ y $X^* \overset{d}{=} X$ tales que $X_n^* \overset{cs}{\rightarrow} X^*$. Dado que $g$ es continua, $g(X_n^*) \overset{cs}{\rightarrow} g(X^*)$. Pero dado que las nuevas variables ($X_n^*$ y $X^*$) se definieron de forma de ser iguales en distribución a las variables originales ($X_n$ y $X$), $g(X_n^*) \overset{cs}{\rightarrow} g(X^*)$ implíca que $g(X_n) \overset{d}{\rightarrow} g(X)$.
 
