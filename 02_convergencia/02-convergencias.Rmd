@@ -434,6 +434,20 @@ $$\limsup\limits_n F_{X_n}(x) \leq \limsup\limits_n F_X(b) \Rightarrow \limsup\l
 
 Sean $\{X_n\}_{n \in \mathbb{N}}$ y $X$ variables aleatorias definidas en $(\Omega, \, \mathcal{A}, \, \Pr)$. Sea $x$ un punto de continuidad de $F_X$. Si $X_n \overset{p}{\rightarrow} X$, entocnes $F_{X_n}(x) \overset{n}{\rightarrow} F_X(x)$.
 
+*Dem*: supongamos $x \in \mathscr{C}(F)$ y definamos las sucesiones reales $a_k = x - \,^1\!/_k$ y $b_k = x + \,^1\!/_k$. Dado que $a < x < b$, se cumple que $a_k < x < b_k$. Por otra parte, dado que $X_n \overset{p}{\rightarrow} X$:
+$$F_X(a_k) \leq \liminf\limits_n F_{X_n}(x) \leq \limsup\limits_n F_{X_n}(x) \leq F_X(b_k)$$
+
+Tomando límites cuando $k \rightarrow +\infty$ y teniendo en cuenta que $x \in \mathscr{C}(F)$ obtenemos que:
+$$F_X(x) = \lim\limits_k F_X(a_k) \leq \lim\limits_k \liminf\limits_n F_{X_n}(x) \leq \lim\limits_k \limsup\limits_n F_{X_n}(x) \leq \lim\limits_k F_X(b_k) = F_X(x)$$
+$$F_X(x) = \lim\limits_k F_X(a_k) \leq \liminf\limits_n F_{X_n}(x) \leq \limsup\limits_n F_{X_n}(x) \leq \lim\limits_k F_X(b_k) = F_X(x)$$
+
+De donde podemos concluir que, dado que tanto el $\liminf$ como el $\limsup$ están acotados tanto superior como inferiormente por $F_X(x)$,
+$$F_X(x) = \liminf\limits_n F_{X_n}(x) = \limsup\limits_n F_{X_n}(x)$$
+
+Por lo tanto, $F_{n}(x) \overset{n}{\rightarrow} F_X(x)$, entonces $X_n \overset{d}{\rightarrow}X$.
+
+***
+
 El recíproco del corolario 2.41 no es cierto.
 
 Si $X_n \overset{d}{\rightarrow} X$ y $Y_n \overset{d}{\rightarrow} Y$, no es cierto en general que $X_n + Y_n \overset{d}{\rightarrow} X + Y$.
