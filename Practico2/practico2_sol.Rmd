@@ -67,7 +67,7 @@ Si $X_n \overset{cs}{\rightarrow} X \Rightarrow \exists A$ con $\Pr (A) = 1$ tal
 
 2. Si $Y_n \overset{p}{\rightarrow} Y \Rightarrow \Pr \big( |Y_n - Y| > \varepsilon / 2 \big) \overset{n}{\rightarrow} 0$, por definición de convergencia en probabilidad.
 
-3. $\{ \omega \in \Omega : |X_n + Y_n - X - Y| > \varepsilon \} \subset \{ \omega \in \Omega : |X_n - X| + |Y_n - Y| > \varepsilon \}$ por lo tanto, $\varepsilon < |x_n + Y_n - X - Y| \leq |X_n - X| + |Y_n - Y|$
+3. $\{ \omega \in \Omega : |X_n + Y_n - X - Y| > \varepsilon \} \subset \{ \omega \in \Omega : |X_n - X| + |Y_n - Y| > \varepsilon \}$ por lo tanto, $\varepsilon < |X_n + Y_n - X - Y| \leq |X_n - X| + |Y_n - Y|$
 
 Luego entonces,
 $$0 \leq \Pr \big( |X_n + Y_n - X - Y | > \varepsilon \big) \leq \Pr \big( |X_n - X | > \varepsilon/2 \big) + \Pr \big( |Y_n - Y | > \varepsilon / 2 \big) \overset{n}{\rightarrow} 0$$
@@ -84,7 +84,7 @@ dado que $\{ \omega : |g(X_n(\omega)) - g(X(\omega))| \geq \varepsilon \} \subse
 
 ***
 
-**Parte 3**: si $X_n \overset{p}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} Y$, y sean $a_n$ y $b_n$ dos sucesiones de números reales tales que $a_n \overset{n}{\rightarrow} a > 0$ y $b_n \overset{n}{\rightarrow} b$, entonces $a_n \, X_n + b_n \, Y_n \overset{cs}{\rightarrow} a \, X + b \, Y$.
+**Parte 3**: Si $X_n \overset{p}{\rightarrow} X$ y $Y_n \overset{p}{\rightarrow} Y$, y sean $a_n$ y $b_n$ dos sucesiones de números reales tales que $a_n \overset{n}{\rightarrow} a > 0$ y $b_n \overset{n}{\rightarrow} b$, entonces $a_n \, X_n + b_n \, Y_n \overset{p}{\rightarrow} a \, X + b \, Y$.
 
 \vspace{.3cm}
 
@@ -93,9 +93,9 @@ dado que $\{ \omega : |g(X_n(\omega)) - g(X(\omega))| \geq \varepsilon \} \subse
 $$\Pr \big( |a_n \, X_n - aX| > \varepsilon \big) = \Pr \big( |a_n \, X_n - a \, X_n + a \, X_n - a \,X| > \varepsilon \big) \leq $$
 $$\leq \Pr \big( |a_n \, X_n - a \, X_n | > \varepsilon / 2 \big) + \Pr \big( | a \, X_n - a \,X | > \varepsilon / 2 \big) = $$
 $$= \Pr \big( |a_n - a| \, | X_n | > \varepsilon / 2 \big) + \Pr \big( | a | \, | X_n - X | > \varepsilon / 2 \big) = $$
-$$= \Pr \big( |a_n - a| \, | X_n - X + X | > \varepsilon / 2 \big) + \underbrace{ \Pr \big( | a | \, | X_n - X | > \varepsilon / 2 \big) }_{\rightarrow 0 \text{, porque } X_n \overset{p}{\rightarrow} X} \leq $$
-$$ \leq \underbrace{ \Pr \big( |a_n - a| \, | X_n - X | > \varepsilon / 4 \big) }_{ {\rightarrow 0 \text{, porque } X_n \overset{p}{\rightarrow} X}} + \Pr \big( |a_n - a| \, | X | > \varepsilon / 4 \big) \leq$$
-$$= \Pr \Bigg( \underbrace{|a_n - a|}_{ \substack{ \rightarrow 0 \text{, dado } \\ \text{que } a_n \overset{n}{\rightarrow} a} } > \frac{\varepsilon}{4|X|} \Bigg) \overset{n}{\rightarrow} 0 $$
+$$= \Pr \big( |a_n - a| \, | X_n - X + X | > \varepsilon / 2 \big) + \underbrace{ \Pr \big( | a | \, | X_n - X | > \varepsilon / 2 \big) }_{\overset{n}{\rightarrow} 0 \text{, porque } X_n \overset{p}{\rightarrow} X} \leq $$
+$$ \leq \underbrace{ \Pr \big( |a_n - a| \, | X_n - X | > \varepsilon / 4 \big) }_{ {\overset{n}{\rightarrow} 0 \text{, porque } X_n \overset{p}{\rightarrow} X}} + \Pr \big( |a_n - a| \, | X | > \varepsilon / 4 \big) =$$
+$$= \Pr \Bigg( \underbrace{|a_n - a|}_{ \substack{ \overset{n}{\rightarrow} 0 \text{, dado } \\ \text{que } a_n \overset{n}{\rightarrow} a} } > \frac{\varepsilon}{4|X|} \Bigg) \overset{n}{\rightarrow} 0$$
 
 Procediendo de forma análoga se demuestra que $b_n \, Y_n \overset{p}{\rightarrow} b \, Y$, y aplicando el resultado de la parte 1 queda demostrado que $a_n \, X_n + b_n \, Y_n \overset{p}{\rightarrow} a_n \, X + b \, Y$.
 
