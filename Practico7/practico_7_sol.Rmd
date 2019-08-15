@@ -25,17 +25,22 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <!--
 # Ejercicio 1
-
-
+-->
 
 # Ejercicio 2
 
+Sea el intervalo $(x, \, y)$ tal que $x \in [0, \, 1)$, $y \in [0, \, 1)$ con $x \neq y$. Luego entonces, dado que $\Pr$ es la distrubición de probabilidad de la distribución $\text{U}(0, \, 1)$, tenemos que:
 
+- $\Pr \big( (x, \, y) \big) = y - x$
 
+- $T^{-1} \big( (x, \, y) \big) = (x - a, \, y - a)$
+
+- $\Pr \left( T^{-1} \big( (x, \, y) \big) \right) = y - a - (x - a) = y - x$
+
+<!--
 # Ejercicio 3
-
-
 -->
+
 # Ejercicio 4
 
 $$\begin{array}{rcl}
