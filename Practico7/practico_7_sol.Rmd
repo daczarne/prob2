@@ -35,12 +35,20 @@ knitr::opts_chunk$set(echo = TRUE)
 # Ejercicio 3
 
 
-
+-->
 # Ejercicio 4
 
+$$\begin{array}{rcl}
+\E(X) & = & \sum\limits_{x \in \text{Rec}(X)} x \, \Pr(X = x) \\ \\
+   & = & \sum\limits_{x \in \text{Rec}(X)} x \, \Pr \left( \big\{ \omega \in \Omega : X(\omega) = x \big\} \right) \\ \\
+   & = & \sum\limits_{x \in \text{Rec}(X)} x \, \Pr \left( X^{-1}(x) \right) \\ \\
+   & = & \sum\limits_{x \in \text{Rec}(X)} x \, \Pr \left( T^{-1}( X^{-1}(x) ) \right) \\ \\
+   & = & \sum\limits_{x \in \text{Rec}(X)} x \, \Pr \left( \big\{ \omega \in \Omega : X(T(\omega)) = x \big\} \right) \\ \\
+\end{array}$$
 
+$$\E \big( X(T) \big) = \sum\limits_{y \in \text{Rec}(X(T))} y \, \Pr(X(T) = y)$$
 
--->
+La igualdad entre ambos se cumplirá únicamente si los recorridos son iguales. Podemos porbar esto por absurdo. Supongamos que $\exists y$ tal que $y \in \text{Rec}(X(T))$ pero $y \notin \text{Rec}(X)$. Pero si $y \in \text{Rec}(X(T))$ entonces $\exists \omega$ tal que $X(T(\omega)) = y$, por lo que los recorridos deben ser iguales.
 
 # Ejercicio 5
 
