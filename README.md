@@ -24,4 +24,4 @@ Edición 2019
 [Relaciones entre conceptos de convergencia](https://github.com/daczarne/prob2/blob/master/02_convergencia/relaciones_entre_convergencias.pdf)  
 [Demostración del Teorema de Lindeberg](https://github.com/daczarne/prob2/blob/master/03_fun_car_tlc/Lindeberg.pdf)  
 
-(La demostración del Teorema de Lindeberg fue realizada por Manuel Hernandez)
+(La demostración del Teorema de Lindeberg fue realizada por [@emehache](https://github.com/emehache))
