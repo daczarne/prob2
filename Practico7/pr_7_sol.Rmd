@@ -1,0 +1,39 @@
+---
+title: "Práctico 7"
+author: "Daniel Czarnievicz"
+date: "2019"
+output: pdf_document
+header-includes:
+   - \everymath{\displaystyle}
+   - \usepackage[spanish]{babel}
+   - \usepackage{xcolor}
+   - \usepackage[makeroom]{cancel}
+   - \DeclareMathOperator*{\plim}{plim}
+   - \usepackage{mathrsfs}
+   - \usepackage{amsmath}
+   - \usepackage{mathtools}
+   - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
+   - \DeclareMathOperator{\E}{\mathbf{E}}
+   - \DeclareMathOperator{\V}{\mathbf{V}}
+geometry: margin=1in
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Ejercicio 1
+
+
+# Ejercicio 2
+
+
+# Ejercicio 3
+
+
+# Ejercicio 4
+
+
+# Ejercicio 5
