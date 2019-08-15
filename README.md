@@ -17,7 +17,7 @@ Edición 2019
 [Repaso](https://github.com/daczarne/prob2/blob/master/01_repaso/01-repaso.pdf)  
 [Conceptos de convergencia para variables aleatorias](https://github.com/daczarne/prob2/blob/master/02_convergencia/02-convergencias.pdf)  
 [Función característica y TLC](https://github.com/daczarne/prob2/blob/master/03_fun_car_tlc/03-funcartlc.pdf)  
-[Sucesiones estacionarias y Teoría Ergódica](https://github.com/daczarne/prob2/blob/master/04_suc_est_teo_erg/04_suc_est_teo_erg.Rmd)  
+[Sucesiones estacionarias y Teoría Ergódica](https://github.com/daczarne/prob2/blob/master/04_suc_est_teo_erg/04_suc_est_teo_erg.pdf)  
 
 ## Otros
 
