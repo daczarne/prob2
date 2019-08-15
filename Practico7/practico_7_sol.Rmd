@@ -23,7 +23,7 @@ fontsize: 12pt
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
+<!--
 # Ejercicio 1
 
 
@@ -42,7 +42,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Ejercicio 5
 
-
+-->
 
 # Ejercicio 6
 
