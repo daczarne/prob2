@@ -11,6 +11,7 @@ Edición 2019
 [Práctico 4](https://github.com/daczarne/prob2/blob/master/Practico4/practico4_sol.pdf)  
 [Práctico 5](https://github.com/daczarne/prob2/blob/master/Practico5/practico5_sol.pdf)  
 [Práctico 6](https://github.com/daczarne/prob2/blob/master/Practico6/practico6_sol.pdf)  
+[Práctico 7](https://github.com/daczarne/prob2/blob/master/Practico7/practico7_sol.pdf)  
 
 ## Notas docentes con explicaciones
 
