@@ -27,13 +27,49 @@ knitr::opts_chunk$set(echo = TRUE)
 # Ejercicio 1
 
 
+
 # Ejercicio 2
+
 
 
 # Ejercicio 3
 
 
+
 # Ejercicio 4
 
 
+
 # Ejercicio 5
+
+
+
+# Ejercicio 6
+
+- Decimos que una transformación $T: \Omega \rightarrow \Omega$ es medible si para todo conjunto $A \in \mathcal{A}$ se cumple que $T^{-1}(A) = \big\{ \omega \in \Omega : T(\omega) \in A \big\} \in \mathcal{A}$. Es decir, se debe cumplir que, para todo conjunto $A$ en la $\sigma$-álgebra, el conjunto de las preimágenes a través de la transformación, también pertenezca a la $\sigma$-álgebra.
+
+- Decimos que una transformación $T$ preserva la medida si para todo $A \in \mathcal{A}$ se cumple que $\Pr(A = \Pr(T^{-1}(A))$. Es decir, la medida de probabilidad (o cualquier otra medida) toma el mismo valor para el conjunto $A$ y para el conjunto de las preimágenes de $A$ a través de la función $T$.
+
+- Decimos que un conjuto $A \in \mathcal{A}$ es invariante a la tranformración $T$ (siendo $T$ una transformación que preserva la medida), si se cumple que $T^{-1}(A) = A$. Es decir, todo elemento ($\omega$) que pertenece al conjunto $A$, pertenece también al conjunto de preimágenes de $A$ a través de la transformación $T$ (y viceversa, dado que se trata de una igualdad de conjuntos).
+
+- Decimos que una transformación $T$ que preserva la medida es ergódico, si se cumple que todo conjunto invariante tiene medida 0 o 1.
+
+- Decimos que una transformación $T$ que preserva la medida es mixing, si para todo par de conjuntos $A$, $B \in \mathcal{A}$ se cumple que:
+$$\lim\limits_{n \rightarrow +\infty} \Pr \big( A \cap T^{-n}(B) \big) = \Pr(A) \, \Pr(B)$$
+
+Para demostrar el teorema entonces veamos que:
+$$B \text{ es invariante } \Leftrightarrow T^{-1}(B) = B \Leftrightarrow T^{-n}(B) = B \,\,\,\, \forall n \geq 1$$
+
+Luego, por la definición de transformación mixing, tenemos que:
+$$\lim\limits_{n \rightarrow +\infty} \Pr \big( A \cap \underbrace{ T^{-n}(B) }_{ = B} \big) = \lim\limits_{n \rightarrow +\infty} \Pr(A \cap B) = \Pr(A \cap B)$$
+
+Pero si $T$ es mixing, entonces también debe cumplirse que:
+$$\lim\limits_{n \rightarrow +\infty} \Pr \big( A \cap T^{-n}(B) \big) = \Pr(A) \, \Pr(B)$$
+
+Por lo tanto,
+$$\Pr(A \cap B) = \Pr(A) \Pr(B) \,\,\,\, \forall A,B \in \mathcal{A}, \,\,\, B \text{ invariante}$$
+
+Si elegimos $A = B$, tenemos que, para todo $B$ invariante:
+$$\Pr (B \cap B) = \Pr(B) \, \Pr(B) = {\Pr}^2(B)$$
+
+Pero a su vez, $\Pr (B \cap B) = \Pr(B)$. Por lo tanto, $\Pr(B) = {\Pr}^2(B)$. Pero dado que la proobabilidad simpre debe tomar valores entre 0 y 1, $\Pr(B)$ solo puede ser 0 ó 1 (dado que son los únicos posibles valores que elevados al cuadrado dan como resultado ellos mismos).
