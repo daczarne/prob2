@@ -40,9 +40,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
+-->
+
 # Ejercicio 5
 
--->
+Sea $A_n = \big\{ \omega \in \Omega : X(\omega) \geq \, ^1/\!_n \big\}$. Entonces existe $D_n$ tal que $\Pr(A_n) = \Pr(D_n)$, por lo que, $\forall \omega \in D_n$, se cumple $\sum\limits_{k = 0}^{+\infty} X(T^{k}(\omega)) = +\infty$. Luego entonces, si definimos al conjunto $A = \bigcup\limits_{n = 1}^{+\infty} A_n$ tenemos que:
+$$\Pr(A) = \Pr \left( \bigcup\limits_{n = 1}^{+\infty} A_n \right) = \Pr \left( \bigcup\limits_{n = 1}^{+\infty} D_n \right) = \Pr(D)$$
 
 # Ejercicio 6
 
