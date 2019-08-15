@@ -210,20 +210,4 @@ $$X_j = \left\{
 
 Con la cual, si llamamos $X = \sum\limits_{j = 1}^{3} X_j$, obtendríamos:
 
-$$\varphi_X(t) = \left[ \varphi_{x_j}(t) \right]^3 = \left[ \E \big( e^{itX_j}) \right]^3 = \left[ e^{it(1)} \frac{1}{2} + e^{it(2)} \frac{1}{2} \right]^3 = \left[ \frac{1}{2} \left( e^{it} + e^{2it} \right) \right]^3 = \frac{1}{8} \left( e^{it} + e^{2it} \right)^3 $$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$$\varphi_X(t) = \left[ \varphi_{x_j}(t) \right]^3 = \left[ \E \big( e^{itX_j}) \right]^3 = \left[ e^{it(1)} \frac{1}{2} + e^{it(2)} \frac{1}{2} \right]^3 = \left[ \frac{1}{2} \left( e^{it} + e^{2it} \right) \right]^3 = \frac{1}{8} \left( e^{it} + e^{2it} \right)^3$$
