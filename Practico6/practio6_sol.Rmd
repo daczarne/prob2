@@ -343,7 +343,6 @@ Nótese que cuando trabajamos con la variable aleatoria $Y_n$, su derivada debem
 Para demostrar la convergencia de $f'(X_n)$ debemos utilizar el hecho de que $X_n$ está acotado superiormente por $Y_n$ (dado que no sabemos nada acerca de $X_n$ que podamos utilizar para demostrar su convergencia de forma más directa). Entonces:
 $$\begin{array}{rcl}
 \Pr \left( |Y_n - \mu| > \varepsilon \right) & = & \Pr \left( \sqrt{n} |Y_n - \mu| > \sqrt{n} \,\varepsilon \right) \\ \\
-   & = & \Pr \left( \sqrt{n} |Y_n - \mu| > \sqrt{n} \,\varepsilon \right) \\ \\
    & = & \Pr \left( \sqrt{n} ( Y_n - \mu ) < - \sqrt{n} \,\varepsilon \right) + \Pr \left( \sqrt{n} ( Y_n - \mu ) > \sqrt{n} \,\varepsilon \right) \\ \\
    & = & \Pr \left( \sqrt{n} ( Y_n - \mu ) < - \sqrt{n} \,\varepsilon \right) + 1 - \Pr \left( \sqrt{n} ( Y_n - \mu ) < \sqrt{n} \,\varepsilon \right) \\ \\
    & = & \underbrace{ F_{\sqrt{n} ( Y_n - \mu )} \big( \underbrace{ - \sqrt{n} \,\varepsilon }_{ \overset{n}{\rightarrow} - \infty } \big) }_{\overset{n}{\rightarrow} 0 } + 1 - \underbrace{ F_{\sqrt{n} ( Y_n - \mu )} \big( \underbrace{ \sqrt{n} \,\varepsilon }_{ \overset{n}{\rightarrow} + \infty } \big) }_{ \overset{n}{\rightarrow} 1 } \overset{n}{\rightarrow} 0 \Rightarrow Y_n \overset{p}{\rightarrow} \mu
@@ -352,7 +351,7 @@ Luego, dado que $X_n$ fue construido de forma tal que $\big\{ | X_n - \mu | > \v
 $$0 \leq \Pr \left( |X_n - \mu| > \varepsilon \right) \leq \Pr \left( |Y_n - \mu| > \varepsilon \right) \overset{n}{\rightarrow} 0 \Rightarrow X_n \overset{p}{\rightarrow} \mu$$
 
 Por último, dado que $f$ es tal que su derivada es continua, al menos en un entorno de $\mu$, tenemos que $f'(X_n) \overset{p}{\rightarrow} f'(\mu)$. Ahora, utilizando el teorema de Slutsky, podemos afirmar que:
-$$\sqrt{n} \Big[ f(Y_n(\omega)) - f(\mu) \Big] = \underbrace{ f'(X_n(\omega)) }_{ \overset{p}{\rightarrow} \mu } \underbrace{ \Big[ \sqrt{n} \big( Y_n(\omega) - \mu \big) \Big] }_{\overset{d}{\rightarrow} V \sim \text{N}(0, \, \sigma^2)} \overset{d}{\rightarrow} W \sim \text{N} \Big( 0, \sigma^2(f'(\mu))^2 \Big)$$
+$$\sqrt{n} \Big[ f(Y_n(\omega)) - f(\mu) \Big] = \underbrace{ f'(X_n(\omega)) }_{ \overset{p}{\rightarrow} f'(\mu) } \underbrace{ \Big[ \sqrt{n} \big( Y_n(\omega) - \mu \big) \Big] }_{\overset{d}{\rightarrow} V \sim \text{N}(0, \, \sigma^2)} \overset{d}{\rightarrow} W \sim \text{N} \Big( 0, \sigma^2(f'(\mu))^2 \Big)$$
 
 \newpage
 
