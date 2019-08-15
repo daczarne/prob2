@@ -14,7 +14,7 @@ header-includes:
    - \usepackage{mathtools}
    - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
    - \DeclareMathOperator{\E}{\mathbf{E}}
-   - \DeclareMathOperator{\V}{\mathbf{V}}
+   - \DeclareMathOperator{\V}{\mathbf{Var}}
 geometry: margin=1in
 fontsize: 12pt
 ---

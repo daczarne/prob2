@@ -14,7 +14,7 @@ header-includes:
    - \usepackage{mathtools}
    - \newcommand{\equalexpl}[1]{\underset{\substack{\uparrow\\\\\mathrlap{\text{\hspace{-2em}#1}}}}{\approx}}
    - \DeclareMathOperator{\E}{\mathbf{E}}
-   - \DeclareMathOperator{\Var}{\mathbf{Var}}
+   - \DeclareMathOperator{\V}{\mathbf{Var}}
    - \DeclareMathOperator{\Cov}{\mathbf{Cov}}
 geometry: margin=1in
 fontsize: 12pt
@@ -234,14 +234,14 @@ Por su parte, la convergencia en probabilidad implica que el sub-conjunto de ele
 #### Teorema 2.23
 
 Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias con esperanza finita.
-$$\text{Si } \frac{1}{n^2} \Var \left( \sum\limits_{i = 1}^{n} X_i \right) \overset{n}{\rightarrow} 0 \Rightarrow \frac{1}{n} \left[ \sum\limits_{i = 1}^n \big( X_i - \E(X_i) \big) \right] \overset{p}{\rightarrow} 0$$
+$$\text{Si } \frac{1}{n^2} \V \left( \sum\limits_{i = 1}^{n} X_i \right) \overset{n}{\rightarrow} 0 \Rightarrow \frac{1}{n} \left[ \sum\limits_{i = 1}^n \big( X_i - \E(X_i) \big) \right] \overset{p}{\rightarrow} 0$$
 
-En particular, si las $X_i$ son independientes dos a dos, y existe $C$ tal que $\Var(X_i) < C$ para todo $i$, entonces se cumple el Teorema 2.8
+En particular, si las $X_i$ son independientes dos a dos, y existe $C$ tal que $\V(X_i) < C$ para todo $i$, entonces se cumple el Teorema 2.8
 
 #### Definición 2.24: Coeficiente de correlación
 
 Sean $X$ e $Y$ variables aleatorias definidas en un mismo espacio de probabilidad con varianza finita, se define el coeficiente de correlación entre ellas como:
-$$\rho(X,Y) = \frac{ \Cov(X,Y) }{ \sqrt{ \Var(X) } \sqrt{ \Var(Y) } } $$
+$$\rho(X,Y) = \frac{ \Cov(X,Y) }{ \sqrt{ \V(X) } \sqrt{ \V(Y) } } $$
 
 #### Observación 2.25
 
@@ -282,13 +282,13 @@ Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias independi
 $$\left.
 \begin{array}{cl}
 1. & b_n \uparrow +\infty \\ \\
-2. & \sum\limits_{n = 1}^{\infty} \frac{\Var(X_n)}{b_n^2} < \infty
+2. & \sum\limits_{n = 1}^{\infty} \frac{\V(X_n)}{b_n^2} < \infty
 \end{array} \right\}
 \Rightarrow
 \frac{ S_n - \E(S_n) }{ b_n } \overset{cs}{\rightarrow} 0$$
 
 En particular,
-$$\text{Si } \sum\limits_{n = 1}^{\infty} \frac{\Var(X_n)}{n^2} < \infty \Rightarrow \frac{ S_n - \E(S_n) }{ n } \overset{cs}{\rightarrow} 0$$
+$$\text{Si } \sum\limits_{n = 1}^{\infty} \frac{\V(X_n)}{n^2} < \infty \Rightarrow \frac{ S_n - \E(S_n) }{ n } \overset{cs}{\rightarrow} 0$$
 
 #### Lema 2.31
 
