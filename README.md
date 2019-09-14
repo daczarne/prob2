@@ -1,4 +1,4 @@
-# prob2 ![](https://img.shields.io/badge/lifecycle-archived-red.svg)
+# prob2 ![archived](https://img.shields.io/badge/lifecycle-archived-red.svg)
 Prácticos y notas para el curso de Probabilidad 2  
 IESTA - FCEA - Udelar  
 Edición 2019
