@@ -1,6 +1,6 @@
-# prob2  
+# Probabilidad 2
 
-![archived](https://img.shields.io/badge/lifecycle-archived-red.svg)
+![archived](https://img.shields.io/badge/lifecycle-archived-red.svg)  
 
 Prácticos y notas para el curso de Probabilidad 2  
 IESTA - FCEA - Udelar  
