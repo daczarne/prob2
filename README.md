@@ -8,6 +8,7 @@
 ![repo size](https://img.shields.io/github/repo-size/daczarne/udelar_probabilidad_2)
 ![code size](https://img.shields.io/github/languages/code-size/daczarne/udelar_probabilidad_2)
 
+
 Prácticos y notas para el curso de Probabilidad 2  
 IESTA - FCEA - Udelar  
 Edición 2019
